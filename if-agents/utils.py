@@ -8,3 +8,7 @@ def read_from_json(filename):
     with open(filename, 'r') as f:
         data = json.load(f)
     return data
+
+def write_to_file(data, filename):
+    with open(filename, 'w') as f:
+        f.write(data)

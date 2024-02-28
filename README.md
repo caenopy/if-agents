@@ -2,7 +2,7 @@
 
 ### Requirements
 
-Install `jericho` and `dspy`.
+Install `jericho` `dspy`, `tqdm`.
 
 ### Setup
 
