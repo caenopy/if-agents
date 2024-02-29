@@ -35,7 +35,7 @@ class AutoregressiveAgent():
 class AutoregressiveDSPyAgent(dspy.Module):
     def __init__(self, history_lookback=10):
         super().__init__()
-        self.prog = dspy.ChainOfThought(TextGameWithHistory)
+        self.prog = dspy.Predict(TextGameWithHistory)
         self.history = [] # list of (observation, action) pairs
         self.history_lookback = history_lookback # number of rounds of most recent history to keep
 
