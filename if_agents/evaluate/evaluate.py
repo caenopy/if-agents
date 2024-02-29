@@ -11,6 +11,7 @@ def run_experiment(
         experiments_dir='experiments',
         experiment_name='',         
         filtered_game_list=None,
+        debug = False,
         max_steps=500
     ):
     """
@@ -30,6 +31,7 @@ def run_experiment(
         experiment_folder, 
         game_dir,
         filtered_game_list=filtered_game_list,
+        debug=debug,
         max_steps=max_steps
     )
 
@@ -39,7 +41,8 @@ def play_all_games(
         logs_dir, 
         game_dir,
         filtered_game_list=None,
-        max_steps=500, 
+        debug = False,
+        max_steps=500
         ):
     """
     Play all games in game_dir using given agent, for a maximum of max_steps.
@@ -53,7 +56,7 @@ def play_all_games(
     for filename in tqdm(game_list):
         print(f'Playing {filename}...')
         # play game
-        playback, history = play_game(filename, agent, game_dir, max_steps)
+        playback, history = play_game(filename, agent, game_dir, debug, max_steps)
 
         write_to_file(playback, f'{logs_dir}/{filename}.txt')
         write_to_json(history, f'{logs_dir}/{filename}.json')
@@ -63,6 +66,7 @@ def play_game(
         filename, 
         agent, 
         game_dir,
+        debug = False,
         max_steps=500, 
         ):
     """
@@ -87,7 +91,17 @@ def play_game(
 
     while not done:
         # prompt agent for action
-        action = agent(observation)
+        if debug:
+            print('########################################################')
+            print('\n')
+            print('MOVE: {}, SCORE: {}'.format(info['moves'], info['score']))
+            print('OBSERVATION: ', observation)
+
+        action = agent(observation=observation)
+
+        if debug:
+            print('ACTION: ', action)
+            print('\n')
 
         playback.append(f'> {action}')
         history.append({
