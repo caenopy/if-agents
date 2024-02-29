@@ -2,24 +2,17 @@ import dspy
 from collections import namedtuple
 
 from ..constants import ACTION_MAX_LEN
-
+from .signatures import *
 
 class DummyAgent():
     def __init__(self):
         self.action = 'go north'
     
     def __call__(self, observation):
-            return self.action
+        return self.action
 
 # Define a simple class with only an 'action' field
 BasicReturn = namedtuple('Action', ['action'])
-
-class TextGameWithHistory(dspy.Signature):
-    """Generate an action in the form of a short imperative sentence for a text-based game."""
-
-    observation = dspy.InputField(desc="the game's text response to the last action")
-    history = dspy.InputField(desc="gameplay so far")
-    action = dspy.OutputField(desc="expected to be a simple imperative command usually no more than a couple of words (e.g. 'go north')")
 
 class AutoregressiveAgent():
     def __init__(self, llm, max_tokens=250, context_length=1000):
@@ -38,20 +31,26 @@ class AutoregressiveAgent():
         action = action[:ACTION_MAX_LEN]
         self.history += action + '\n'
         return BasicReturn(action=action)
-    
 
-class TextGameWithCanonicalActions(dspy.Signature):
-    """Generate an action for a text-based interactive fiction game. 
-    Some common commands are 'look', 'take', 'drop', 'turn on', 'push', 'pull', 'go north', etc.
-    """
+class AutoregressiveDSPyAgent(dspy.Module):
+    def __init__(self, history_lookback=10):
+        super().__init__()
+        self.prog = dspy.ChainOfThought(TextGameWithHistory)
+        self.history = [] # list of (observation, action) pairs
+        self.history_lookback = history_lookback # number of rounds of most recent history to keep
 
-    observation = dspy.InputField(desc="The game's text response to the last action")
-    action = dspy.OutputField(desc="A simple command, usually no more than 4 words.")
-class TextGame(dspy.Signature):
-    """Generate an action in the form of a short imperative sentence for a text-based game."""
+    def forward(self, observation):
+        if len(self.history) > self.history_lookback:
+            self.history = self.history[-self.history_lookback:]
+        if len(self.history) > 0:
+            history_str = '\n'.join([f'Observation: {obs}\nAction: {act}' for obs, act in self.history])
+        else:
+            history_str = 'The game has just begun.'
 
-    observation = dspy.InputField(desc="the game's text response to the last action")
-    action = dspy.OutputField(desc="expected to be in simple imperative command usually no more than 4 words (e.g. 'go north')")
+        action = self.prog(observation=observation, history=history_str)
+        self.history.append((observation, action.action))
+        return action
+
 
 # TODO: set up tools here, should there be a tool that takes a step in the game? what should the action be here?
 class ReActAgent(dspy.Module):
@@ -62,6 +61,7 @@ class ReActAgent(dspy.Module):
     def forward(self, observation):
         return self.prog(observation=observation)
     
+
 class CoTAgent(dspy.Module):
     def __init__(self, canonicalActions=False):
         super().__init__()
