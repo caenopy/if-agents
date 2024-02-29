@@ -67,10 +67,14 @@ def play_game(
         ):
     """
     Play one game (specified by filename) using given agent, for a maximum of max_steps.
-    Returns:
-    * 
-    a list of dictionaries, each containing the observation, reward, info, and action for a single step.
-    The action in each of these dictionaries was taken **after** the observation, reward, and info were received.
+    Returns a list of dictionaries, each containing:
+    * observation
+    * reward
+    * moves
+    * score
+    * action
+    The action in each of these dictionaries was taken **after** all of the above fields were queried.
+    Thus, outcomes of the action in one entry of the list are reflected in the next entry.
     """
     # initialize game
     env = FrotzEnv(f'{game_dir}/{filename}')
@@ -83,13 +87,14 @@ def play_game(
 
     while not done:
         # prompt agent for action
-        action = agent(observation) # TODO: include info as context?
+        action = agent(observation)
 
         playback.append(f'> {action}')
         history.append({
             'observation': observation,
             'reward': reward,
-            'info': info,
+            'moves': info['moves'],
+            'score': info['score'],
             'action': action
         })
         # Take an action in the environment using the step fuction.
@@ -100,8 +105,10 @@ def play_game(
         if info['moves'] > max_steps:
             action = 'max_steps_exceeded'
             break
-    if action != 'max_steps_exceeded':
+    if (env.game_over()):
         action = 'game_over'
+    elif (env.victory()):
+        action = 'victory'
     playback.append(f'> {action}')
     history.append({
         'observation': observation,
@@ -109,6 +116,6 @@ def play_game(
         'info': info,
         'action': action
     })
-    playback += [observation, f'Scored {info["score"]} out of {env.get_max_score()}']
+    playback += [f'Scored {info["score"]} out of {env.get_max_score()}']
     playback = '\n'.join(playback)
     return playback, history
