@@ -1,6 +1,5 @@
 import sys
-sys.path.append('..')
-from utils import write_to_json, read_from_json, write_to_file
+from ..utils import write_to_json, read_from_json, write_to_file
 from jericho import *
 from tqdm import tqdm
 import os
