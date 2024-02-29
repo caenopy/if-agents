@@ -1,7 +1,7 @@
 from .evaluate import run_experiment
 import sys
 import json
-from ..agents.agents import DummyAgent, ReActAgent
+from ..agents.agents import DummyAgent, ReActAgent, CoTAgent
 from ..utils import read_from_json
 
 import dspy
@@ -11,10 +11,14 @@ def main():
     config = read_from_json('config.json')
     TOGETHER_API_KEY = config['TOGETHER_API_KEY']
 
-    together = dspy.Together(model="google/gemma-2b-it") # cheapest chat model on Together
-    dspy.settings.configure(lm=together)
+    # together = dspy.Together(model="google/gemma-2b-it", max_tokens=20) # cheapest chat model on Together
+    # dspy.settings.configure(lm=together)
 
-    agent = DummyAgent()
+    # print(together("What is the meaning of life?"))
+
+
+
+    agent = CoTAgent()
 
     run_experiment(
         agent, 

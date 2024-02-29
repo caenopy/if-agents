@@ -88,16 +88,25 @@ def play_game(
     done = False
     playback = [observation] # human-readable game playback
     history = []
+    step = 0
 
     while not done:
+        step += 1
+
         # prompt agent for action
         if debug:
             print('########################################################')
             print('\n')
-            print('MOVE: {}, SCORE: {}'.format(info['moves'], info['score']))
+            print('STEP: {}, MOVE: {}, SCORE: {}'.format(step, info['moves'], info['score']))
             print('OBSERVATION: ', observation)
 
-        action = agent(observation=observation)
+        ret = agent(observation=observation)
+
+        if debug:
+            print('RET: ', ret)
+            print('\n')
+
+        action = ret.action
 
         if debug:
             print('ACTION: ', action)
@@ -116,7 +125,7 @@ def play_game(
         observation, reward, done, info = env.step(action)
         playback.append(observation)
 
-        if info['moves'] > max_steps:
+        if step > max_steps:
             action = 'max_steps_exceeded'
             break
     if (env.game_over()):
