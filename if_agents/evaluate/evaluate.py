@@ -1,5 +1,5 @@
 import sys
-from ..utils import write_to_json, read_from_json, write_to_file
+from ..utils import write_to_json, read_from_json, write_to_file, write_history
 from jericho import *
 from tqdm import tqdm
 import os
@@ -56,7 +56,7 @@ def play_all_games(
     for filename in tqdm(game_list):
         print(f'Playing {filename}...')
         # play game
-        playback, history = play_game(filename, agent, game_dir, debug, max_steps)
+        playback, history = play_game(filename, agent, logs_dir, game_dir, debug, max_steps)
 
         write_to_file(playback, f'{logs_dir}/{filename}.txt')
         write_to_json(history, f'{logs_dir}/{filename}.json')
@@ -65,6 +65,7 @@ def play_all_games(
 def play_game(
         filename, 
         agent, 
+        logs_dir, 
         game_dir,
         debug = False,
         max_steps=100, 
@@ -87,7 +88,7 @@ def play_game(
     reward = 0
     done = False
     playback = [observation] # human-readable game playback
-    history = []
+    history = [] # list of dictionaries, each containing observation, reward, moves, score, action
     step = 0
 
     while not done:
@@ -101,6 +102,7 @@ def play_game(
             print('OBSERVATION: ', observation)
 
         ret = agent(observation=observation)
+        write_history(f'{logs_dir}/{filename}_lm_history.txt', n=1)
 
         if debug:
             print('RET: ', ret)
