@@ -40,6 +40,13 @@ class AutoregressiveAgent():
         return BasicReturn(action=action)
     
 
+class TextGameWithCanonicalActions(dspy.Signature):
+    """Generate an action for a text-based interactive fiction game. 
+    Some common commands are 'look', 'take', 'drop', 'turn on', 'push', 'pull', 'go north', etc.
+    """
+
+    observation = dspy.InputField(desc="The game's text response to the last action")
+    action = dspy.OutputField(desc="A simple command, usually no more than 4 words.")
 class TextGame(dspy.Signature):
     """Generate an action in the form of a short imperative sentence for a text-based game."""
 
@@ -56,9 +63,12 @@ class ReActAgent(dspy.Module):
         return self.prog(observation=observation)
     
 class CoTAgent(dspy.Module):
-    def __init__(self):
+    def __init__(self, canonicalActions=False):
         super().__init__()
-        self.prog = dspy.ChainOfThought(TextGame)
+        if canonicalActions:
+            self.prog = dspy.ChainOfThought(TextGameWithCanonicalActions)
+        else:
+            self.prog = dspy.ChainOfThought(TextGame)
 
     def forward(self, observation):
         return self.prog(observation=observation)
