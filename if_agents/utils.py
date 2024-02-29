@@ -64,14 +64,10 @@ def write_history(filename, n: int = 1):
             text = choices[0].parts[0].text
         else:
             text = choices[0]["text"]
-        print_brackets(file, text, end="")
+        print(f"[[{text}]]", file=file)
 
         if len(choices) > 1:
-            print_brackets(file, f" \t (and {len(choices)-1} other completions)", end="")
+            print(f"\t [(and {len(choices)-1} other completions)]", file=file)
         print("\n\n\n", file=file)
     
     file.close()
-
-
-def print_brackets(file, text: str, end: str = "\n"):
-    print("[[" + str(text) + "]]", end=end, file=file)
