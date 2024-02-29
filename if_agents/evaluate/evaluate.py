@@ -12,7 +12,7 @@ def run_experiment(
         experiment_name='',         
         filtered_game_list=None,
         debug = False,
-        max_steps=500
+        max_steps=100
     ):
     """
     Run an experiment with the given name, if provided.
@@ -42,7 +42,7 @@ def play_all_games(
         game_dir,
         filtered_game_list=None,
         debug = False,
-        max_steps=500
+        max_steps=100
         ):
     """
     Play all games in game_dir using given agent, for a maximum of max_steps.
@@ -67,7 +67,7 @@ def play_game(
         agent, 
         game_dir,
         debug = False,
-        max_steps=500, 
+        max_steps=100, 
         ):
     """
     Play one game (specified by filename) using given agent, for a maximum of max_steps.
