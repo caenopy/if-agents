@@ -1,4 +1,8 @@
 import dspy
+from collections import namedtuple
+
+from ..constants import ACTION_MAX_LEN
+
 
 class DummyAgent():
     def __init__(self):
@@ -6,12 +10,41 @@ class DummyAgent():
     
     def __call__(self, observation):
             return self.action
-    
-class TextGame(dspy.Signature):
-    """Generate an action for a text-based game."""
+
+# Define a simple class with only an 'action' field
+BasicReturn = namedtuple('Action', ['action'])
+
+class TextGameWithHistory(dspy.Signature):
+    """Generate an action in the form of a short imperative sentence for a text-based game."""
 
     observation = dspy.InputField(desc="the game's text response to the last action")
-    action = dspy.OutputField(desc="expected to be in simple command form (imperative sentence)")
+    history = dspy.InputField(desc="gameplay so far")
+    action = dspy.OutputField(desc="expected to be a simple imperative command usually no more than a couple of words (e.g. 'go north')")
+
+class AutoregressiveAgent():
+    def __init__(self, llm, max_tokens=250, context_length=1000):
+        super().__init__()
+        self.max_tokens = max_tokens
+        self.llm = llm
+        self.context_length = context_length
+        self.history = ''     
+
+    def __call__(self, observation):
+        self.history += observation + '\n'
+        if len(self.history) > self.context_length:
+            self.history = self.history[-self.context_length:]
+        action = self.llm(prompt=self.history, max_tokens=self.max_tokens)[0]
+        action = action.split('\n')[0] # This is kind of hacky, just take first line of output.
+        action = action[:ACTION_MAX_LEN]
+        self.history += action + '\n'
+        return BasicReturn(action=action)
+    
+
+class TextGame(dspy.Signature):
+    """Generate an action in the form of a short imperative sentence for a text-based game."""
+
+    observation = dspy.InputField(desc="the game's text response to the last action")
+    action = dspy.OutputField(desc="expected to be in simple imperative command usually no more than 4 words (e.g. 'go north')")
 
 # TODO: set up tools here, should there be a tool that takes a step in the game? what should the action be here?
 class ReActAgent(dspy.Module):
