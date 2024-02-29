@@ -1,4 +1,5 @@
 import sys
+from ..constants import ACTION_MAX_LEN
 from ..utils import write_to_json, read_from_json, write_to_file
 from jericho import *
 from tqdm import tqdm
@@ -108,6 +109,11 @@ def play_game(
 
         action = ret.action
 
+        if len(action) > ACTION_MAX_LEN:
+            print('WARNING: action length exceeds max length of {}'.format(ACTION_MAX_LEN))
+            print('Truncating action to first {} characters'.format(ACTION_MAX_LEN))
+            action = action[:ACTION_MAX_LEN]
+
         if debug:
             print('ACTION: ', action)
             print('\n')
@@ -125,7 +131,7 @@ def play_game(
         observation, reward, done, info = env.step(action)
         playback.append(observation)
 
-        if step > max_steps:
+        if step >= max_steps:
             action = 'max_steps_exceeded'
             break
     if (env.game_over()):
