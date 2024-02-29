@@ -1,20 +1,23 @@
 import json
 import dspy
 
-def write_to_json(data, filename):
+def write_to_json(data: any, filename: str):
     with open(filename, 'w') as f:
         json.dump(data, f)
         
-def read_from_json(filename):
+def read_from_json(filename: str):
     with open(filename, 'r') as f:
         data = json.load(f)
     return data
 
-def write_to_file(data, filename):
+def write_to_file(data: any, filename: str):
     with open(filename, 'w') as f:
         f.write(data)
 
-def write_history(filename, n: int = 1):
+def write_history(filename: str, n: int = 1):
+    """
+    Write the last n entries of the language model history to a file.
+    """
     lm = dspy.settings.lm
     file = open(filename, "a")
     provider: str = lm.provider
@@ -71,3 +74,13 @@ def write_history(filename, n: int = 1):
         print("\n\n\n", file=file)
     
     file.close()
+
+def get_game_list(difficulty: str):
+    """
+    Returns a list of games from the Jericho Game Suite, filtered by difficulty.
+    `difficulty` must be one of 'possible', 'difficult', 'extreme'
+    """
+    METADATA_DIR = 'if_agents/jericho-metadata'
+    return read_from_json(f'{METADATA_DIR}/{difficulty}.json')
+    
+    
