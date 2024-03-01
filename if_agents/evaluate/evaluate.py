@@ -92,7 +92,7 @@ def play_game(
     history = [] # list of dictionaries, each containing observation, reward, moves, score, action
     step = 0
 
-    while not done:
+    while not env.victory():
         step += 1
 
         # prompt agent for action
