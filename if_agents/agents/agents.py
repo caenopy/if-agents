@@ -15,12 +15,12 @@ class DummyAgent():
 BasicReturn = namedtuple('Action', ['action'])
 
 class AutoregressiveAgent():
-    def __init__(self, llm, max_tokens=250, context_length=1000):
+    def __init__(self, llm, prompt=None, max_tokens=250, context_length=1000):
         super().__init__()
         self.max_tokens = max_tokens
         self.llm = llm
         self.context_length = context_length
-        self.history = ''     
+        self.history = str(prompt) if prompt else ''
 
     def __call__(self, observation):
         self.history += observation + '\n'
@@ -32,10 +32,10 @@ class AutoregressiveAgent():
         self.history += action + '\n'
         return BasicReturn(action=action)
 
-class AutoregressiveDSPyAgent(dspy.Module):
-    def __init__(self, history_lookback=10):
+class BasicSlidingWindowAgent(dspy.Module):
+    def __init__(self, chain_of_thought=False, history_lookback=10):
         super().__init__()
-        self.prog = dspy.Predict(TextGameWithHistory)
+        self.prog = dspy.Predict(TextGameWithHistory) if chain_of_thought else dspy.ChainOfThought(TextGameWithHistory)
         self.history = [] # list of (observation, action) pairs
         self.history_lookback = history_lookback # number of rounds of most recent history to keep
 

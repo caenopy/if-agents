@@ -5,14 +5,13 @@ from collections import namedtuple
 
 import dspy
 
-from ..agents.agents import (AutoregressiveAgent, AutoregressiveDSPyAgent,
+from ..agents.agents import (AutoregressiveAgent, BasicSlidingWindowAgent,
                              CoTAgent, DummyAgent, ReActAgent)
 from ..utils import read_from_json
 from .evaluate import run_experiment
 
 
 def main(args):
-
 
     config = read_from_json(args.config)
 
@@ -26,7 +25,7 @@ def main(args):
         dspy.settings.configure(lm=together)
 
     # agent = AutoregressiveAgent(turbo, max_tokens=250, context_length=1000)
-    agent = AutoregressiveDSPyAgent(history_lookback=10)
+    agent = BasicSlidingWindowAgent(history_lookback=10)
 
     run_experiment(
         agent, 
