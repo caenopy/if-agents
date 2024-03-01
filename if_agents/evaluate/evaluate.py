@@ -1,10 +1,14 @@
+import datetime
+import os
 import sys
-from ..constants import ACTION_MAX_LEN
-from ..utils import write_to_json, read_from_json, write_to_file, write_history
+
+import dspy
 from jericho import *
 from tqdm import tqdm
-import os
-import datetime
+
+from ..constants import ACTION_MAX_LEN
+from ..utils import read_from_json, write_history, write_to_file, write_to_json
+
 
 def run_experiment(
         agent, 
@@ -50,6 +54,9 @@ def play_all_games(
     Logs the game playback (human-readable text of the gameplay) and history (all info including reward, moves, score) to logs_dir.
     If filtered_game_list is provided, only play games in that list (assumes these games are in game_dir)
     """
+
+    write_to_file(str(dspy.settings), f'{logs_dir}/dspy_settings.txt')
+    
     if filtered_game_list:
         game_list = filtered_game_list
     else:
