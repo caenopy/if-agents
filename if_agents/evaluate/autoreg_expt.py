@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 from argparse import ArgumentParser
 from collections import namedtuple
@@ -17,7 +18,7 @@ def main(args):
 
     if args.model.startswith('gpt'):
         import openai
-        openai.api_key = config['OPENAI_API_KEY']
+        openai.api_key = os.environ.get("OPENAI_API_KEY")
         turbo = dspy.OpenAI(model=args.model, max_tokens=250)
         dspy.settings.configure(lm=turbo)
     else:

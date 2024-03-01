@@ -2,7 +2,7 @@
 
 ### Requirements
 
-Install `jericho` `dspy-ai`, `tqdm`.
+Install `jericho`, `dspy-ai`, `tqdm`.
 
 ### Setup
 
@@ -14,10 +14,19 @@ wget https://github.com/BYU-PCCL/z-machine-games/archive/master.zip
 unzip master.zip
 ```
 
-### Create a Config File
+### LLM API Keys
 
-Create `config.json` in the base directory with
+Create environmental variables for each language model API:
+
+OpenAI:
 
 ```
-{"TOGETHER_API_KEY": "YOUR_API_KEY_HERE"}
+export OPENAI_API_KEY=<YOUR KEY HERE>
+```
+
+Together:
+
+```
+export TOGETHER_API_BASE="https://api.together.xyz/inference"
+export TOGETHER_API_KEY=<YOUR KEY HERE>
 ```
