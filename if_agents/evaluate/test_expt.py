@@ -2,7 +2,7 @@ from .evaluate import run_experiment
 import sys
 import json
 from ..agents.agents import DummyAgent, ReActAgent, CoTAgent
-from ..utils import read_from_json
+from ..utils import read_from_json, get_game_list
 
 import dspy
 
@@ -16,18 +16,22 @@ def main():
 
     # print(together("What is the meaning of life?"))
 
+    import openai
+    openai.api_key = "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" # miranda personal key don't spend all her money
+    turbo = dspy.OpenAI(model='gpt-3.5-turbo', max_tokens=250)
+    dspy.settings.configure(lm=turbo)
 
 
-    agent = CoTAgent()
+    agent = CoTAgent(canonicalActions=True)
 
     run_experiment(
         agent, 
         'data/z-machine-games-master/jericho-game-suite',
         experiments_dir='experiments',
-        experiment_name='dummy_agent_expt',
+        experiment_name='dummy_canonical',
         filtered_game_list=['zork1.z5'], 
         debug=True,
-        max_steps=10)
+        max_steps=3)
 
 if __name__ == '__main__':
     main()

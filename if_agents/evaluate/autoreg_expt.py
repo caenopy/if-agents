@@ -33,15 +33,16 @@ def main(args):
         experiment_name=args.expt_name,
         filtered_game_list=['detective.z5'], 
         debug=args.debug,
-        max_steps=2)
+        max_steps=args.steps)
 
 
 if __name__ == '__main__':
-    parser = ArgumentParser(description='prepares a MIDI dataset')
+    parser = ArgumentParser(description='runs an experiment with a given agent and game.')
     
     parser.add_argument('-e', '--expt_name', help='name of the experiment', default='autoreg_dspy_detective_100')
     parser.add_argument('-g', '--game', help='name of the game to play', default='detective.z5')
     parser.add_argument('-d', '--debug', help='enable debug mode', action='store_true', default=True)
     parser.add_argument('-m', '--model', help='name of the model to use', default='gpt-3.5-turbo')
+    parser.add_argument('-s', '--steps', help='max steps of game', default=100)
 
     main(parser.parse_args())
