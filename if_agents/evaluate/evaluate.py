@@ -152,7 +152,8 @@ def play_game(
     history.append({
         'observation': observation,
         'reward': reward,
-        'info': info,
+        'moves': info['moves'],
+        'score': info['score'],
         'action': action
     })
     playback += [f'Scored {info["score"]} out of {env.get_max_score()}']
