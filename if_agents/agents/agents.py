@@ -11,6 +11,7 @@ class DummyAgent():
     def __call__(self, observation):
         return self.action
 
+# TODO(nic): depricate this, use dspy.Prediction instead
 # Define a simple class with only an 'action' field
 BasicReturn = namedtuple('Action', ['action'])
 
@@ -30,12 +31,12 @@ class AutoregressiveAgent():
         action = action.split('\n')[0] # This is kind of hacky, just take first line of output.
         action = action[:ACTION_MAX_LEN]
         self.history += action + '\n'
-        return BasicReturn(action=action)
+        return dspy.Prediction(action=action) #BasicReturn(action=action)
 
 class BasicSlidingWindowAgent(dspy.Module):
     def __init__(self, chain_of_thought=False, history_lookback=10):
         super().__init__()
-        self.prog = dspy.ChainOfThought(TextGameWithHistory) if chain_of_thought else dspy.Predict(TextGameWithHistory)
+        self.generate_action = dspy.ChainOfThought(TextGameWithHistory) if chain_of_thought else dspy.Predict(TextGameWithHistory)
         self.history = [] # list of (observation, action) pairs
         self.history_lookback = history_lookback # number of rounds of most recent history to keep
 
@@ -45,9 +46,9 @@ class BasicSlidingWindowAgent(dspy.Module):
         if len(self.history) > 0:
             history_str = '\n'.join([f'Observation: {obs}\nAction: {act}' for obs, act in self.history])
         else:
-            history_str = 'The game has just begun.'
+            history_str = 'Begin game:\n'
 
-        action = self.prog(observation=observation, history=history_str)
+        action = self.generate_action(observation=observation, history=history_str)
         self.history.append((observation, action.action))
         return action
 
