@@ -49,6 +49,7 @@ class BasicSlidingWindowAgent(dspy.Module):
             history_str = 'Begin game:\n'
 
         action = self.generate_action(observation=observation, history=history_str)
+        dspy.Suggest(len(action.action) <= ACTION_MAX_LEN, f'Action length exceeds max length of {ACTION_MAX_LEN}. Actions should be short commands.')
         self.history.append((observation, action.action))
         return action
 
