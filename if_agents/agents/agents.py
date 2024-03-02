@@ -35,7 +35,7 @@ class AutoregressiveAgent():
 class BasicSlidingWindowAgent(dspy.Module):
     def __init__(self, chain_of_thought=False, history_lookback=10):
         super().__init__()
-        self.prog = dspy.Predict(TextGameWithHistory) if chain_of_thought else dspy.ChainOfThought(TextGameWithHistory)
+        self.prog = dspy.ChainOfThought(TextGameWithHistory) if chain_of_thought else dspy.Predict(TextGameWithHistory)
         self.history = [] # list of (observation, action) pairs
         self.history_lookback = history_lookback # number of rounds of most recent history to keep
 
