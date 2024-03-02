@@ -24,7 +24,8 @@ def run_experiment(
     Playback + history for each game will be stored in experiments/{expt_name}_{expt_timestamp}/{game_name}.json
     """
 
-    timestamp = datetime.datetime.now().timestamp()
+
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     if experiment_name:
         experiment_folder = f'{experiments_dir}/{experiment_name}_{timestamp}'
     else:
