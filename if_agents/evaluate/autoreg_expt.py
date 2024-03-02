@@ -14,8 +14,6 @@ from .evaluate import run_experiment
 
 def main(args):
 
-    config = read_from_json(args.config)
-
     if args.model.startswith('gpt'):
         import openai
         openai.api_key = os.environ.get("OPENAI_API_KEY")
@@ -41,7 +39,6 @@ def main(args):
 if __name__ == '__main__':
     parser = ArgumentParser(description='prepares a MIDI dataset')
     
-    parser.add_argument('-c', '--config', help='path to config file', default='config.json')
     parser.add_argument('-e', '--expt_name', help='name of the experiment', default='autoreg_dspy_detective_100')
     parser.add_argument('-g', '--game', help='name of the game to play', default='detective.z5')
     parser.add_argument('-d', '--debug', help='enable debug mode', action='store_true', default=True)
