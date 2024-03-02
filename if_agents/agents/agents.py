@@ -56,12 +56,12 @@ class BasicSlidingWindowAgent(dspy.Module):
 
 # TODO: set up tools here, should there be a tool that takes a step in the game? what should the action be here?
 class ReActAgent(dspy.Module):
-    def __init__(self, max_iters=5, num_results=3, tools=None):
+    def __init__(self, max_iters=5, num_results=None, tools=None):
         super().__init__()
-        self.prog = dspy.ReAct(TextGame, max_iters=max_iters, num_results=num_results, tools=tools)
+        self.prog = dspy.ReAct(ReActSignature, max_iters=max_iters, num_results=num_results, tools=tools)
 
-    def forward(self, observation):
-        return self.prog(observation=observation)
+    def forward(self, input):
+        return self.prog(input=input)
     
 
 class CoTAgent(dspy.Module):

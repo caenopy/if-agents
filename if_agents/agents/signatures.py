@@ -8,7 +8,7 @@ class TextGameWithHistory(dspy.Signature):
 
     history = dspy.InputField(desc="The previous 10 rounds of gameplay.")
     observation = dspy.InputField(desc="The game's text response to the last action. Your action should be based on this.")
-    action = dspy.OutputField(desc="A simple action, no more than 4 words long, using only simple verbs and nouns present in the environment from previous observations. Some common actions are 'look', 'take', 'drop', 'turn on', 'push', 'pull', 'go north', etc.")
+    action = dspy.OutputField(desc="A simple action of a few words using only simple verbs and nouns present in the environment from previous observations. Some common actions are 'look', 'take', 'drop', 'turn on', 'push', 'pull', 'go north', etc.")
 
 
 class TextGameWithCanonicalActions(dspy.Signature):
@@ -25,3 +25,7 @@ class TextGame(dspy.Signature):
 
     observation = dspy.InputField(desc="the game's text response to the last action")
     action = dspy.OutputField(desc="expected to be in simple imperative command usually no more than 4 words (e.g. 'go north')")
+
+class ReActSignature(dspy.Signature):
+    input = dspy.InputField(desc="An instruction to play the game.")
+    score = dspy.OutputField(desc="The final score you achieve.")
