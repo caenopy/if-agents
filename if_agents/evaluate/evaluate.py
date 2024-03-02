@@ -109,14 +109,14 @@ def play_game(
             print('STEP: {}, MOVE: {}, SCORE: {}'.format(step, info['moves'], info['score']))
             print('OBSERVATION: ', observation)
 
-        ret = agent(observation=observation)
+        pred = agent(observation=observation)
         write_history(f'{logs_dir}/{filename}_lm_history.txt', n=1)
 
         if debug:
-            print('RET: ', ret)
+            print('PREDICTION: ', pred)
             print('\n')
 
-        action = ret.action
+        action = pred.action
 
         if len(action) > ACTION_MAX_LEN:
             print('WARNING: action length exceeds max length of {}'.format(ACTION_MAX_LEN))
