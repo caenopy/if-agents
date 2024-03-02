@@ -19,6 +19,9 @@ def main(args):
         openai.api_key = os.environ.get("OPENAI_API_KEY")
         turbo = dspy.OpenAI(model=args.model, max_tokens=100)
         dspy.settings.configure(lm=turbo)
+    elif args.model.startswith('gemini'):
+        google = dspy.Google(model=args.model, max_output_tokens=100)
+        dspy.settings.configure(lm=google) 
     else:
         together = dspy.Together(model=args.model, max_tokens=100)
         dspy.settings.configure(lm=together)    

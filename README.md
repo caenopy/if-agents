@@ -4,6 +4,8 @@
 
 Install `jericho`, `dspy-ai`, `tqdm`.
 
+Install the Google GenerativeAI SDK to use Gemini models: `pip install -q -U google-generativeai`.
+
 ### Setup
 
 #### Acquire games
