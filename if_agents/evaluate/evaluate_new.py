@@ -13,8 +13,9 @@ from ..agents.tools import InteractiveFictionGame
 
 def run_experiment(
         game_dir,
-        experiments_dir='experiments',
-        experiment_name='',         
+        model_name,
+        experiment_name,  
+        experiments_dir='experiments',       
         filtered_game_list=None,
         debug = False,
         max_steps=100
@@ -25,10 +26,8 @@ def run_experiment(
     """
 
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    if experiment_name:
-        experiment_folder = f'{experiments_dir}/{experiment_name}_{timestamp}'
-    else:
-        experiment_folder = f'{experiments_dir}/{timestamp}'
+    assert experiment_name != ''
+    experiment_folder = f'{experiments_dir}/{experiment_name}_{model_name}_{timestamp}'
     os.makedirs(experiment_folder, exist_ok=True)
 
     play_all_games(
