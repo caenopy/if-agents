@@ -23,7 +23,7 @@ def main(args):
         google = dspy.Google(model=args.model, max_output_tokens=100)
         dspy.settings.configure(lm=google) 
     else:
-        together = dspy.Together(model=args.model, max_tokens=100)
+        together = dspy.Together(model=args.model, max_tokens=500)
         dspy.settings.configure(lm=together)    
 
     run_experiment(
@@ -32,7 +32,7 @@ def main(args):
         experiment_name=args.expt_name,
         filtered_game_list=['detective.z5'], 
         debug=args.debug,
-        max_steps=20)
+        max_steps=100)
 
 
 if __name__ == '__main__':

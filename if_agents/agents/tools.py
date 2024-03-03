@@ -19,7 +19,7 @@ class GiveTime:
     
 class InteractiveFictionGame:
     name = "InteractiveFictionGame"
-    input_variable = "a simple action of a few words using only simple verbs and nouns present in the environment"
+    input_variable = "a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'"
     desc = "takes a step in a text-based interactive fiction game."
 
     def __init__(self, filename, game_dir, playback, history, debug=False):
@@ -38,6 +38,8 @@ class InteractiveFictionGame:
             reward = 0
         else:   
             obs, reward, done, info = self.env.step(action)
+        
+        obs = obs.strip()
 
         self.playback.append(f'> {action}')
         self.playback.append(obs)
