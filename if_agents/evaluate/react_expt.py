@@ -31,6 +31,7 @@ def main(args):
         experiments_dir='experiments',
         experiment_name=args.expt_name,
         filtered_game_list=['detective.z5'], 
+        model_name=args.model,
         debug=args.debug,
         max_steps=100)
 
