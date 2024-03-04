@@ -54,14 +54,63 @@ class BasicSlidingWindowAgent(dspy.Module):
         return action
 
 
-# TODO: set up tools here, should there be a tool that takes a step in the game? what should the action be here?
 class ReActAgent(dspy.Module):
     def __init__(self, max_iters=5, num_results=None, tools=None):
         super().__init__()
-        self.prog = dspy.ReAct(ReActSignature, max_iters=max_iters, num_results=num_results, tools=tools)
+        self.tools = tools
+        self.prog = dspy.ReAct(ReActSignature, max_iters=max_iters, num_results=num_results, tools=self.tools)
 
     def forward(self, input):
         return self.prog(input=input)
+    
+
+# class ReflectSignature(dspy.Signature):
+#     heuristic = dspy.InputField(desc="a heuristic on the validity of the most recent action")
+#     reflection = dspy.OutputField(desc="reflection on the most recent action given the heuristic")
+
+
+def ValidActions(action, valid_actions):
+    if action in valid_actions:
+        return "The most recent action was a valid action for the current game state."
+    else:
+        return "The most recent action was not a valid action for the current game state."
+
+from .reflexion import Reflexion
+
+class ReflexionAgent(dspy.Module):
+    def __init__(self, max_iters=5, num_results=None, tools=None):
+        super().__init__()
+        self.tools = tools
+        self.prog = Reflexion(ReActSignature, max_iters=max_iters, num_results=num_results, tools=self.tools)
+
+    def forward(self, input):
+        return self.prog(input=input)
+
+# class Reflect(dspy.Module):
+#     def __init__(self, env):
+#         super().__init__()
+#         self.env = env
+#         self.reflect = dspy.Predict(ReflectSignature)
+#         self.heuristic = ValidActions
+
+#     def forward(self, action):
+#         valid_actions = self.env.get_valid_actions()
+#         heuristic = self.heuristic(action, valid_actions)
+#         return self.reflect(heuristic=heuristic)
+
+    
+    
+# class ReflexionAgent(dspy.Module):
+#     def __init__(self, max_iters=5, num_results=None, tools=None):
+#         super().__init__()
+#         self.tools = tools
+#         self.react = dspy.ReAct(ReActSignature, max_iters=max_iters, num_results=num_results, tools=tools)
+#         self.reflect = Reflect(tools=self.tools[0].env)
+
+#     def forward(self, action):
+#         prediction = self.react(input=action)
+#         reflection = self.reflect(action=prediction.action)
+#         return dspy.Prediction(reflection=reflection.reflection, score=prediction.score)
     
 
 class CoTAgent(dspy.Module):

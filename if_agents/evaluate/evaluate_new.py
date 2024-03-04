@@ -7,13 +7,14 @@ from tqdm import tqdm
 
 from ..constants import ACTION_MAX_LEN
 from ..utils import write_history, write_to_file, write_to_json
-from ..agents.agents import ReActAgent
+from ..agents.agents import ReActAgent, ReflexionAgent
 from ..agents.tools import InteractiveFictionGame
 
 
 def run_experiment(
         game_dir,
         model_name,
+        agent_name,
         experiment_name,  
         experiments_dir='experiments',       
         filtered_game_list=None,
@@ -32,6 +33,7 @@ def run_experiment(
 
     play_all_games(
         experiment_folder, 
+        agent_name,
         game_dir,
         filtered_game_list=filtered_game_list,
         debug=debug,
@@ -41,6 +43,7 @@ def run_experiment(
 
 def play_all_games(
         logs_dir, 
+        agent_name,
         game_dir,
         filtered_game_list=None,
         debug = False,
@@ -61,7 +64,7 @@ def play_all_games(
     for filename in tqdm(game_list):
         print(f'Playing {filename}...')
         # play game
-        playback, history = play_game(filename, logs_dir, game_dir, debug, max_steps)
+        playback, history = play_game(filename, agent_name, logs_dir, game_dir, debug, max_steps)
 
         write_to_file(playback, f'{logs_dir}/{filename}.txt')
         write_to_json(history, f'{logs_dir}/{filename}.json')
@@ -69,6 +72,7 @@ def play_all_games(
 
 def play_game(
         filename, 
+        agent_name,
         logs_dir, 
         game_dir,
         debug = False,
@@ -92,7 +96,10 @@ def play_game(
 
     jericho = InteractiveFictionGame(filename, game_dir, playback, history, debug=True)
 
-    agent = ReActAgent(max_iters=max_steps, tools=[jericho])
+    if agent_name.lower() == 'react':
+        agent = ReActAgent(max_iters=max_steps, tools=[jericho])
+    elif agent_name.lower() == 'reflexion':
+        agent = ReflexionAgent(max_iters=max_steps, tools=[jericho])
 
     end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends.")
 
