@@ -6,7 +6,7 @@ from collections import namedtuple
 
 import dspy
 
-from ..utils import read_from_json
+from ..utils import read_from_json, get_game_list
 from .evaluate_new import run_experiment
 
 from ..agents.tools import GiveTime
@@ -24,22 +24,22 @@ def main(args):
         dspy.settings.configure(lm=google) 
     else:
         together = dspy.Together(model=args.model, max_tokens=500)
-        dspy.settings.configure(lm=together)    
+        dspy.settings.configure(lm=together) 
 
     run_experiment(
         'data/z-machine-games-master/jericho-game-suite',
         experiments_dir='experiments',
         experiment_name=args.expt_name,
-        filtered_game_list=['detective.z5'], 
-        model_name=args.model,
+        filtered_game_list=["detective.z5"], #=get_game_list('possible'), 
+        model_name=args.model.replace('/', '_'),
         debug=args.debug,
-        max_steps=100)
+        max_steps=50)
 
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='prepares a MIDI dataset')
     
-    parser.add_argument('-e', '--expt_name', help='name of the experiment', default='react_detective_debug')
+    parser.add_argument('-e', '--expt_name', help='name of the experiment', default='react_possiblegames')
     parser.add_argument('-g', '--game', help='name of the game to play', default='detective.z5')
     parser.add_argument('-d', '--debug', help='enable debug mode', action='store_true', default=True)
     parser.add_argument('-m', '--model', help='name of the model to use', default='gpt-3.5-turbo')
