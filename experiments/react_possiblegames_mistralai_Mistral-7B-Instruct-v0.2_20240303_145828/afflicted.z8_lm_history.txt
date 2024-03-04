@@ -1,0 +1,680 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought 1: next steps to take based on last observation
+
+Action 1: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 1: observations based on action
+
+Thought 2: next steps to take based on last observation
+
+Action 2: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 2: observations based on action
+
+Thought 3: next steps to take based on last observation
+
+Action 3: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 3: observations based on action
+
+Thought 4: next steps to take based on last observation
+
+Action 4: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 4: observations based on action
+
+Thought 5: next steps to take based on last observation
+
+Action 5: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 5: observations based on action
+
+Thought 6: next steps to take based on last observation
+
+Action 6: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 6: observations based on action
+
+Thought 7: next steps to take based on last observation
+
+Action 7: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 7: observations based on action
+
+Thought 8: next steps to take based on last observation
+
+Action 8: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 8: observations based on action
+
+Thought 9: next steps to take based on last observation
+
+Action 9: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 9: observations based on action
+
+Thought 10: next steps to take based on last observation
+
+Action 10: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 10: observations based on action
+
+Thought 11: next steps to take based on last observation
+
+Action 11: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 11: observations based on action
+
+Thought 12: next steps to take based on last observation
+
+Action 12: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 12: observations based on action
+
+Thought 13: next steps to take based on last observation
+
+Action 13: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 13: observations based on action
+
+Thought 14: next steps to take based on last observation
+
+Action 14: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 14: observations based on action
+
+Thought 15: next steps to take based on last observation
+
+Action 15: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 15: observations based on action
+
+Thought 16: next steps to take based on last observation
+
+Action 16: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 16: observations based on action
+
+Thought 17: next steps to take based on last observation
+
+Action 17: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 17: observations based on action
+
+Thought 18: next steps to take based on last observation
+
+Action 18: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 18: observations based on action
+
+Thought 19: next steps to take based on last observation
+
+Action 19: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 19: observations based on action
+
+Thought 20: next steps to take based on last observation
+
+Action 20: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 20: observations based on action
+
+Thought 21: next steps to take based on last observation
+
+Action 21: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 21: observations based on action
+
+Thought 22: next steps to take based on last observation
+
+Action 22: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 22: observations based on action
+
+Thought 23: next steps to take based on last observation
+
+Action 23: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 23: observations based on action
+
+Thought 24: next steps to take based on last observation
+
+Action 24: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 24: observations based on action
+
+Thought 25: next steps to take based on last observation
+
+Action 25: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 25: observations based on action
+
+Thought 26: next steps to take based on last observation
+
+Action 26: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 26: observations based on action
+
+Thought 27: next steps to take based on last observation
+
+Action 27: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 27: observations based on action
+
+Thought 28: next steps to take based on last observation
+
+Action 28: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 28: observations based on action
+
+Thought 29: next steps to take based on last observation
+
+Action 29: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 29: observations based on action
+
+Thought 30: next steps to take based on last observation
+
+Action 30: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 30: observations based on action
+
+Thought 31: next steps to take based on last observation
+
+Action 31: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 31: observations based on action
+
+Thought 32: next steps to take based on last observation
+
+Action 32: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 32: observations based on action
+
+Thought 33: next steps to take based on last observation
+
+Action 33: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 33: observations based on action
+
+Thought 34: next steps to take based on last observation
+
+Action 34: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 34: observations based on action
+
+Thought 35: next steps to take based on last observation
+
+Action 35: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 35: observations based on action
+
+Thought 36: next steps to take based on last observation
+
+Action 36: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 36: observations based on action
+
+Thought 37: next steps to take based on last observation
+
+Action 37: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 37: observations based on action
+
+Thought 38: next steps to take based on last observation
+
+Action 38: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 38: observations based on action
+
+Thought 39: next steps to take based on last observation
+
+Action 39: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 39: observations based on action
+
+Thought 40: next steps to take based on last observation
+
+Action 40: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 40: observations based on action
+
+Thought 41: next steps to take based on last observation
+
+Action 41: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 41: observations based on action
+
+Thought 42: next steps to take based on last observation
+
+Action 42: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 42: observations based on action
+
+Thought 43: next steps to take based on last observation
+
+Action 43: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 43: observations based on action
+
+Thought 44: next steps to take based on last observation
+
+Action 44: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 44: observations based on action
+
+Thought 45: next steps to take based on last observation
+
+Action 45: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 45: observations based on action
+
+Thought 46: next steps to take based on last observation
+
+Action 46: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 46: observations based on action
+
+Thought 47: next steps to take based on last observation
+
+Action 47: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 47: observations based on action
+
+Thought 48: next steps to take based on last observation
+
+Action 48: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 48: observations based on action
+
+Thought 49: next steps to take based on last observation
+
+Action 49: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 49: observations based on action
+
+Thought 50: next steps to take based on last observation
+
+Action 50: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends.
+
+Thought 1: I will start the interactive fiction game by taking the initial action.
+
+Action 1: InteractiveFictionGame[Start]
+
+Observation 1:
+This has never been your favorite part of the city.  Nor is this neighborhood the safest one.  But as a city sanitarian, you are charged with completing an annual health and safety inspection of every restaurant in your district.
+
+Each day you visit three or four restaurants.  During those visits you take note of potential health code violations in your trusty notepad.  Today's first target:  Nikolai's Bar and Grill.
+
+A hazy sun barely peeks above the three-story tenements.
+
+Afflicted
+An Interactive Fiction by Doug Egan
+Release 1 / Serial number 080906 / Inform 7 build 5T18 (I6/v6.31 lib 6/12N) 
+
+Type "About" at any time to see game instructions and other notes from the author.
+
+19th Street
+You are standing in front of Nikolai's Bar and Grill on 19th Street.  A green awning shades the smudged window into Nikolai's dining room.  The front entrance is north of you.
+
+The east/west sidewalk here is cracked and uneven, pocked by clumps of crabgrass.  A storm gutter is built into the curb, littered with broken bottles.  Across the street a neon sign flickers erratically.  A few cars are parked nearby (including yours), but otherwise you see no evidence that anyone visits this neighborhood past daybreak.
+
+An aluminum placard is fixed to the front door.
+
+A damp sheet of newspaper has blown up against the curb.
+
+Thought 2: I will check the placard and the newspaper for any relevant information before entering the restaurant.
+
+Action 2: InteractiveFictionGame[Check placard and newspaper]
+
+Observation 2: You can't use multiple objects with that verb.
+
+Thought 3: I will check the placard first, then the newspaper.
+
+Action 3: InteractiveFictionGame[Check placard]
+
+Observation 3: An aluminum placard, printed in red, is fixed to the front door.
+
+Thought 4: I will now check the newspaper for any relevant information.
+
+Action 4: InteractiveFictionGame[Check newspaper]
+
+Observation 4: The newspaper scrap is worn and damp, rendering it almost unreadable.
+
+Thought 5: I will enter the restaurant to begin my inspection despite the unreadable newspaper and the ominous appearance of the neighborhood.
+
+Action 5: InteractiveFictionGame[Go north]
+
+Observation 5:
+(first opening the front door)
+(first unlocking the front door)
+You lack a key that fits the front door.
+
+Thought 6: I will check my inventory for a key that might open the door before attempting to enter the restaurant.
+
+Action 6: InteractiveFictionGame[Check inventory]
+
+Observation 6: You can't see any such thing.
+
+Thought 7: I will try to find a way to obtain a key or find another entrance to the restaurant before giving up and moving on to the next inspection.
+
+Action 7: InteractiveFictionGame[Examine surroundings for clues]
+
+Observation 7: You can't see any such thing.
+
+Thought 8: I will try to look for a hidden key or ask someone in the neighborhood if they have a key or know of another entrance to Nikolai's Bar and Grill.
+
+Action 8: InteractiveFictionGame[Ask neighbors for help]
+
+Observation 8: You can't see any such thing.
+
+Thought 9: I will try to find a way to force open the door or look for alternative means to enter the restaurant without a key.
+
+Action 9: InteractiveFictionGame[Try to force open the door]
+
+Observation 9: That's not a verb I recognise.
+
+Thought 10: I will try to find a tool or object that can help me force open the door.
+
+Action 10: InteractiveFictionGame[Search surroundings for a tool]
+
+Observation 10: You can't see any such thing.
+
+Thought 11: I will reconsider my approach and try to find alternative ways to enter the restaurant or contact the restaurant owner for a key.
+
+Action 11: InteractiveFictionGame[Look for contact information for the restaurant owner]
+
+Observation 11: I only understood you as far as wanting to look.
+
+Thought 12: I will search the area for any contact information for the restaurant owner, such as a phone number or address where I can reach them.
+
+Action 12: InteractiveFictionGame[Search surroundings for contact information]
+
+Observation 12: You can't see any such thing.
+
+Thought 13: I will consider my options and decide whether to come back later when the owner might be present, or move on to the next inspection location.
+
+Action 13: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 13: You can't see any such thing.
+
+Thought 14: I will check if there is a way to interact with the author or game creator for assistance or clues.
+
+Action 14: InteractiveFictionGame[About]
+
+Observation 14: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 15: I will use the "About" command to access the game instructions and see if there is any information about how to proceed with the current situation.
+
+Action 15: InteractiveFictionGame[About]
+
+Observation 15: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 16: I have checked the instructions provided by the game, but they do not seem to provide any information on how to proceed with the current situation. I will continue searching for a way to enter the restaurant or contact the owner.
+
+Action 16: InteractiveFictionGame[Search surroundings for a phone number or other contact information for the restaurant owner]
+
+Observation 16: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 17: I will try to search the surroundings more thoroughly for any contact information for the restaurant owner.
+
+Action 17: InteractiveFictionGame[Search surroundings for contact information (more thoroughly)]
+
+Observation 17: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 18: I will examine the nearby cars or parked vehicles to see if there is any contact information for the restaurant owner left on them.
+
+Action 18: InteractiveFictionGame[Examine cars for contact information]
+
+Observation 18: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 19: I will try to examine the cars more carefully for any contact information or clues that might help me get in touch with the restaurant owner.
+
+Action 19: InteractiveFictionGame[Examine cars for contact information (more carefully)]
+
+Observation 19: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 20: I will continue searching the cars and their surroundings for any contact information or clues that might help me get in touch with the restaurant owner or find a way to enter the restaurant.
+
+Action 20: InteractiveFictionGame[Examine cars and surroundings for contact information (more thoroughly)]
+
+Observation 20: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 21: I will keep searching the cars and their surroundings for any contact information or clues that might help me get in touch with the restaurant owner or find a way to enter the restaurant.
+
+Action 21: InteractiveFictionGame[Examine cars and surroundings for contact information (more thoroughly)]
+
+Observation 21: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 22: I will continue searching the cars and their surroundings for any contact information or clues that might help me get in touch with the restaurant owner or find a way to enter the restaurant.
+
+Action 22: InteractiveFictionGame[Examine cars and surroundings for contact information (more thoroughly)]
+
+Observation 22: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 23: I will continue searching the cars and their surroundings for any contact information or clues that might help me get in touch with the restaurant owner or find a way to enter the restaurant.
+
+Action 23: InteractiveFictionGame[Examine cars and surroundings for contact information (more thoroughly)]
+
+Observation 23: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 24: I will continue searching the cars and their surroundings for any contact information or clues that might help me get in touch with the restaurant owner or find a way to enter the restaurant.
+
+Action 24: InteractiveFictionGame[Examine cars and surroundings for contact information (more thoroughly)]
+
+Observation 24: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 25: I will continue searching the cars and their surroundings for any contact information or clues that might help me get in touch with the restaurant owner or find a way to enter the restaurant.
+
+Action 25: InteractiveFictionGame[Examine cars and surroundings for contact information (more thoroughly)]
+
+Observation 25: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Select   Introduction (if you are new to this game)
+
+Thought 26: I have exhausted all possible actions in this situation and have not been able to find a way to enter the restaurant or contact the owner. I will move on to the next inspection location.
+
+Action 26: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 26: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Select   Introduction (if you are new to this game)
+
+Thought 27: I have reached the end of my actions and have not been able to enter the restaurant or contact the owner. I will move on to the next inspection location and continue my health and safety inspections.
+
+Action 27: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 27: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 28: I have reached the end of my actions and have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections.
+
+Action 28: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 28: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 29: I have reached the end of my actions and have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections.
+
+Action 29: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 29: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 30: I have reached the end of my actions and have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections.
+
+Action 30: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 30: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 31: I have reached the end of my actions and have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections.
+
+Action 31: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 31: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 32: I have reached the end of my actions and have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections.
+
+Action 32: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 32:
+About Interactive FictionThe game you are playing is a work of Interactive Fiction.  In interactive fiction you play the main character of a story.  You type commands which determine the actions of the character and the flow of the plot.  Some IF games include graphics, but most do not: the imagery is provided courtesy of your imagination.  On the other hand, there's a wide range of action available: whereas in other games you may be restricted to shooting, movement, or searching items you can click on with a mouse, IF allows you a wide range of verbs.
+
+
+
+Please press SPACE to continue.
+
+Thought 33: I have reached the end of my actions and have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 33: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 33:
+About Interactive FictionThe game you are playing is a work of Interactive Fiction.  In interactive fiction you play the main character of a story.  You type commands which determine the actions of the character and the flow of the plot.  Some IF games include graphics, but most do not: the imagery is provided courtesy of your imagination.  On the other hand, there's a wide range of action available: whereas in other games you may be restricted to shooting, movement, or searching items you can click on with a mouse, IF allows you a wide range of verbs.
+
+
+
+Please press SPACE to continue.
+
+Thought 34: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 34: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 34:
+About Interactive FictionThe game you are playing is a work of Interactive Fiction.  In interactive fiction you play the main character of a story.  You type commands which determine the actions of the character and the flow of the plot.  Some IF games include graphics, but most do not: the imagery is provided courtesy of your imagination.  On the other hand, there's a wide range of action available: whereas in other games you may be restricted to shooting, movement, or searching items you can click on with a mouse, IF allows you a wide range of verbs.
+
+
+
+Please press SPACE to continue.
+
+Thought 35: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 35: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 35:
+About Interactive FictionThe game you are playing is a work of Interactive Fiction.  In interactive fiction you play the main character of a story.  You type commands which determine the actions of the character and the flow of the plot.  Some IF games include graphics, but most do not: the imagery is provided courtesy of your imagination.  On the other hand, there's a wide range of action available: whereas in other games you may be restricted to shooting, movement, or searching items you can click on with a mouse, IF allows you a wide range of verbs.
+
+
+
+Please press SPACE to continue.
+
+Thought 36: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 36: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 36: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 37: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 37: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 37: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 38: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 38: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 38: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 39: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 39: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 39: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 40: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 40: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 40: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 41: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 41: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 41: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 42: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 42: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 42: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Selec
+
+Thought 43: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 43: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 43: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Select   About Interactive Fiction
+
+Thought 44: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 44: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 44: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Select   About Interactive Fiction
+
+Thought 45: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 45: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 45: General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Select   About Interactive Fiction
+
+Thought 46: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 46: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 46:
+General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Select   About Interactive Fiction
+   What to do wit
+
+Thought 47: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 47: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 47:
+General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Select   About Interactive Fiction
+   What to do wit
+
+Thought 48: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 48: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 48:
+General Instructions (if you are new to IF)  N = NextQ = Last Menu P = PreviousENTER = Select   About Interactive Fiction
+   What to do wit
+
+Thought 49: I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game.
+
+Action 49: InteractiveFictionGame[Move on to next inspection location]
+
+Observation 49:
+Getting StartedThe first thing you want to do when starting a game is acquaint yourself with your surroundings and get a sense of your goal. To this end, you should read the introductory text carefully. Sometimes it contains clues. You will also want to look at the room you are in. Notice where the exits from the room are, and what objects are described here. If any of these seem interesting, you may want to EXAMINE them. 
+
+You might also want to examine yourself (EXAMINE ME) to see whether the author has left you any clues about your character. TAKE INVENTORY will tell you what you're carrying, as well.
+
+Once you've gotten your bearings, you may want to explore. Move from room to room, and check out every location available.
+
+
+
+Please press SPACE to continue.
+
+Thought 50:[[ I have reached the end of the provided observations and actions. I have not been able to enter the restaurant or contact the owner at Nikolai's Bar and Grill. I will move on to the next inspection location and continue my health and safety inspections. I will also keep in mind the instructions provided about Interactive Fiction and the wide range of verbs available to me in this game. I will read the introductory text carefully and examine my surroundings to get a sense of my goal and my current location. I will also examine myself and take inventory to see what I am carrying and if there are any clues about my character or the game. Once I have gathered this information, I will explore the area and check out every location available to me.
+
+Action 50: InteractiveFictionGame[Read introductory text and examine surroundings, self, and inventory]]]
+
+
+
+

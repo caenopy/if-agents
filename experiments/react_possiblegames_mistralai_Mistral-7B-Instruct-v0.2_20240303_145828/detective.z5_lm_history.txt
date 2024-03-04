@@ -1,0 +1,830 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought 1: next steps to take based on last observation
+
+Action 1: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 1: observations based on action
+
+Thought 2: next steps to take based on last observation
+
+Action 2: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 2: observations based on action
+
+Thought 3: next steps to take based on last observation
+
+Action 3: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 3: observations based on action
+
+Thought 4: next steps to take based on last observation
+
+Action 4: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 4: observations based on action
+
+Thought 5: next steps to take based on last observation
+
+Action 5: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 5: observations based on action
+
+Thought 6: next steps to take based on last observation
+
+Action 6: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 6: observations based on action
+
+Thought 7: next steps to take based on last observation
+
+Action 7: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 7: observations based on action
+
+Thought 8: next steps to take based on last observation
+
+Action 8: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 8: observations based on action
+
+Thought 9: next steps to take based on last observation
+
+Action 9: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 9: observations based on action
+
+Thought 10: next steps to take based on last observation
+
+Action 10: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 10: observations based on action
+
+Thought 11: next steps to take based on last observation
+
+Action 11: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 11: observations based on action
+
+Thought 12: next steps to take based on last observation
+
+Action 12: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 12: observations based on action
+
+Thought 13: next steps to take based on last observation
+
+Action 13: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 13: observations based on action
+
+Thought 14: next steps to take based on last observation
+
+Action 14: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 14: observations based on action
+
+Thought 15: next steps to take based on last observation
+
+Action 15: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 15: observations based on action
+
+Thought 16: next steps to take based on last observation
+
+Action 16: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 16: observations based on action
+
+Thought 17: next steps to take based on last observation
+
+Action 17: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 17: observations based on action
+
+Thought 18: next steps to take based on last observation
+
+Action 18: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 18: observations based on action
+
+Thought 19: next steps to take based on last observation
+
+Action 19: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 19: observations based on action
+
+Thought 20: next steps to take based on last observation
+
+Action 20: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 20: observations based on action
+
+Thought 21: next steps to take based on last observation
+
+Action 21: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 21: observations based on action
+
+Thought 22: next steps to take based on last observation
+
+Action 22: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 22: observations based on action
+
+Thought 23: next steps to take based on last observation
+
+Action 23: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 23: observations based on action
+
+Thought 24: next steps to take based on last observation
+
+Action 24: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 24: observations based on action
+
+Thought 25: next steps to take based on last observation
+
+Action 25: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 25: observations based on action
+
+Thought 26: next steps to take based on last observation
+
+Action 26: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 26: observations based on action
+
+Thought 27: next steps to take based on last observation
+
+Action 27: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 27: observations based on action
+
+Thought 28: next steps to take based on last observation
+
+Action 28: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 28: observations based on action
+
+Thought 29: next steps to take based on last observation
+
+Action 29: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 29: observations based on action
+
+Thought 30: next steps to take based on last observation
+
+Action 30: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 30: observations based on action
+
+Thought 31: next steps to take based on last observation
+
+Action 31: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 31: observations based on action
+
+Thought 32: next steps to take based on last observation
+
+Action 32: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 32: observations based on action
+
+Thought 33: next steps to take based on last observation
+
+Action 33: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 33: observations based on action
+
+Thought 34: next steps to take based on last observation
+
+Action 34: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 34: observations based on action
+
+Thought 35: next steps to take based on last observation
+
+Action 35: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 35: observations based on action
+
+Thought 36: next steps to take based on last observation
+
+Action 36: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 36: observations based on action
+
+Thought 37: next steps to take based on last observation
+
+Action 37: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 37: observations based on action
+
+Thought 38: next steps to take based on last observation
+
+Action 38: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 38: observations based on action
+
+Thought 39: next steps to take based on last observation
+
+Action 39: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 39: observations based on action
+
+Thought 40: next steps to take based on last observation
+
+Action 40: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 40: observations based on action
+
+Thought 41: next steps to take based on last observation
+
+Action 41: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 41: observations based on action
+
+Thought 42: next steps to take based on last observation
+
+Action 42: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 42: observations based on action
+
+Thought 43: next steps to take based on last observation
+
+Action 43: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 43: observations based on action
+
+Thought 44: next steps to take based on last observation
+
+Action 44: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 44: observations based on action
+
+Thought 45: next steps to take based on last observation
+
+Action 45: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 45: observations based on action
+
+Thought 46: next steps to take based on last observation
+
+Action 46: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 46: observations based on action
+
+Thought 47: next steps to take based on last observation
+
+Action 47: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 47: observations based on action
+
+Thought 48: next steps to take based on last observation
+
+Action 48: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 48: observations based on action
+
+Thought 49: next steps to take based on last observation
+
+Action 49: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation 49: observations based on action
+
+Thought 50: next steps to take based on last observation
+
+Action 50: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends.
+
+Thought 1: I will start the interactive fiction game by taking the initial action.
+
+Action 1: InteractiveFictionGame[Start]
+
+Observation 1:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Thought 2: I will read the paper given by the chief to gather more information about the case.
+
+Action 2: InteractiveFictionGame[Read the paper]
+
+Observation 2:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Thought 3: I will check the paper for any relevant information related to the murder case. I notice there is a contact number for the Ghostbuster Central BBS where the author may provide hints. I will make a note of it for future reference.
+
+Action 3: InteractiveFictionGame[Check inventory]
+
+Observation 3: You can't see any such thing.
+
+Thought 4: I will go to the Ghostbuster Central BBS using the given phone number to check if there are any hints related to the murder case.
+
+Action 4: InteractiveFictionGame[Call Ghostbuster Central BBS at (510)208-5657]
+
+Observation 4: That's not a verb I recognise.
+
+Thought 5: I will look for a way to access the BBS in the game instead of directly calling the number. I will check the game's instructions or explore the environment for a terminal or a computer I can use to connect to the BBS.
+
+Action 5: InteractiveFictionGame[Examine the desk or look for a computer]
+
+Observation 5: You can't see any such thing.
+
+Thought 6: I will go west to explore the rest of the room and look for any clues or objects that might help me access the BBS or gather more information about the murder case.
+
+Action 6: InteractiveFictionGame[Go west]
+
+Observation 6:
+<< Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+
+Thought 7: I will pick up the gun for potential use later and then go back to the chief's office to explore further or try accessing the BBS from there.
+
+Action 7: InteractiveFictionGame[Take the gun]
+
+Observation 7:
+Taken.
+
+[Your score has just gone up by ten points.]
+
+Thought 8: I will go back to the chief's office and try to access the BBS from there using any available terminal or computer.
+
+Action 8: InteractiveFictionGame[Go east]
+
+Observation 8:
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+Thought 9: I will examine the paper again to see if there is any new information or hidden instructions for accessing the BBS.
+
+Action 9: InteractiveFictionGame[Examine the paper]
+
+Observation 9: It is a piece of white paper.
+
+Thought 10: I will check the rest of the room for any hidden objects or clues that might help me access the BBS or gather more information about the murder case.
+
+Action 10: InteractiveFictionGame[Search the room]
+
+Observation 10: You can't see any such thing.
+
+Thought 11: I will go north to explore the next room or area in the building, as there might be a terminal or computer there that I can use to access the BBS or find more information related to the murder case.
+
+Action 11: InteractiveFictionGame[Go north]
+
+Observation 11:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Thought 12: I will explore the rest of the street to the west to see if there is any important information or clues related to the murder case.
+
+Action 12: InteractiveFictionGame[Go west]
+
+Observation 12:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Thought 13: I will go to the restaurant where the mayor often ate to see if there is any information or clues related to the murder case.
+
+Action 13: InteractiveFictionGame[Go north]
+
+Observation 13:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 30 out of a possible 360, in 8 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Thought 14: I will restart the game to continue exploring and gathering information to solve the murder case.
+
+Action 14: InteractiveFictionGame[Start] [The game will begin anew with the initial observation and Thought 1.]
+
+Observation 14:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Thought 15: I will read the paper carefully to gather any useful information related to the murder case.
+
+Action 15: InteractiveFictionGame[Read the paper]
+
+Observation 15:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Thought 16: I will make a note of the Ghostbuster Central BBS phone number for potential use in gathering hints or information related to the murder case.
+
+Action 16: InteractiveFictionGame[Check inventory]
+
+Observation 16: You can't see any such thing.
+
+Thought 17: I will go west to explore the rest of the room and look for any clues or objects that might help me access the BBS or gather more information about the murder case.
+
+Action 17: InteractiveFictionGame[Go west]
+
+Observation 17:
+<< Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+
+Thought 18: I will pick up the gun for potential use later and then go back to the chief's office to explore further or try accessing the BBS from there.
+
+Action 18: InteractiveFictionGame[Take the gun]
+
+Observation 18:
+Taken.
+
+[Your score has just gone up by ten points.]
+
+Thought 19: I will go back to the chief's office and try to access the BBS from there using the gun as a makeshift modem or by finding a terminal or computer.
+
+Action 19: InteractiveFictionGame[Go east]
+
+Observation 19:
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+Thought 20: I will examine the paper again to see if there is any new information or hidden instructions for accessing the BBS.
+
+Action 20: InteractiveFictionGame[Examine the paper]
+
+Observation 20: It is a piece of white paper.
+
+Thought 21: I will search the room for any hidden objects or clues that might help me access the BBS or gather more information about the murder case.
+
+Action 21: InteractiveFictionGame[Search the room]
+
+Observation 21: You can't see any such thing.
+
+Thought 22: I will go north to explore the next room or area in the building, as there might be a terminal or computer there that I can use to access the BBS or find more information related to the murder case.
+
+Action 22: InteractiveFictionGame[Go north]
+
+Observation 22:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Thought 23: I will explore the rest of the street to the west to see if there is any important information or clues related to the murder case.
+
+Action 23: InteractiveFictionGame[Go west]
+
+Observation 23:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Thought 24: I will go to the restaurant where the mayor often ate to see if there is any information or clues related to the murder case.
+
+Action 24: InteractiveFictionGame[Go north]
+
+Observation 24:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 30 out of a possible 360, in 8 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Thought 25: I will restart the game to continue exploring and gathering information to solve the murder case.
+
+Action 25: InteractiveFictionGame[Start] [The game will begin anew with the initial observation and Thought 1.]
+
+Observation 25: Please give one of the answers above.
+
+Thought 26: I will restart the game by taking the initial action.
+
+Action 26: InteractiveFictionGame[Start]
+
+Observation 26:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Thought 27: I will read the paper carefully to gather any useful information related to the murder case.
+
+Action 27: InteractiveFictionGame[Read the paper]
+
+Observation 27:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Thought 28: I will make a note of the Ghostbuster Central BBS phone number for potential use in gathering hints or information related to the murder case.
+
+Action 28: InteractiveFictionGame[Check inventory]
+
+Observation 28: You can't see any such thing.
+
+Thought 29: I will go west to explore the rest of the room and look for any clues or objects that might help me access the BBS or gather more information about the murder case.
+
+Action 29: InteractiveFictionGame[Go west]
+
+Observation 29:
+<< Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+
+Thought 30: I will pick up the gun for potential use later and then go back to the chief's office to explore further or try accessing the BBS from there.
+
+Action 30: InteractiveFictionGame[Take the gun]
+
+Observation 30:
+Taken.
+
+[Your score has just gone up by ten points.]
+
+Thought 31: I will go back to the chief's office and try to access the BBS from there using the gun as a makeshift modem or by finding a terminal or computer.
+
+Action 31: InteractiveFictionGame[Go east]
+
+Observation 31:
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+Thought 32: I will examine the paper again to see if there is any new information or hidden instructions for accessing the BBS.
+
+Action 32: InteractiveFictionGame[Examine the paper]
+
+Observation 32: It is a piece of white paper.
+
+Thought 33: I will search the room for any hidden objects or clues that might help me access the BBS or gather more information about the murder case.
+
+Action 33: InteractiveFictionGame[Search the room]
+
+Observation 33: You can't see any such thing.
+
+Thought 34: I will go north to explore the next room or area in the building, as there might be a terminal or computer there that I can use to access the BBS or find more information related to the murder case.
+
+Action 34: InteractiveFictionGame[Go north]
+
+Observation 34:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Thought 35: I will explore the rest of the street to the west to see if there is any important information or clues related to the murder case.
+
+Action 35: InteractiveFictionGame[Go west]
+
+Observation 35:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Thought 36: I will go to the restaurant where the mayor often ate to see if there is any information or clues related to the murder case.
+
+Action 36: InteractiveFictionGame[Go north]
+
+Observation 36:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 30 out of a possible 360, in 8 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Thought 37: I will restart the game to continue exploring and gathering information to solve the murder case.
+
+Action 37: InteractiveFictionGame[Start] [The game will begin anew with the initial observation and Thought 1.]
+
+Observation 37: Please give one of the answers above.
+
+Thought 38: I will restart the game by taking the initial action.
+
+Action 38: InteractiveFictionGame[Start]
+
+Observation 38:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Thought 39: I will read the paper carefully to gather any useful information related to the murder case.
+
+Action 39: InteractiveFictionGame[Read the paper]
+
+Observation 39:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Thought 40: I will make a note of the Ghostbuster Central BBS phone number for potential use in gathering hints or information related to the murder case.
+
+Action 40: InteractiveFictionGame[Check inventory]
+
+Observation 40: You can't see any such thing.
+
+Thought 41: I will go west to explore the rest of the room and look for any clues or objects that might help me access the BBS or gather more information about the murder case.
+
+Action 41: InteractiveFictionGame[Go west]
+
+Observation 41:
+<< Closet >>
+You are in a closet. There is a gun on the floor. Better get it. To exit, go east.
+
+You can see a small black pistol here.
+
+Thought 42: I will pick up the gun for potential use later and then go back to the chief's office to explore further or try accessing the BBS from there.
+
+Action 42: InteractiveFictionGame[Take the gun]
+
+Observation 42:
+Taken.
+
+[Your score has just gone up by ten points.]
+
+Thought 43: I will go back to the chief's office and try to access the BBS from there using the gun as a makeshift modem or by finding a terminal or computer.
+
+Action 43: InteractiveFictionGame[Go east]
+
+Observation 43:
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+Thought 44: I will examine the paper again to see if there is any new information or hidden instructions for accessing the BBS.
+
+Action 44: InteractiveFictionGame[Examine the paper]
+
+Observation 44: It is a piece of white paper.
+
+Thought 45: I will search the room for any hidden objects or clues that might help me access the BBS or gather more information about the murder case.
+
+Action 45: InteractiveFictionGame[Search the room]
+
+Observation 45: You can't see any such thing.
+
+Thought 46: I will go north to explore the next room or area in the building, as there might be a terminal or computer there that I can use to access the BBS or find more information related to the murder case.
+
+Action 46: InteractiveFictionGame[Go north]
+
+Observation 46:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Thought 47: I will explore the rest of the street to the west to see if there is any important information or clues related to the murder case.
+
+Action 47: InteractiveFictionGame[Go west]
+
+Observation 47:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Thought 48: I will go to the restaurant where the mayor often ate to see if there is any information or clues related to the murder case.
+
+Action 48: InteractiveFictionGame[Go north]
+
+Observation 48:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 30 out of a possible 360, in 8 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Thought 49: I will restart the game to continue exploring and gathering information to solve the murder case.
+
+Action 49: InteractiveFictionGame[Start] [The game will begin anew with the initial observation and Thought 1.]
+
+Observation 49: Please give one of the answers above.
+
+Thought 50:[[ I will restart the game by taking the initial action.
+
+Action 50: InteractiveFictionGame[Start]]]
+
+
+
+
