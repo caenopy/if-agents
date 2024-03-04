@@ -33,6 +33,11 @@ class InteractiveFictionGame:
         if self.debug:
             print(f'Action: {action}')
 
+        if len(action) > ACTION_MAX_LEN:
+            print('WARNING: action length exceeds max length of {}'.format(ACTION_MAX_LEN))
+            print('Truncating action to first {} characters'.format(ACTION_MAX_LEN))
+            action = action[:ACTION_MAX_LEN]
+
         if action == "Start":
             obs, info = self.env.reset()
             reward = 0
