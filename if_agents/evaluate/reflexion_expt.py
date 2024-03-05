@@ -11,6 +11,8 @@ from .evaluate_new import run_experiment
 
 from ..agents.tools import GiveTime
 
+# TODO: build evaluator LM which compares trajectory to walkthrough, 
+# and returns some kind of reward signal
 
 def main(args):
 
@@ -34,13 +36,13 @@ def main(args):
         filtered_game_list=["detective.z5"], #=get_game_list('possible'), 
         model_name=args.model.replace('/', '_'),
         debug=args.debug,
-        max_steps=2)
+        max_steps=50)
 
 
 if __name__ == '__main__':
-    parser = ArgumentParser(description='prepares a MIDI dataset')
+    parser = ArgumentParser(description='Reflexion experiment on Jericho.')
     
-    parser.add_argument('-e', '--expt_name', help='name of the experiment', default='react_possiblegames')
+    parser.add_argument('-e', '--expt_name', help='name of the experiment', default='reflexion_possiblegames')
     parser.add_argument('-g', '--game', help='name of the game to play', default='detective.z5')
     parser.add_argument('-d', '--debug', help='enable debug mode', action='store_true', default=True)
     parser.add_argument('-m', '--model', help='name of the model to use', default='gpt-3.5-turbo')
