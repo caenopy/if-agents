@@ -1,0 +1,831 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+Additionally, every 5 steps you will be instructed to reflect on your progress and the strategy taken thus far.
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+Observation: observations based on action
+
+Reflect: self reflection on your progress and strategy taken thus far
+
+Thought: next steps to take based on last observation
+
+Action: always either InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'] or, when done, Finish[answer]
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends.
+
+Thought: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+Life sucks. Today has been just another crummy day in another dismal spring which you've spent delivering pizzas. This afternoon has totally been dragging, except for that bit of excitement an hour ago when you broke the soda machine. You thought your boss was going to rip you a new orifice.
+
+Anyway, you've just finished mopping up behind the counter. There's only one more hour left on your shift and you're anxious to get out of here. Go home, watch the tube, blast some tunes, maybe scan the new "Surfers Monthly" magazine... gonna be a nice relaxing evening.
+
+Shyeah, right. That's what YOU think.
+
+
+REVERBERATIONS
+A Hectic Voltairian Adventure
+Copyright (c) 1996 by Russell Glasser.
+Updated and revised 1998
+Release 1 / Serial number 990110 / Inform v6.10 Library 6/5
+Standard interpreter 1.0
+
+Behind the Counter
+You are behind the counter at "Mr. Tasty's Pizza Parlor", where you are currently working. Not much of a job, but it keeps you from going broke during the nine months of the year when you can't pull down the bucks as surfing instructor. The rest of the parlor is southwest.
+
+There is something pressing that you think you have to do, but you can't think what it might be.
+
+Thought: I should explore the rest of the parlor and see if there are any items or clues that could help me figure out what I need to do next.
+
+Action: InteractiveFictionGame[go southwest]
+
+Observation:
+You walk around to the front of the pizza parlor.
+
+Pizza Parlor
+You are standing in the middle of "Mr. Tasty's Pizza Parlor". The counter separating you from the back of the parlor stretches in front of you on the northeast corner of the room. To the south is an exit to the street.
+
+Thought: I should try to interact with the counter or look around the parlor for any items that might be useful.
+
+Action: InteractiveFictionGame[check counter]
+
+Observation: It's a majorly boring counter which you're unfortunately very familiar with.  Hey, maybe that handwritten note lying next to a pizza box on the counter is related to whatever it is you're supposed to be doing now.
+
+Thought: I should definitely read the handwritten note to see if it provides any clues or instructions on what I need to do next.
+
+Action: InteractiveFictionGame[read note]
+
+Observation:
+The note reads:
+
+"Stanley,
+    Don't forget to make your delivery to Mr. Calzone, located at the San Doppleton Courthouse. You're already on thin ice, kid. One more screwup and you can expect to be looking for a new job."
+
+The note is signed with the initials "RT". The paper is official "Mr. Tasty's" stationery with the name Bob "Tasty" Tasker and lots of balloons and smiley faces all over the border. Isn't that cute?
+
+Reflect: I have found a note instructing me to make a delivery to Mr. Calzone at the San Doppleton Courthouse. This seems to be the next objective in the game. I need to make my way to the courthouse to complete this task.
+
+Thought: I should exit the pizza parlor and head towards the San Doppleton Courthouse to make the delivery to Mr. Calzone.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+Street, by Pizza Parlor
+San Doppleton is where you live, work and play -- at least until summer. It has the typical California culture; which is to say, none. But at least it's just forty minutes' drive from Santa Barbara and the beach, so you can't complain much.
+
+You stand in the heart of San Doppleton's main drag, the business district. The street goes east and west. The sidewalk runs by a pizza parlor, with a sewer vent nearby.
+
+Two men bump into each other. They murmur apologies and go their separate ways.
+
+Thought: I should head east towards the San Doppleton Courthouse to make the delivery to Mr. Calzone.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+On this end of the street, a department store called Barkley's sits to the south.
+
+Two men bump into each other. They murmur apologies and go their separate ways.
+
+Thought: I should continue heading east towards the San Doppleton Courthouse to complete the delivery to Mr. Calzone.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+Two men bump into each other. They murmur apologies and go their separate ways.
+
+Thought: I need to find the San Doppleton Courthouse to deliver the pizza to Mr. Calzone. I should keep heading east to see if I can locate it.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+Two teenaged girls go by carrying shopping bags.
+
+Thought: I seem to be stuck in a loop. I should try going in a different direction to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+Street, by Pizza Parlor
+
+A guy in a business suit walks past you.
+
+Reflect: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different direction to explore and locate the courthouse to complete the delivery to Mr. Calzone.
+
+Thought: I should try heading south from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+The street runs east and west here, or you could return to the pizza parlor to the north.
+
+A guy in a business suit walks past you.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+
+A guy in a business suit walks past you.
+
+Thought: I should continue heading east to see if I can locate the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+A big ugly low rider cruises by, blaring rap music loud enough to make the sidewalk shake.
+
+Thought: I need to find a way to break out of this loop and locate the San Doppleton Courthouse. I should try going in a different direction to see if I can find it.
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+The street runs back west, and Barkley's is to the south.
+
+A guy in a business suit walks past you.
+
+Thought: I should try heading south towards Barkley's to see if I can find a different path to the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+Clothing Department
+You are in the clothing department at Barkley's. There are many racks of clothes here. You may exit to the north. To the southwest lies the hardware department, and southeast is the cosmetics department.
+
+You can see a store clerk here.
+
+Reflect: I seem to have entered Barkley's department store. I need to find a way to get back on track and locate the San Doppleton Courthouse to deliver the pizza to Mr. Calzone. I should try to find a way out of the department store and head towards the courthouse.
+
+Thought: I should exit the clothing department and try to find a way to get back on track towards the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Street, by Department Store
+
+A guy in a business suit walks past you.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+Two men bump into each other. They murmur apologies and go their separate ways.
+
+Thought: I need to find a way to break out of this loop and locate the San Doppleton Courthouse. I should try going in a different direction to see if I can find it.
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+Street, by Pizza Parlor
+
+You see a woman hail a taxi and drive off.
+
+Thought: I should try heading south from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+The street runs east and west here, or you could return to the pizza parlor to the north.
+
+You see a woman hail a taxi and drive off.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+
+Two men bump into each other. They murmur apologies and go their separate ways.
+
+Reflect: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different approach to locate the courthouse and complete the delivery to Mr. Calzone. I should try exploring different directions and paying attention to any new clues or landmarks that may help me find the courthouse.
+
+Thought: I should try heading west from the department store to see if I can find a different path to the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go
+
+Observation:
+You'll have to say which compass direction to go in.
+
+A big ugly low rider cruises by, blaring rap music loud enough to make the sidewalk shake.
+
+Thought: I should try heading west from the department store to see if I can find a different path to the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+Street, by Pizza Parlor
+
+Two men bump into each other. They murmur apologies and go their separate ways.
+
+Thought: I should try heading south from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+The street runs east and west here, or you could return to the pizza parlor to the north.
+
+A big ugly low rider cruises by, blaring rap music loud enough to make the sidewalk shake.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+
+A guy in a business suit walks past you.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+Two teenaged girls go by carrying shopping bags.
+
+Reflect: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different approach to locate the courthouse and complete the delivery to Mr. Calzone. I should try exploring different directions and paying attention to any new clues or landmarks that may help me find the courthouse.
+
+Thought: I should try heading west from the department store to see if I can find a different path to the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+Street, by Pizza Parlor
+
+A man and a woman walk by holding hands. They make a cute couple.
+
+Thought: I should try heading south from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+The street runs east and west here, or you could return to the pizza parlor to the north.
+
+A big ugly low rider cruises by, blaring rap music loud enough to make the sidewalk shake.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+
+Two teenaged girls go by carrying shopping bags.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+You see a woman hail a taxi and drive off.
+
+Thought: I should try heading west from the department store to see if I can find a different path to the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+Street, by Pizza Parlor
+
+Two teenaged girls go by carrying shopping bags.
+
+Reflect: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different approach to locate the courthouse and complete the delivery to Mr. Calzone. I should try exploring different directions and paying attention to any new clues or landmarks that may help me find the courthouse.
+
+Thought: I should try heading south from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+The street runs east and west here, or you could return to the pizza parlor to the north.
+
+A big ugly low rider cruises by, blaring rap music loud enough to make the sidewalk shake.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+
+A man and a woman walk by holding hands. They make a cute couple.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+You see a woman hail a taxi and drive off.
+
+Thought: I should try heading west from the department store to see if I can find a different path to the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+Street, by Pizza Parlor
+
+Two men bump into each other. They murmur apologies and go their separate ways.
+
+Thought: I should try heading south from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+The street runs east and west here, or you could return to the pizza parlor to the north.
+
+A big ugly low rider cruises by, blaring rap music loud enough to make the sidewalk shake.
+
+Reflect: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different approach to locate the courthouse and complete the delivery to Mr. Calzone. I should try exploring different directions and paying attention to any new clues or landmarks that may help me find the courthouse.
+
+Thought: I should try heading east from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+
+A man and a woman walk by holding hands. They make a cute couple.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+Two teenaged girls go by carrying shopping bags.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+You see a woman hail a taxi and drive off.
+
+Thought: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different approach to locate the courthouse and complete the delivery to Mr. Calzone. I should try exploring different directions and paying attention to any new clues or landmarks that may help me find the courthouse.
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+Street, by Pizza Parlor
+
+Two teenaged girls go by carrying shopping bags.
+
+Thought: I should try heading south from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+The street runs east and west here, or you could return to the pizza parlor to the north.
+
+A guy in a business suit walks past you.
+
+Reflect: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different approach to locate the courthouse and complete the delivery to Mr. Calzone. I should try exploring different directions and paying attention to any new clues or landmarks that may help me find the courthouse.
+
+Thought: I should try heading east from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+
+You see a woman hail a taxi and drive off.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+A guy in a business suit walks past you.
+
+Thought: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different approach to locate the courthouse and complete the delivery to Mr. Calzone. I should try exploring different directions and paying attention to any new clues or landmarks that may help me find the courthouse.
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+Street, by Pizza Parlor
+
+A big ugly low rider cruises by, blaring rap music loud enough to make the sidewalk shake.
+
+Thought: I should try heading south from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+The street runs east and west here, or you could return to the pizza parlor to the north.
+
+You see a woman hail a taxi and drive off.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+
+Two men bump into each other. They murmur apologies and go their separate ways.
+
+Reflect: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different approach to locate the courthouse and complete the delivery to Mr. Calzone. I should try exploring different directions and paying attention to any new clues or landmarks that may help me find the courthouse.
+
+Thought: I should try heading west from the department store to see if I can find a different path to the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go
+
+Observation:
+You'll have to say which compass direction to go in.
+
+Two teenaged girls go by carrying shopping bags.
+
+Thought: I should try heading west from the department store to see if I can find a different path to the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+Street, by Pizza Parlor
+
+You see a woman hail a taxi and drive off.
+
+Thought: I should try heading south from the pizza parlor to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+The street runs east and west here, or you could return to the pizza parlor to the north.
+
+A big ugly low rider cruises by, blaring rap music loud enough to make the sidewalk shake.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+Street, by Department Store
+
+Two teenaged girls go by carrying shopping bags.
+
+Thought: I should try heading east from this location to see if I can find the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+You shouldn't leaving town until you deliver that pizza. It would cost you your job, and we all know how important THAT is to you.
+
+A man and a woman walk by holding hands. They make a cute couple.
+
+Reflect: I seem to be stuck in a loop trying to find the San Doppleton Courthouse. I need to find a different approach to locate the courthouse and complete the delivery to Mr. Calzone. I should try exploring different directions and paying attention to any new clues or landmarks that may help me find the courthouse.
+
+Thought:[[ I should try heading west from the department store to see if I can find a different path to the San Doppleton Courthouse.
+
+Action: InteractiveFictionGame[go west]]]
+
+
+
+
