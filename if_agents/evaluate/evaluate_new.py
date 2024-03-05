@@ -76,7 +76,7 @@ def play_game(
         logs_dir, 
         game_dir,
         debug = False,
-        max_steps=2, 
+        max_steps=20, 
         ):
     """
     Play one game (specified by filename) using given agent, for a maximum of max_steps.
@@ -99,7 +99,7 @@ def play_game(
     if agent_name.lower() == 'react':
         agent = ReActAgent(max_iters=max_steps, tools=[jericho])
     elif agent_name.lower() == 'reflexion':
-        agent = ReflexionAgent(max_iters=max_steps, tools=[jericho])
+        agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho])
 
     end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends.")
 

@@ -7,14 +7,19 @@ from dspy.predict import Predict
 # TODO: Simplify a lot.
 # TODO: Divide Action and Action Input like langchain does for ReAct.
 
+# Reflexion module based off of DSPy's ReAct
 
 class Reflexion(Module):
-    def __init__(self, signature, max_iters=5, num_results=3, tools=None):
+    def __init__(self, signature, max_iters, reflect_interval, tools):
         super().__init__()
         self.signature = signature = ensure_signature(signature)
         self.max_iters = max_iters
+        self.reflect_interval = reflect_interval
 
-        self.tools = tools or [dspy.Retrieve(k=num_results)]
+        # self.heuristic = heuristic 
+        # self.heuristic = {heuristic.name: h for h in self.heuristic}
+
+        self.tools = tools 
         self.tools = {tool.name: tool for tool in self.tools}
 
         self.input_fields = self.signature.input_fields
@@ -43,7 +48,10 @@ class Reflexion(Module):
                 f"({idx+1}) {tool.name}[{tool.input_variable}], which {tool.desc}"
             )
 
+        instr.append(f"Additionally, every {reflect_interval} steps you will be instructed to reflect on your progress and the strategy taken thus far.")
+
         instr = "\n".join(instr)
+
         self.react = [
             Predict(dspy.Signature(self._generate_signature(i), instr))
             for i in range(1, max_iters + 1)
@@ -55,8 +63,15 @@ class Reflexion(Module):
             signature_dict[key] = val
 
         for j in range(1, iters + 1):
+
+            if j % self.reflect_interval == 0:
+                signature_dict[f"Reflect_{j}"] = dspy.OutputField(
+                    prefix=f"Reflect:",
+                    desc=f"self reflection on your progress and strategy taken thus far",
+                )
+                
             signature_dict[f"Thought_{j}"] = dspy.OutputField(
-                prefix=f"Thought {j}:",
+                prefix=f"Thought:",
                 desc="next steps to take based on last observation",
             )
 
@@ -68,16 +83,17 @@ class Reflexion(Module):
                 ]
             )
             signature_dict[f"Action_{j}"] = dspy.OutputField(
-                prefix=f"Action {j}:",
+                prefix=f"Action:",
                 desc=f"always either {tool_list} or, when done, Finish[answer]",
             )
 
             if j < iters:
                 signature_dict[f"Observation_{j}"] = dspy.OutputField(
-                    prefix=f"Observation {j}:",
+                    prefix=f"Observation:",
                     desc="observations based on action",
                     format=dsp.passages2text,
                 )
+                
 
         return signature_dict
 
