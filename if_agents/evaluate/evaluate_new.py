@@ -101,7 +101,7 @@ def play_game(
     elif agent_name.lower() == 'reflexion':
         agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho])
 
-    end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends.")
+    end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.")
 
     print(end_state)
 

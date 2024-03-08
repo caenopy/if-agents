@@ -45,6 +45,9 @@ class InteractiveFictionGame:
             obs, reward, done, info = self.env.step(action)
         
         obs = obs.strip()
+        valid_actions = self.env.get_valid_actions()
+        formatted_valid_actions = [f'InteractiveFictionGame[{action}]' for action in valid_actions]
+        obs += " Valid actions: " + ", ".join(formatted_valid_actions).strip()
 
         self.playback.append(f'> {action}')
         self.playback.append(obs)
