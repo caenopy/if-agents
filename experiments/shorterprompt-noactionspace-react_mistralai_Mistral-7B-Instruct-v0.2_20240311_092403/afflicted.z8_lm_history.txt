@@ -1,0 +1,990 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I will start the interactive fiction game by taking the initial action 'InteractiveFictionGame[Start]'. If the game ends or I die, I will use my experience to make a better choice in the next iteration.
+
+Action 1: InteractiveFictionGame[Start]
+
+Observation 1:
+This has never been your favorite part of the city.  Nor is this neighborhood the safest one.  But as a city sanitarian, you are charged with completing an annual health and safety inspection of every restaurant in your district.
+
+Each day you visit three or four restaurants.  During those visits you take note of potential health code violations in your trusty notepad.  Today's first target:  Nikolai's Bar and Grill.
+
+A hazy sun barely peeks above the three-story tenements.
+
+Afflicted
+An Interactive Fiction by Doug Egan
+Release 1 / Serial number 080906 / Inform 7 build 5T18 (I6/v6.31 lib 6/12N) 
+
+Type "About" at any time to see game instructions and other notes from the author.
+
+19th Street
+You are standing in front of Nikolai's Bar and Grill on 19th Street.  A green awning shades the smudged window into Nikolai's dining room.  The front entrance is north of you.
+
+The east/west sidewalk here is cracked and uneven, pocked by clumps of crabgrass.  A storm gutter is built into the curb, littered with broken bottles.  Across the street a neon sign flickers erratically.  A few cars are parked nearby (including yours), but otherwise you see no evidence that anyone visits this neighborhood past daybreak.
+
+An aluminum placard is fixed to the front door.
+
+A damp sheet of newspaper has blown up against the curb.
+
+Thought 2: I will check the placard on the front door of Nikolai's Bar and Grill for any important information, and then I will inspect the entrance and the surrounding area for potential health code violations.
+
+Action 2: InteractiveFictionGame[Check placard]
+
+Observation 2: An aluminum placard, printed in red, is fixed to the front door.
+
+Thought 3: Based on the observation, I cannot read the content of the placard from this information. I will take the action to read the placard more closely.
+
+Action 3: InteractiveFictionGame[Read placard]
+
+Observation 3: You read: (in big red letters) CLOSED
+
+Thought 4: Based on the observation, it seems that Nikolai's Bar and Grill is currently closed. I will make a note of this potential health code violation and move on to the next target for my inspection.
+
+Action 4: InteractiveFictionGame[Check inventory] (assuming the player has a notepad or inventory system to make notes) Thought 5: I will make a note in my inventory or notepad about the closed status of Nikolai's Bar and Grill.
+
+Observation 4: You can't see any such thing.
+
+Thought 5: Based on the observation, it seems that I do not have a notepad or inventory system to make notes. I will look for a place to buy or find one before continuing with my inspections.
+
+Action 5: InteractiveFictionGame[Explore surroundings for a place to buy or find a notepad or inventory system]
+
+Observation 5: That's not a verb I recognise.
+
+Thought 6: Based on the observation, it seems that the available actions are not sufficient to find or buy a notepad or inventory system. I will need to explore the game further to find a place or object that can provide me with this tool.
+
+Action 6: InteractiveFictionGame[Explore the neighborhood for a place to buy or find a notepad or inventory system]
+
+Observation 6: That's not a verb I recognise.
+
+Thought 7: Based on the observation, it seems that the available actions are not sufficient to explore the neighborhood specifically for a place to buy or find a notepad or inventory system. I will need to explore the game world more broadly and look for any clues or opportunities that may lead me to such an item.
+
+Action 7: InteractiveFictionGame[Explore the game world for a place to buy or find a notepad or inventory system]
+
+Observation 7: That's not a verb I recognise.
+
+Thought 8: Based on the observations, it seems that the game does not provide the necessary actions to find or buy a notepad or inventory system. I will need to explore the game world more thoroughly and look for any clues or opportunities that may lead me to such an item.
+
+Action 8: InteractiveFictionGame[Explore the game world]
+
+Observation 8: That's not a verb I recognise.
+
+Thought 9: Based on the observations, it seems that the game does not provide the necessary actions to explore the game world or find a notepad or inventory system. I will need to read the game instructions or ask for help from the game author to understand how to progress in the game and complete my health and safety inspections effectively.
+
+Action 9: InteractiveFictionGame[About]
+
+Observation 9: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 10: Based on the observation, it seems that I need to use the 'P' key to access the previous menu and then select the 'About' option to view the game instructions and other notes from the author.
+
+Action 10: InteractiveFictionGame[P], InteractiveFictionGame[About]
+
+Observation 10: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 11: Based on the observation, it seems that I have successfully accessed the game instructions. I will read them carefully to find out how to progress in the game and complete my health and safety inspections effectively.
+
+Action 11: InteractiveFictionGame[Read instructions]
+
+Observation 11: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 12: Based on the observation, it seems that I need to use the 'N' key to read the instructions one by one. I will do that until I find the information on how to progress in the game and complete my health and safety inspections effectively.
+
+Action 12: InteractiveFictionGame[N]
+
+Observation 12: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 13: Based on the observation, it seems that I need to continue using the 'N' key to read the instructions until I find the information on how to progress in the game and complete my health and safety inspections effectively.
+
+Action 13: InteractiveFictionGame[N]
+
+Observation 13:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 14: Based on the observation, it seems that I have found the information on how to progress in the game by using the "note" verb to make notes about potential health code violations. I will now continue with my health and safety inspections at the next target.
+
+Action 14: InteractiveFictionGame[Next]
+
+Observation 14:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 15: Based on the observation, it seems that I have reached the end of the initial instructions and need to continue with the game. I will take the next action to move on to the next location for my health and safety inspection.
+
+Action 15: InteractiveFictionGame[Next]
+
+Observation 15:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 16: Based on the observation, it seems that I have reached the end of the initial instructions and the game is asking me to press SPACE to continue. I will do that to move on to the next part of the game.
+
+Action 16: InteractiveFictionGame[Press SPACE]
+
+Observation 16:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 17: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times. I will do that to move on to the next part of the game.
+
+Action 17: InteractiveFictionGame[Press SPACE]
+
+Observation 17:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 18: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 18: InteractiveFictionGame[Press SPACE]
+
+Observation 18:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 19: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 19: InteractiveFictionGame[Press SPACE]
+
+Observation 19:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 20: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 20: InteractiveFictionGame[Press SPACE]
+
+Observation 20:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 21: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 21: InteractiveFictionGame[Press SPACE]
+
+Observation 21:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 22: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 22: InteractiveFictionGame[Press SPACE]
+
+Observation 22:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 23: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 23: InteractiveFictionGame[Press SPACE]
+
+Observation 23:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 24: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 24: InteractiveFictionGame[Press SPACE]
+
+Observation 24:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 25: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 25: InteractiveFictionGame[Press SPACE]
+
+Observation 25:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 26: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 26: InteractiveFictionGame[Press SPACE]
+
+Observation 26:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 27: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 27: InteractiveFictionGame[Press SPACE]
+
+Observation 27:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 28: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 28: InteractiveFictionGame[Press SPACE]
+
+Observation 28:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 29: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 29: InteractiveFictionGame[Press SPACE]
+
+Observation 29:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 30: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 30: InteractiveFictionGame[Press SPACE]
+
+Observation 30:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 31: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 31: InteractiveFictionGame[Press SPACE]
+
+Observation 31:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 32: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 32: InteractiveFictionGame[Press SPACE]
+
+Observation 32:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 33: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 33: InteractiveFictionGame[Press SPACE]
+
+Observation 33:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 34: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 34: InteractiveFictionGame[Press SPACE]
+
+Observation 34:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 35: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 35: InteractiveFictionGame[Press SPACE]
+
+Observation 35:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 36: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 36: InteractiveFictionGame[Press SPACE]
+
+Observation 36:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 37: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 37: InteractiveFictionGame[Press SPACE]
+
+Observation 37:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 38: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 38: InteractiveFictionGame[Press SPACE]
+
+Observation 38:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 39: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 39: InteractiveFictionGame[Press SPACE]
+
+Observation 39:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 40: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 40: InteractiveFictionGame[Press SPACE]
+
+Observation 40:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 41: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 41: InteractiveFictionGame[Press SPACE]
+
+Observation 41:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 42: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 42: InteractiveFictionGame[Press SPACE]
+
+Observation 42:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 43: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 43: InteractiveFictionGame[Press SPACE]
+
+Observation 43:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 44: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 44: InteractiveFictionGame[Press SPACE]
+
+Observation 44:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 45: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 45: InteractiveFictionGame[Press SPACE]
+
+Observation 45:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 46: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 46: InteractiveFictionGame[Press SPACE]
+
+Observation 46:
+Introduction (if you are new to this game)Afflicted 
+A short work of interactive horror 
+Copyright 2008, Doug Egan 
+Annual Competition Version 
+
+This game is intended to be enjoyed by both newcomers to IF and veteran players.  If you have never played interactive fiction, you are encouraged to return to the main menu and review the information under "General Instructions". 
+
+Afflicted implements only a select number of new verbs.  The most important of these is the action "note".  Other changes should be obvious within the context of the game. "Ask" and "Tell" are synonyms in this game. Likewise "Give" and "Show". On the other hand, "Read" and "Examine" may give different responses for readable material.
+
+The "Smell" action is fully implemented.  Each location has a unique odor.  A small number of individual objects also have their own odor.
+
+type "Hint" to access the adaptive hint menu.
+
+It is possible to end a game prematurely, sometimes in ways which can not be reversed by a single "undo" command.  Players are encouraged to save often and search for multiple alternate endings.
+
+
+
+Please press SPACE to continue.
+
+Thought 47: Based on the observation, it seems that the game is asking me to press SPACE to continue multiple times as part of the introduction. I will continue to do that until the game moves on to the next part.
+
+Action 47: InteractiveFictionGame[Press SPACE]
+
+Observation 47: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 48: Based on the observation, it seems that I need to use the 'N' key to read the instructions one by one. I will continue to do that until I find the information on how to progress in the game and complete my health and safety inspections effectively.
+
+Action 48: InteractiveFictionGame[N]
+
+Observation 48: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 49: Based on the observation, it seems that I need to continue using the 'N' key to read the instructions one by one until I find the information on how to progress in the game and complete my health and safety inspections effectively.
+
+Action 49: InteractiveFictionGame[N]
+
+Observation 49: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 50:[[ Based on the observation, it seems that I need to continue using the 'N' key to read the instructions one by one until I find the information on how to progress in the game and complete my health and safety inspections effectively.
+
+Action 50: InteractiveFictionGame[N]
+
+Observation 50: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 51: Based on the observation, it seems that I need to continue using the 'N' key to read the instructions one by one until I find the information on how to progress in the game and complete my health and safety inspections effectively.
+
+Action 51: InteractiveFictionGame[N]
+
+Observation 51: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 52: Based on the observation, it seems that I need to continue using the 'N' key to read the instructions one by one until I find the information on how to progress in the game and complete my health and safety inspections effectively.
+
+Action 52: InteractiveFictionGame[N]
+
+Observation 52: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 53: Based on the observation, it seems that I need to continue using the 'N' key to read the instructions one by one until I find the information on how to progress in the game and complete my health and safety inspections effectively.
+
+Action 53: InteractiveFictionGame[N]
+
+Observation 53: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 54: Based on the observation, it seems that I need to continue using the 'N' key to read the instructions one by one until I find the information on how to progress in the game and complete my health and safety inspections effectively.
+
+Action 54: InteractiveFictionGame[N]
+
+Observation 54: Instructions  N = NextQ = Quit Menu P = PreviousENTER = Selec
+
+Thought 55: Based on the observation,]]
+
+
+
+

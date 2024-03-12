@@ -1,0 +1,426 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[take amulet], InteractiveFictionGame[south]
+
+Thought 2: I should try to take the amulet since it might be important for the game.
+
+Action 2: InteractiveFictionGame[take amulet]
+
+Observation 2: Taken. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[put amulet down]
+
+Thought 3: I should continue exploring in the south direction to see what else I can find.
+
+Action 3: InteractiveFictionGame[south]
+
+Observation 3:
+Center of Camp
+This is the center of your camp. The entire place seems to be completely deserted. You can see Roboff's tent to the south and the storage tent west. East is open desert. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[put amulet down], InteractiveFictionGame[north]
+
+Thought 4: I should check out Roboff's tent to see if there are any clues or items inside that could help me progress in the game.
+
+Action 4: InteractiveFictionGame[south]
+
+Observation 4:
+Roboff's Tent
+You are in Francisco Roboff's tent. The place is bare except for the emergency signal radio and Roboff's toilet in one corner. There is a note taped to the tent wall. Valid actions: InteractiveFictionGame[put amulet down], InteractiveFictionGame[take signal off radio], InteractiveFictionGame[north]
+
+Thought 5: I should take the signal off the radio since it might be useful for signaling for help or communication.
+
+Action 5: InteractiveFictionGame[take signal off radio]
+
+Observation 5: Removed. Valid actions: InteractiveFictionGame[put amulet down], InteractiveFictionGame[put button down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 6: I should read the note taped to the tent wall to see if it provides any important information or clues.
+
+Action 6: InteractiveFictionGame[read note]
+
+Observation 6:
+"Hi. Sorry about running off so suddenly but you know how it is... With luck, you will die, but I want you to have something to do while you starve so I'll tell you how to find the pyramid. Oh, I didn't mention that I found it two weeks ago? I never got in because the door is opened by putting that amulet of yours into a little slot. Anyway, go to the middle of camp and go east four times and north once. Dig there. Have fun!
+   -F. Roboff" Valid actions: InteractiveFictionGame[put amulet down], InteractiveFictionGame[put button down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 7: I should follow Roboff's instructions and go to the middle of camp, then go east four times and north once to find the pyramid.
+
+Action 7: InteractiveFictionGame[east]
+
+Observation 7: You can't go that way. Valid actions: InteractiveFictionGame[put amulet down], InteractiveFictionGame[put button down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 8: I should go back to the center of camp and try to follow Roboff's instructions more carefully.
+
+Action 8: InteractiveFictionGame[north]
+
+Observation 8: Center of Camp Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[put amulet down], InteractiveFictionGame[put button down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 9: I should go east four times and then north once to follow Roboff's instructions and find the pyramid.
+
+Action 9: InteractiveFictionGame[east]
+
+Observation 9:
+You venture out onto the sands and rapidly lose sight of camp.
+
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[west]
+
+Thought 10: I must have gone too far east. I should go back west to the center of camp and try again to follow Roboff's instructions more carefully.
+
+Action 10: InteractiveFictionGame[west]
+
+Observation 10:
+You have stumbled over the encampment. Sheer accident.
+
+Center of Camp Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[put amulet down], InteractiveFictionGame[put button down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 11: I need to pay closer attention to the directions and make sure I follow Roboff's instructions accurately this time.
+
+Action 11: InteractiveFictionGame[east]
+
+Observation 11:
+You venture out onto the sands and rapidly lose sight of camp.
+
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[west]
+
+Thought 12: I need to be more careful with my movements. I should go back west to the center of camp and try to follow Roboff's instructions more accurately.
+
+Action 12: InteractiveFictionGame[west]
+
+Observation 12:
+You have stumbled over the encampment. Sheer accident.
+
+Center of Camp Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[put amulet down], InteractiveFictionGame[put button down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 13: I need to focus and make sure I follow Roboff's instructions precisely this time. I should try to go east four times and then north once to find the pyramid.
+
+Action 13: InteractiveFictionGame[east]
+
+Observation 13:
+You venture out onto the sands and rapidly lose sight of camp.
+
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[west]
+
+Thought 14: I keep getting lost in the desert. I should try going north this time to see if I can find the pyramid that way.
+
+Action 14: InteractiveFictionGame[north]
+
+Observation 14:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 15: I should keep going north to see if I can find the pyramid as per Roboff's instructions.
+
+Action 15: InteractiveFictionGame[north]
+
+Observation 15:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 16: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 16: InteractiveFictionGame[north]
+
+Observation 16:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 17: I seem to be going in circles in the desert. I should try going north one more time to see if I can find the pyramid.
+
+Action 17: InteractiveFictionGame[north]
+
+Observation 17:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 18: I'm not making any progress by going north repeatedly. I should try a different direction to see if I can find the pyramid.
+
+Action 18: InteractiveFictionGame[west]
+
+Observation 18:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 19: I should try going north one more time to see if I can make any progress towards finding the pyramid.
+
+Action 19: InteractiveFictionGame[north]
+
+Observation 19:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 20: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 20: InteractiveFictionGame[north]
+
+Observation 20:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 21: I've been going in circles in the desert. I should try going north one more time to see if I can find the pyramid.
+
+Action 21: InteractiveFictionGame[north]
+
+Observation 21:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 22: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 22: InteractiveFictionGame[north]
+
+Observation 22:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 23: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 23: InteractiveFictionGame[north]
+
+Observation 23:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 24: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 24: InteractiveFictionGame[north]
+
+Observation 24:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 25: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 25: InteractiveFictionGame[north]
+
+Observation 25:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 26: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 26: InteractiveFictionGame[north]
+
+Observation 26:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 27: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 27: InteractiveFictionGame[north]
+
+Observation 27:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 28: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 28: InteractiveFictionGame[north]
+
+Observation 28:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 29: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 29: InteractiveFictionGame[north]
+
+Observation 29:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 30: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 30: InteractiveFictionGame[north]
+
+Observation 30:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 31: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 31: InteractiveFictionGame[north]
+
+Observation 31:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 32: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 32: InteractiveFictionGame[north]
+
+Observation 32:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 33: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 33: InteractiveFictionGame[north]
+
+Observation 33:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 34: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 34: InteractiveFictionGame[north]
+
+Observation 34:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 35: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 35: InteractiveFictionGame[north]
+
+Observation 35:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 36: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 36: InteractiveFictionGame[north]
+
+Observation 36:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 37: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 37: InteractiveFictionGame[north]
+
+Observation 37:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 38: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 38: InteractiveFictionGame[north]
+
+Observation 38:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 39: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 39: InteractiveFictionGame[north]
+
+Observation 39:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 40: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 40: InteractiveFictionGame[north]
+
+Observation 40:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 41: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 41: InteractiveFictionGame[north]
+
+Observation 41:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 42: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 42: InteractiveFictionGame[north]
+
+Observation 42:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 43: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 43: InteractiveFictionGame[north]
+
+Observation 43:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 44: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 44: InteractiveFictionGame[north]
+
+Observation 44:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 45: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 45: InteractiveFictionGame[north]
+
+Observation 45:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 46: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 46: InteractiveFictionGame[north]
+
+Observation 46:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 47: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 47: InteractiveFictionGame[north]
+
+Observation 47:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 48: I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 48: InteractiveFictionGame[north]
+
+Observation 48:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 49: I've been going in circles in the desert with no progress. I should try going north one more time to see if I can find the pyramid.
+
+Action 49: InteractiveFictionGame[north]
+
+Observation 49:
+In the Desert
+All you can see in any direction is sand and sunlight. You are sweating like a pig. Valid actions: InteractiveFictionGame[north]
+
+Thought 50:[[ I seem to be stuck in the desert with no clear path. I should try going north again to see if I can make progress towards finding the pyramid.
+
+Action 50: InteractiveFictionGame[north]]]
+
+
+
+

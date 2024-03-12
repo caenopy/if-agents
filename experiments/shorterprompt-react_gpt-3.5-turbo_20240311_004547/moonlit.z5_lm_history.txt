@@ -1,0 +1,454 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[take egg], InteractiveFictionGame[take mask], InteractiveFictionGame[get in stairs], InteractiveFictionGame[take all], InteractiveFictionGame[push mask to stairs], InteractiveFictionGame[down]
+
+Thought 2: I should try to take the egg or the mask to see if they are important items in the game.
+
+Action 2: InteractiveFictionGame[take egg]
+
+Observation 2:
+(The egg cracks open to reveal a chirping bird-dragon creature that cries, "Aylee! Aylee!" before disappearing.
+
+The egg is no longer to be seen.) Valid actions: InteractiveFictionGame[take mask], InteractiveFictionGame[get in stairs], InteractiveFictionGame[push mask to stairs], InteractiveFictionGame[down]
+
+Thought 3: The egg hatched into a creature named Aylee. I should now try to take the mask to see if it's an important item in the game.
+
+Action 3: InteractiveFictionGame[take mask]
+
+Observation 3: Taken. Valid actions: InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[down]
+
+Thought 4: The mask has been taken. I should now try to progress further by going down the stairs.
+
+Action 4: InteractiveFictionGame[get in stairs]
+
+Observation 4: You get onto the stairs. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[put mask down]
+
+Thought 5: I am now on the stairs. I should try to go down further to see what awaits me.
+
+Action 5: InteractiveFictionGame[down]
+
+Observation 5: You'll have to get off the stairs first. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[put mask down]
+
+Thought 6: I need to get off the stairs before I can go down. I should try to do that first.
+
+Action 6: InteractiveFictionGame[get up]
+
+Observation 6:
+You get off the stairs.
+
+Moonlit Chamber
+Moonlight diffuses through the walls, tracing out unreadable sigils in calligraphies of light and dark. Stairs adorned with bas-relief motifs spiral downward. Valid actions: InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[down]
+
+Thought 7: I am now in the Moonlit Chamber. I should try to put the mask down or on the stairs to see if it triggers anything in the game.
+
+Action 7: InteractiveFictionGame[put mask down]
+
+Observation 7: Dropped. Valid actions: InteractiveFictionGame[take mask], InteractiveFictionGame[get in stairs], InteractiveFictionGame[push mask to stairs], InteractiveFictionGame[down]
+
+Thought 8: I have put the mask down. I should now try to go down the stairs to progress further in the game.
+
+Action 8: InteractiveFictionGame[down]
+
+Observation 8:
+Shadow Armory
+Shadows gather around you. For a moment, dregs of light defined by the negative space take on the shapes of maple leaf, kite, comb, and other shapes that flicker across the walls too rapidly for you to interpret.
+
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 9: I am now in the Shadow Armory. I should try to explore this area and see if there are any weapons or clues that could help me progress in the game.
+
+Action 9: InteractiveFictionGame[take dagger]
+
+Observation 9: Taken. Valid actions: InteractiveFictionGame[get in stairs], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 10: I have taken the dagger. I should now try to explore further by going north or west to see what lies in those directions.
+
+Action 10: InteractiveFictionGame[north]
+
+Observation 10:
+The shapes of light you saw as you entered fade irrevocably.
+
+
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn compass], InteractiveFictionGame[put dagger down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 11: I am now in the Undying Garden. I should try to interact with the jade compass and see if it triggers anything in the game.
+
+Action 11: InteractiveFictionGame[turn compass]
+
+Observation 11: You spin the needle, which settles at a random position. If only the seasons of men changed so readily; you could spin them back and change the unchangeable. The needle points to the feather now. You hear a clear chiming sound as the garden's trees and flowers move subtly, obedient to this new season. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn compass], InteractiveFictionGame[put dagger down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 12: Turning the compass to the feather triggered a change in the garden. I should now try to take the comb and see if it's an important item in the game.
+
+Action 12: InteractiveFictionGame[take comb]
+
+Observation 12: Taken. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[put comb down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 13: I have taken the comb. I should now try to interact with the compass further to see if it triggers any more changes in the game.
+
+Action 13: InteractiveFictionGame[turn compass]
+
+Observation 13: You spin the needle, which settles at a random position. If only the seasons of men changed so readily; you could spin them back and change the unchangeable. The needle points to the feather now. You hear a clear chiming sound as the garden's trees and flowers move subtly, obedient to this new season. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[put comb down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 14: Interacting with the compass again didn't trigger any new changes. I should try to explore further by going south or west to see what lies in those directions.
+
+Action 14: InteractiveFictionGame[south]
+
+Observation 14:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 15: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 15: InteractiveFictionGame[north]
+
+Observation 15:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[put comb down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 16: I have returned to the Undying Garden. I should try to interact with the compass again to see if it triggers any new changes in the game.
+
+Action 16: InteractiveFictionGame[turn compass]
+
+Observation 16: You spin the needle, which settles at a random position. A tasseled fan appears upon the compass' surface. The needle points to the crane now. You hear a clear chiming sound as the garden's trees and flowers move subtly, obedient to this new season. Valid actions: InteractiveFictionGame[take tasseled], InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[take other with tasseled], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[push tasseled to compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 17: Interacting with the compass again triggered a new change. I should try to take the tasseled fan and see if it's an important item in the game.
+
+Action 17: InteractiveFictionGame[take tasseled]
+
+Observation 17:
+(the tasseled fan)
+Taken. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 18: I have taken the tasseled fan. I should now try to interact with the compass again to see if it triggers any more changes in the game.
+
+Action 18: InteractiveFictionGame[turn compass]
+
+Observation 18: You spin the needle, which settles at a random position. The needle points to the crane now. You hear a clear chiming sound as the garden's trees and flowers move subtly, obedient to this new season. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 19: Interacting with the compass again didn't trigger any new changes. I should try to explore further by going south or west to see what lies in those directions.
+
+Action 19: InteractiveFictionGame[south]
+
+Observation 19:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[cut blue tassel], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put fan on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 20: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 20: InteractiveFictionGame[west]
+
+Observation 20:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[cut fan], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[hit comb], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 21: I am now in the Silent Symphony room. I should try to explore this area and see if there are any clues or items that could help me progress in the game.
+
+Action 21: InteractiveFictionGame[look in cushions]
+
+Observation 21: Beneath one of the cushions you find an ocarina, as though it had been left by a careless musician. Valid actions: InteractiveFictionGame[cut fan], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put ocarina on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 22: I have found an ocarina under one of the cushions. I should try to interact with the ocarina and see if it triggers anything in the game.
+
+Action 22: InteractiveFictionGame[put ocarina down]
+
+Observation 22: Dropped. Valid actions: InteractiveFictionGame[take ocarina], InteractiveFictionGame[cut fan], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[push ocarina to cushions], InteractiveFictionGame[push ocarina to floor], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 23: I have put the ocarina down. I should now try to explore further by going east or north to see what lies in those directions.
+
+Action 23: InteractiveFictionGame[east]
+
+Observation 23:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[cut blue tassel], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put fan on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 24: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 24: InteractiveFictionGame[north]
+
+Observation 24:
+Undying Garden
+Summer's heady blooms are much in evidence. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 25: I have returned to the Undying Garden. I should try to interact with the compass again to see if it triggers any new changes in the game.
+
+Action 25: InteractiveFictionGame[turn compass]
+
+Observation 25: You spin the needle, which settles at a random position. The needle points to the crane now. You hear a clear chiming sound as the garden's trees and flowers move subtly, obedient to this new season. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 26: Interacting with the compass again triggered a new change. I should try to explore further by going south or west to see what lies in those directions.
+
+Action 26: InteractiveFictionGame[south]
+
+Observation 26:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[cut blue tassel], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put fan on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 27: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 27: InteractiveFictionGame[west]
+
+Observation 27:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light.
+
+You can see a clay ocarina here. Valid actions: InteractiveFictionGame[take ocarina], InteractiveFictionGame[cut fan], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[push ocarina to cushions], InteractiveFictionGame[push ocarina to floor], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 28: I have found a clay ocarina in the Silent Symphony room. I should try to take the ocarina and see if it's an important item in the game.
+
+Action 28: InteractiveFictionGame[take ocarina]
+
+Observation 28: Taken. Valid actions: InteractiveFictionGame[cut fan], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put ocarina on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 29: I have taken the clay ocarina. I should now try to explore further by going east or north to see what lies in those directions.
+
+Action 29: InteractiveFictionGame[east]
+
+Observation 29:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[cut blue tassel], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put ocarina on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put fan on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 30: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 30: InteractiveFictionGame[north]
+
+Observation 30:
+Undying Garden
+Summer's heady blooms are much in evidence. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put ocarina on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 31: I have returned to the Undying Garden. I should try to interact with the compass again to see if it triggers any new changes in the game.
+
+Action 31: InteractiveFictionGame[turn compass]
+
+Observation 31: You spin the needle, which settles at a random position. The needle points to the hawk now. You hear a clear chiming sound as the garden's trees and flowers move subtly, obedient to this new season. Valid actions: InteractiveFictionGame[take leaf], InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[take other with leaf], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put ocarina on compass], InteractiveFictionGame[push leaf to compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 32: Interacting with the compass again triggered a new change. I should try to take the leaf and see if it's an important item in the game.
+
+Action 32: InteractiveFictionGame[take leaf]
+
+Observation 32: Taken. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put ocarina on compass], InteractiveFictionGame[put leaf on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 33: I have taken the leaf. I should now try to interact with the compass again to see if it triggers any new changes in the game.
+
+Action 33: InteractiveFictionGame[turn compass]
+
+Observation 33: You spin the needle, which settles at a random position. The needle points to the crane now. You hear a clear chiming sound as the garden's trees and flowers move subtly, obedient to this new season. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put ocarina on compass], InteractiveFictionGame[put leaf on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 34: Interacting with the compass again didn't trigger any new changes. I should try to explore further by going south or west to see what lies in those directions.
+
+Action 34: InteractiveFictionGame[south]
+
+Observation 34:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[cut blue tassel], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put ocarina on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put fan on stairs], InteractiveFictionGame[put leaf on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 35: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 35: InteractiveFictionGame[west]
+
+Observation 35:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[cut fan], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put maple down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[open maple], InteractiveFictionGame[hit comb], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put ocarina on cushions], InteractiveFictionGame[put maple on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 36: I am now in the Silent Symphony room. I should try to explore this area and see if there are any clues or items that could help me progress in the game.
+
+Action 36: InteractiveFictionGame[open maple]
+
+Observation 36: You now have a sheet of red paper. Valid actions: InteractiveFictionGame[cut fan], InteractiveFictionGame[close sheet], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put sheet down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit comb], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put ocarina on cushions], InteractiveFictionGame[put sheet on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 37: I have obtained a sheet of red paper. I should try to interact with the sheet and see if it triggers anything in the game.
+
+Action 37: InteractiveFictionGame[close sheet]
+
+Observation 37: You now have a folded maple leaf. Valid actions: InteractiveFictionGame[cut fan], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put maple down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[open maple], InteractiveFictionGame[hit comb], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put ocarina on cushions], InteractiveFictionGame[put maple on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 38: I have folded the maple leaf. I should now try to explore further by going east or north to see what lies in those directions.
+
+Action 38: InteractiveFictionGame[east]
+
+Observation 38:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[cut blue tassel], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put ocarina on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put fan on stairs], InteractiveFictionGame[put leaf on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 39: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 39: InteractiveFictionGame[north]
+
+Observation 39:
+Undying Garden
+Summer's heady blooms are much in evidence. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put ocarina on compass], InteractiveFictionGame[put leaf on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 40: I have returned to the Undying Garden. I should try to interact with the compass again to see if it triggers any new changes in the game.
+
+Action 40: InteractiveFictionGame[turn compass]
+
+Observation 40: You spin the needle, which settles at a random position. If only the seasons of men changed so readily; you could spin them back and change the unchangeable. The needle points to the feather now. You hear a clear chiming sound as the garden's trees and flowers move subtly, obedient to this new season. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[cut tasseled], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put ocarina on compass], InteractiveFictionGame[put leaf on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 41: Interacting with the compass again triggered a new change. I should try to explore further by going south or west to see what lies in those directions.
+
+Action 41: InteractiveFictionGame[south]
+
+Observation 41:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[cut blue tassel], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put ocarina on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put fan on stairs], InteractiveFictionGame[put leaf on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 42: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 42: InteractiveFictionGame[west]
+
+Observation 42:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[cut fan], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put maple down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[open maple], InteractiveFictionGame[hit comb], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put ocarina on cushions], InteractiveFictionGame[put maple on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 43: I am now in the Silent Symphony room. I should try to explore this area and see if there are any clues or items that could help me progress in the game.
+
+Action 43: InteractiveFictionGame[cut fan]
+
+Observation 43:
+(the tasseled fan)
+A few neat cuts free some strands from the tassel, and tying them together results in--a kitestring?
+
+For a second there is a dark-eyed boy beside you, whose laugh is yours, but wilder; whose smile is yours, but wider. If only you remembered the augury that you and your brother cast that spring in the kite-flying ritual, years before either of you met the woman who wore black and red and gold... Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put kitestring down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put maple down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[open maple], InteractiveFictionGame[hit comb], InteractiveFictionGame[put kitestring on cushions], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put ocarina on cushions], InteractiveFictionGame[put maple on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 44: I have obtained a kitestring from cutting the fan. I should try to interact with the kitestring and see if it triggers anything in the game.
+
+Action 44: InteractiveFictionGame[put kitestring down]
+
+Observation 44: Dropped. Valid actions: InteractiveFictionGame[take kitestring], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put maple down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[open maple], InteractiveFictionGame[hit comb], InteractiveFictionGame[push kitestring to cushions], InteractiveFictionGame[push kitestring to floor], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put ocarina on cushions], InteractiveFictionGame[put maple on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 45: I have put the kitestring down. I should now try to explore further by going east or north to see what lies in those directions.
+
+Action 45: InteractiveFictionGame[east]
+
+Observation 45:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put ocarina on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put fan on stairs], InteractiveFictionGame[put leaf on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 46: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 46: InteractiveFictionGame[north]
+
+Observation 46:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to swallow], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put ocarina on compass], InteractiveFictionGame[put leaf on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 47: I have returned to the Undying Garden. I should try to interact with the compass again to see if it triggers any new changes in the game.
+
+Action 47: InteractiveFictionGame[turn compass]
+
+Observation 47: You spin the needle, which settles at a random position. If only the seasons of men changed so readily; you could spin them back and change the unchangeable. The needle points to the feather now. You hear a clear chiming sound as the garden's trees and flowers move subtly, obedient to this new season. Valid actions: InteractiveFictionGame[turn compass], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put tasseled down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn compass to hawk], InteractiveFictionGame[turn compass to crane], InteractiveFictionGame[turn compass to feather], InteractiveFictionGame[put dagger on compass], InteractiveFictionGame[put comb on compass], InteractiveFictionGame[put ocarina on compass], InteractiveFictionGame[put leaf on compass], InteractiveFictionGame[put tasseled on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 48: Interacting with the compass again triggered a new change. I should try to explore further by going south or west to see what lies in those directions.
+
+Action 48: InteractiveFictionGame[south]
+
+Observation 48:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[get in stairs], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put leaf down], InteractiveFictionGame[put all down], InteractiveFictionGame[open leaf], InteractiveFictionGame[hit comb], InteractiveFictionGame[put comb on stairs], InteractiveFictionGame[put ocarina on stairs], InteractiveFictionGame[put dagger on stairs], InteractiveFictionGame[put fan on stairs], InteractiveFictionGame[put leaf on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 49: I have returned to the Shadow Armory. I should try to explore further by going north or west to see if there are any new areas to discover.
+
+Action 49: InteractiveFictionGame[west]
+
+Observation 49:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light.
+
+You can see a kitestring here. Valid actions: InteractiveFictionGame[take kitestring], InteractiveFictionGame[get in cushions], InteractiveFictionGame[east], InteractiveFictionGame[north], InteractiveFictionGame[put dagger down], InteractiveFictionGame[put comb down], InteractiveFictionGame[put ocarina down], InteractiveFictionGame[put maple down], InteractiveFictionGame[put fan down], InteractiveFictionGame[put all down], InteractiveFictionGame[open maple], InteractiveFictionGame[hit comb], InteractiveFictionGame[push kitestring to cushions], InteractiveFictionGame[push kitestring to floor], InteractiveFictionGame[put dagger on cushions], InteractiveFictionGame[put comb on cushions], InteractiveFictionGame[put ocarina on cushions], InteractiveFictionGame[put maple on cushions], InteractiveFictionGame[put fan on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 50:[[ I have found a kitestring in the Silent Symphony room. I should try to take the kitestring and see if it's an important item in the game.
+
+Action 50: InteractiveFictionGame[take kitestring]]]
+
+
+
+

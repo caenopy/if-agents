@@ -1,0 +1,358 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[examine tree], InteractiveFictionGame[east]
+
+Thought 2: I should examine the tree to see if there's anything of interest there.
+
+Action 2: InteractiveFictionGame[examine tree]
+
+Observation 2: There is a snorkel hanging from the tree.  You take it. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put on snorkel]
+
+Thought 3: I should put on the snorkel since I might need it later in the game.
+
+Action 3: InteractiveFictionGame[put on snorkel]
+
+Observation 3: You put on the snorkel. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put snorkel down]
+
+Thought 4: I should continue exploring to see where the snorkel might come in handy.
+
+Action 4: InteractiveFictionGame[east]
+
+Observation 4:
+Small Path
+The path branches here.  There are paths to the west and south that continue into the forest.  The path to the east appears to lead into some rather rocky territory. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put snorkel down]
+
+Thought 5: I should explore the rocky territory to see if there are any obstacles I can overcome with the snorkel.
+
+Action 5: InteractiveFictionGame[east]
+
+Observation 5:
+Canyon Entrance
+This is the entrance to a canyon formed by an ancient river.  The canyon is to the east.  There is a sandy path to the northwest that seems to lead to a beach.  There is a path leading into a forest to the west. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[put snorkel down]
+
+Thought 6: I should head northwest towards the beach to see if the snorkel will be useful there.
+
+Action 6: InteractiveFictionGame[get in northwest]
+
+Observation 6:
+Endless Beach
+This is a beach that seems to stretch on forever to the east and west.  There is nothing particularly notable about the beach, except that it has white sand.  The ocean is to the north.  You see an island on the horizon.  There is a path winding across the dunes to the southeast. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[get in southeast], InteractiveFictionGame[north], InteractiveFictionGame[put snorkel down]
+
+Thought 7: I should examine the west to see if there's anything of interest there that the snorkel could help with.
+
+Action 7: InteractiveFictionGame[examine west]
+
+Observation 7: You see nothing special about the west wall. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[get in southeast], InteractiveFictionGame[north], InteractiveFictionGame[put snorkel down]
+
+Thought 8: I should head southeast to see where the path leads and if the snorkel will be useful there.
+
+Action 8: InteractiveFictionGame[get in southeast]
+
+Observation 8: Canyon Entrance Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[put snorkel down]
+
+Thought 9: I should go back to the Canyon Entrance and explore the other paths to see where the snorkel might be useful.
+
+Action 9: InteractiveFictionGame[west]
+
+Observation 9: Small Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put snorkel down]
+
+Thought 10: I should explore the path to the south to see if there are any obstacles I can overcome with the snorkel.
+
+Action 10: InteractiveFictionGame[south]
+
+Observation 10:
+Fork in Path
+This path forks to the southwest and southeast. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southeast], InteractiveFictionGame[get in southwest], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[north]
+
+Thought 11: I should head southeast to see where that path leads and if the snorkel will be useful there.
+
+Action 11: InteractiveFictionGame[get in southeast]
+
+Observation 11:
+End of Path
+This appears to be the end of the path.  There is an exit to the northwest.
+
+You can see a raincoat (which is closed) here. Valid actions: InteractiveFictionGame[take raincoat], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 12: I should take the raincoat since it might be useful later in the game.
+
+Action 12: InteractiveFictionGame[take raincoat]
+
+Observation 12: Taken. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 13: I should continue exploring to see where the snorkel and raincoat might come in handy.
+
+Action 13: InteractiveFictionGame[get in northwest]
+
+Observation 13: Fork in Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 14: I should explore the path to the southwest to see if there are any obstacles I can overcome with the snorkel and raincoat.
+
+Action 14: InteractiveFictionGame[get in southwest]
+
+Observation 14:
+End of Path
+This appears to be the end of the path.  There is an exit to the northeast.
+
+You can see a match here. Valid actions: InteractiveFictionGame[take match], InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 15: I should take the match since it could be useful for lighting something later in the game.
+
+Action 15: InteractiveFictionGame[take match]
+
+Observation 15: Taken. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 16: I should continue exploring to see where the match, snorkel, and raincoat might come in handy.
+
+Action 16: InteractiveFictionGame[get in northeast]
+
+Observation 16: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 17: I should head north to see where that path leads and if the items I have collected will be useful there.
+
+Action 17: InteractiveFictionGame[north]
+
+Observation 17: Small Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 18: I should explore the path to the west to see where it leads and if the items I have collected will be useful there.
+
+Action 18: InteractiveFictionGame[west]
+
+Observation 18:
+Large Clearing
+
+You can see a tree here. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 19: I should examine the tree to see if there's anything of interest there that the items I have collected could help with.
+
+Action 19: InteractiveFictionGame[examine tree]
+
+Observation 19: You see nothing special about the tree. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 20: I should head back east to explore the other paths and see where the items I have collected might be useful.
+
+Action 20: InteractiveFictionGame[east]
+
+Observation 20: Small Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 21: I should explore the path to the south to see where it leads and if the items I have collected will be useful there.
+
+Action 21: InteractiveFictionGame[south]
+
+Observation 21: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 22: I should head southeast to see where that path leads and if the items I have collected will be useful there.
+
+Action 22: InteractiveFictionGame[get in southeast]
+
+Observation 22: End of Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 23: I should go back to the Fork in Path and explore the other path to see where the items I have collected might be useful.
+
+Action 23: InteractiveFictionGame[get in southwest]
+
+Observation 23: You can't go that way. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 24: I should go back to the Fork in Path and explore the other path to the northwest to see where the items I have collected might be useful.
+
+Action 24: InteractiveFictionGame[get in northwest]
+
+Observation 24: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 25: I should head north to see where that path leads and if the items I have collected will be useful there.
+
+Action 25: InteractiveFictionGame[north]
+
+Observation 25: Small Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 26: I should explore the path to the west to see where it leads and if the items I have collected will be useful there.
+
+Action 26: InteractiveFictionGame[west]
+
+Observation 26:
+Large Clearing
+
+You can see a tree here. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 27: I should examine the tree to see if there's anything of interest there that the items I have collected could help with.
+
+Action 27: InteractiveFictionGame[examine tree]
+
+Observation 27: You see nothing special about the tree. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 28: I should head back east to explore the other paths and see where the items I have collected might be useful.
+
+Action 28: InteractiveFictionGame[east]
+
+Observation 28: Small Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 29: I should explore the path to the south to see where it leads and if the items I have collected will be useful there.
+
+Action 29: InteractiveFictionGame[south]
+
+Observation 29: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 30: I should head southeast to see where that path leads and if the items I have collected will be useful there.
+
+Action 30: InteractiveFictionGame[get in southeast]
+
+Observation 30: End of Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 31: I should go back to the Fork in Path and explore the other path to the northwest to see where the items I have collected might be useful.
+
+Action 31: InteractiveFictionGame[get in northwest]
+
+Observation 31: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 32: I should head north to see where that path leads and if the items I have collected will be useful there.
+
+Action 32: InteractiveFictionGame[north]
+
+Observation 32: Small Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 33: I should explore the path to the west to see where it leads and if the items I have collected will be useful there.
+
+Action 33: InteractiveFictionGame[west]
+
+Observation 33:
+Large Clearing
+
+You can see a tree here. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 34: I should examine the tree to see if there's anything of interest there that the items I have collected could help with.
+
+Action 34: InteractiveFictionGame[examine tree]
+
+Observation 34: You see nothing special about the tree. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 35: I should head back east to explore the other paths and see where the items I have collected might be useful.
+
+Action 35: InteractiveFictionGame[east]
+
+Observation 35: Small Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 36: I should explore the path to the south to see where it leads and if the items I have collected will be useful there.
+
+Action 36: InteractiveFictionGame[south]
+
+Observation 36: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 37: I should head southeast to see where that path leads and if the items I have collected will be useful there.
+
+Action 37: InteractiveFictionGame[get in southeast]
+
+Observation 37: End of Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 38: I should go back to the Fork in Path and explore the other path to the northwest to see where the items I have collected might be useful.
+
+Action 38: InteractiveFictionGame[get in northwest]
+
+Observation 38: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 39: I should head north to see where that path leads and if the items I have collected will be useful there.
+
+Action 39: InteractiveFictionGame[north]
+
+Observation 39: Small Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 40: I should explore the path to the west to see where it leads and if the items I have collected will be useful there.
+
+Action 40: InteractiveFictionGame[west]
+
+Observation 40:
+Large Clearing
+
+You can see a tree here. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 41: I should examine the tree to see if there's anything of interest there that the items I have collected could help with.
+
+Action 41: InteractiveFictionGame[examine tree]
+
+Observation 41: You see nothing special about the tree. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 42: I have explored all the paths and examined all the items I have collected. I should now head back to the starting point and see if there's anything new I can discover with the items I have collected.
+
+Action 42: InteractiveFictionGame[west]
+
+Observation 42: You can't go that way. Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 43: I should head back east to explore the other paths and see if there's anything new I can discover with the items I have collected.
+
+Action 43: InteractiveFictionGame[east]
+
+Observation 43: Small Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 44: I should explore the path to the south to see if there's anything new I can discover with the items I have collected.
+
+Action 44: InteractiveFictionGame[south]
+
+Observation 44: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 45: I should head southeast to see if there's anything new I can discover with the items I have collected.
+
+Action 45: InteractiveFictionGame[get in southeast]
+
+Observation 45: End of Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 46: I have explored all the paths and examined all the items I have collected. I should head back to the starting point and see if there's anything new I can discover with the items I have collected.
+
+Action 46: InteractiveFictionGame[get in northwest]
+
+Observation 46: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 47: I should head north to see if there's anything new I can discover with the items I have collected.
+
+Action 47: InteractiveFictionGame[north]
+
+Observation 47: Small Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[south], InteractiveFictionGame[put match down], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 48: I have explored all the paths and examined all the items I have collected. I should now head back to the starting point and see if there's anything new I can discover with the items I have collected.
+
+Action 48: InteractiveFictionGame[south]
+
+Observation 48: Fork in Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in southwest], InteractiveFictionGame[get in southeast], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat], InteractiveFictionGame[north]
+
+Thought 49: I should head southeast to see if there's anything new I can discover with the items I have collected.
+
+Action 49: InteractiveFictionGame[get in southeast]
+
+Observation 49: End of Path Valid actions: InteractiveFictionGame[light match], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[get in northwest], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put match down], InteractiveFictionGame[put raincoat down], InteractiveFictionGame[put all down], InteractiveFictionGame[put on raincoat], InteractiveFictionGame[open raincoat]
+
+Thought 50:[[ I have explored all the paths and examined all the items I have collected. I should now head back to the starting point and see if there's anything new I can discover with the items I have collected.
+
+Action 50: InteractiveFictionGame[get in northwest]]]
+
+
+
+

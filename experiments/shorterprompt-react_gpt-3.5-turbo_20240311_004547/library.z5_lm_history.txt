@@ -1,0 +1,439 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[give card id]
+
+Thought 2: I should try to examine the door to see if there are any clues or ways to open it.
+
+Action 2: InteractiveFictionGame[examine door]
+
+Observation 2: The sign on the northern door says "Private" in large friendly letters, the same kind of lettering which is usually seen on signs saying "Attack-Trained Rottweilers Patrolling Premises After Business Hours". Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[give card id]
+
+Thought 3: I should try to find a way to open the drawer to see if there are any items inside that could be useful.
+
+Action 3: InteractiveFictionGame[open drawer]
+
+Observation 3: You pull on one of the brass handles, and the attached drawer comes out with a piercing squeal. You hardly notice the noise, however, because you're too busy coughing from the cloud of dust this action stirs up. When your eyes finally stop watering, the drawer is open, exposing a series of small, yellowed bits of paper. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[put card in drawer], InteractiveFictionGame[give card id]
+
+Thought 4: I should examine the small, yellowed bits of paper to see if they contain any useful information or clues.
+
+Action 4: InteractiveFictionGame[examine bits of paper]
+
+Observation 4: You peer at the yellowed surface in confusion. These aren't normal index cards, they're parchment. Not only that, but you don't recognize the language they're written in!  Looks like this isn't going to be much help at all. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[put card in drawer], InteractiveFictionGame[give card id]
+
+Thought 5: I should try to put the card in the drawer to see if it triggers anything or reveals any hidden compartments.
+
+Action 5: InteractiveFictionGame[put card in drawer]
+
+Observation 5:
+(the ID card in the card catalog drawer)
+You put the ID card into the card catalog drawer. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[take ID card], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[take all off drawer], InteractiveFictionGame[give card ID card]
+
+Thought 6: I should try to take the ID card back and see if it's needed elsewhere in the game.
+
+Action 6: InteractiveFictionGame[take ID card]
+
+Observation 6: Taken. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[put card in drawer], InteractiveFictionGame[give card id]
+
+Thought 7: I should try to explore other areas of the game to see if there are any clues or items that could help me progress further.
+
+Action 7: InteractiveFictionGame[west]
+
+Observation 7:
+You push the glass doors open. Their hydraulics hiss faintly.
+
+Ground Floor Stacks
+This cavernous room is lit with flickering flourescent lighting which makes the ceiling look even lower than it really is. It is filled with half-empty shelves, upon which rest the dusty boxes of many early games. To one side sits a massive, ancient desk, its surface cluttered with paperwork. A sign on the wall indicates that this is the reference desk, which would make the prim young woman sitting behind it the reference librarian. A doorway to the north is labelled "Stairs", and glass doors lead east to the lobby.
+
+You can see a reference librarian here. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[xyzzy], InteractiveFictionGame[north], InteractiveFictionGame[put card down]
+
+Thought 8: I should try talking to the reference librarian to see if they have any information or items that could help me progress in the game.
+
+Action 8: InteractiveFictionGame[talk to reference librarian]
+
+Observation 8: That's not a verb I recognise. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[xyzzy], InteractiveFictionGame[north], InteractiveFictionGame[put card down]
+
+Thought 9: I should try to go north through the doorway labeled "Stairs" to see what's on the next floor.
+
+Action 9: InteractiveFictionGame[north]
+
+Observation 9:
+Ground Floor Stairwell
+Grungy stairs lead upwards, to the second level. A damaged picture hangs on the wall. The door to the ground floor shelving area is to the south. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put card down], InteractiveFictionGame[look under stairs], InteractiveFictionGame[up]
+
+Thought 10: I should try to look under the stairs to see if there are any hidden items or clues that could help me progress in the game.
+
+Action 10: InteractiveFictionGame[look under stairs]
+
+Observation 10:
+You found a red herring!
+
+[Your score has just gone up by one point.] Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put card down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put all down], InteractiveFictionGame[up]
+
+Thought 11: I should try to go back down to the ground floor and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 11: InteractiveFictionGame[south]
+
+Observation 11:
+Ground Floor Stacks
+This cavernous room is lit with flickering flourescent lighting which makes the ceiling look even lower than it really is. It is filled with half-empty shelves, upon which rest the dusty boxes of many early games. To one side sits a massive, ancient desk, its surface cluttered with paperwork. A sign on the wall indicates that this is the reference desk, which would make the prim young woman sitting behind it the reference librarian. A doorway to the north is labelled "Stairs", and glass doors lead east to the lobby.
+
+You can see a reference librarian here. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[xyzzy], InteractiveFictionGame[north], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 12: I should try talking to the reference librarian again to see if they have any new information or items that could help me progress in the game.
+
+Action 12: InteractiveFictionGame[talk to reference librarian]
+
+Observation 12: That's not a verb I recognise. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[xyzzy], InteractiveFictionGame[north], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 13: I should try going east through the glass doors to the lobby to see if there are any more clues or items that could help me progress further.
+
+Action 13: InteractiveFictionGame[east]
+
+Observation 13:
+Lobby
+This is the entrance to the library. The circulation desk dominates the room, seemingly cobbled together over the course of several generations from an assortment of desks and tables. A pair of security gates stands before the front doors to prevent people from stealing books. A card catalog lurks in a dark and dusty corner of the room, seemingly cringing away from the harsh flourescent light. Glass doors to the west lead to the book stacks; an archway to the northwest is labelled "Duplicating Services"; a door to the north bears a sign marked "Private" in large friendly letters; and the exit is to the east
+
+You can see a circulation desk attendant here. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put all down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[put herring in drawer], InteractiveFictionGame[put card in drawer], InteractiveFictionGame[put all in drawer], InteractiveFictionGame[give card id]
+
+Thought 14: I should try to examine the door labeled "Private" to see if there are any clues or items that could help me progress further.
+
+Action 14: InteractiveFictionGame[examine door]
+
+Observation 14: The sign on the northern door says "Private" in large friendly letters, the same kind of lettering which is usually seen on signs saying "Attack-Trained Rottweilers Patrolling Premises After Business Hours". Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put all down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[put herring in drawer], InteractiveFictionGame[put card in drawer], InteractiveFictionGame[put all in drawer], InteractiveFictionGame[give card id]
+
+Thought 15: I should try to find a way to open the drawer to see if there are any items inside that could be useful.
+
+Action 15: InteractiveFictionGame[open drawer]
+
+Observation 15: You pull on one of the brass handles, and the attached drawer comes out with a piercing squeal. You hardly notice the noise, however, because you're too busy coughing from the cloud of dust this action stirs up. When your eyes finally stop watering, the drawer is open, exposing a series of small, yellowed bits of paper. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put all down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[put herring in drawer], InteractiveFictionGame[put card in drawer], InteractiveFictionGame[put all in drawer], InteractiveFictionGame[give card id]
+
+Thought 16: I should try to examine the small, yellowed bits of paper to see if they contain any useful information or clues.
+
+Action 16: InteractiveFictionGame[examine bits of paper]
+
+Observation 16: You peer at the yellowed surface in confusion. These aren't normal index cards, they're parchment. Not only that, but you don't recognize the language they're written in!  Looks like this isn't going to be much help at all. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put all down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[put herring in drawer], InteractiveFictionGame[put card in drawer], InteractiveFictionGame[put all in drawer], InteractiveFictionGame[give card id]
+
+Thought 17: I should try to put the herring in the drawer to see if it triggers anything or reveals any hidden compartments.
+
+Action 17: InteractiveFictionGame[put herring in drawer]
+
+Observation 17: You put the red herring into the card catalog drawer. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[take herring], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[take all off drawer], InteractiveFictionGame[put card in drawer], InteractiveFictionGame[give card id]
+
+Thought 18: I should try to take the red herring back and see if it's needed elsewhere in the game.
+
+Action 18: InteractiveFictionGame[take herring]
+
+Observation 18: Taken. Valid actions: InteractiveFictionGame[xyzzy], InteractiveFictionGame[close drawer], InteractiveFictionGame[take into northwest], InteractiveFictionGame[west], InteractiveFictionGame[put card down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put all down], InteractiveFictionGame[examine door], InteractiveFictionGame[open drawer], InteractiveFictionGame[take of off drawer], InteractiveFictionGame[put herring in drawer], InteractiveFictionGame[put card in drawer], InteractiveFictionGame[put all in drawer], InteractiveFictionGame[give card id]
+
+Thought 19: I should try to explore other areas of the game to see if there are any more clues or items that could help me progress further.
+
+Action 19: InteractiveFictionGame[west]
+
+Observation 19:
+You push the glass doors open. Their hydraulics hiss faintly.
+
+Ground Floor Stacks
+This cavernous room is lit with flickering flourescent lighting which makes the ceiling look even lower than it really is. It is filled with half-empty shelves, upon which rest the dusty boxes of many early games. To one side sits a massive, ancient desk, its surface cluttered with paperwork. A sign on the wall indicates that this is the reference desk, which would make the prim young woman sitting behind it the reference librarian. A doorway to the north is labelled "Stairs", and glass doors lead east to the lobby.
+
+You can see a reference librarian here. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[xyzzy], InteractiveFictionGame[north], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 20: I should try talking to the reference librarian to see if they have any information or items that could help me progress in the game.
+
+Action 20: InteractiveFictionGame[talk to reference librarian]
+
+Observation 20: That's not a verb I recognise. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[xyzzy], InteractiveFictionGame[north], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 21: I should try going north through the doorway labeled "Stairs" to see what's on the next floor.
+
+Action 21: InteractiveFictionGame[north]
+
+Observation 21:
+Ground Floor Stairwell
+Grungy stairs lead upwards, to the second level. A damaged picture hangs on the wall. The door to the ground floor shelving area is to the south. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put card down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put all down], InteractiveFictionGame[up]
+
+Thought 22: I should try going up the stairs to the second level to see what's there.
+
+Action 22: InteractiveFictionGame[up]
+
+Observation 22:
+Second Floor Stairwell
+Grungy stairs lead downwards. The lights are dim, and a painting hangs on the wall. A door to the south appears to open into a room of shelves. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[give painting herring], InteractiveFictionGame[take into floor], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 23: I should try to go south through the door to see what's in the room of shelves on the second floor.
+
+Action 23: InteractiveFictionGame[south]
+
+Observation 23:
+Second Floor Stacks
+You are in a maze of twisty shelves, all alike.
+
+(Well, okay, not really)
+
+This cavernous room is filled with shelves as far as the eye can see. A doorway to the east is labelled "Computer Room", and the stairwell lies to the north.
+
+A heavy wooden door bars the way to the rare books room. A sign indicates that the key may be obtained from the circulation desk. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in books], InteractiveFictionGame[open door with herring]
+
+Thought 24: I should try to look in the books to see if there are any clues or items hidden among them.
+
+Action 24: InteractiveFictionGame[look in books]
+
+Observation 24:
+Tucked away in a corner, you find the novel "Debt of Honor", by Tom Clancy. Someone must've lost it!
+
+[Your score has just gone up by five points.] Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 25: I should try to take the novel "Debt of Honor" with me as it may be useful later in the game.
+
+Action 25: InteractiveFictionGame[take copy]
+
+Observation 25: You already have that. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 26: I should try to open the door to the rare books room with the herring to see if it unlocks anything inside.
+
+Action 26: InteractiveFictionGame[open door with herring]
+
+Observation 26: That doesn't seem to fit the lock. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 27: I should try to go back to the ground floor and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 27: InteractiveFictionGame[north]
+
+Observation 27:
+Second Floor Stairwell
+Grungy stairs lead downwards. The lights are dim, and a painting hangs on the wall. A door to the south appears to open into a room of shelves. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[give painting herring], InteractiveFictionGame[take into floor], InteractiveFictionGame[put debt down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 28: I should try to go back down to the ground floor and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 28: InteractiveFictionGame[south]
+
+Observation 28:
+Second Floor Stacks
+This cavernous room is filled with shelves as far as the eye can see. A doorway to the east is labelled "Computer Room", and the stairwell lies to the north.
+
+A heavy wooden door bars the way to the rare books room. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 29: I should try to go east into the Computer Room to see if there are any clues or items that could help me progress further.
+
+Action 29: InteractiveFictionGame[east]
+
+Observation 29:
+Computer Lab
+This entire room hums with the combined output of several dozen computers. All of them are hopelessly out of date, but at least they're still good for word processing.
+
+A bank of printers on one side of the room frantically churns out paper.
+
+You can see a technician here. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[examine manual]
+
+Thought 30: I should try to examine the manual to see if there are any clues or information that could help me progress further in the game.
+
+Action 30: InteractiveFictionGame[examine manual]
+
+Observation 30:
+This is a very complicated and technical manual. Hmmmm, maybe you'd understand it better if you had concentrated on hardware instead of software. Quite frankly, the circuit diagrams and instructions are incomprehensible. Better leave that sort of work to a professional!
+
+On the other hand, it would make a nice door stop. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 31: I should try to go back to the Second Floor Stacks and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 31: InteractiveFictionGame[west]
+
+Observation 31:
+Second Floor Stacks
+This cavernous room is filled with shelves as far as the eye can see. A doorway to the east is labelled "Computer Room", and the stairwell lies to the north.
+
+A heavy wooden door bars the way to the rare books room. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 32: I should try to open the door to the rare books room with the herring to see if it unlocks anything inside.
+
+Action 32: InteractiveFictionGame[open door with herring]
+
+Observation 32: That doesn't seem to fit the lock. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 33: I should try to go back to the ground floor and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 33: InteractiveFictionGame[north]
+
+Observation 33:
+Second Floor Stairwell
+Grungy stairs lead downwards. The lights are dim, and a painting hangs on the wall. A door to the south appears to open into a room of shelves. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[give painting herring], InteractiveFictionGame[take into floor], InteractiveFictionGame[put debt down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 34: I should try going back down to the ground floor and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 34: InteractiveFictionGame[south]
+
+Observation 34:
+Second Floor Stacks
+This cavernous room is filled with shelves as far as the eye can see. A doorway to the east is labelled "Computer Room", and the stairwell lies to the north.
+
+A heavy wooden door bars the way to the rare books room. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 35: I should try to go east into the Computer Room to see if there are any clues or items that could help me progress further.
+
+Action 35: InteractiveFictionGame[east]
+
+Observation 35:
+Computer Lab
+This entire room hums with the combined output of several dozen computers. All of them are hopelessly out of date, but at least they're still good for word processing.
+
+A bank of printers on one side of the room frantically churns out paper.
+
+You can see a technician here. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 36: I should try talking to the technician to see if they have any information or items that could help me progress in the game.
+
+Action 36: InteractiveFictionGame[talk to technician]
+
+Observation 36: That's not a verb I recognise. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 37: I should try going back to the Second Floor Stacks and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 37: InteractiveFictionGame[west]
+
+Observation 37:
+Second Floor Stacks
+This cavernous room is filled with shelves as far as the eye can see. A doorway to the east is labelled "Computer Room", and the stairwell lies to the north.
+
+A heavy wooden door bars the way to the rare books room. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 38: I should try to open the door to the rare books room with the herring to see if it unlocks anything inside.
+
+Action 38: InteractiveFictionGame[open door with herring]
+
+Observation 38: That doesn't seem to fit the lock. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 39: I should try to go back to the ground floor and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 39: InteractiveFictionGame[north]
+
+Observation 39:
+Second Floor Stairwell
+Grungy stairs lead downwards. The lights are dim, and a painting hangs on the wall. A door to the south appears to open into a room of shelves. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[give painting herring], InteractiveFictionGame[take into floor], InteractiveFictionGame[put debt down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 40: I should try going back down to the ground floor and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 40: InteractiveFictionGame[south]
+
+Observation 40:
+Second Floor Stacks
+This cavernous room is filled with shelves as far as the eye can see. A doorway to the east is labelled "Computer Room", and the stairwell lies to the north.
+
+A heavy wooden door bars the way to the rare books room. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 41: I should try to go east into the Computer Room to see if there are any clues or items that could help me progress further.
+
+Action 41: InteractiveFictionGame[east]
+
+Observation 41:
+Computer Lab
+This entire room hums with the combined output of several dozen computers. All of them are hopelessly out of date, but at least they're still good for word processing.
+
+A bank of printers on one side of the room frantically churns out paper.
+
+You can see a technician here. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 42: I should try talking to the technician to see if they have any information or items that could help me progress in the game.
+
+Action 42: InteractiveFictionGame[talk to technician]
+
+Observation 42: That's not a verb I recognise. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 43: I should try going back to the Second Floor Stacks and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 43: InteractiveFictionGame[west]
+
+Observation 43:
+Second Floor Stacks
+This cavernous room is filled with shelves as far as the eye can see. A doorway to the east is labelled "Computer Room", and the stairwell lies to the north.
+
+A heavy wooden door bars the way to the rare books room. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 44: I should try to open the door to the rare books room with the herring to see if it unlocks anything inside.
+
+Action 44: InteractiveFictionGame[open door with herring]
+
+Observation 44: That doesn't seem to fit the lock. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 45: I should try to go back to the ground floor and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 45: InteractiveFictionGame[north]
+
+Observation 45:
+Second Floor Stairwell
+Grungy stairs lead downwards. The lights are dim, and a painting hangs on the wall. A door to the south appears to open into a room of shelves. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[give painting herring], InteractiveFictionGame[take into floor], InteractiveFictionGame[put debt down], InteractiveFictionGame[put herring down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 46: I should try going back down to the ground floor and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 46: InteractiveFictionGame[south]
+
+Observation 46:
+Second Floor Stacks
+This cavernous room is filled with shelves as far as the eye can see. A doorway to the east is labelled "Computer Room", and the stairwell lies to the north.
+
+A heavy wooden door bars the way to the rare books room. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 47: I should try to go east into the Computer Room to see if there are any clues or items that could help me progress further.
+
+Action 47: InteractiveFictionGame[east]
+
+Observation 47:
+Computer Lab
+This entire room hums with the combined output of several dozen computers. All of them are hopelessly out of date, but at least they're still good for word processing.
+
+A bank of printers on one side of the room frantically churns out paper.
+
+You can see a technician here. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 48: I should try talking to the technician to see if they have any information or items that could help me progress in the game.
+
+Action 48: InteractiveFictionGame[talk to technician]
+
+Observation 48: That's not a verb I recognise. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[xyzzy], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down]
+
+Thought 49: I should try going back to the Second Floor Stacks and explore other areas to see if there are any more clues or items that could help me progress further.
+
+Action 49: InteractiveFictionGame[west]
+
+Observation 49:
+Second Floor Stacks
+This cavernous room is filled with shelves as far as the eye can see. A doorway to the east is labelled "Computer Room", and the stairwell lies to the north.
+
+A heavy wooden door bars the way to the rare books room. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[xyzzy], InteractiveFictionGame[east], InteractiveFictionGame[put herring down], InteractiveFictionGame[put copy down], InteractiveFictionGame[put card down], InteractiveFictionGame[put all down], InteractiveFictionGame[open door with herring]
+
+Thought 50:[[ I should try to open the door to the rare books room with the herring to see if it unlocks anything inside.
+
+Action 50: InteractiveFictionGame[open door with herring]]]
+
+
+
+

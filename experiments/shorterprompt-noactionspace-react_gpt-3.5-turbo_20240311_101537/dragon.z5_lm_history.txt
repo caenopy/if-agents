@@ -1,0 +1,201 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look.
+
+Thought 2: I need to be more specific in my actions. Let's try looking around in a specific direction or at a specific object.
+
+Action 2: InteractiveFictionGame[Look north]
+
+Observation 2: I only understood you as far as wanting to look.
+
+Thought 3: I should try a different approach. Maybe I can try to move to a different location first.
+
+Action 3: InteractiveFictionGame[Go east]
+
+Observation 3:
+Rocky Mountains
+It is a clear, bright morning and all seems peaceful. A tiny sparrowhawk wheels and soars lazily in the cool empty air above. There is a steep pathway to the south leading down into dense woodland, and you can make out an old building by the path. In the distance you can just glimpse the steel-grey of the sea, far away to the west. 
+
+You can go north, south, east or west.
+
+Thought 4: I should explore the old building by the path and see if there are any items or clues inside that could help me progress in the game.
+
+Action 4: InteractiveFictionGame[Go south]
+
+Observation 4:
+Abandoned Inn
+An old, thatched building stands near the path. It seems to be an abandoned inn or tavern, as a faded sign reads 'Troll's Arms'. The walls are a dirty white and the paintwork is starting to peel and blister. The windows are covered in cobwebs and there is the faint odour of mildew and decay. Weeds grow between the flagstones of the path leading up to the door, which leans open. No-one seems to have lived here for years. A path leads north into the mountains and there seems to be some swampy ground to the west. 
+
+You can go north (to the mountains), west (towards a swamp) or east (into the inn).
+
+Thought 5: I should enter the abandoned inn and search for any useful items or clues that could help me progress in the game.
+
+Action 5: InteractiveFictionGame[Go east]
+
+Observation 5:
+Inside the Inn
+There are a few patches of mould on the walls and the floorboards creak slightly, but the building seems safe enough. As you move you disturb a thin layer of dust. There are some stone steps leading down, and an open doorway to the outside to the west. You see some tables and chairs. There is a dark, intricately-carved wooden chair in the corner behind you. 
+
+You can go west (back outside) or down some steps.
+
+You can see a magnificently carved chair here.
+
+Thought 6: I should search the magnificently carved chair for any hidden compartments or items that could be useful in the game.
+
+Action 6: InteractiveFictionGame[Search the carved chair]
+
+Observation 6: There is nothing on the magnificently carved chair.
+
+Thought 7: I should continue exploring the inn and see if there are any other areas or items that could be helpful.
+
+Action 7: InteractiveFictionGame[Go down the steps]
+
+Observation 7: I only understood you as far as wanting to go the floor.
+
+Thought 8: I should try to be more specific in my actions. Let's try going down the steps instead.
+
+Action 8: InteractiveFictionGame[Go down the steps]
+
+Observation 8: I only understood you as far as wanting to go the floor.
+
+Thought 9: I should try a different approach. Maybe I can try going back outside and exploring the surroundings further.
+
+Action 9: InteractiveFictionGame[Go west]
+
+Observation 9:
+Abandoned Inn
+An old, thatched building stands near the path. It seems to be an abandoned inn or tavern, as a faded sign reads 'Troll's Arms'. The walls are a dirty white and the paintwork is starting to peel and blister. The windows are covered in cobwebs and there is the faint odour of mildew and decay. Weeds grow between the flagstones of the path leading up to the door, which leans open. No-one seems to have lived here for years. A path leads north into the mountains and there seems to be some swampy ground to the west. 
+
+You can go north (to the mountains), west (towards a swamp) or east (into the inn).
+
+Thought 10: I should explore the swampy ground to the west and see if there are any items or clues that could help me progress in the game.
+
+Action 10: InteractiveFictionGame[Go west]
+
+Observation 10:
+Swampy Ground
+Water seeps around the soles of your boots and fills your recent footprints. You can hear the croaking of frogs and the occasional bubble of marsh-gas coming to the surface. There is an abandoned inn to the east, and a path leads south into the forest. To the west there seems to be a little country road. 
+
+You can go south (along a forest path), east (towards an inn) or west (towards a road).
+
+A little man comes up to you and asks if you want to buy a box.
+You can see a little man and a large cardboard box here.
+
+Thought 11: I should talk to the little man and see what he has to offer. Maybe the box contains something useful for my journey.
+
+Action 11: InteractiveFictionGame[Talk to the little man]
+
+Observation 11: That's not a verb I recognise.
+
+Thought 12: I should try a different approach. Let's try to interact with the little man and see what he has to offer.
+
+Action 12: InteractiveFictionGame[Buy the box]
+
+Observation 12: You have no money...
+
+Thought 13: I should try to find a way to get some money so I can buy the box from the little man.
+
+Action 13: InteractiveFictionGame[Go east]
+
+Observation 13:
+Abandoned Inn
+An old, thatched building stands near the path. It seems to be an abandoned inn or tavern, as a faded sign reads 'Troll's Arms'. The walls are a dirty white and the paintwork is starting to peel and blister. The windows are covered in cobwebs and there is the faint odour of mildew and decay. Weeds grow between the flagstones of the path leading up to the door, which leans open. No-one seems to have lived here for years. A path leads north into the mountains and there seems to be some swampy ground to the west. 
+
+You can go north (to the mountains), west (towards a swamp) or east (into the inn).
+
+Thought 14: I should search the abandoned inn for any items or clues that could help me find money to buy the box from the little man.
+
+Action 14: InteractiveFictionGame[Search the abandoned inn]
+
+Observation 14: You can't see any such thing.
+
+Thought 15: I should try a different approach. Maybe I can find a different way to get some money in the game.
+
+Action 15: InteractiveFictionGame[Go north]
+
+Observation 15:
+Rocky Mountains
+It is a clear, bright morning and all seems peaceful. A tiny sparrowhawk wheels and soars lazily in the cool empty air above. There is a steep pathway to the south leading down into dense woodland, and you can make out an old building by the path. In the distance you can just glimpse the steel-grey of the sea, far away to the west. 
+
+You can go north, south, east or west.
+
+Thought 16: I should explore the mountains and see if there are any items or clues that could help me find money to buy the box from the little man.
+
+Action 16: InteractiveFictionGame[Go north]
+
+Observation 16:
+Rocky Mountains
+It is a clear, bright morning and all seems peaceful. A tiny sparrowhawk wheels and soars lazily in the cool empty air above. There is a steep pathway to the south leading down into dense woodland, and you can make out an old building by the path. In the distance you can just glimpse the steel-grey of the sea, far away to the west. 
+
+You can go north, south, east or west.
+
+Thought 17: I should continue exploring the mountains and see if there are any items or clues that could help me find money to buy the box from the little man.
+
+Action 17: InteractiveFictionGame[Go north]
+
+Observation 17:
+Rocky Mountains
+It is a clear, bright morning and all seems peaceful. A tiny sparrowhawk wheels and soars lazily in the cool empty air above. There is a steep pathway to the south leading down into dense woodland, and you can make out an old building by the path. In the distance you can just glimpse the steel-grey of the sea, far away to the west. 
+
+You can go north, south, east or west.
+
+Thought 18: I seem to be stuck in a loop. I should try a different direction or action to progress in the game.
+
+Action 18: InteractiveFictionGame[Go south]
+
+Observation 18:
+Abandoned Inn
+An old, thatched building stands near the path. It seems to be an abandoned inn or tavern, as a faded sign reads 'Troll's Arms'. The walls are a dirty white and the paintwork is starting to peel and blister. The windows are covered in cobwebs and there is the faint odour of mildew and decay. Weeds grow between the flagstones of the path leading up to the door, which leans open. No-one seems to have lived here for years. A path leads north into the mountains and there seems to be some swampy ground to the west. 
+
+You can go north (to the mountains), west (towards a swamp) or east (into the inn).
+
+Thought 19: I should explore the swampy ground to the west and see if there are any items or clues that could help me find money to buy the box from the little man.
+
+Action 19: InteractiveFictionGame[Go west]
+
+Observation 19:
+Swampy Ground
+Water seeps around the soles of your boots and fills your recent footprints. You can hear the croaking of frogs and the occasional bubble of marsh-gas coming to the surface. There is an abandoned inn to the east, and a path leads south into the forest. To the west there seems to be a little country road. 
+
+You can go south (along a forest path), east (towards an inn) or west (towards a road).
+
+You can see a little man and a large cardboard box here.
+
+Thought 20:[[ I should try to find a way to get some money so I can buy the box from the little man.
+
+Action 20: Finish[0]]]
+
+
+
+

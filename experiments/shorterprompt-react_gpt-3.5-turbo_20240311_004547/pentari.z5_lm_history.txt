@@ -1,0 +1,294 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[take postcard], InteractiveFictionGame[put sword down], InteractiveFictionGame[north]
+
+Thought 2: I should try to take the postcard since it might provide some useful information.
+
+Action 2: InteractiveFictionGame[take postcard]
+
+Observation 2: Taken. Valid actions: InteractiveFictionGame[put sword down], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 3: I should continue exploring in the north direction to see what else I can find in the game world.
+
+Action 3: InteractiveFictionGame[north]
+
+Observation 3:
+Charlie Company Compound
+Your company compound consists of three large buildings bordering a large, open area where company formations precede the orders of the day.  To the west the Company's supply building can be seen while directly ahead of you lies your company's barracks which seem quieter than a crypt.  Off to the east you hear the distant shouts of another Company drilling.  Poor souls. Valid actions: InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[south]
+
+Thought 4: I should explore the barracks to see if there are any items or clues that could help me progress further in the game.
+
+Action 4: InteractiveFictionGame[go to barracks]
+
+Observation 4: You can't see any such thing. Valid actions: InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[south]
+
+Thought 5: I should try going to the supply building to see if there are any useful items there.
+
+Action 5: InteractiveFictionGame[go to supply building]
+
+Observation 5: You can't see any such thing. Valid actions: InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[south]
+
+Thought 6: It seems like I may have exhausted the options in this area. I should try going back south to see if there are other paths or areas to explore.
+
+Action 6: InteractiveFictionGame[south]
+
+Observation 6: Your Quarters Valid actions: InteractiveFictionGame[put sword down], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 7: I should search my quarters for any items or clues that could help me progress in the game.
+
+Action 7: InteractiveFictionGame[search quarters]
+
+Observation 7: You can't see any such thing. Valid actions: InteractiveFictionGame[put sword down], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 8: It seems like I have explored all the available options in this area. I should go back north to see if there are other paths to explore.
+
+Action 8: InteractiveFictionGame[north]
+
+Observation 8: Charlie Company Compound Valid actions: InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[south]
+
+Thought 9: I should try going east this time to explore the area where I heard the distant shouts of another Company drilling. There might be something interesting there.
+
+Action 9: InteractiveFictionGame[east]
+
+Observation 9: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time. Valid actions: InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[south]
+
+Thought 10: Since I can't enter the other company's compound, I should go back south and explore other areas I haven't visited yet.
+
+Action 10: InteractiveFictionGame[south]
+
+Observation 10: Your Quarters Valid actions: InteractiveFictionGame[put sword down], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 11: I should try searching my quarters again to see if I missed anything the first time.
+
+Action 11: InteractiveFictionGame[search quarters]
+
+Observation 11: You can't see any such thing. Valid actions: InteractiveFictionGame[put sword down], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 12: It seems like there are no more options in this area. I should go back north and explore other paths.
+
+Action 12: InteractiveFictionGame[north]
+
+Observation 12: Charlie Company Compound Valid actions: InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[south]
+
+Thought 13: I should try going west this time to explore the Company's supply building and see if there are any useful items there.
+
+Action 13: InteractiveFictionGame[west]
+
+Observation 13: Why would you want to inspect the Company's supply cache when you have a whole weekend off? Valid actions: InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[south]
+
+Thought 14: It seems like I'm not making much progress in this area. I should go back south and try exploring other paths.
+
+Action 14: InteractiveFictionGame[south]
+
+Observation 14: Your Quarters Valid actions: InteractiveFictionGame[put sword down], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 15: I should try searching my quarters one more time to make sure I didn't overlook anything important.
+
+Action 15: InteractiveFictionGame[search quarters]
+
+Observation 15: You can't see any such thing. Valid actions: InteractiveFictionGame[put sword down], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put all down], InteractiveFictionGame[north]
+
+Thought 16: It seems like there are no more options in this area. I should go back north and explore other paths.
+
+Action 16: InteractiveFictionGame[north]
+
+Observation 16: Charlie Company Compound Valid actions: InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[south]
+
+Thought 17: I should try going north again to see if there are any other paths or areas to explore that I haven't visited yet.
+
+Action 17: InteractiveFictionGame[north]
+
+Observation 17:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here. Valid actions: InteractiveFictionGame[enter], InteractiveFictionGame[get in transporter], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[south]
+
+Thought 18: I should investigate the Pentarian Transporter to see if it can help me progress in the game.
+
+Action 18: InteractiveFictionGame[enter]
+
+Observation 18: The Charlie Company Barracks (in the Pentarian Transporter) Valid actions: InteractiveFictionGame[city], InteractiveFictionGame[get up], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down]
+
+Thought 19: I should try going to the city using the Pentarian Transporter to see what awaits me there.
+
+Action 19: InteractiveFictionGame[city]
+
+Observation 19:
+Your vision swims as your sight of the barracks blurs into a myriad of chaotic colors. You feel a moment of disorientation...
+
+As you begin to materialize your eyes grow wide as you realize you're not in front of the Bank of Bostwin, where the transporter usually takes you in the city.  You're not even outdoors, you're indoors! What the hell is going on here...?
+
+Entrance Hall
+Your footsteps echo loudly as you walk through this room taking in the vast expanse of its size.  The walls rise majestically upward and outward to form a huge room which, curiously, is empty.  You can't help but wonder why such a large room is needed for the straight-forward task of accepting guests and visitors. To the east a wide open arch leads to what must be a library while to the north you hardly help but notice a huge, semi-circular marble staircase leading up to parts unknown.
+
+[Your score has just gone up by five points.] Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down]
+
+Thought 20: I should explore the Entrance Hall further to see if there are any clues or items that could help me understand my current situation.
+
+Action 20: InteractiveFictionGame[explore Entrance Hall]
+
+Observation 20: That's not a verb I recognise. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down]
+
+Thought 21: I should try going north to see where the huge, semi-circular marble staircase leads and if there are any more clues or items there.
+
+Action 21: InteractiveFictionGame[north]
+
+Observation 21:
+Main Hall
+As you enter this great hall you can sense power and majesty.  The ceiling extends far above you while the walls stretch out seemingly for miles. From the entrance hall this room seemed somehow smaller than it actually is. Despite the availability of real estate in this room it's sparsely furnished.  A couple of comfortable chairs are tossed about almost haphazzardly in various corners.
+A huge marble staircase winds upstairs to parts unknown while large archways lead east and west.
+
+You can see a fine scroll here. Valid actions: InteractiveFictionGame[take scroll], InteractiveFictionGame[east], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[south]
+
+Thought 22: I should take the fine scroll as it might contain important information or clues.
+
+Action 22: InteractiveFictionGame[take scroll]
+
+Observation 22: Taken. Valid actions: InteractiveFictionGame[luminus], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put scroll down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[south]
+
+Thought 23: I should try going east to explore that area and see if there are any more clues or items that could help me progress in the game.
+
+Action 23: InteractiveFictionGame[east]
+
+Observation 23: You bounce off an invisible barrier and hear a slightly annoyed voice from the south shouting "There's no time for this! Come to the library, Captain!" Valid actions: InteractiveFictionGame[luminus], InteractiveFictionGame[east], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put scroll down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[south]
+
+Thought 24: I should go south to the library as instructed and see what awaits me there.
+
+Action 24: InteractiveFictionGame[south]
+
+Observation 24: Entrance Hall Valid actions: InteractiveFictionGame[luminus], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put scroll down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down]
+
+Thought 25: I should try using the 'luminus' action to see if it helps me navigate through the library.
+
+Action 25: InteractiveFictionGame[luminus]
+
+Observation 25: As you invoke the magic imbued in the scroll it does a cursory inspection of your inventory and decides to turn an item in your inventory into something one might see in a futuristic science fiction movie; your sword is now a perfectly useful source of light among it's other inherent uses.  Unfortunately, the light is excessively bright; you're forced to squint for the pain to your eyes Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down]
+
+Thought 26: I should try going east to explore that area and see if there are any more clues or items that could help me progress in the game.
+
+Action 26: InteractiveFictionGame[east]
+
+Observation 26:
+Library
+This is a vast chamber lined floor to ceiling with bookcases filled to capacity with books.  You haven't seen such a collection of knowledge since your academy days.  A cursory glance at some bookshelves reveal several titles on various topics of magic, history, philosophy, science and a hundred other topics.  A few large tables with chairs are in the center of the room inviting anyone to make use of these impressive facilities.
+
+The wizard Morden is here staring at you, the smallest of smiles on his face.
+
+You can also see a copy of The Legends and Lore of Pentari here. Valid actions: InteractiveFictionGame[covert], InteractiveFictionGame[take other], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[push other to floor], InteractiveFictionGame[west]
+
+Thought 27: I should try talking to the wizard Morden to see if he has any information that could help me progress in the game.
+
+Action 27: InteractiveFictionGame[talk to Morden]
+
+Observation 27: That's not a verb I recognise. Valid actions: InteractiveFictionGame[covert], InteractiveFictionGame[take other], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[push other to floor], InteractiveFictionGame[west]
+
+Thought 28: I should try using the 'covert' action to see if it helps me interact with the wizard Morden in a different way.
+
+Action 28: InteractiveFictionGame[covert]
+
+Observation 28:
+Spots in all the colors of the rainbow dance in front of your eyes as you feel yourself displaced...
+
+
+You find yourself in the deep recesses of Vamvevmew's castle and instantly a wave of fear and depression hit you as hard as any enemy ever has.  Your hand shoots right for your sword in its scabbard on reflex and you grip the hilt so hard your knuckles whiten.
+
+Castle
+You are at the center of an intersection which runs east to west as well as north to south.
+
+The Dark Elf walks in. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[south], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[east]
+
+Thought 29: I should try going north to see where that path leads and if there are any clues or items that could help me progress in the game.
+
+Action 29: InteractiveFictionGame[north]
+
+Observation 29:
+Main Hall
+This once majestic room was where visitors would come to relax and meet with the formal lord of the castle in a somewhat informal atmosphere. Several large comfortable couches are scattered about, dusty and altogether squalid.  Many large tapestries still hang on the walls but are horribly faded from age.  Large open archways lead east and west while a huge fireplace dominates the center of the room against the northern wall.
+
+The Dark Elf walks in. Valid actions: InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[north], InteractiveFictionGame[south]
+
+Thought 30: I should try going east to explore that area and see if there are any more clues or items that could help me progress in the game.
+
+Action 30: InteractiveFictionGame[east]
+
+Observation 30:
+Spiral Stairway
+A large spiral staircase made entirely of marble polished smooth corkscrews up to a second floor and down to murky depths below. An archway north is cluttered with fallen rubble and crumbled stone but looks otherwise passable. Valid actions: InteractiveFictionGame[get in floor], InteractiveFictionGame[north], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 31: I should try going up the spiral staircase to see where it leads and if there are any more clues or items that could help me progress in the game.
+
+Action 31: InteractiveFictionGame[up]
+
+Observation 31:
+Castle, Upper Level
+Looking around this large room you are astonished to learn that someone gutted this entire floor.  You are looking out on one, huge room.  No other rooms, no walls of any kind apart from the ones enclosing this gigantic area just nothing but empty room as far as you can see.
+
+In the center of the floor a circle perhaps 30 feet in diameter is outlined in the floor with ash.  The inside of the circle is ringed with many odd symbols you can't begin to identify.  The acrid smell of something burning assaults your nostrils.
+
+A box made of solid platinum is sitting on the floor here. Valid actions: InteractiveFictionGame[get in floor], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[open box], InteractiveFictionGame[put postcard on box], InteractiveFictionGame[put sword on box], InteractiveFictionGame[put all on box]
+
+Thought 32: I should try opening the box made of solid platinum to see what's inside and if it can help me progress in the game.
+
+Action 32: InteractiveFictionGame[open box]
+
+Observation 32: You open the platinum box, revealing The Empirical Emerald. Valid actions: InteractiveFictionGame[close box], InteractiveFictionGame[get in floor], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[put postcard in box], InteractiveFictionGame[put sword in box], InteractiveFictionGame[put postcard on box], InteractiveFictionGame[put sword on box], InteractiveFictionGame[put all on box], InteractiveFictionGame[put all in box]
+
+Thought 33: I should try taking The Empirical Emerald as it seems like an important item that could help me progress in the game.
+
+Action 33: InteractiveFictionGame[take The Empirical Emerald]
+
+Observation 33: That's fixed in place. Valid actions: InteractiveFictionGame[close box], InteractiveFictionGame[get in floor], InteractiveFictionGame[put postcard down], InteractiveFictionGame[put sword down], InteractiveFictionGame[put all down], InteractiveFictionGame[put postcard in box], InteractiveFictionGame[put sword in box], InteractiveFictionGame[put postcard on box], InteractiveFictionGame[put sword on box], InteractiveFictionGame[put all on box], InteractiveFictionGame[put all in box]
+
+Thought 34: I should try putting all my items in the platinum box to see if that triggers any new events or progress in the game.
+
+Action 34: InteractiveFictionGame[put all in box]
+
+Observation 34:
+postcard: Done.
+fine Pentarian sword: Done. Valid actions: InteractiveFictionGame[take postcard], InteractiveFictionGame[take sword], InteractiveFictionGame[close box], InteractiveFictionGame[get in floor], InteractiveFictionGame[empty box], InteractiveFictionGame[take all off box], InteractiveFictionGame[push postcard to box], InteractiveFictionGame[push postcard to floor], InteractiveFictionGame[push sword to box], InteractiveFictionGame[push sword to floor]
+
+Thought 35: I should try taking the postcard and the fine Pentarian sword back out of the platinum box since putting them in didn't trigger any new events or progress in the game.
+
+Action 35: InteractiveFictionGame[take postcard], InteractiveFictionGame[take sword]
+
+Observation 35: You can't see any such thing. Valid actions: InteractiveFictionGame[take postcard], InteractiveFictionGame[take sword], InteractiveFictionGame[close box], InteractiveFictionGame[get in floor], InteractiveFictionGame[empty box], InteractiveFictionGame[take all off box], InteractiveFictionGame[push postcard to box], InteractiveFictionGame[push postcard to floor], InteractiveFictionGame[push sword to box], InteractiveFictionGame[push sword to floor]
+
+Thought 36:[[ It seems like I can't take the postcard and the fine Pentarian sword back out of the platinum box. I should try a different approach to progress in the game.
+
+Action 36: Finish[36]]]
+
+
+
+

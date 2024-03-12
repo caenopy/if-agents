@@ -1,0 +1,234 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[take inventory], InteractiveFictionGame[take off sheet], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine curb], InteractiveFictionGame[look in curb], InteractiveFictionGame[hit window], InteractiveFictionGame[ask all for door], InteractiveFictionGame[ask all for sign], InteractiveFictionGame[ask all for room], InteractiveFictionGame[put notepad in cars], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[hit window with sheet], InteractiveFictionGame[west], InteractiveFictionGame[east]
+
+Thought 2: I should examine the west to see if there are any clues or items there that could help me progress.
+
+Action 2: InteractiveFictionGame[examine west]
+
+Observation 2: You see nothing unexpected in that direction. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[take inventory], InteractiveFictionGame[take off sheet], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine curb], InteractiveFictionGame[look in curb], InteractiveFictionGame[hit window], InteractiveFictionGame[ask all for door], InteractiveFictionGame[ask all for sign], InteractiveFictionGame[ask all for room], InteractiveFictionGame[put notepad in cars], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[hit window with sheet], InteractiveFictionGame[west], InteractiveFictionGame[east]
+
+Thought 3: I should try going east to see if there are any clues or items in that direction that could help me progress.
+
+Action 3: InteractiveFictionGame[east]
+
+Observation 3:
+19th Street East
+A street-front window looks into Nikolai's bar.  If you want into the bar, you'll have to go back to the restaurant entrance, which is west of here.  There are no cars on this end of 19th Street.  The sidewalk is uneven.  A curb-side storm gutter empties here into a grated storm drain. Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[knock window], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 4: I should examine the sidewalk to see if there are any clues or items there that could help me progress.
+
+Action 4: InteractiveFictionGame[examine sidewalk]
+
+Observation 4: The sidewalk buckles to such a degree, one might think it had been hit by an earthquake. Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[knock window], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 5: I should try to interact with the bar or the window to see if there are any clues or items inside that could help me progress.
+
+Action 5: InteractiveFictionGame[examine bar]
+
+Observation 5:
+(the Bar)
+A trapezoid of light falls on the cork dance floor.
+
+Behind the bar is a dinky two basin sink with an attached faucet.  In the rinse basin is some ice.
+
+A middle-aged woman, slight in build, is seated at the bar counter.  She has fallen fast asleep.
+
+You also see a stereo. Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[knock window], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 6: I should check the inventory to see what items I have that could be useful in this situation.
+
+Action 6: InteractiveFictionGame[take inventory]
+
+Observation 6:
+You are carrying:
+  a notepad Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[knock window], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 7: I should try to wake up the woman at the bar to see if she has any information that could help me progress.
+
+Action 7: InteractiveFictionGame[knock window]
+
+Observation 7: You knock.  Angela wakes, looking startled.  When she sees you motioning at the window, she stands. Valid actions: InteractiveFictionGame[examine angela], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 8: I should examine Angela to see if she has any information that could help me progress.
+
+Action 8: InteractiveFictionGame[examine angela]
+
+Observation 8:
+Angela is Nikolai's day shift waitress.  She doesn't have the endurance any longer to work the night shift.  Angela is a thin woman not quite 50 with salt and pepper gray hair.  Her skin is pale as a ghost.  
+
+Angela moves to the dining room. Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[ask all for sidewalk], InteractiveFictionGame[ask all for curb], InteractiveFictionGame[ask all for bar], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 9: I should ask Angela about the sidewalk, curb, and bar to see if she has any information that could help me progress.
+
+Action 9: InteractiveFictionGame[ask all for sidewalk]
+
+Observation 9:
+(yourself for the sidewalk)
+You are carrying:
+  a notepad Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[ask all for sidewalk], InteractiveFictionGame[ask all for curb], InteractiveFictionGame[ask all for bar], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 10: I should try examining the sidewalk again to see if there's anything I missed that could help me progress.
+
+Action 10: InteractiveFictionGame[examine sidewalk]
+
+Observation 10: The sidewalk buckles to such a degree, one might think it had been hit by an earthquake. Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[ask all for sidewalk], InteractiveFictionGame[ask all for curb], InteractiveFictionGame[ask all for bar], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 11: I should try to interact with the bar or the window to see if there are any clues or items inside that could help me progress.
+
+Action 11: InteractiveFictionGame[examine bar]
+
+Observation 11:
+(the Bar)
+A trapezoid of light falls on the cork dance floor.
+
+Behind the bar is a dinky two basin sink with an attached faucet.  In the rinse basin is some ice.
+
+You also see a stereo. Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[ask all for sidewalk], InteractiveFictionGame[ask all for curb], InteractiveFictionGame[ask all for bar], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 12: I should check my inventory again to see if there's anything I can use in this situation.
+
+Action 12: InteractiveFictionGame[take inventory]
+
+Observation 12:
+You are carrying:
+  a notepad Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[hit window], InteractiveFictionGame[ask all for sidewalk], InteractiveFictionGame[ask all for curb], InteractiveFictionGame[ask all for bar], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 13: I should try to interact with the bar or the window to see if there are any clues or items inside that could help me progress.
+
+Action 13: InteractiveFictionGame[hit window]
+
+Observation 13: The window shatters, dropping shards of glass on both sides. Valid actions: InteractiveFictionGame[examine shards], InteractiveFictionGame[take inventory], InteractiveFictionGame[get in glass], InteractiveFictionGame[north], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[look in glass], InteractiveFictionGame[ask all for shards], InteractiveFictionGame[ask all for curb], InteractiveFictionGame[ask all for bar], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 14: I should examine the shards of glass to see if there's anything hidden within them that could help me progress.
+
+Action 14: InteractiveFictionGame[examine shards]
+
+Observation 14:
+Irregular shards of glass lie broken on both sides of the window, reflecting any available light.
+
+You hear the wail of distant sirens. Valid actions: InteractiveFictionGame[examine sidewalk], InteractiveFictionGame[take inventory], InteractiveFictionGame[get in glass], InteractiveFictionGame[north], InteractiveFictionGame[put notepad down], InteractiveFictionGame[examine bar], InteractiveFictionGame[look in glass], InteractiveFictionGame[ask all for sidewalk], InteractiveFictionGame[ask all for curb], InteractiveFictionGame[ask all for bar], InteractiveFictionGame[put notepad in curb], InteractiveFictionGame[west]
+
+Thought 15: I should try to get inside the broken window to see if there's anything inside that could help me progress.
+
+Action 15: InteractiveFictionGame[get in glass]
+
+Observation 15:
+(the window)
+Bar
+Sunlight from the 19th Street window (south) casts an bright trapezoid across the cork dance floor.  In every other corner, the brick walls of this unpretentious watering hole are marked by shadows.  If you don't mind risking ptomaine poisoning, Nikolai's dining room is to the west.  Otherwise, the unisex lavatory is north through a low ceiling tunnel.
+
+A set of Naugahyde stools are pushed against the linoleum bar.
+
+Shards of broken glass litter the ground on both sides of the open window.
+
+Behind the bar is a dinky two basin sink with an attached faucet.  In the rinse basin is some ice.
+
+Beside the sink is a personal stereo (held together largely with duct tape).
+
+Angela opens the door. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[take inventory], InteractiveFictionGame[take off ice], InteractiveFictionGame[take off stereo], InteractiveFictionGame[south], InteractiveFictionGame[get in stools], InteractiveFictionGame[put notepad down], InteractiveFictionGame[take all], InteractiveFictionGame[examine rinse], InteractiveFictionGame[look in rinse], InteractiveFictionGame[look in ice], InteractiveFictionGame[look in sink], InteractiveFictionGame[turn stereo on], InteractiveFictionGame[put notepad on linoleum], InteractiveFictionGame[put notepad on stools], InteractiveFictionGame[put notepad in rinse], InteractiveFictionGame[put notepad in sink], InteractiveFictionGame[take stereo with ice], InteractiveFictionGame[north], InteractiveFictionGame[west]
+
+Thought 16: I should examine the sink and the stereo to see if there's anything useful there that could help me progress.
+
+Action 16: InteractiveFictionGame[examine rinse]
+
+Observation 16:
+The rinse basin is only a few inches deep.
+
+In the rinse basin is some ice. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[take inventory], InteractiveFictionGame[take off ice], InteractiveFictionGame[take off stereo], InteractiveFictionGame[south], InteractiveFictionGame[get in stools], InteractiveFictionGame[put notepad down], InteractiveFictionGame[take all], InteractiveFictionGame[examine rinse], InteractiveFictionGame[look in rinse], InteractiveFictionGame[look in ice], InteractiveFictionGame[look in sink], InteractiveFictionGame[turn stereo on], InteractiveFictionGame[put notepad on linoleum], InteractiveFictionGame[put notepad on stools], InteractiveFictionGame[put notepad in rinse], InteractiveFictionGame[put notepad in sink], InteractiveFictionGame[take stereo with ice], InteractiveFictionGame[north], InteractiveFictionGame[west]
+
+Thought 17: I should try to take the ice from the rinse basin to see if it could be useful in some way.
+
+Action 17: InteractiveFictionGame[take off ice]
+
+Observation 17:
+(first taking the ice)
+While scooping the ice from the rinse basin, you pause in horror.  Buried near the drain is a severed human hand.
+
+You're not wearing that. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[take inventory], InteractiveFictionGame[take off left], InteractiveFictionGame[take off stereo], InteractiveFictionGame[south], InteractiveFictionGame[get in stools], InteractiveFictionGame[put ice down], InteractiveFictionGame[put notepad down], InteractiveFictionGame[put all down], InteractiveFictionGame[take all], InteractiveFictionGame[examine rinse], InteractiveFictionGame[look in rinse], InteractiveFictionGame[look in sink], InteractiveFictionGame[turn stereo on], InteractiveFictionGame[put all on linoleum], InteractiveFictionGame[put all on stools], InteractiveFictionGame[put ice in rinse], InteractiveFictionGame[put ice in sink], InteractiveFictionGame[put notepad in rinse], InteractiveFictionGame[put notepad in sink], InteractiveFictionGame[put all in rinse], InteractiveFictionGame[put all in sink], InteractiveFictionGame[put ice on linoleum], InteractiveFictionGame[put ice on stools], InteractiveFictionGame[put notepad on linoleum], InteractiveFictionGame[put notepad on stools], InteractiveFictionGame[take stereo with left], InteractiveFictionGame[north], InteractiveFictionGame[west]
+
+Thought 18: I should examine the severed human hand to see if there are any clues or items on it that could help me progress.
+
+Action 18: InteractiveFictionGame[examine left]
+
+Observation 18: The hand is pale and cold as ice.  It is cut cleanly at the wrist, as if by a cleaver.  The hand appears to be human.  It appears to be the real thing. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[take inventory], InteractiveFictionGame[take off left], InteractiveFictionGame[take off stereo], InteractiveFictionGame[south], InteractiveFictionGame[get in stools], InteractiveFictionGame[put ice down], InteractiveFictionGame[put notepad down], InteractiveFictionGame[put all down], InteractiveFictionGame[take all], InteractiveFictionGame[examine rinse], InteractiveFictionGame[look in rinse], InteractiveFictionGame[look in sink], InteractiveFictionGame[turn stereo on], InteractiveFictionGame[take linoleum off walls], InteractiveFictionGame[put all on linoleum], InteractiveFictionGame[put all on stools], InteractiveFictionGame[put ice in rinse], InteractiveFictionGame[put ice in sink], InteractiveFictionGame[put notepad in rinse], InteractiveFictionGame[put notepad in sink], InteractiveFictionGame[put all in rinse], InteractiveFictionGame[put all in sink], InteractiveFictionGame[put ice on linoleum], InteractiveFictionGame[put ice on stools], InteractiveFictionGame[put notepad on linoleum], InteractiveFictionGame[put notepad on stools], InteractiveFictionGame[take stereo with left], InteractiveFictionGame[north], InteractiveFictionGame[west]
+
+Thought 19: I should try to take the severed human hand with me to see if it could be useful in some way.
+
+Action 19: InteractiveFictionGame[take off left]
+
+Observation 19:
+(first taking the severed left hand)
+You're not wearing that.
+
+You hear police sirens nearby. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[take inventory], InteractiveFictionGame[take off stereo], InteractiveFictionGame[south], InteractiveFictionGame[get in stools], InteractiveFictionGame[put ice down], InteractiveFictionGame[put left down], InteractiveFictionGame[put notepad down], InteractiveFictionGame[put all down], InteractiveFictionGame[turn stereo on], InteractiveFictionGame[put west on floor], InteractiveFictionGame[put all on linoleum], InteractiveFictionGame[put all on stools], InteractiveFictionGame[put ice in sink], InteractiveFictionGame[put left in sink], InteractiveFictionGame[put notepad in sink], InteractiveFictionGame[put all in sink], InteractiveFictionGame[put ice on linoleum], InteractiveFictionGame[put ice on stools], InteractiveFictionGame[put left on linoleum], InteractiveFictionGame[put left on stools], InteractiveFictionGame[put notepad on linoleum], InteractiveFictionGame[put notepad on stools], InteractiveFictionGame[north], InteractiveFictionGame[west]
+
+Thought 20: I should try to leave this place and head north through the low ceiling tunnel to see if I can find a way out of this situation.
+
+Action 20: InteractiveFictionGame[north]
+
+Observation 20:
+Lavatory
+The low ceiling restroom is painted yellow, the color of urine and bile.  Its only fixtures are a porcelain toilet, hand sink, soap dispenser and automatic hand dryer, all mounted low to the floor as if they were reclaimed from an abandoned grade school, or this lavatory was designed for alcoholic ten-year-olds.
+
+A Jackson Pollack pattern of vomit is splashed across the back wall of the bathroom, certainly nowhere near the toilet where it was presumably aimed. Valid actions: InteractiveFictionGame[examine dryer], InteractiveFictionGame[take inventory], InteractiveFictionGame[put ice down], InteractiveFictionGame[put left down], InteractiveFictionGame[put notepad down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in toilet], InteractiveFictionGame[ask all for dryer], InteractiveFictionGame[ask all for vomit], InteractiveFictionGame[south]
+
+Thought 21: I should examine the vomit on the back wall to see if there are any clues or items hidden within it that could help me progress.
+
+Action 21: InteractiveFictionGame[ask all for vomit]
+
+Observation 21:
+(yourself for vomit)
+You are carrying:
+  a severed left hand
+  some ice
+  a notepad
+
+A squadron of police cars arrive outside Nikolai's.  You are arrested at gun point for vandalizing a window.  The officers drag you across the street in cuffs, force you into the back of a black and white sedan, then drive you back to the station.
+
+
+
+    *** You've been convicted. ***
+
+
+
+Would you like to RESTART, RESTORE a saved game or QUIT Valid actions: 
+
+Thought 22: Finish[convicted]
+
+Action 22:[[ Finish[convicted]]]
+
+
+
+

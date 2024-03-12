@@ -1,0 +1,170 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: [!: Noun error. (This could mean a number of things: a noun used in your command may not be present, or it may be present but not visible; it may be scenery you can't interact with; you may have specified too many indirect objects; you may have misspelled something; the list goes on.)] Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take phone], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[take keys], InteractiveFictionGame[close door], InteractiveFictionGame[put watch down], InteractiveFictionGame[put clothing down], InteractiveFictionGame[look under bed], InteractiveFictionGame[open wallet], InteractiveFictionGame[take all from end], InteractiveFictionGame[put watch on phone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put clothing on phone], InteractiveFictionGame[put clothing on end]
+
+Thought 2: I need to try a different action since the "Look around" command didn't work. Let's try picking up an item to see if that progresses the game.
+
+Action 2: InteractiveFictionGame[take phone]
+
+Observation 2:
+You pick up the phone. "Hadley!" a shrill voice cries. "Hadley, haven't you even left yet?? You knew that our presentation was at nine o'clock sharp! First the thing with the printers, now this - there won't even be enough left of you for Bowman to fire once he's done with you. Now get the hell down here!!"
+
+Click. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[take keys], InteractiveFictionGame[close door], InteractiveFictionGame[put watch down], InteractiveFictionGame[put clothing down], InteractiveFictionGame[look under bed], InteractiveFictionGame[open wallet], InteractiveFictionGame[take all from end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put clothing on end]
+
+Thought 3: It seems like picking up the phone triggered a message. I should continue exploring and interacting with items to progress further in the game.
+
+Action 3: InteractiveFictionGame[look under bed]
+
+Observation 3: Under the bed you see the corpse of the guy who owns this house. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[take keys], InteractiveFictionGame[close door], InteractiveFictionGame[put watch down], InteractiveFictionGame[put clothing down], InteractiveFictionGame[look under bed], InteractiveFictionGame[open wallet], InteractiveFictionGame[take all from end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put clothing on end]
+
+Thought 4: It seems like I've made a grim discovery under the bed. I should continue investigating the room for any clues or items that could help me progress in the game.
+
+Action 4: InteractiveFictionGame[open wallet]
+
+Observation 4: You open the wallet, revealing a driver's license and an ID card. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[take keys], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put watch down], InteractiveFictionGame[put clothing down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from end], InteractiveFictionGame[take all from wallet], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put clothing on end]
+
+Thought 5: I should examine the driver's license and ID card to see if they provide any information that could help me progress in the game.
+
+Action 5: InteractiveFictionGame[take all from wallet]
+
+Observation 5:
+driver's license: Removed.
+ID card: Removed. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[take keys], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put card down], InteractiveFictionGame[put license down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from end], InteractiveFictionGame[put card in wallet], InteractiveFictionGame[put license in wallet], InteractiveFictionGame[put all in wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put card on end], InteractiveFictionGame[put card on telephone], InteractiveFictionGame[put license on end], InteractiveFictionGame[put license on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 6: I have collected the driver's license and ID card. I should continue exploring the room and interacting with items to uncover more clues or items that could help me progress in the game.
+
+Action 6: InteractiveFictionGame[look under bed]
+
+Observation 6: Under the bed you see the corpse of the guy who owns this house. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[take keys], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put card down], InteractiveFictionGame[put license down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from end], InteractiveFictionGame[put card in wallet], InteractiveFictionGame[put license in wallet], InteractiveFictionGame[put all in wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put card on end], InteractiveFictionGame[put card on telephone], InteractiveFictionGame[put license on end], InteractiveFictionGame[put license on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 7: It seems like I'm stuck in a loop with the same observation. I should try a different action to progress further in the game.
+
+Action 7: InteractiveFictionGame[take keys]
+
+Observation 7: Taken. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put card down], InteractiveFictionGame[put license down], InteractiveFictionGame[put keys down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[put card in wallet], InteractiveFictionGame[put license in wallet], InteractiveFictionGame[put all in wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put card on end], InteractiveFictionGame[put card on telephone], InteractiveFictionGame[put license on end], InteractiveFictionGame[put license on telephone], InteractiveFictionGame[put keys on end], InteractiveFictionGame[put keys on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 8: I have obtained the keys. I should continue exploring and interacting with items to progress further in the game.
+
+Action 8: InteractiveFictionGame[close door]
+
+Observation 8: You close the bedroom door. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[close wallet], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put card down], InteractiveFictionGame[put license down], InteractiveFictionGame[put keys down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[open door], InteractiveFictionGame[put card in wallet], InteractiveFictionGame[put license in wallet], InteractiveFictionGame[put all in wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put card on end], InteractiveFictionGame[put card on telephone], InteractiveFictionGame[put license on end], InteractiveFictionGame[put license on telephone], InteractiveFictionGame[put keys on end], InteractiveFictionGame[put keys on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 9: I have closed the bedroom door. I should continue exploring and interacting with items to uncover more clues or items that could help me progress in the game.
+
+Action 9: InteractiveFictionGame[open door]
+
+Observation 9: You open the bedroom door. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put card down], InteractiveFictionGame[put license down], InteractiveFictionGame[put keys down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[put card in wallet], InteractiveFictionGame[put license in wallet], InteractiveFictionGame[put all in wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put card on end], InteractiveFictionGame[put card on telephone], InteractiveFictionGame[put license on end], InteractiveFictionGame[put license on telephone], InteractiveFictionGame[put keys on end], InteractiveFictionGame[put keys on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 10: I seem to be going in circles with opening and closing the door. I should try a different action to make progress in the game.
+
+Action 10: InteractiveFictionGame[put keys on telephone]
+
+Observation 10: You put the keys on the telephone. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put card down], InteractiveFictionGame[put license down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from telephone], InteractiveFictionGame[put card in wallet], InteractiveFictionGame[put license in wallet], InteractiveFictionGame[put all in wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put card on end], InteractiveFictionGame[put card on telephone], InteractiveFictionGame[put license on end], InteractiveFictionGame[put license on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 11: Putting the keys on the telephone didn't seem to progress the game. I should try a different action to see if it helps me move forward.
+
+Action 11: InteractiveFictionGame[take all from telephone]
+
+Observation 11: Removed. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put card down], InteractiveFictionGame[put license down], InteractiveFictionGame[put keys down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[put card in wallet], InteractiveFictionGame[put license in wallet], InteractiveFictionGame[put all in wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put card on end], InteractiveFictionGame[put card on telephone], InteractiveFictionGame[put license on end], InteractiveFictionGame[put license on telephone], InteractiveFictionGame[put keys on end], InteractiveFictionGame[put keys on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 12: I have retrieved all items from the telephone. I should continue exploring and interacting with items to uncover more clues or items that could help me progress in the game.
+
+Action 12: InteractiveFictionGame[look under bed]
+
+Observation 12: Under the bed you see the corpse of the guy who owns this house. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put card down], InteractiveFictionGame[put license down], InteractiveFictionGame[put keys down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[put card in wallet], InteractiveFictionGame[put license in wallet], InteractiveFictionGame[put all in wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put card on end], InteractiveFictionGame[put card on telephone], InteractiveFictionGame[put license on end], InteractiveFictionGame[put license on telephone], InteractiveFictionGame[put keys on end], InteractiveFictionGame[put keys on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 13: It seems like I'm stuck in a loop with the same observation under the bed. I should try a different action to progress further in the game.
+
+Action 13: InteractiveFictionGame[put all down]
+
+Observation 13:
+keys: Dropped.
+ID card: Dropped.
+driver's license: Dropped. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[take card], InteractiveFictionGame[take keys], InteractiveFictionGame[take license], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from bed], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone]
+
+Thought 14: I have dropped all the items I was carrying. I should try to pick them up again and continue exploring the room for more clues or items that could help me progress in the game.
+
+Action 14: InteractiveFictionGame[take all from bed]
+
+Observation 14:
+driver's license: Removed.
+ID card: Removed.
+keys: Removed. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put card down], InteractiveFictionGame[put license down], InteractiveFictionGame[put keys down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[put card in wallet], InteractiveFictionGame[put license in wallet], InteractiveFictionGame[put all in wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put card on end], InteractiveFictionGame[put card on telephone], InteractiveFictionGame[put license on end], InteractiveFictionGame[put license on telephone], InteractiveFictionGame[put keys on end], InteractiveFictionGame[put keys on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 15: I have retrieved all the items from under the bed. I should continue exploring and interacting with items to uncover more clues or items that could help me progress in the game.
+
+Action 15: InteractiveFictionGame[put all in wallet]
+
+Observation 15:
+keys: Those don't seem to fit in the wallet.
+ID card: Done.
+driver's license: Done. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put watch down], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put keys down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from wallet], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put keys on telephone], InteractiveFictionGame[put keys on end]
+
+Thought 16: It seems like the keys don't fit in the wallet. I should try a different action to progress further in the game.
+
+Action 16: InteractiveFictionGame[put keys down]
+
+Observation 16: Dropped. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[take keys], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put watch down], InteractiveFictionGame[put clothing down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from wallet], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put clothing on end]
+
+Thought 17: I have dropped the keys. I should continue exploring and interacting with items to uncover more clues or items that could help me progress in the game.
+
+Action 17: InteractiveFictionGame[look under bed]
+
+Observation 17: Under the bed you see the corpse of the guy who owns this house. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off all], InteractiveFictionGame[take wallet], InteractiveFictionGame[take keys], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put watch down], InteractiveFictionGame[put clothing down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from wallet], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put clothing on end]
+
+Thought 18: It seems like I'm back to the same observation under the bed. I should try a different action to make progress in the game.
+
+Action 18: InteractiveFictionGame[take wallet]
+
+Observation 18: Taken. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take card], InteractiveFictionGame[take keys], InteractiveFictionGame[take license], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put wallet down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put wallet on end], InteractiveFictionGame[put wallet on telephone]
+
+Thought 19: I have obtained the wallet. I should continue exploring and interacting with items to uncover more clues or items that could help me progress in the game.
+
+Action 19: InteractiveFictionGame[look under bed]
+
+Observation 19: Under the bed you see the corpse of the guy who owns this house. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take card], InteractiveFictionGame[take keys], InteractiveFictionGame[take license], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put wallet down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put wallet on end], InteractiveFictionGame[put wallet on telephone]
+
+Thought 20: It seems like I'm stuck in a loop with the same observation under the bed. I should try a different action to make progress in the game.
+
+Action 20: InteractiveFictionGame[take keys]
+
+Observation 20: Taken. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take off clothing], InteractiveFictionGame[take off watch], InteractiveFictionGame[take off all], InteractiveFictionGame[take card], InteractiveFictionGame[take license], InteractiveFictionGame[close wallet], InteractiveFictionGame[close door], InteractiveFictionGame[put clothing down], InteractiveFictionGame[put watch down], InteractiveFictionGame[put wallet down], InteractiveFictionGame[put keys down], InteractiveFictionGame[put all down], InteractiveFictionGame[look under bed], InteractiveFictionGame[take all from wallet], InteractiveFictionGame[put clothing on end], InteractiveFictionGame[put clothing on telephone], InteractiveFictionGame[put watch on end], InteractiveFictionGame[put watch on telephone], InteractiveFictionGame[put wallet on end], InteractiveFictionGame[put wallet on telephone], InteractiveFictionGame[put keys on end], InteractiveFictionGame[put keys on telephone], InteractiveFictionGame[put all on end], InteractiveFictionGame[put all on telephone]
+
+Thought 21:[[ I have obtained the keys. I should continue exploring and interacting with items to uncover more clues or items that could help me progress in the game.
+
+Action 21: Finish[score]]]
+
+
+
+

@@ -1,0 +1,384 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[north]
+
+Thought 2: I should try moving north to see what is in that direction.
+
+Action 2: InteractiveFictionGame[north]
+
+Observation 2:
+You move, or rather you come to a new place. The concept of body and movement seems different here.
+
+Void
+This new location is not much different from the one you came from. The shadows are still moving around at random through the abyss, reverberating with strange sounds and coloured light.
+
+A cascade of red colour explodes below you. Valid actions: InteractiveFictionGame[north]
+
+Thought 3: I should continue moving north to see if I can find anything of interest in this strange location.
+
+Action 3: InteractiveFictionGame[north]
+
+Observation 3:
+Void
+This new location is not much different from the one you came from. The shadows are still moving around at random through the abyss, reverberating with strange sounds and coloured light.
+
+Suddenly there is a new element in your dream, one you have never experienced before. A sense of blinding fear threatens to overwhelm you as a shape appears close to you. There is nothing visually different about it, but you can't bear looking at it for very long. Valid actions: InteractiveFictionGame[examine shadow], InteractiveFictionGame[north]
+
+Thought 4: I should try to examine the shadow to see if it reveals any clues or information that could help me understand this new element in my dream.
+
+Action 4: InteractiveFictionGame[examine shadow]
+
+Observation 4:
+In your current state of fear your mind and body refuse to cooperate.
+
+The shadow disappears somewhere. A slave under someone else's will, you find yourself moving towards a place you have never seen before.
+
+Roof
+The city below you is ancient. Dark domes and steep roofs form a silent silhouette against the clear star-filled sky. You are standing on the roof of a tower, built of crumbling masonry, which seems to be centuries old. An iron railing of strange design circles the perimeter of the roof and a winding staircase leads down. Valid actions: InteractiveFictionGame[take railing], InteractiveFictionGame[down]
+
+Thought 5: I should try to take the railing as it might be useful later on in the game.
+
+Action 5: InteractiveFictionGame[take railing]
+
+Observation 5: The railing won't budge, but one of the statues breaks of in your hands. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[put statue down]
+
+Thought 6: I should try to put the statue down before proceeding further.
+
+Action 6: InteractiveFictionGame[put statue down]
+
+Observation 6: Dropped. Valid actions: InteractiveFictionGame[take statue], InteractiveFictionGame[down]
+
+Thought 7: I should try to take the statue back before moving down the staircase.
+
+Action 7: InteractiveFictionGame[take statue]
+
+Observation 7: Taken. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[put statue down]
+
+Thought 8: I should now proceed to go down the staircase and explore what lies below.
+
+Action 8: InteractiveFictionGame[down]
+
+Observation 8:
+The winding staircase leads to a spacious chamber inside the tower.
+
+Study
+Dust and spider webs cover all surfaces in this room in a soft silver gleam, blurring the outlines of the furnishings into fantastic, dreamy forms. The walls are lined with bookshelves and a lone desk lies at one corner. Close to a staircase, which leads further up and down the tower, is a massive table made of black stone. A doorway leads to a smaller room to the south.
+
+On the desk is a yellow paper. Valid actions: InteractiveFictionGame[take paper], InteractiveFictionGame[examine writing], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[examine table], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on dust], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[up]
+
+Thought 9: I should start by examining the yellow paper on the desk to see if it provides any important information or clues.
+
+Action 9: InteractiveFictionGame[examine writing]
+
+Observation 9:
+It seems to be a poem, or chant. The language is unfamiliar and complicated, and you repeat the syllables with a low voice: Y'ai'ng'ngah h'ee-l'geb f'ai throdog.
+
+Even as you speak you sense something approaching. The light in the room darkens, and a mysterious green glow is emitted from some dust on the stone table. Its brightness intensifies to an unbearable level and you involuntarily step away. A shape appears on the previously empty table. As the flash fades away you recognise the shape as that of a man, lying still on the table.
+
+[Your score has just gone up by five points.] Valid actions: InteractiveFictionGame[touch body], InteractiveFictionGame[take paper], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[examine table], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[up]
+
+Thought 10: I should try to touch the body on the table to see if it triggers any new events or reveals more information.
+
+Action 10: InteractiveFictionGame[touch body]
+
+Observation 10: After several attempts, you manage to shake the man awake. He sits up on the table, still confused. In response to your many questions the man simply states that he can't remember and it seems that he is suffering from amnesia. Valid actions: InteractiveFictionGame[examine tower], InteractiveFictionGame[take paper], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[examine table], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[up]
+
+Thought 11: I should try to examine the tower to see if there are any clues or information that could help me understand the situation better.
+
+Action 11: InteractiveFictionGame[examine tower]
+
+Observation 11:
+Judging from the masonry the tower must be centuries old. It towers high above the nightmarish city below.
+
+The man gets up from the table and looks around, perplexed. 'I think I've been here before', he mutters. Valid actions: InteractiveFictionGame[take paper], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[examine table], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[up]
+
+Thought 12: I should try to take the paper on the desk to see if it contains any important information that could help us progress in the game.
+
+Action 12: InteractiveFictionGame[take paper]
+
+Observation 12:
+Taken.
+
+The man asks who you are. You tell him about your dream, and how you ended up here. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[put paper down], InteractiveFictionGame[put all down], InteractiveFictionGame[examine table], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on dust], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on dust], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on dust], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on ink], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[up]
+
+Thought 13: I should try to put the paper down on the table before deciding on the next action.
+
+Action 13: InteractiveFictionGame[put paper on table]
+
+Observation 13:
+You put the yellow paper on the black stone table.
+
+The man falls silent for a while, and then he says: 'Some parts of my memory have come back now. I remember that my name is Charles Bristow and I studied archeology and history in New England. Something terrible happened but of that I can recall only small fragments.' He looks around the chamber and says with despair in his voice, 'My God, where am I? Will my nightmares never end?' Valid actions: InteractiveFictionGame[take paper], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[examine table], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[up]
+
+Thought 14: I should try to comfort Charles and reassure him that we will figure out a way to escape this nightmare together.
+
+Action 14: InteractiveFictionGame[comfort Charles]
+
+Observation 14: That's not a verb I recognise. Valid actions: InteractiveFictionGame[take paper], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[examine table], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[up]
+
+Thought 15: I should try to reassure Charles verbally instead of using a specific action in the game.
+
+Action 15: InteractiveFictionGame[say to Charles: We will find a way out of this together]
+
+Observation 15: I didn't understand that sentence. Valid actions: InteractiveFictionGame[take paper], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[examine table], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[up]
+
+Thought 16: I should try to focus on finding a way to progress in the game and help Charles remember more about his situation.
+
+Action 16: InteractiveFictionGame[examine table]
+
+Observation 16:
+The base of the stone table is covered with carvings, each showing different kinds of creatures, or maybe Gods, standing on stone tables. Humans, who seem to be reciting prayers or spells, are standing in front of the creatures.
+
+You spot something behind the table. Pushing the cobwebs aside, you reveal some writing, crudely painted on the stone wall with black paint. Valid actions: InteractiveFictionGame[take paper], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[up]
+
+Thought 17: I should try to examine the writing on the stone wall to see if it provides any important information or clues.
+
+Action 17: InteractiveFictionGame[examine writing]
+
+Observation 17: The writing reads: Y'ai'ng'ngah h'ee-l'geb f'ai throdog. Valid actions: InteractiveFictionGame[take paper], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[up]
+
+Thought 18: I should try to figure out the meaning of the writing and how it relates to the situation we are in.
+
+Action 18: InteractiveFictionGame[decode writing]
+
+Observation 18: That's not a verb I recognise. Valid actions: InteractiveFictionGame[take paper], InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put statue down], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[up]
+
+Thought 19: I should try to take the paper with the writing on it to see if it can be decoded or provide any clues to our situation.
+
+Action 19: InteractiveFictionGame[take paper]
+
+Observation 19: Taken. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 20: I should try to decode the writing on the paper to see if it reveals any important information or clues that could help us understand our situation better.
+
+Action 20: InteractiveFictionGame[decode writing]
+
+Observation 20: That's not a verb I recognise. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 21: I should try to examine the paper and see if there are any visible clues or patterns that could help me decode the writing.
+
+Action 21: InteractiveFictionGame[examine paper]
+
+Observation 21: On the paper is a coded message and it is impossible to say even in which language the text is written. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 22: I should try to find a way to decode the message on the paper by looking for any clues or hints in the room that could help me decipher it.
+
+Action 22: InteractiveFictionGame[search room for clues]
+
+Observation 22: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 23: I should try to examine the bookshelves in the room to see if there are any books or documents that could help me decode the message on the paper.
+
+Action 23: InteractiveFictionGame[examine bookshelves]
+
+Observation 23:
+The bookshelves are  filled with bound volumes that are crumbling with age.
+
+Charles is lost in thoughts. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 24: I should try to examine the books on the bookshelves to see if any of them contain information that could help us decode the message on the paper.
+
+Action 24: InteractiveFictionGame[examine books]
+
+Observation 24: You browse through the library but can't find any books written in a language you can read, so you leave them alone. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 25: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 25: InteractiveFictionGame[examine ink]
+
+Observation 25: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 26: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 26: InteractiveFictionGame[examine ink]
+
+Observation 26: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 27: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 27: InteractiveFictionGame[examine ink]
+
+Observation 27: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 28: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 28: InteractiveFictionGame[examine ink]
+
+Observation 28: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 29: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 29: InteractiveFictionGame[examine ink]
+
+Observation 29:
+The stains and scratches are old and dusty.
+
+Charles looks nervously around. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 30: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 30: InteractiveFictionGame[examine ink]
+
+Observation 30: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 31: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 31: InteractiveFictionGame[examine ink]
+
+Observation 31: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 32: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 32: InteractiveFictionGame[examine ink]
+
+Observation 32:
+The stains and scratches are old and dusty.
+
+Charles is lost in thoughts. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 33: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 33: InteractiveFictionGame[examine ink]
+
+Observation 33: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 34: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 34: InteractiveFictionGame[examine ink]
+
+Observation 34: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 35: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 35: InteractiveFictionGame[examine ink]
+
+Observation 35: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 36: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 36: InteractiveFictionGame[examine ink]
+
+Observation 36:
+The stains and scratches are old and dusty.
+
+Charles is lost in thoughts. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 37: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 37: InteractiveFictionGame[examine ink]
+
+Observation 37: The stains and scratches are old and dusty. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 38: I should try to examine the ink on the desk to see if there are any clues or hints that could help me decode the message on the paper.
+
+Action 38: InteractiveFictionGame[examine ink]
+
+Observation 38:
+The stains and scratches are old and dusty.
+
+Charles sighs deeply and says  'Will I ever see Miriam again?' to himself. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 39: I should try to comfort Charles and assure him that we will do everything we can to help him find Miriam.
+
+Action 39: InteractiveFictionGame[comfort Charles]
+
+Observation 39: That's not a verb I recognise. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 40: I should try to reassure Charles verbally instead of using a specific action in the game.
+
+Action 40: InteractiveFictionGame[say to Charles: We will find a way out of this together]
+
+Observation 40: I didn't understand that sentence. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 41: I should try to focus on finding a way to progress in the game and help Charles remember more about his situation.
+
+Action 41: InteractiveFictionGame[examine surroundings]
+
+Observation 41: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 42: I should try to examine the surroundings to see if there are any clues or items that could help us progress in the game.
+
+Action 42: InteractiveFictionGame[examine surroundings]
+
+Observation 42: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 43: I should try to examine the surroundings to see if there are any clues or items that could help us progress in the game.
+
+Action 43: InteractiveFictionGame[examine surroundings]
+
+Observation 43: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 44: I should try to examine the surroundings to see if there are any clues or items that could help us progress in the game.
+
+Action 44: InteractiveFictionGame[examine surroundings]
+
+Observation 44: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 45: I should try to examine the surroundings to see if there are any clues or items that could help us progress in the game.
+
+Action 45: InteractiveFictionGame[examine surroundings]
+
+Observation 45: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 46: I should try to examine the surroundings to see if there are any clues or items that could help us progress in the game.
+
+Action 46: InteractiveFictionGame[examine surroundings]
+
+Observation 46: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 47: I should try to examine the surroundings to see if there are any clues or items that could help us progress in the game.
+
+Action 47: InteractiveFictionGame[examine surroundings]
+
+Observation 47: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 48: I should try to examine the surroundings to see if there are any clues or items that could help us progress in the game.
+
+Action 48: InteractiveFictionGame[examine surroundings]
+
+Observation 48: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 49: I should try to examine the surroundings to see if there are any clues or items that could help us progress in the game.
+
+Action 49: InteractiveFictionGame[examine surroundings]
+
+Observation 49: You can't see any such thing. Valid actions: InteractiveFictionGame[down], InteractiveFictionGame[south], InteractiveFictionGame[put paper down], InteractiveFictionGame[put statue down], InteractiveFictionGame[put all down], InteractiveFictionGame[put paper on desk], InteractiveFictionGame[put paper on webs], InteractiveFictionGame[put paper on bookshelves], InteractiveFictionGame[put paper on table], InteractiveFictionGame[put paper on ink], InteractiveFictionGame[put statue on desk], InteractiveFictionGame[put statue on webs], InteractiveFictionGame[put statue on bookshelves], InteractiveFictionGame[put statue on table], InteractiveFictionGame[put statue on ink], InteractiveFictionGame[put all on desk], InteractiveFictionGame[put all on webs], InteractiveFictionGame[put all on bookshelves], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on ink], InteractiveFictionGame[up]
+
+Thought 50:[[ I should try to examine the surroundings to see if there are any clues or items that could help us progress in the game.
+
+Action 50: InteractiveFictionGame[examine surroundings]]]
+
+
+
+

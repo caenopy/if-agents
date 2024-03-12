@@ -1,0 +1,117 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take ball], InteractiveFictionGame[take bucket], InteractiveFictionGame[take machine], InteractiveFictionGame[take all], InteractiveFictionGame[push assembly], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine on], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[point machine at net], InteractiveFictionGame[take all off bucket], InteractiveFictionGame[push ball to assembly], InteractiveFictionGame[push ball to oak], InteractiveFictionGame[push ball to bucket], InteractiveFictionGame[push ball to machine], InteractiveFictionGame[push bucket to ball], InteractiveFictionGame[push bucket to oak], InteractiveFictionGame[push bucket to machine], InteractiveFictionGame[push machine to ball], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 2: I should try to take the ball and see if it helps me progress in the game.
+
+Action 2: InteractiveFictionGame[take ball]
+
+Observation 2: Taken. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take bucket], InteractiveFictionGame[take machine], InteractiveFictionGame[take ball], InteractiveFictionGame[take all], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine on], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[point machine at net], InteractiveFictionGame[take all off bucket], InteractiveFictionGame[push ball to assembly], InteractiveFictionGame[push ball to oak], InteractiveFictionGame[push ball to bucket], InteractiveFictionGame[push ball to machine], InteractiveFictionGame[push bucket to ball], InteractiveFictionGame[push bucket to oak], InteractiveFictionGame[push bucket to machine], InteractiveFictionGame[push machine to ball], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 3: I should now try to take the bucket and see if it helps me progress further in the game.
+
+Action 3: InteractiveFictionGame[take bucket]
+
+Observation 3: Taken. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take machine], InteractiveFictionGame[take balls], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[put bucket down], InteractiveFictionGame[put all down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine on], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at net], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[take ball off bucket], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[put bucket in oak], InteractiveFictionGame[put bucket in machine], InteractiveFictionGame[push machine to ball], InteractiveFictionGame[put all in oak], InteractiveFictionGame[put all in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 4: I should now try to interact with the machine and see what it does.
+
+Action 4: InteractiveFictionGame[take machine]
+
+Observation 4: Taken. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take balls], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[put bucket down], InteractiveFictionGame[put machine down], InteractiveFictionGame[put all down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine on], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at net], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[take ball off bucket], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[put bucket in oak], InteractiveFictionGame[put bucket in machine], InteractiveFictionGame[put all in oak], InteractiveFictionGame[put all in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 5: I should try to turn on the machine and see what happens next.
+
+Action 5: InteractiveFictionGame[turn machine on]
+
+Observation 5:
+The machine is old and incrusted with dirt, but it looks as if it might still work.
+The device spitters to life in a noisy cacophony of pseudo-humorous mechanical sounds.  The launching spring begins to coil back into place.
+The ball machine's spring mechanism twangs noisily, and uselessly given nothing to throw, then pulls slowly back into place in preparation for another launch. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take balls], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[put bucket down], InteractiveFictionGame[put machine down], InteractiveFictionGame[put all down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine off], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at net], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[take ball off bucket], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[put bucket in oak], InteractiveFictionGame[put bucket in machine], InteractiveFictionGame[put all in oak], InteractiveFictionGame[put all in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 6: I should now try to point the machine at different objects and see what happens.
+
+Action 6: InteractiveFictionGame[point machine at oak]
+
+Observation 6:
+You do your best to push the large machine about until it appears to be oriented correctly.
+The ball machine's spring mechanism twangs noisily, and uselessly given nothing to throw, then pulls slowly back into place in preparation for another launch. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take balls], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[put bucket down], InteractiveFictionGame[put machine down], InteractiveFictionGame[put all down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine off], InteractiveFictionGame[point machine at ball], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at net], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[take ball off bucket], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[put bucket in oak], InteractiveFictionGame[put bucket in machine], InteractiveFictionGame[put all in oak], InteractiveFictionGame[put all in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 7: I should now try pointing the machine at different objects to see if anything happens.
+
+Action 7: InteractiveFictionGame[point machine at well]
+
+Observation 7:
+You do your best to push the large machine about until it appears to be oriented correctly.
+The ball machine's spring mechanism twangs noisily, and uselessly given nothing to throw, then pulls slowly back into place in preparation for another launch. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take balls], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[put bucket down], InteractiveFictionGame[put machine down], InteractiveFictionGame[put all down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine off], InteractiveFictionGame[point machine at ball], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at net], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[take ball off bucket], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[put bucket in oak], InteractiveFictionGame[put bucket in machine], InteractiveFictionGame[put all in oak], InteractiveFictionGame[put all in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 8: I should try pointing the machine at different objects to see if there are any interactions or changes that occur.
+
+Action 8: InteractiveFictionGame[point machine at gate]
+
+Observation 8:
+You do your best to push the large machine about until it appears to be oriented correctly.
+The ball machine's spring mechanism twangs noisily, and uselessly given nothing to throw, then pulls slowly back into place in preparation for another launch. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take balls], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[put bucket down], InteractiveFictionGame[put machine down], InteractiveFictionGame[put all down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine off], InteractiveFictionGame[point machine at ball], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at net], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[take ball off bucket], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[put bucket in oak], InteractiveFictionGame[put bucket in machine], InteractiveFictionGame[put all in oak], InteractiveFictionGame[put all in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 9: I should try pointing the machine at different objects to see if there are any interactions or changes that occur.
+
+Action 9: InteractiveFictionGame[point machine at net]
+
+Observation 9:
+You do your best to push the large machine about until it appears to be oriented correctly.
+The ball machine's spring mechanism twangs noisily, and uselessly given nothing to throw, then pulls slowly back into place in preparation for another launch. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take balls], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[put bucket down], InteractiveFictionGame[put machine down], InteractiveFictionGame[put all down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine off], InteractiveFictionGame[point machine at ball], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[take ball off bucket], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[put bucket in oak], InteractiveFictionGame[put bucket in machine], InteractiveFictionGame[put all in oak], InteractiveFictionGame[put all in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 10: I should try pointing the machine at different objects to see if there are any interactions or changes that occur.
+
+Action 10: InteractiveFictionGame[point machine at bucket]
+
+Observation 10:
+You do your best to push the large machine about until it appears to be oriented correctly.
+The ball machine's spring mechanism twangs noisily, and uselessly given nothing to throw, then pulls slowly back into place in preparation for another launch. Valid actions: InteractiveFictionGame[point machine east], InteractiveFictionGame[point machine west], InteractiveFictionGame[take balls], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[put bucket down], InteractiveFictionGame[put machine down], InteractiveFictionGame[put all down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine off], InteractiveFictionGame[point machine at ball], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at net], InteractiveFictionGame[take ball off bucket], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[put bucket in oak], InteractiveFictionGame[put bucket in machine], InteractiveFictionGame[put all in oak], InteractiveFictionGame[put all in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 11: I should try pointing the machine at different objects to see if there are any interactions or changes that occur.
+
+Action 11: InteractiveFictionGame[point machine east]
+
+Observation 11:
+You do your best to push the large machine about until it appears to be oriented correctly.
+The ball machine's spring mechanism twangs noisily, and uselessly given nothing to throw, then pulls slowly back into place in preparation for another launch. Valid actions: InteractiveFictionGame[point machine west], InteractiveFictionGame[take balls], InteractiveFictionGame[push assembly], InteractiveFictionGame[put ball down], InteractiveFictionGame[put bucket down], InteractiveFictionGame[put machine down], InteractiveFictionGame[put all down], InteractiveFictionGame[empty bucket], InteractiveFictionGame[turn machine off], InteractiveFictionGame[point machine at ball], InteractiveFictionGame[point machine at oak], InteractiveFictionGame[point machine at well], InteractiveFictionGame[point machine at gate], InteractiveFictionGame[point machine at net], InteractiveFictionGame[point machine at bucket], InteractiveFictionGame[take ball off bucket], InteractiveFictionGame[put ball in oak], InteractiveFictionGame[put ball in bucket], InteractiveFictionGame[put ball in machine], InteractiveFictionGame[put bucket in oak], InteractiveFictionGame[put bucket in machine], InteractiveFictionGame[put all in oak], InteractiveFictionGame[put all in machine], InteractiveFictionGame[empty bucket to oak], InteractiveFictionGame[empty bucket to machine]
+
+Thought 12:[[ I have tried pointing the machine at different objects, but nothing significant seems to be happening. I should try a different approach.
+
+Action 12: Finish[0]]]
+
+
+
+

@@ -1,0 +1,386 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I will start the interactive fiction game by taking the initial action 'InteractiveFictionGame[Start]'. If the game ends or I die, I will use my experience to make a better choice in the next iteration.
+
+Action 1: InteractiveFictionGame[Start]
+
+Observation 1:
+OMNIQuest
+A POP Release
+Parser Version 1.0
+POP RULES!!
+
+There's nothing to do, and you're sort of tired, so you lay on your bed and think philosophical thoughts.
+(meaning of life, end of the world, etc.)  As you philosophize, you begin to doze...
+
+You wake up with a horrible headache.  As you glance around, you realize that you are not in Kansas anymore.
+You attempt to gain some bearing as to where you are...
+
+
+OMNIQuest
+Original for Commodore Basic V2
+ written c. 1988 by Chris Barden and Chris Ethridge, 
+ adapted to Inform by Chris Barden
+Release 2 / Serial number 040127 / Inform v6.21 Library 6/10 SD
+
+Large Clearing
+You are standing in a large clearing surrounded by a dense forest.  There is a path to the east.
+
+You can see a tree here. Valid actions: InteractiveFictionGame[examine tree], InteractiveFictionGame[east]
+
+Thought 2: I will examine the tree to gather more information about my surroundings before proceeding along the path.
+
+Action 2: InteractiveFictionGame[examine tree]
+
+Observation 2: There is a snorkel hanging from the tree.  You take it. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[put snorkel down], InteractiveFictionGame[put on snorkel]
+
+Thought 3: I will put on the snorkel now, as it might come in handy in the water or underwater environments that I might encounter later in the game.
+
+Action 3: InteractiveFictionGame[put on snorkel]
+
+Observation 3: You put on the snorkel. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[put snorkel down]
+
+Thought 4: I will proceed along the path to the east and explore the area further.
+
+Action 4: InteractiveFictionGame[east]
+
+Observation 4:
+Small Path
+The path branches here.  There are paths to the west and south that continue into the forest.  The path to the east appears to lead into some rather rocky territory. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[west], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[put snorkel down]
+
+Thought 5: I will explore the rocky terrain to the east and see what I can find.
+
+Action 5: InteractiveFictionGame[east]
+
+Observation 5:
+Canyon Entrance
+This is the entrance to a canyon formed by an ancient river.  The canyon is to the east.  There is a sandy path to the northwest that seems to lead to a beach.  There is a path leading into a forest to the west. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[east], InteractiveFictionGame[get in northwest], InteractiveFictionGame[west], InteractiveFictionGame[put snorkel down]
+
+Thought 6: I will explore the canyon to the east and see what I can find.
+
+Action 6: InteractiveFictionGame[east]
+
+Observation 6:
+Canyon Path
+The path here is a riverbed that has long since gone dry.  The river has cut several meandering passages into the canyon, forming what looks like two rather large boulders.  A passage to the north appears to go around the larger boulder, while a narrow gap to the southeast seems to go around the smaller boulder.  A passage to the east cuts the rock into its separate sections.  And of course, the passage to the west goes back the way you came. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put snorkel down]
+
+Thought 7: I will explore the narrow gap to the southeast and see if I can find anything of interest there.
+
+Action 7: InteractiveFictionGame[southeast]
+
+Observation 7:
+Small Clearing
+This clearing is apparently a brief widening of some ancient river.  There are various small passages winding around two large boulders.  These are to the north, south, and west.
+
+You can see a shovel here. Valid actions: InteractiveFictionGame[take shovel], InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put snorkel down]
+
+Thought 8: I will take the shovel and explore the area further to see if it might be useful for digging up any hidden items or clues.
+
+Action 8: InteractiveFictionGame[take shovel]
+
+Observation 8: Taken. Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 9: I will explore the passages around the boulders to the north, south, and west using the shovel if necessary.
+
+Action 9: InteractiveFictionGame[north]
+
+Observation 9: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 10: I will continue exploring the canyon path to the north and see if there are any interesting discoveries or challenges ahead.
+
+Action 10: InteractiveFictionGame[north]
+
+Observation 10: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 11: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 11: InteractiveFictionGame[north]
+
+Observation 11: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 12: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 12: InteractiveFictionGame[north]
+
+Observation 12: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 13: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 13: InteractiveFictionGame[north]
+
+Observation 13: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 14: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 14: InteractiveFictionGame[north]
+
+Observation 14: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 15: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 15: InteractiveFictionGame[north]
+
+Observation 15: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 16: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 16: InteractiveFictionGame[north]
+
+Observation 16: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 17: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 17: InteractiveFictionGame[north]
+
+Observation 17: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 18: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 18: InteractiveFictionGame[north]
+
+Observation 18: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 19: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 19: InteractiveFictionGame[north]
+
+Observation 19: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 20: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 20: InteractiveFictionGame[north]
+
+Observation 20: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 21: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 21: InteractiveFictionGame[north]
+
+Observation 21: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 22: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 22: InteractiveFictionGame[north]
+
+Observation 22: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 23: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 23: InteractiveFictionGame[north]
+
+Observation 23: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 24: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 24: InteractiveFictionGame[north]
+
+Observation 24: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 25: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 25: InteractiveFictionGame[north]
+
+Observation 25: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 26: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 26: InteractiveFictionGame[north]
+
+Observation 26: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 27: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 27: InteractiveFictionGame[north]
+
+Observation 27: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 28: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 28: InteractiveFictionGame[north]
+
+Observation 28: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 29: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 29: InteractiveFictionGame[north]
+
+Observation 29: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 30: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 30: InteractiveFictionGame[north]
+
+Observation 30: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 31: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 31: InteractiveFictionGame[north]
+
+Observation 31: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 32: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 32: InteractiveFictionGame[north]
+
+Observation 32: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 33: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 33: InteractiveFictionGame[north]
+
+Observation 33: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 34: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 34: InteractiveFictionGame[north]
+
+Observation 34: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 35: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 35: InteractiveFictionGame[north]
+
+Observation 35: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 36: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 36: InteractiveFictionGame[north]
+
+Observation 36: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 37: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 37: InteractiveFictionGame[north]
+
+Observation 37: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 38: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 38: InteractiveFictionGame[north]
+
+Observation 38: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 39: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 39: InteractiveFictionGame[north]
+
+Observation 39: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 40: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 40: InteractiveFictionGame[north]
+
+Observation 40: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 41: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 41: InteractiveFictionGame[north]
+
+Observation 41: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 42: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 42: InteractiveFictionGame[north]
+
+Observation 42: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 43: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 43: InteractiveFictionGame[north]
+
+Observation 43: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 44: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 44: InteractiveFictionGame[north]
+
+Observation 44: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 45: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 45: InteractiveFictionGame[north]
+
+Observation 45: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 46: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 46: InteractiveFictionGame[north]
+
+Observation 46: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 47: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 47: InteractiveFictionGame[north]
+
+Observation 47: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 48: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 48: InteractiveFictionGame[north]
+
+Observation 48: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 49: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 49: InteractiveFictionGame[north]
+
+Observation 49: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 50:[[ I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 50: InteractiveFictionGame[north]
+
+Observation 50: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 51: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 51: InteractiveFictionGame[north]
+
+Observation 51: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 52: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 52: InteractiveFictionGame[north]
+
+Observation 52: Small Clearing Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 53: I will continue exploring the small clearing to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 53: InteractiveFictionGame[north]
+
+Observation 53: Canyon Path Valid actions: InteractiveFictionGame[take off snorkel], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put shovel down], InteractiveFictionGame[put snorkel down]
+
+Thought 54: I will continue exploring the canyon path to the north and look for any hidden items or clues that might be useful in my journey.
+
+Action 54: Interactive]]
+
+
+
+

@@ -1,0 +1,204 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[put water under sky], InteractiveFictionGame[put sky under water], InteractiveFictionGame[put rain under water], InteractiveFictionGame[put mud under water], InteractiveFictionGame[up]
+
+Thought 2: It seems like the game didn't understand my command correctly. I should try a different action that might help me progress.
+
+Action 2: InteractiveFictionGame[up]
+
+Observation 2:
+As you scramble out of the hole the mud collapses downward, filling in the hole behind you.
+
+Graveyard
+Dozens of stone markers stand here, oblivious to the wind and the rain. Huge, twisted oaks, their limbs tossed by the wind, draw an unmentionable sustenance from the moss-covered, moldy ground. An odor of decay, which even the storm cannot dissipate, hangs over everything. An iron barred fence surrounds the graveyard, an ivy-covered barrier separating it from the world of the living. The only exit is through the gate to the east.
+
+A church rises to the east, its boarded up windows giving the impression that it is covering its eyes from the sight of the graveyard.
+
+A large branch has been broken from one of the trees and has crushed the grave marker below it. Valid actions: InteractiveFictionGame[take branch], InteractiveFictionGame[take broken], InteractiveFictionGame[east], InteractiveFictionGame[push broken to branch], InteractiveFictionGame[put branch under markers], InteractiveFictionGame[put markers under branch], InteractiveFictionGame[put ivy under branch], InteractiveFictionGame[put trees under branch], InteractiveFictionGame[put church under branch], InteractiveFictionGame[put wind under branch], InteractiveFictionGame[put rain under branch], InteractiveFictionGame[put ground under branch], InteractiveFictionGame[put windows under branch], InteractiveFictionGame[put grave under branch], InteractiveFictionGame[put east under branch], InteractiveFictionGame[put mold under branch], InteractiveFictionGame[put broken under branch], InteractiveFictionGame[put steeple under branch]
+
+Thought 3: I should explore the graveyard further and see if there are any items or clues that could help me progress in the game.
+
+Action 3: InteractiveFictionGame[east]
+
+Observation 3:
+West Side of the Church
+This side of the church is untended and grasses and weeds have run rampant. A muddy trail leads back to the graveyard to the west and on to the southeast and a faint path continues around the church to the northeast.
+
+To the east, the wall of the church breaks some of the force of the wind. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[put wind under weeds], InteractiveFictionGame[put weeds under wind], InteractiveFictionGame[put southeast under wind], InteractiveFictionGame[put church under wind], InteractiveFictionGame[put windows under wind], InteractiveFictionGame[put trail under wind], InteractiveFictionGame[put east under wind], InteractiveFictionGame[put northeast under wind], InteractiveFictionGame[put mud under wind], InteractiveFictionGame[put west under wind], InteractiveFictionGame[put rain under wind], InteractiveFictionGame[put steeple under wind], InteractiveFictionGame[put chain under wind]
+
+Thought 4: I should continue exploring the area around the church to see if there are any more clues or items that could help me progress in the game.
+
+Action 4: InteractiveFictionGame[north]
+
+Observation 4:
+North Side of the Church
+The trees close in here, their storm-tossed branches seeming to reach clawing limbs towards the back of the church. The weeds have run wild here and ivy climbs its way up the back of the building.  A faint path continues around the church to the southeast and the southwest.
+
+The south wall of the church looms blankly overhead.
+
+Lightning arcs overhead, followed instantly by a blast of thunder. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[west], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put southeast under trees], InteractiveFictionGame[put church under trees], InteractiveFictionGame[put storm under trees], InteractiveFictionGame[put windows under trees], InteractiveFictionGame[put north under trees], InteractiveFictionGame[put ivy under trees], InteractiveFictionGame[put path under trees], InteractiveFictionGame[put south under trees], InteractiveFictionGame[put mud under trees], InteractiveFictionGame[put rain under trees], InteractiveFictionGame[put southwest under trees], InteractiveFictionGame[put steeple under trees], InteractiveFictionGame[put chain under trees]
+
+Thought 5: I should investigate the back of the church and see if there are any clues or items hidden there that could help me progress in the game.
+
+Action 5: InteractiveFictionGame[east]
+
+Observation 5:
+East Side of the Church
+This wide, graveled clearing may have once been where the worshippers at the church left their vehicles while attending services inside. If so, it seems that the last service was held long ago. Weeds and grasses grow up through the gravel, which is littered with debris. Dark, looming trees surround the clearing except for the driveway, which leads to the southwest, and for a narrow opening to the northwest.
+
+To the west, the church stares out over the clearing. Valid actions: InteractiveFictionGame[take clearing], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put clearing under weeds], InteractiveFictionGame[put church under weeds], InteractiveFictionGame[put storm under weeds], InteractiveFictionGame[put windows under weeds], InteractiveFictionGame[put mud under weeds], InteractiveFictionGame[put debris under weeds], InteractiveFictionGame[put northwest under weeds], InteractiveFictionGame[put west under weeds], InteractiveFictionGame[put rain under weeds], InteractiveFictionGame[put driveway under weeds], InteractiveFictionGame[put east under weeds], InteractiveFictionGame[put southwest under weeds], InteractiveFictionGame[put steeple under weeds], InteractiveFictionGame[put chain under weeds]
+
+Thought 6: I should search the debris in the clearing to see if there are any useful items that could help me progress in the game.
+
+Action 6: InteractiveFictionGame[take debris]
+
+Observation 6: You see no need to carry the trash around with you. Valid actions: InteractiveFictionGame[take clearing], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put clearing under weeds], InteractiveFictionGame[put church under weeds], InteractiveFictionGame[put storm under weeds], InteractiveFictionGame[put windows under weeds], InteractiveFictionGame[put mud under weeds], InteractiveFictionGame[put debris under weeds], InteractiveFictionGame[put northwest under weeds], InteractiveFictionGame[put west under weeds], InteractiveFictionGame[put rain under weeds], InteractiveFictionGame[put driveway under weeds], InteractiveFictionGame[put east under weeds], InteractiveFictionGame[put southwest under weeds], InteractiveFictionGame[put steeple under weeds], InteractiveFictionGame[put chain under weeds]
+
+Thought 7: It seems like there's nothing useful in the debris. I should continue exploring the area to find any items or clues that could help me progress in the game.
+
+Action 7: InteractiveFictionGame[north]
+
+Observation 7:
+North Side of the Church
+
+The south wall of the church looms blankly overhead. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[west], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put southeast under trees], InteractiveFictionGame[put church under trees], InteractiveFictionGame[put storm under trees], InteractiveFictionGame[put windows under trees], InteractiveFictionGame[put north under trees], InteractiveFictionGame[put ivy under trees], InteractiveFictionGame[put path under trees], InteractiveFictionGame[put south under trees], InteractiveFictionGame[put mud under trees], InteractiveFictionGame[put rain under trees], InteractiveFictionGame[put southwest under trees], InteractiveFictionGame[put steeple under trees], InteractiveFictionGame[put chain under trees]
+
+Thought 8: I should explore the north side of the church further to see if there are any hidden clues or items that could help me progress in the game.
+
+Action 8: InteractiveFictionGame[east]
+
+Observation 8:
+East Side of the Church
+
+To the west, the church stares out over the clearing. Valid actions: InteractiveFictionGame[take clearing], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put clearing under weeds], InteractiveFictionGame[put church under weeds], InteractiveFictionGame[put storm under weeds], InteractiveFictionGame[put windows under weeds], InteractiveFictionGame[put mud under weeds], InteractiveFictionGame[put debris under weeds], InteractiveFictionGame[put northwest under weeds], InteractiveFictionGame[put west under weeds], InteractiveFictionGame[put rain under weeds], InteractiveFictionGame[put driveway under weeds], InteractiveFictionGame[put east under weeds], InteractiveFictionGame[put southwest under weeds], InteractiveFictionGame[put steeple under weeds], InteractiveFictionGame[put chain under weeds]
+
+Thought 9: I should investigate the east side of the church to see if there are any clues or items that could help me progress in the game.
+
+Action 9: InteractiveFictionGame[take church]
+
+Observation 9: That's fixed in place. Valid actions: InteractiveFictionGame[take clearing], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put clearing under weeds], InteractiveFictionGame[put church under weeds], InteractiveFictionGame[put storm under weeds], InteractiveFictionGame[put windows under weeds], InteractiveFictionGame[put mud under weeds], InteractiveFictionGame[put debris under weeds], InteractiveFictionGame[put northwest under weeds], InteractiveFictionGame[put west under weeds], InteractiveFictionGame[put rain under weeds], InteractiveFictionGame[put driveway under weeds], InteractiveFictionGame[put east under weeds], InteractiveFictionGame[put southwest under weeds], InteractiveFictionGame[put steeple under weeds], InteractiveFictionGame[put chain under weeds]
+
+Thought 10: It seems like I can't take the church. I should try a different action to progress in the game.
+
+Action 10: InteractiveFictionGame[north]
+
+Observation 10:
+North Side of the Church
+
+The south wall of the church looms blankly overhead. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[west], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put southeast under trees], InteractiveFictionGame[put church under trees], InteractiveFictionGame[put storm under trees], InteractiveFictionGame[put windows under trees], InteractiveFictionGame[put north under trees], InteractiveFictionGame[put ivy under trees], InteractiveFictionGame[put path under trees], InteractiveFictionGame[put south under trees], InteractiveFictionGame[put mud under trees], InteractiveFictionGame[put rain under trees], InteractiveFictionGame[put southwest under trees], InteractiveFictionGame[put steeple under trees], InteractiveFictionGame[put chain under trees]
+
+Thought 11: I should continue exploring the north side of the church to see if there are any hidden clues or items that could help me progress in the game.
+
+Action 11: InteractiveFictionGame[east]
+
+Observation 11:
+East Side of the Church
+
+To the west, the church stares out over the clearing. Valid actions: InteractiveFictionGame[take clearing], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put clearing under weeds], InteractiveFictionGame[put church under weeds], InteractiveFictionGame[put storm under weeds], InteractiveFictionGame[put windows under weeds], InteractiveFictionGame[put mud under weeds], InteractiveFictionGame[put debris under weeds], InteractiveFictionGame[put northwest under weeds], InteractiveFictionGame[put west under weeds], InteractiveFictionGame[put rain under weeds], InteractiveFictionGame[put driveway under weeds], InteractiveFictionGame[put east under weeds], InteractiveFictionGame[put southwest under weeds], InteractiveFictionGame[put steeple under weeds], InteractiveFictionGame[put chain under weeds]
+
+Thought 12: I should search the clearing to see if there are any useful items that could help me progress in the game.
+
+Action 12: InteractiveFictionGame[take clearing]
+
+Observation 12: You pick up a handful of gravel. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put handful down], InteractiveFictionGame[put handful under gravel], InteractiveFictionGame[put weeds under handful], InteractiveFictionGame[put trees under handful], InteractiveFictionGame[put clearing under handful], InteractiveFictionGame[put church under handful], InteractiveFictionGame[put storm under handful], InteractiveFictionGame[put windows under handful], InteractiveFictionGame[put mud under handful], InteractiveFictionGame[put debris under handful], InteractiveFictionGame[put northwest under handful], InteractiveFictionGame[put west under handful], InteractiveFictionGame[put rain under handful], InteractiveFictionGame[put driveway under handful], InteractiveFictionGame[put east under handful], InteractiveFictionGame[put southwest under handful], InteractiveFictionGame[put steeple under handful], InteractiveFictionGame[put chain under handful]
+
+Thought 13: I should examine the gravel I picked up to see if there's anything hidden within it that could help me progress in the game.
+
+Action 13: InteractiveFictionGame[examine gravel]
+
+Observation 13:
+(the handful of gravel)
+A handful of loose, muddy gravel. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put handful down], InteractiveFictionGame[put handful under gravel], InteractiveFictionGame[put weeds under handful], InteractiveFictionGame[put trees under handful], InteractiveFictionGame[put clearing under handful], InteractiveFictionGame[put church under handful], InteractiveFictionGame[put storm under handful], InteractiveFictionGame[put windows under handful], InteractiveFictionGame[put mud under handful], InteractiveFictionGame[put debris under handful], InteractiveFictionGame[put northwest under handful], InteractiveFictionGame[put west under handful], InteractiveFictionGame[put rain under handful], InteractiveFictionGame[put driveway under handful], InteractiveFictionGame[put east under handful], InteractiveFictionGame[put southwest under handful], InteractiveFictionGame[put steeple under handful], InteractiveFictionGame[put chain under handful]
+
+Thought 14: I should try to use the gravel in a different way to see if it helps me progress in the game.
+
+Action 14: InteractiveFictionGame[put gravel under trees]
+
+Observation 14:
+(the handful of gravel under the oak trees)
+You put the handful of gravel under the oak trees. Valid actions: InteractiveFictionGame[take clearing], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put handful down], InteractiveFictionGame[push handful to northwest], InteractiveFictionGame[put northwest under west], InteractiveFictionGame[put west under northwest], InteractiveFictionGame[put weeds under northwest], InteractiveFictionGame[put trees under northwest], InteractiveFictionGame[put clearing under northwest], InteractiveFictionGame[put handful under northwest], InteractiveFictionGame[put church under northwest], InteractiveFictionGame[put rain under northwest], InteractiveFictionGame[put storm under northwest], InteractiveFictionGame[put windows under northwest], InteractiveFictionGame[put driveway under northwest], InteractiveFictionGame[put east under northwest], InteractiveFictionGame[put southwest under northwest], InteractiveFictionGame[put debris under northwest], InteractiveFictionGame[put steeple under northwest], InteractiveFictionGame[put chain under northwest], InteractiveFictionGame[put mud under northwest]
+
+Thought 15: I should see if putting the gravel under the oak trees has any effect on the game environment.
+
+Action 15: InteractiveFictionGame[north]
+
+Observation 15:
+North Side of the Church
+
+The south wall of the church looms blankly overhead.
+
+For a brief moment, hail pounds against you then subsides. Valid actions: InteractiveFictionGame[east], InteractiveFictionGame[west], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put southeast under trees], InteractiveFictionGame[put church under trees], InteractiveFictionGame[put storm under trees], InteractiveFictionGame[put windows under trees], InteractiveFictionGame[put north under trees], InteractiveFictionGame[put ivy under trees], InteractiveFictionGame[put path under trees], InteractiveFictionGame[put south under trees], InteractiveFictionGame[put mud under trees], InteractiveFictionGame[put rain under trees], InteractiveFictionGame[put southwest under trees], InteractiveFictionGame[put steeple under trees], InteractiveFictionGame[put chain under trees]
+
+Thought 16: I should continue exploring the north side of the church to see if there are any more clues or items that could help me progress in the game.
+
+Action 16: InteractiveFictionGame[east]
+
+Observation 16:
+East Side of the Church
+
+To the west, the church stares out over the clearing.
+
+You can also see a handful of gravel here. Valid actions: InteractiveFictionGame[take clearing], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put handful down], InteractiveFictionGame[push handful to weeds], InteractiveFictionGame[put weeds under trees], InteractiveFictionGame[put trees under weeds], InteractiveFictionGame[put clearing under weeds], InteractiveFictionGame[put church under weeds], InteractiveFictionGame[put storm under weeds], InteractiveFictionGame[put windows under weeds], InteractiveFictionGame[put handful under weeds], InteractiveFictionGame[put mud under weeds], InteractiveFictionGame[put debris under weeds], InteractiveFictionGame[put northwest under weeds], InteractiveFictionGame[put west under weeds], InteractiveFictionGame[put rain under weeds], InteractiveFictionGame[put driveway under weeds], InteractiveFictionGame[put east under weeds], InteractiveFictionGame[put southwest under weeds], InteractiveFictionGame[put steeple under weeds], InteractiveFictionGame[put chain under weeds]
+
+Thought 17: I should pick up the gravel I see on the east side of the church and see if it can be used in a different way to progress in the game.
+
+Action 17: InteractiveFictionGame[take gravel]
+
+Observation 17:
+(the handful of gravel)
+Taken. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put handful down], InteractiveFictionGame[put handful under gravel], InteractiveFictionGame[put weeds under handful], InteractiveFictionGame[put trees under handful], InteractiveFictionGame[put clearing under handful], InteractiveFictionGame[put church under handful], InteractiveFictionGame[put storm under handful], InteractiveFictionGame[put windows under handful], InteractiveFictionGame[put mud under handful], InteractiveFictionGame[put debris under handful], InteractiveFictionGame[put northwest under handful], InteractiveFictionGame[put west under handful], InteractiveFictionGame[put rain under handful], InteractiveFictionGame[put driveway under handful], InteractiveFictionGame[put east under handful], InteractiveFictionGame[put southwest under handful], InteractiveFictionGame[put steeple under handful], InteractiveFictionGame[put chain under handful]
+
+Thought 18: I should examine the gravel I picked up to see if there's anything hidden within it that could help me progress in the game.
+
+Action 18: InteractiveFictionGame[examine gravel]
+
+Observation 18:
+(the handful of gravel)
+A handful of loose, muddy gravel. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put handful down], InteractiveFictionGame[put handful under gravel], InteractiveFictionGame[put weeds under handful], InteractiveFictionGame[put trees under handful], InteractiveFictionGame[put clearing under handful], InteractiveFictionGame[put church under handful], InteractiveFictionGame[put storm under handful], InteractiveFictionGame[put windows under handful], InteractiveFictionGame[put mud under handful], InteractiveFictionGame[put debris under handful], InteractiveFictionGame[put northwest under handful], InteractiveFictionGame[put west under handful], InteractiveFictionGame[put rain under handful], InteractiveFictionGame[put driveway under handful], InteractiveFictionGame[put east under handful], InteractiveFictionGame[put southwest under handful], InteractiveFictionGame[put steeple under handful], InteractiveFictionGame[put chain under handful]
+
+Thought 19: I should try using the gravel in a different location to see if it has any effect on the game environment.
+
+Action 19: InteractiveFictionGame[put gravel under windows]
+
+Observation 19:
+(the handful of gravel under the windows)
+You put the handful of gravel under the windows. Valid actions: InteractiveFictionGame[take clearing], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[put handful down], InteractiveFictionGame[push handful to northwest], InteractiveFictionGame[put northwest under west], InteractiveFictionGame[put west under northwest], InteractiveFictionGame[put weeds under northwest], InteractiveFictionGame[put trees under northwest], InteractiveFictionGame[put clearing under northwest], InteractiveFictionGame[put handful under northwest], InteractiveFictionGame[put church under northwest], InteractiveFictionGame[put rain under northwest], InteractiveFictionGame[put storm under northwest], InteractiveFictionGame[put windows under northwest], InteractiveFictionGame[put driveway under northwest], InteractiveFictionGame[put east under northwest], InteractiveFictionGame[put southwest under northwest], InteractiveFictionGame[put debris under northwest], InteractiveFictionGame[put steeple under northwest], InteractiveFictionGame[put chain under northwest], InteractiveFictionGame[put mud under northwest]
+
+Thought 20:[[ I should see if placing the gravel under the windows has any impact on the game environment.
+
+Action 20: Finish[score]]]
+
+
+
+

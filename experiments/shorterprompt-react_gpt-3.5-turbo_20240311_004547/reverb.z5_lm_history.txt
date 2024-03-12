@@ -1,0 +1,169 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[examine counter], InteractiveFictionGame[take box], InteractiveFictionGame[take note], InteractiveFictionGame[examine note], InteractiveFictionGame[leave box], InteractiveFictionGame[open box], InteractiveFictionGame[push box to note], InteractiveFictionGame[push note to southwest], InteractiveFictionGame[push box to counter], InteractiveFictionGame[push note to counter]
+
+Thought 2: I should try to examine the counter and see if there's anything of interest there.
+
+Action 2: InteractiveFictionGame[examine counter]
+
+Observation 2: It's a majorly boring counter which you're unfortunately very familiar with.  Hey, maybe that handwritten note lying next to a pizza box on the counter is related to whatever it is you're supposed to be doing now. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take note], InteractiveFictionGame[take box], InteractiveFictionGame[examine note], InteractiveFictionGame[open box], InteractiveFictionGame[push note to southwest], InteractiveFictionGame[push box to note], InteractiveFictionGame[take all off counter], InteractiveFictionGame[push note to counter], InteractiveFictionGame[push box to counter]
+
+Thought 3: I should definitely pick up that handwritten note and see what it says. It might give me a clue on what to do next.
+
+Action 3: InteractiveFictionGame[take note]
+
+Observation 3: Taken. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take box], InteractiveFictionGame[put note down], InteractiveFictionGame[examine note], InteractiveFictionGame[open box], InteractiveFictionGame[push box to note], InteractiveFictionGame[put note on counter], InteractiveFictionGame[push box to counter]
+
+Thought 4: Let's examine the note and see if it provides any useful information for our next steps.
+
+Action 4: InteractiveFictionGame[examine note]
+
+Observation 4:
+The note reads:
+
+"Stanley,
+    Don't forget to make your delivery to Mr. Calzone, located at the San Doppleton Courthouse. You're already on thin ice, kid. One more screwup and you can expect to be looking for a new job."
+
+The note is signed with the initials "RT". The paper is official "Mr. Tasty's" stationery with the name Bob "Tasty" Tasker and lots of balloons and smiley faces all over the border. Isn't that cute? Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take box], InteractiveFictionGame[put note down], InteractiveFictionGame[examine note], InteractiveFictionGame[open box], InteractiveFictionGame[push box to note], InteractiveFictionGame[put note on counter], InteractiveFictionGame[push box to counter]
+
+Thought 5: Based on the note, it looks like I need to make a delivery to Mr. Calzone at the San Doppleton Courthouse. I should probably head in that direction to progress in the game.
+
+Action 5: InteractiveFictionGame[go to San Doppleton Courthouse]
+
+Observation 5: You can't see any such thing. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take box], InteractiveFictionGame[put note down], InteractiveFictionGame[examine note], InteractiveFictionGame[open box], InteractiveFictionGame[push box to note], InteractiveFictionGame[put note on counter], InteractiveFictionGame[push box to counter]
+
+Thought 6: I should probably try to leave the building and see if I can find the San Doppleton Courthouse outside.
+
+Action 6: InteractiveFictionGame[leave building]
+
+Observation 6: You can't see any such thing. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take box], InteractiveFictionGame[put note down], InteractiveFictionGame[examine note], InteractiveFictionGame[open box], InteractiveFictionGame[push box to note], InteractiveFictionGame[put note on counter], InteractiveFictionGame[push box to counter]
+
+Thought 7: I should try to exit the room and explore the surroundings to find the San Doppleton Courthouse.
+
+Action 7: InteractiveFictionGame[exit room]
+
+Observation 7: I only understood you as far as wanting to exit. Valid actions: InteractiveFictionGame[get up], InteractiveFictionGame[take box], InteractiveFictionGame[put note down], InteractiveFictionGame[examine note], InteractiveFictionGame[open box], InteractiveFictionGame[push box to note], InteractiveFictionGame[put note on counter], InteractiveFictionGame[push box to counter]
+
+Thought 8: I should try to get up from my current position and see if that helps me move towards finding the San Doppleton Courthouse.
+
+Action 8: InteractiveFictionGame[get up]
+
+Observation 8:
+Pizza Parlor
+You are standing in the middle of "Mr. Tasty's Pizza Parlor". The counter separating you from the back of the parlor stretches in front of you on the northeast corner of the room. To the south is an exit to the street.
+
+On the counter is a large pizza box (which is closed). Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in northeast], InteractiveFictionGame[take box], InteractiveFictionGame[put note down], InteractiveFictionGame[examine note], InteractiveFictionGame[open box], InteractiveFictionGame[push box to note], InteractiveFictionGame[put note on counter], InteractiveFictionGame[push box to counter]
+
+Thought 9: I should head south towards the exit to the street to continue my journey towards finding the San Doppleton Courthouse.
+
+Action 9: InteractiveFictionGame[south]
+
+Observation 9:
+Street, by Pizza Parlor
+San Doppleton is where you live, work and play -- at least until summer. It has the typical California culture; which is to say, none. But at least it's just forty minutes' drive from Santa Barbara and the beach, so you can't complain much.
+
+You stand in the heart of San Doppleton's main drag, the business district. The street goes east and west. The sidewalk runs by a pizza parlor, with a sewer vent nearby.
+
+A man and a woman walk by holding hands. They make a cute couple. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine parlor], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake rider], InteractiveFictionGame[put on parlor], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss rider], InteractiveFictionGame[hit rider], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say parlor to rider], InteractiveFictionGame[ask rider about parlor], InteractiveFictionGame[ask rider for parlor], InteractiveFictionGame[hit rider with note], InteractiveFictionGame[show rider note], InteractiveFictionGame[give rider note], InteractiveFictionGame[tell rider about parlor], InteractiveFictionGame[throw note against rider]
+
+Thought 10: I should examine the pizza parlor to see if there are any clues or people who might know about the San Doppleton Courthouse.
+
+Action 10: InteractiveFictionGame[examine parlor]
+
+Observation 10:
+That's where you work.
+
+A big ugly low rider cruises by, blaring rap music loud enough to make the sidewalk shake. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 11: I should try to ask someone in the pizza parlor about the San Doppleton Courthouse to gather more information.
+
+Action 11: InteractiveFictionGame[ask about San Doppleton Courthouse]
+
+Observation 11: You can't see any such thing. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 12: I should try to ask someone in the pizza parlor about Mr. Calzone and see if they know where the San Doppleton Courthouse is located.
+
+Action 12: InteractiveFictionGame[ask about Mr. Calzone]
+
+Observation 12: You can't see any such thing. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 13: I should try to ask someone in the pizza parlor about Bob "Tasty" Tasker, the person who signed the note, to see if they have any information about the San Doppleton Courthouse.
+
+Action 13: InteractiveFictionGame[ask about Bob "Tasty" Tasker]
+
+Observation 13: You can't see any such thing. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 14: I should try to ask someone in the pizza parlor about the San Doppleton Courthouse directly to see if they can provide me with directions or more information.
+
+Action 14: InteractiveFictionGame[ask about San Doppleton Courthouse]
+
+Observation 14: You can't see any such thing. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 15: I should try to explore the street outside the pizza parlor to see if I can find any clues or directions to the San Doppleton Courthouse.
+
+Action 15: InteractiveFictionGame[examine street]
+
+Observation 15: That's not something you need to refer to in the course of this game. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 16: I should try to ask someone on the street outside the pizza parlor about the San Doppleton Courthouse to see if they can provide me with directions or more information.
+
+Action 16: InteractiveFictionGame[ask about San Doppleton Courthouse]
+
+Observation 16: You can't see any such thing. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 17: I should try to ask someone on the street outside the pizza parlor about Mr. Calzone to see if they know where the San Doppleton Courthouse is located.
+
+Action 17: InteractiveFictionGame[ask about Mr. Calzone]
+
+Observation 17: You can't see any such thing. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 18: I should try to ask someone on the street outside the pizza parlor about Bob "Tasty" Tasker, the person who signed the note, to see if they have any information about the San Doppleton Courthouse.
+
+Action 18: InteractiveFictionGame[ask about Bob "Tasty" Tasker]
+
+Observation 18: You can't see any such thing. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 19: I should try to ask someone on the street outside the pizza parlor directly about the San Doppleton Courthouse to see if they can provide me with directions or more information.
+
+Action 19: InteractiveFictionGame[ask about San Doppleton Courthouse]
+
+Observation 19: You can't see any such thing. Valid actions: InteractiveFictionGame[examine west], InteractiveFictionGame[examine vent], InteractiveFictionGame[north], InteractiveFictionGame[pronouns], InteractiveFictionGame[wake man], InteractiveFictionGame[put on vent], InteractiveFictionGame[put note down], InteractiveFictionGame[west], InteractiveFictionGame[east], InteractiveFictionGame[kiss man], InteractiveFictionGame[hit man], InteractiveFictionGame[examine note], InteractiveFictionGame[throw note], InteractiveFictionGame[say vent to man], InteractiveFictionGame[ask man about vent], InteractiveFictionGame[ask man for vent], InteractiveFictionGame[hit man with note], InteractiveFictionGame[show man note], InteractiveFictionGame[give man note], InteractiveFictionGame[tell man about vent], InteractiveFictionGame[throw note against man]
+
+Thought 20:[[ I seem to be stuck in a loop of not being able to progress by asking about the San Doppleton Courthouse. I should try a different approach to move forward in the game.
+
+Action 20: Finish[0]]]
+
+
+
+

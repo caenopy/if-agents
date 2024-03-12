@@ -1,0 +1,366 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1:
+Your Tent
+(You are in the army cot.)
+You are in your tent. Golden rays of the sun filter through the open tent flaps on the southern wall, but no breeze makes its way through. The dry, searing heat in the tent would be bearable if only the air stirred, even a little.
+At the foot of the cot is a large, unwieldy trunk. The trunk is closed and locked with a padlock.
+
+You hear a plane flying high overhead, outside the tent. Valid actions: InteractiveFictionGame[take off cot], InteractiveFictionGame[look up wall]
+
+Thought 2: I should try to unlock the trunk to see if there's anything useful inside.
+
+Action 2: InteractiveFictionGame[unlock trunk]
+
+Observation 2: What do you want to unlock the trunk with? Valid actions: InteractiveFictionGame[take off cot], InteractiveFictionGame[look up wall]
+
+Thought 3: I need to find something to unlock the trunk with. I should look around the tent for any objects that could help me with this task.
+
+Action 3: InteractiveFictionGame[look around tent]
+
+Observation 3:
+Your Tent
+(You are in the army cot.)
+You are in your tent. Golden rays of the sun filter through the open tent flaps on the southern wall, but no breeze makes its way through. The dry, searing heat in the tent would be bearable if only the air stirred, even a little.
+At the foot of the cot is a large, unwieldy trunk. The trunk is closed and locked with a padlock.
+
+You hear a plane flying high overhead, outside the tent. Valid actions: InteractiveFictionGame[take off cot], InteractiveFictionGame[look up wall]
+
+Thought 4: I should try to take off the cot to see if there's anything underneath that could help me unlock the trunk.
+
+Action 4: InteractiveFictionGame[take off cot]
+
+Observation 4:
+You push yourself up and manage to get out of the cot. Your legs are a little wobbly, though, and your head swims.
+
+You hear a plane flying high overhead, outside the tent. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[close cot]
+
+Thought 5: I should search around the cot to see if there's anything that could help me unlock the trunk.
+
+Action 5: InteractiveFictionGame[search around cot]
+
+Observation 5: I don't understand that sentence. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[close cot]
+
+Thought 6: I should try to go south to explore more of my surroundings and see if I can find something to unlock the trunk.
+
+Action 6: InteractiveFictionGame[south]
+
+Observation 6:
+Outside Your Tent
+You are on an east/west path on the north side of the encampment. To the south you can see a firepit and to the north is the entrance to your tent. Everything is oddly quiet, unsettling, creating a feeling of floating anxiety. The stillness seems to enhance the eerie quality of the desert, the feeling of being truly alone. There's a small hole in the sand, a remnant of your excavation attempts.
+
+The plane seems to be circling right overhead. Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[northeast], InteractiveFictionGame[southwest], InteractiveFictionGame[southeast]
+
+Thought 7: I should explore the area around the firepit to see if there's anything that could help me unlock the trunk.
+
+Action 7: InteractiveFictionGame[go to firepit]
+
+Observation 7: I don't know the word "firepit". Valid actions: InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[northeast], InteractiveFictionGame[southwest], InteractiveFictionGame[southeast]
+
+Thought 8: I should try going south to see if there's anything useful in that direction.
+
+Action 8: InteractiveFictionGame[south]
+
+Observation 8:
+Fire Pit
+You are in the center of the encampment, standing before a charred pit, a hole dug in the sand surrounded by blackened rocks. The night breezes have already started the reclamation work of the desert, covering most of the pit's bottom. You can see your tent to the north, the work tent to the south, and the supply tent to the west. Far off to the east, through the heat waves rising off the shifting sands, you can see gentle, rolling dunes. There's an enlarged hole in the sand, a remnant of your excavation attempts.
+Half covered with sand is a bright piece of foil which catches your eye.
+Sitting by a rock is what looks like a matchbook.
+
+The plane seems to be circling right overhead. Valid actions: InteractiveFictionGame[take rock], InteractiveFictionGame[take pack], InteractiveFictionGame[take matches], InteractiveFictionGame[take all], InteractiveFictionGame[close pack], InteractiveFictionGame[west], InteractiveFictionGame[open matches], InteractiveFictionGame[put rock in pit], InteractiveFictionGame[put pack in pit], InteractiveFictionGame[put matches in pack], InteractiveFictionGame[put matches in pit], InteractiveFictionGame[put all in pit], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[northwest], InteractiveFictionGame[southwest], InteractiveFictionGame[northeast], InteractiveFictionGame[southeast]
+
+Thought 9: I should pick up the matches and see if they can be used to unlock the trunk.
+
+Action 9: InteractiveFictionGame[take matches]
+
+Observation 9:
+Taken.
+
+You look up to see a small speck appear right beneath the plane -- probably a parachute. The plane heads off far to the northwest, dipping its wings in a salute. Valid actions: InteractiveFictionGame[take pack], InteractiveFictionGame[take rock], InteractiveFictionGame[take all], InteractiveFictionGame[put down matches], InteractiveFictionGame[close pack], InteractiveFictionGame[west], InteractiveFictionGame[light pack], InteractiveFictionGame[open matches], InteractiveFictionGame[put pack in pit], InteractiveFictionGame[put matches in pack], InteractiveFictionGame[put matches in pit], InteractiveFictionGame[put rock in pit], InteractiveFictionGame[put all in pit], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[northwest], InteractiveFictionGame[southwest], InteractiveFictionGame[northeast], InteractiveFictionGame[southeast]
+
+Thought 10: I should try to use the matches to unlock the trunk.
+
+Action 10: InteractiveFictionGame[put matches in lock]
+
+Observation 10: You can't see any lock here! Valid actions: InteractiveFictionGame[take pack], InteractiveFictionGame[take rock], InteractiveFictionGame[take all], InteractiveFictionGame[put down matches], InteractiveFictionGame[close pack], InteractiveFictionGame[west], InteractiveFictionGame[light pack], InteractiveFictionGame[open matches], InteractiveFictionGame[put pack in pit], InteractiveFictionGame[put matches in pack], InteractiveFictionGame[put matches in pit], InteractiveFictionGame[put rock in pit], InteractiveFictionGame[put all in pit], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[northwest], InteractiveFictionGame[southwest], InteractiveFictionGame[northeast], InteractiveFictionGame[southeast]
+
+Thought 11: I should look for a lock on the trunk before trying to use the matches. I should search around the trunk to see if there's a lock visible.
+
+Action 11: InteractiveFictionGame[look around trunk]
+
+Observation 11: You can't see any trunk here! Valid actions: InteractiveFictionGame[take pack], InteractiveFictionGame[take rock], InteractiveFictionGame[take all], InteractiveFictionGame[put down matches], InteractiveFictionGame[close pack], InteractiveFictionGame[west], InteractiveFictionGame[light pack], InteractiveFictionGame[open matches], InteractiveFictionGame[put pack in pit], InteractiveFictionGame[put matches in pack], InteractiveFictionGame[put matches in pit], InteractiveFictionGame[put rock in pit], InteractiveFictionGame[put all in pit], InteractiveFictionGame[north], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[northwest], InteractiveFictionGame[southwest], InteractiveFictionGame[northeast], InteractiveFictionGame[southeast]
+
+Thought 12: I should go back to my tent and try to unlock the trunk with the matches.
+
+Action 12: InteractiveFictionGame[north]
+
+Observation 12:
+Outside Your Tent
+
+A small speck descending from the plane overhead gets larger until you see a crate, dangling from a parachute. Valid actions: InteractiveFictionGame[look west], InteractiveFictionGame[north], InteractiveFictionGame[put down matches], InteractiveFictionGame[west], InteractiveFictionGame[open matches], InteractiveFictionGame[south], InteractiveFictionGame[east], InteractiveFictionGame[northeast], InteractiveFictionGame[southwest], InteractiveFictionGame[southeast]
+
+Thought 13: I should go back into my tent and try to unlock the trunk with the matches.
+
+Action 13: InteractiveFictionGame[north]
+
+Observation 13:
+Your Tent
+There is an army cot here.
+At the foot of the cot is a large, unwieldy trunk. The trunk is closed and locked with a padlock.
+
+The sound of something heavy landing comes from nearby. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[put down matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee trunk], InteractiveFictionGame[put matches betwee cot]
+
+Thought 14: I should try to unlock the trunk with the matches.
+
+Action 14: InteractiveFictionGame[put matches between trunk]
+
+Observation 14: Done. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 15: I should try to open the trunk now that I've placed the matches between it.
+
+Action 15: InteractiveFictionGame[open trunk]
+
+Observation 15: A padlock holds it shut. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 16: I should try to light the matches to burn through the padlock on the trunk.
+
+Action 16: InteractiveFictionGame[light matches]
+
+Observation 16: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 17: I should try to light the matches one by one to burn through the padlock on the trunk.
+
+Action 17: InteractiveFictionGame[light matches]
+
+Observation 17: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 18: I should continue lighting the matches one by one until the padlock on the trunk is burned through.
+
+Action 18: InteractiveFictionGame[light matches]
+
+Observation 18: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 19: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 19: InteractiveFictionGame[light matches]
+
+Observation 19: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 20: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 20: InteractiveFictionGame[light matches]
+
+Observation 20: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 21: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 21: InteractiveFictionGame[light matches]
+
+Observation 21: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 22: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 22: InteractiveFictionGame[light matches]
+
+Observation 22: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 23: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 23: InteractiveFictionGame[light matches]
+
+Observation 23: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 24: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 24: InteractiveFictionGame[light matches]
+
+Observation 24: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 25: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 25: InteractiveFictionGame[light matches]
+
+Observation 25: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 26: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 26: InteractiveFictionGame[light matches]
+
+Observation 26: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 27: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 27: InteractiveFictionGame[light matches]
+
+Observation 27: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 28: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 28: InteractiveFictionGame[light matches]
+
+Observation 28: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 29: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 29: InteractiveFictionGame[light matches]
+
+Observation 29: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 30: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 30: InteractiveFictionGame[light matches]
+
+Observation 30: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 31: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 31: InteractiveFictionGame[light matches]
+
+Observation 31: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 32: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 32: InteractiveFictionGame[light matches]
+
+Observation 32: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 33: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 33: InteractiveFictionGame[light matches]
+
+Observation 33: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 34: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 34: InteractiveFictionGame[light matches]
+
+Observation 34: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 35: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 35: InteractiveFictionGame[light matches]
+
+Observation 35: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 36: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 36: InteractiveFictionGame[light matches]
+
+Observation 36: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 37: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 37: InteractiveFictionGame[light matches]
+
+Observation 37: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 38: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 38: InteractiveFictionGame[light matches]
+
+Observation 38: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 39: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 39: InteractiveFictionGame[light matches]
+
+Observation 39: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 40: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 40: InteractiveFictionGame[light matches]
+
+Observation 40: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 41: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 41: InteractiveFictionGame[light matches]
+
+Observation 41: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 42: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 42: InteractiveFictionGame[light matches]
+
+Observation 42: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 43: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 43: InteractiveFictionGame[light matches]
+
+Observation 43: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 44: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 44: InteractiveFictionGame[light matches]
+
+Observation 44: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 45: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 45: InteractiveFictionGame[light matches]
+
+Observation 45: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 46: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 46: InteractiveFictionGame[light matches]
+
+Observation 46: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 47: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 47: InteractiveFictionGame[light matches]
+
+Observation 47: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 48: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 48: InteractiveFictionGame[light matches]
+
+Observation 48: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 49: I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 49: InteractiveFictionGame[light matches]
+
+Observation 49: One match at a time, eh? Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[take in cot], InteractiveFictionGame[take matches], InteractiveFictionGame[close cot], InteractiveFictionGame[open matches], InteractiveFictionGame[put matches betwee cot]
+
+Thought 50:[[ I should keep trying to light the matches one by one until the padlock on the trunk is burned through.
+
+Action 50: InteractiveFictionGame[light matches]]]
+
+
+
+

@@ -1,0 +1,139 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I should start by exploring my surroundings and looking for any clues or items that could help me progress in the game.
+
+Action 1: InteractiveFictionGame[Look around]
+
+Observation 1: I only understood you as far as wanting to look.
+
+Thought 2: I need to be more specific in my actions. Let's try looking around in a specific direction or at a specific object.
+
+Action 2: InteractiveFictionGame[Look north]
+
+Observation 2: I only understood you as far as wanting to look.
+
+Thought 3: I should try a different approach. Maybe I can try to move to a different location first.
+
+Action 3: InteractiveFictionGame[Go east]
+
+Observation 3: If you want to go to the food room, it's to the west, and the sleeping room is to the north.
+
+Thought 4: I should head to the food room to see if there are any items or clues there.
+
+Action 4: InteractiveFictionGame[Go west]
+
+Observation 4:
+Food Room
+Food room, glorious food room!
+
+Your bowl for food and water is here, but that's only the beginning. There's also a lot of secret places where your pet keeps food and things that go with food and things that make food better. There's a thing that gets hot and a box that stays cold, and that is your favorite because you know there is always food inside there. A cloth hangs down from the door of the cold box.
+
+Thought 5: I should check the bowl for any items or clues, and then investigate the secret places mentioned in the room description.
+
+Action 5: InteractiveFictionGame[Check bowl]
+
+Observation 5: Your bowl has two sides, one for food and one for water. Right now both spots are empty.
+
+Thought 6: I should explore the secret places mentioned in the room description to see if there are any items or clues hidden there.
+
+Action 6: InteractiveFictionGame[Investigate secret places]
+
+Observation 6: That's not a trick you know.
+
+Thought 7: I should try to interact with the cloth hanging down from the door of the cold box mentioned in the room description.
+
+Action 7: InteractiveFictionGame[Pull cloth]
+
+Observation 7:
+This is a good trick!
+
+You pull on the cloth with your teeth and back up as the door opens. Inside you can see various leftovers, some jars, some sandwich fixings and one shiny can.
+
+Thought 8: I should investigate the shiny can to see if it contains any useful items.
+
+Action 8: InteractiveFictionGame[Inspect shiny can]
+
+Observation 8: That's not a trick you know.
+
+Thought 9: I should try to open the shiny can to see what's inside.
+
+Action 9: InteractiveFictionGame[Open shiny can]
+
+Observation 9: Just one more thing you can't do with paws. Too bad you live in a world made for creatures with hands.
+
+Thought 10: I should try to find a way to open the shiny can. Maybe there's a tool or object in the room that can help me.
+
+Action 10: InteractiveFictionGame[Search for a tool]
+
+Observation 10: You can't see any such thing.
+
+Thought 11: I should try to think of another way to open the shiny can. Maybe there's a different approach I can take.
+
+Action 11: InteractiveFictionGame[Use teeth to open shiny can]
+
+Observation 11: You can't see any such thing.
+
+Thought 12: I should try to find a different way to open the shiny can. Maybe there's another object in the room that can help me.
+
+Action 12: InteractiveFictionGame[Search for another object]
+
+Observation 12: You can't see any such thing.
+
+Thought 13: I should try to think of a different way to open the shiny can. Maybe there's a creative solution I haven't considered yet.
+
+Action 13: InteractiveFictionGame[Use the cloth to open the shiny can]
+
+Observation 13: I only understood you as far as wanting to use the cloth.
+
+Thought 14: I should try to use the cloth to open the shiny can and see if that works.
+
+Action 14: InteractiveFictionGame[Use cloth to open shiny can]
+
+Observation 14: I only understood you as far as wanting to use the cloth.
+
+Thought 15: I should try to use the cloth to pry open the shiny can and see if that works.
+
+Action 15: InteractiveFictionGame[Pry open shiny can with cloth]
+
+Observation 15: That's not a trick you know.
+
+Thought 16: I should try to think of another way to open the shiny can. Maybe there's a different object in the room that can help me.
+
+Action 16: InteractiveFictionGame[Search for another object]
+
+Observation 16: You can't see any such thing.
+
+Thought 17:[[ I should try to find a different way to open the shiny can. Maybe there's another approach I can take.
+
+Action 17: Finish[score]]]
+
+
+
+

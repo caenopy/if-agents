@@ -1,0 +1,626 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+
+---
+
+Follow the following format.
+
+Input: An instruction to play the game.
+
+Thought: next steps to take based on last observation
+
+Action: always either one of the valid actions provided in the observation or, when done, Finish[answer]
+
+Observation: observations based on previous action and a list of valid actions for the next action
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought 1: I will start the interactive fiction game by taking the initial action 'InteractiveFictionGame[Start]'. If the game ends or I die, I will use my experience to make a better choice in the next iteration.
+
+Action 1: InteractiveFictionGame[Start]
+
+Observation 1:
+No, not a prison, though stone stands around you, as expressionless as a mirror awaiting face and form; and in the silence you hear no plaint of flute or roar of gong, but instead the crash of porcelain shattering. 
+
+
+The Moonlit Tower
+Interactive Fiction, v.1.0 
+Yoon Ha Lee, copyright 2002 
+Newcomers may want to type HELP or ABOUT.
+Release 1 / Serial number 020927 / Inform v6.21 Library 6/10 
+
+Moonlit Chamber
+Moonlight diffuses through the walls, tracing out unreadable sigils in calligraphies of light and dark. Stairs adorned with bas-relief motifs spiral downward.
+
+You can see a porcelain mask here. Valid actions: InteractiveFictionGame[take egg], InteractiveFictionGame[take mask], InteractiveFictionGame[get in stairs], InteractiveFictionGame[take all], InteractiveFictionGame[push mask to stairs], InteractiveFictionGame[down]
+
+Thought 2: I will take the porcelain mask as it might be useful or hold some significance in the game.
+
+Action 2: InteractiveFictionGame[take mask]
+
+Observation 2: Taken. Valid actions: InteractiveFictionGame[take egg], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[down]
+
+Thought 3: I will continue down the stairs to explore further.
+
+Action 3: InteractiveFictionGame[down]
+
+Observation 3:
+Shadow Armory
+Shadows gather around you. For a moment, dregs of light defined by the negative space take on the shapes of maple leaf, kite, comb, and other shapes that flicker across the walls too rapidly for you to interpret.
+
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 4: I will explore the passageways to the north and west to see what I can find.
+
+Action 4: InteractiveFictionGame[north]
+
+Observation 4:
+The shapes of light you saw as you entered fade irrevocably.
+
+
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take other], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit other], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push other to compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 5: I will take the jade compass as it seems important and could potentially help me navigate through the game.
+
+Action 5: InteractiveFictionGame[take compass]
+
+Observation 5: The jade compass already has a place in the world's reckoning. Valid actions: InteractiveFictionGame[take other], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit other], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push other to compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 6: I will explore the room to the west to see what I can find.
+
+Action 6: InteractiveFictionGame[west]
+
+Observation 6:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table are a banquet of bones and some ivory chopsticks. Valid actions: InteractiveFictionGame[take chopsticks], InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[hit bones], InteractiveFictionGame[take all off table], InteractiveFictionGame[push chopsticks to table], InteractiveFictionGame[push chopsticks to marble], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble]
+
+Thought 7: I will take the ivory chopsticks as they might be useful for interacting with certain objects in the game.
+
+Action 7: InteractiveFictionGame[take chopsticks]
+
+Observation 7: Taken. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 8: I will explore the room to the east to see what I can find.
+
+Action 8: InteractiveFictionGame[east]
+
+Observation 8:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 9: I have already taken the jade compass in an earlier observation. I will explore the room to the south instead.
+
+Action 9: InteractiveFictionGame[south]
+
+Observation 9:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[put chopsticks on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 10: I have already explored the room to the north in an earlier observation. I will explore the room to the west instead.
+
+Action 10: InteractiveFictionGame[west]
+
+Observation 10:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[put mask on cushions], InteractiveFictionGame[put chopsticks on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 11: I will explore the room to the east first, as it was previously wrapped in shadow and I haven't checked it yet.
+
+Action 11: InteractiveFictionGame[east]
+
+Observation 11:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[put chopsticks on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 12: I have already explored the room to the east and it was the same as the Shadow Armory. I will explore the room to the north instead.
+
+Action 12: InteractiveFictionGame[north]
+
+Observation 12:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 13: I have already explored the room to the north and it is the same as the Undying Garden. I will explore the room to the west instead.
+
+Action 13: InteractiveFictionGame[west]
+
+Observation 13:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 14: I will explore the room to the south instead, as I haven't checked it yet.
+
+Action 14: InteractiveFictionGame[south]
+
+Observation 14:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[put mask on cushions], InteractiveFictionGame[put chopsticks on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 15: I will explore the room to the east, as it was previously wrapped in shadow and I haven't checked it yet.
+
+Action 15: InteractiveFictionGame[east]
+
+Observation 15:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[put chopsticks on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 16: I have already explored the room to the east and it is the same as the Shadow Armory. I will explore the room to the north instead.
+
+Action 16: InteractiveFictionGame[north]
+
+Observation 16:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 17: I have already explored the rooms to the north, east, and south, and they all lead back to the same rooms with no new discoveries. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 17: InteractiveFictionGame[west]
+
+Observation 17:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 18: I will explore the room to the south, as I haven't checked it yet.
+
+Action 18: InteractiveFictionGame[south]
+
+Observation 18:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[put mask on cushions], InteractiveFictionGame[put chopsticks on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 19: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 19: InteractiveFictionGame[east]
+
+Observation 19:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[put chopsticks on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 20: I have already explored the room to the east and it is the same as the Shadow Armory. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 20: InteractiveFictionGame[west]
+
+Observation 20:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[put mask on cushions], InteractiveFictionGame[put chopsticks on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 21: I have already explored the room to the west and it is the same as the Silent Symphony room. I will try exploring the room to the north, as I haven't checked it thoroughly yet.
+
+Action 21: InteractiveFictionGame[north]
+
+Observation 21:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 22: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 22: InteractiveFictionGame[east]
+
+Observation 22:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 23: I have already explored the room to the east and it is the same as the Undying Garden. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 23: InteractiveFictionGame[west]
+
+Observation 23:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 24: I have already explored the room to the west and it is the same as the Skeletal Banquet room. I will try exploring the room to the south, as I haven't checked it thoroughly yet.
+
+Action 24: InteractiveFictionGame[south]
+
+Observation 24:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[put mask on cushions], InteractiveFictionGame[put chopsticks on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 25: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 25: InteractiveFictionGame[east]
+
+Observation 25:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[put chopsticks on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 26: I have already explored the room to the east and it is the same as the Shadow Armory. I will try exploring the room to the north again, as I haven't exhausted all the options there.
+
+Action 26: InteractiveFictionGame[north]
+
+Observation 26:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 27: I have already explored the room to the north and it is the same as the Undying Garden. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 27: InteractiveFictionGame[west]
+
+Observation 27:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 28: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 28: InteractiveFictionGame[east]
+
+Observation 28:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 29: I have already explored the room to the east and it is the same as the Undying Garden. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 29: InteractiveFictionGame[west]
+
+Observation 29:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 30: I will explore the room to the south, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 30: InteractiveFictionGame[south]
+
+Observation 30:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[put mask on cushions], InteractiveFictionGame[put chopsticks on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 31: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 31: InteractiveFictionGame[east]
+
+Observation 31:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[put chopsticks on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 32: I have already explored the room to the east and it is the same as the Shadow Armory. I will try exploring the room to the north again, as I haven't exhausted all the options there.
+
+Action 32: InteractiveFictionGame[north]
+
+Observation 32:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 33: I have already explored the room to the north and it is the same as the Undying Garden. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 33: InteractiveFictionGame[west]
+
+Observation 33:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 34: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 34: InteractiveFictionGame[east]
+
+Observation 34:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 35: I have already explored the room to the east and it is the same as the Undying Garden. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 35: InteractiveFictionGame[west]
+
+Observation 35:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 36: I will explore the room to the south, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 36: InteractiveFictionGame[south]
+
+Observation 36:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[put mask on cushions], InteractiveFictionGame[put chopsticks on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 37: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 37: InteractiveFictionGame[east]
+
+Observation 37:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[put chopsticks on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 38: I have already explored the room to the east and it is the same as the Shadow Armory. I will try exploring the room to the north again, as I haven't exhausted all the options there.
+
+Action 38: InteractiveFictionGame[north]
+
+Observation 38:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 39: I have already explored the rooms to the north, east, and south, and they all lead back to the same rooms with no new discoveries. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 39: InteractiveFictionGame[west]
+
+Observation 39:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 40: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 40: InteractiveFictionGame[east]
+
+Observation 40:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 41: I have already explored the room to the east and it is the same as the Undying Garden. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 41: InteractiveFictionGame[west]
+
+Observation 41:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 42: I will explore the room to the south, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 42: InteractiveFictionGame[south]
+
+Observation 42:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[put mask on cushions], InteractiveFictionGame[put chopsticks on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 43: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 43: InteractiveFictionGame[east]
+
+Observation 43:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[put chopsticks on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 44: I have already explored the room to the east and it is the same as the Shadow Armory. I will try exploring the room to the north again, as I haven't exhausted all the options there.
+
+Action 44: InteractiveFictionGame[north]
+
+Observation 44:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 45: I have already explored the rooms to the north, east, and south, and they all lead back to the same rooms with no new discoveries. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 45: InteractiveFictionGame[west]
+
+Observation 45:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 46: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 46: InteractiveFictionGame[east]
+
+Observation 46:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 47: I have already explored the room to the east and it is the same as the Undying Garden. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 47: InteractiveFictionGame[west]
+
+Observation 47:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of brooding silence, and a vague, sweet fragrance comes from the east. Stairs of blackest marble lead downward.
+
+On the table is a banquet of bones. Valid actions: InteractiveFictionGame[south], InteractiveFictionGame[get in marble], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[hit bones], InteractiveFictionGame[put mask on table], InteractiveFictionGame[put mask on marble], InteractiveFictionGame[put chopsticks on table], InteractiveFictionGame[put chopsticks on marble], InteractiveFictionGame[put all on table], InteractiveFictionGame[put all on marble]
+
+Thought 48: I will explore the room to the south, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 48: InteractiveFictionGame[south]
+
+Observation 48:
+Silent Symphony
+A single bronze gong hangs from its wooden frame in the room's center. There are also silk cushions arranged around the floor in a court ensemble's traditional half-circle, but no bamboo flutes or clay ocarinas, nine-stringed zithers or singers' unfolding fans, are in evidence. A mural that touches each wall in turn gives the room an illusion of greater depth. 
+
+Two entrances, one east, one north; the former is wrapped in shadow, the latter in light. Valid actions: InteractiveFictionGame[get in cushions], InteractiveFictionGame[north], InteractiveFictionGame[east], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[look in cushions], InteractiveFictionGame[put mask on cushions], InteractiveFictionGame[put chopsticks on cushions], InteractiveFictionGame[put all on cushions]
+
+Thought 49: I will explore the room to the east, as it might contain new discoveries and I haven't checked it thoroughly yet.
+
+Action 49: InteractiveFictionGame[east]
+
+Observation 49:
+Shadow Armory
+Curiously, the only weapons here live amid light and cannot be worn: they are silhouettes flung against the walls. Stairs carved with bas-reliefs spiral upward.
+
+Northward and westward lie passageways unhindered by door or folding screen. Valid actions: InteractiveFictionGame[take dagger], InteractiveFictionGame[get in stairs], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[push dagger to stairs], InteractiveFictionGame[put mask on stairs], InteractiveFictionGame[put chopsticks on stairs], InteractiveFictionGame[put all on stairs], InteractiveFictionGame[north], InteractiveFictionGame[west], InteractiveFictionGame[up]
+
+Thought 50:[[ I have already explored the room to the east and it is the same as the Shadow Armory. I will try exploring the room to the north again, as I haven't exhausted all the options there.
+
+Action 50: InteractiveFictionGame[north]
+
+Observation 50:
+Undying Garden
+Barren branches and pines suggest winter's quiet. Metal and wood, painted and sculpted, the false garden is heedless of harvest, drought or rain.
+
+A jade compass rests at the garden's metaphysical center, between translucence and opacity, curve and line, and other dichotomies too subtle for your eye. A gentle warmth from the surface invites touch.
+
+Transactions of light show other rooms southward and westward.
+
+You can see a tortoise-shell comb here. Valid actions: InteractiveFictionGame[take comb], InteractiveFictionGame[turn needle], InteractiveFictionGame[put mask down], InteractiveFictionGame[put chopsticks down], InteractiveFictionGame[put all down], InteractiveFictionGame[take other with comb], InteractiveFictionGame[hit comb], InteractiveFictionGame[turn needle to swallow], InteractiveFictionGame[turn needle to hawk], InteractiveFictionGame[turn needle to crane], InteractiveFictionGame[put mask on compass], InteractiveFictionGame[push comb to compass], InteractiveFictionGame[put chopsticks on compass], InteractiveFictionGame[put all on compass], InteractiveFictionGame[south], InteractiveFictionGame[west]
+
+Thought 51: I have already explored the rooms to the north, east, and south, and they all lead back to the same rooms with no new discoveries. I will try exploring the room to the west again, as I haven't exhausted all the options there.
+
+Action 51: InteractiveFictionGame[west]
+
+Observation 51:
+Skeletal Banquet
+It seems this is a banquet room, if a banquet had no especial place for people to dine. Glassware and stoneware are arranged in deliberate shapes, as though they are constellations. 
+
+South lies a chamber of]]
+
+
+
+
