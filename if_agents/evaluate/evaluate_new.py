@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 from ..constants import ACTION_MAX_LEN
 from ..utils import write_history, write_to_file, write_to_json
-from ..agents.agents import ReActAgent, ReflexionAgent
+from ..agents.agents import ReActAgent, ReflexionAgent, ReflexionMemoryAgent
 from ..agents.tools import InteractiveFictionGame
 
 
@@ -66,8 +66,9 @@ def play_all_games(
         # play game
         playback, history = play_game(filename, agent_name, logs_dir, game_dir, debug, max_steps)
 
-        write_to_file(playback, f'{logs_dir}/{filename}.txt')
-        write_to_json(history, f'{logs_dir}/{filename}.json')
+        # The following is now handled in InteractiveFictionGame in tools.py
+        # write_to_file(playback, f'{logs_dir}/{filename}.txt')
+        # write_to_json(history, f'{logs_dir}/{filename}.json')
 
 
 def play_game(
@@ -94,12 +95,14 @@ def play_game(
     playback = []
     history = []
 
-    jericho = InteractiveFictionGame(filename, game_dir, playback, history)
+    jericho = InteractiveFictionGame(filename, game_dir, playback, history, logs_dir=logs_dir)
 
     if agent_name.lower() == 'react':
         agent = ReActAgent(max_iters=max_steps, tools=[jericho])
     elif agent_name.lower() == 'reflexion':
         agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], debug=debug)
+    elif agent_name.lower() == 'reflexionmemory':
+        agent = ReflexionMemoryAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], debug=debug)
 
     end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.")
 

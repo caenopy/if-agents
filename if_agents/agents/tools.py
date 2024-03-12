@@ -5,6 +5,8 @@ import datetime
 from ..constants import ACTION_MAX_LEN
 from ..utils import read_from_json, write_to_file, write_to_json
 
+from .signatures import RelevantMemorySignature
+
 # Useless for our purposes, just an example of how to write a tool
 class GiveTime:
     name = "GiveTime"
@@ -22,10 +24,12 @@ class InteractiveFictionGame:
     input_variable = "a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'"
     desc = "takes a step in a text-based interactive fiction game."
 
-    def __init__(self, filename, game_dir, playback, history, debug=False):
+    def __init__(self, filename, game_dir, playback, history, logs_dir, debug=False):
         self.env = jericho.FrotzEnv(f'{game_dir}/{filename}')
+        self.filename = filename
         self.playback = playback # human-readable text of the gameplay
         self.history = history # all info including obs, actions, reward, moves, score
+        self.logs_dir = logs_dir
         self.debug = debug
 
     def __call__(self, action, *args, **kwargs):
@@ -64,6 +68,20 @@ class InteractiveFictionGame:
         })
 
         if self.env.victory():
-            playback += [f'Scored {info["score"]} out of {self.env.get_max_score()}']
+            self.playback += [f'Scored {info["score"]} out of {self.env.get_max_score()}']
+
+        write_to_file('\n'.join(self.playback), f'{self.logs_dir}/{self.filename}.txt')
+        write_to_json(self.history, f'{self.logs_dir}/{self.filename}.json')
 
         return obs
+    
+class FetchRelevantMemory(dspy.Module):
+    def __init__(self, memory_file):
+        super().__init__()
+        self.memory_file = memory_file
+        self.prod = dspy.Predict(RelevantMemorySignature)
+
+    def forward(self, observation):
+        with open(self.memory_file, 'r') as f:
+            memory = f.read()
+        return self.prod(observation=observation, context=memory)

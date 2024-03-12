@@ -29,3 +29,8 @@ class TextGame(dspy.Signature):
 class ReActSignature(dspy.Signature):
     input = dspy.InputField(desc="An instruction to play the game.")
     score = dspy.OutputField(desc="The final score you achieve.")
+
+class RelevantMemorySignature(dspy.Signature):
+    observation = dspy.InputField(desc="the game's text response to the last action")
+    context = dspy.InputField(desc="history of the game so far")
+    memory = dspy.OutputField(desc="the most relevant memory to the current observation")
