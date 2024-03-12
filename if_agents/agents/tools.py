@@ -46,6 +46,9 @@ class InteractiveFictionGame:
         
         obs = obs.strip()
 
+        if self.debug:
+            print(f'Observation: {obs}')
+
         self.playback.append(f'> {action}')
         self.playback.append(obs)
 

@@ -78,10 +78,10 @@ def ValidActions(action, valid_actions):
 from .reflexion import Reflexion
 
 class ReflexionAgent(dspy.Module):
-    def __init__(self, reflect_interval, max_iters=5, tools=None):
+    def __init__(self, reflect_interval, max_iters=5, tools=None, debug=False):
         super().__init__()
         self.tools = tools
-        self.prog = Reflexion(ReActSignature, reflect_interval=reflect_interval, max_iters=max_iters, tools=self.tools)
+        self.prog = Reflexion(ReActSignature, reflect_interval=reflect_interval, max_iters=max_iters, tools=self.tools, debug=debug)
 
     def forward(self, input):
         return self.prog(input=input)

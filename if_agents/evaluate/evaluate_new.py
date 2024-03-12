@@ -94,12 +94,12 @@ def play_game(
     playback = []
     history = []
 
-    jericho = InteractiveFictionGame(filename, game_dir, playback, history, debug=True)
+    jericho = InteractiveFictionGame(filename, game_dir, playback, history)
 
     if agent_name.lower() == 'react':
         agent = ReActAgent(max_iters=max_steps, tools=[jericho])
     elif agent_name.lower() == 'reflexion':
-        agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho])
+        agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], debug=debug)
 
     end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends.")
 
