@@ -10,14 +10,15 @@ from dspy.predict import Predict
 # Reflexion module based off of DSPy's ReAct
 
 class Reflexion(Module):
-    def __init__(self, signature, max_iters, reflect_interval, tools):
+    def __init__(self, signature, max_iters, reflect_interval, tools, debug=False):
         super().__init__()
         self.signature = signature = ensure_signature(signature)
         self.max_iters = max_iters
         self.reflect_interval = reflect_interval
-
-        # self.heuristic = heuristic 
-        # self.heuristic = {heuristic.name: h for h in self.heuristic}
+        self.debug = debug
+        self.last_printed_output_idx = 0
+        
+        self.oracle_insertions = {}
 
         self.tools = tools 
         self.tools = {tool.name: tool for tool in self.tools}
@@ -51,11 +52,13 @@ class Reflexion(Module):
         instr.append(f"Additionally, every {reflect_interval} steps you will be instructed to reflect on your progress and the strategy taken thus far.")
 
         instr = "\n".join(instr)
+        self.instr = instr
 
-        self.react = [
-            Predict(dspy.Signature(self._generate_signature(i), instr))
-            for i in range(1, max_iters + 1)
-        ]
+        # self.react = [
+        #     Predict(dspy.Signature(self._generate_signature(i), instr))
+        #     for i in range(1, max_iters + 1)
+        # ]
+        self.react = []
 
     def _generate_signature(self, iters):
         signature_dict = {}
@@ -63,6 +66,14 @@ class Reflexion(Module):
             signature_dict[key] = val
 
         for j in range(1, iters + 1):
+
+            # Use self.oracle_insertions to create the Oracle fields
+            if j in self.oracle_insertions:
+                prefix, _ = self.oracle_insertions[j]
+                signature_dict[f"Oracle_{j}"] = dspy.InputField(
+                    prefix=f"{prefix}:",
+                    format=dsp.passages2text,
+                )
 
             if j % self.reflect_interval == 0:
                 signature_dict[f"Reflect_{j}"] = dspy.OutputField(
@@ -94,7 +105,6 @@ class Reflexion(Module):
                     format=dsp.passages2text,
                 )
                 
-
         return signature_dict
 
     def act(self, output, hop):
@@ -123,6 +133,28 @@ class Reflexion(Module):
 
         for hop in range(self.max_iters):
             # with dspy.settings.context(show_guidelines=(i <= 2)):
+
+            # We need to do three things for the oracle experiment:
+            # (1) Monitor the user's input for oracle injection
+            # (2) If input, change the signature to include the oracle (also include in previous signatures)
+            # (3) If input, change the args to include the oracle (something like output["Oracle"] = user_input)
+
+            if self.debug:
+                for i in range(self.last_printed_output_idx, len(args.keys())):
+                    print('\n')
+                    print(f"{list(args.keys())[i]}: {list(args.values())[i]}")
+                    
+            print('\n')
+            user_input = input("Insert injection of form 'PREFIX: CONTENT': ")
+            print('\n')
+            if user_input:
+                prefix, content = user_input.split(":")
+                prefix = prefix.strip()
+                content = content.strip()
+                args[f"Oracle_{hop+1}"] = content
+                self.oracle_insertions[hop+1] = (prefix, content)
+            
+            self.react.append(Predict(dspy.Signature(self._generate_signature(hop+1), self.instr)))
             output = self.react[hop](**args)
 
             if action_val := self.act(output, hop):

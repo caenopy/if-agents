@@ -49,6 +49,9 @@ class InteractiveFictionGame:
         formatted_valid_actions = [f'InteractiveFictionGame[{action}]' for action in valid_actions]
         obs += " Valid actions: " + ", ".join(formatted_valid_actions).strip()
 
+        if self.debug:
+            print(f'Observation: {obs}')
+
         self.playback.append(f'> {action}')
         self.playback.append(obs)
 
