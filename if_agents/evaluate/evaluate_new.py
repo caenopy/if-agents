@@ -7,8 +7,8 @@ from tqdm import tqdm
 
 from ..constants import ACTION_MAX_LEN
 from ..utils import write_history, write_to_file, write_to_json
-from ..agents.agents import ReActAgent, ReflexionAgent, ReflexionMemoryAgent
-from ..agents.tools import InteractiveFictionGame
+from ..agents.agents import ReActAgent, ReflexionAgent
+from ..agents.tools import InteractiveFictionGame, FetchRelevantMemory
 
 
 def run_experiment(
@@ -102,7 +102,7 @@ def play_game(
     elif agent_name.lower() == 'reflexion':
         agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], debug=debug)
     elif agent_name.lower() == 'reflexionmemory':
-        agent = ReflexionMemoryAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], debug=debug)
+        agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], memory_tool=FetchRelevantMemory(memory_file=f'{logs_dir}/{filename}.txt'), debug=debug)
 
     end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.")
 

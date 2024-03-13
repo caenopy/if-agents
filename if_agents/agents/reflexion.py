@@ -10,7 +10,7 @@ from dspy.predict import Predict
 # Reflexion module based off of DSPy's ReAct
 
 class Reflexion(Module):
-    def __init__(self, signature, max_iters, reflect_interval, tools, debug=False):
+    def __init__(self, signature, max_iters, reflect_interval, tools, memory_tool=None, debug=False):
         super().__init__()
         self.signature = signature = ensure_signature(signature)
         self.max_iters = max_iters
@@ -22,6 +22,7 @@ class Reflexion(Module):
 
         self.tools = tools 
         self.tools = {tool.name: tool for tool in self.tools}
+        self.memory_tool = memory_tool
 
         self.input_fields = self.signature.input_fields
         self.output_fields = self.signature.output_fields
@@ -78,7 +79,14 @@ class Reflexion(Module):
             if j % self.reflect_interval == 0:
                 signature_dict[f"Reflect_{j}"] = dspy.OutputField(
                     prefix=f"Reflect:",
-                    desc=f"self reflection on your progress and strategy taken thus far",
+                    desc=f"self-reflection on your progress and the effectiveness of recent moves",
+                )
+
+            if self.memory_tool:
+                signature_dict[f"Memory_{j}"] = dspy.OutputField(
+                    prefix=f"Memory:",
+                    desc=f"a relevant memory to the current situation",
+                    format=dsp.passages2text,
                 )
                 
             signature_dict[f"Thought_{j}"] = dspy.OutputField(
@@ -117,6 +125,11 @@ class Reflexion(Module):
                 return action_val
 
             output[f"Observation_{hop+1}"] = self.tools[action_name](action_val)
+
+            if self.memory_tool:
+                output[f"Memory_{hop+1}"] = self.memory_tool(output[f"Observation_{hop+1}"]).memory
+                # TODO: write to memory!
+
             # except AttributeError:
             #     # Handle the case where 'passages' attribute is missing
             #     # TODO: This is a hacky way to handle this. Need to fix this.
