@@ -55,10 +55,13 @@ class InteractiveFictionGame:
         self.playback.append(f'> {action}')
         self.playback.append(obs)
 
+        total_moves = self.get_total_moves(info)
+
         self.history.append({
             'observation': obs,
             'reward': reward,
             'moves': info['moves'],
+            'total_moves': total_moves,
             'score': info['score'],
             'action': action
         })
@@ -67,3 +70,15 @@ class InteractiveFictionGame:
             playback += [f'Scored {info["score"]} out of {self.env.get_max_score()}']
 
         return obs
+    
+    def get_total_moves(self, info):
+        """
+        Get the total number of moves made in the game so far.
+        """
+        if len(self.history) == 0:
+            return 0
+        else:
+            new_moves = info['moves'] - self.history[-1]['moves']
+            if new_moves >= 0:
+                return self.history[-1]['total_moves'] + new_moves
+            return self.history[-1]['total_moves']
