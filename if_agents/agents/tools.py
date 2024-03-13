@@ -56,6 +56,7 @@ class InteractiveFictionGame:
         self.playback.append(obs)
 
         total_moves = self.get_total_moves(info)
+        deaths = self.get_deaths(info)
 
         self.history.append({
             'observation': obs,
@@ -63,7 +64,8 @@ class InteractiveFictionGame:
             'moves': info['moves'],
             'total_moves': total_moves,
             'score': info['score'],
-            'action': action
+            'action': action,
+            'deaths': deaths,
         })
 
         if self.env.victory():
@@ -82,3 +84,19 @@ class InteractiveFictionGame:
             if new_moves >= 0:
                 return self.history[-1]['total_moves'] + new_moves
             return self.history[-1]['total_moves']
+        
+    def get_deaths(self, info):
+        """
+        Check if the agent has died in the game. Returns a list of death observations.
+        """
+        if len(self.history) == 0:
+            return []
+        if (info['moves'] < self.history[-1]['moves']) or (info['score'] < self.history[-1]['score']):
+            # moves or score has decreased
+            # ideally this means the agent has died
+            # hopefully this is the death observation
+            death_obs = self.history[-1]['observation']
+            deaths = self.history[-1]['deaths'].append(death_obs)
+            return deaths
+
+        return self.history[-1]['deaths']
