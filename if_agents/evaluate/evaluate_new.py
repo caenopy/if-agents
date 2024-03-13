@@ -64,10 +64,14 @@ def play_all_games(
     for filename in tqdm(game_list):
         print(f'Playing {filename}...')
         # play game
-        playback, history = play_game(filename, agent_name, logs_dir, game_dir, debug, max_steps)
+        try:
+            playback, history = play_game(filename, agent_name, logs_dir, game_dir, debug, max_steps)
 
-        write_to_file(playback, f'{logs_dir}/{filename}.txt')
-        write_to_json(history, f'{logs_dir}/{filename}.json')
+            write_to_file(playback, f'{logs_dir}/{filename}.txt')
+            write_to_json(history, f'{logs_dir}/{filename}.json')
+        except Exception as e:
+            write_to_file(f'Error playing {filename}: {e}', f'{logs_dir}/{filename}.txt')
+            continue
 
 
 def play_game(
