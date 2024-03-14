@@ -59,6 +59,7 @@ class InteractiveFictionGame:
         deaths = self.get_deaths(info)
         unique_states = self.get_unique_states(self.env)
         num_unique_states = len(unique_states)
+        prefixes_dict = self.get_prefixes_dict(action)
 
         self.history.append({
             'observation': obs,
@@ -68,6 +69,7 @@ class InteractiveFictionGame:
             'failed_moves': failed_moves,
             'score': info['score'],
             'action': action,
+            'action_prefixes': prefixes_dict,
             'deaths': deaths,
             'unique_states': unique_states,
             'num_unique_states': num_unique_states
@@ -114,8 +116,23 @@ class InteractiveFictionGame:
         return self.history[-1]['deaths']
 
     def get_unique_states(self, env):
+        """
+        Get the set of unique states the agent has encountered so far in the game.
+        """
         this_state = env.get_world_state_hash()
         if len(self.history) == 0:
             return set([this_state])
         else:
             return self.history[-1]['unique_states'].union(set([this_state]))
+    
+    def get_prefixes_dict(self, action):
+        """
+        Get the dictionary of lowercase 3-word prefixes of the action and their counts.
+        """
+        curr_prefixes = self.history[-1]['action_prefixes']
+        prefix = action.lower().split()[:3]
+        if prefix in curr_prefixes:
+            curr_prefixes[prefix] += 1
+        else:
+            curr_prefixes[prefix] = 1
+        return curr_prefixes
