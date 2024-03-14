@@ -61,21 +61,22 @@ class InteractiveFictionGame:
         self.playback.append(f'> {action}')
         self.playback.append(obs)
 
-        valid_moves, failed_moves = self.get_valid_moves_failed_moves(info)
+        valid_moves, failed_moves, this_move_valid = self.get_valid_moves_failed_moves(info)
         deaths = self.get_deaths(info)
         unique_states = self.get_unique_states(self.env)
         num_unique_states = len(unique_states)
-        prefixes_dict = self.get_prefixes_dict(action)
+        valid_prefixes_dict, invalid_prefixes_dict = self.get_prefixes_dict(action, this_move_valid)
 
         self.history.append({
+            'action': action,
             'observation': obs,
             'reward': reward,
             'moves': info['moves'],
             'valid_moves': valid_moves,
             'failed_moves': failed_moves,
             'score': info['score'],
-            'action': action,
-            'action_prefixes': prefixes_dict,
+            'valid_prefixes': valid_prefixes_dict,
+            'invalid_prefixes': invalid_prefixes_dict,
             'deaths': deaths,
             'unique_states': unique_states,
             'num_unique_states': num_unique_states
@@ -92,22 +93,22 @@ class InteractiveFictionGame:
     
     def get_valid_moves_failed_moves(self, info):
         """
-        Get the total number of valid and failed moves made in the game so far. Returns a tuple of (valid_moves, failed_moves).
+        Get the total number of valid and failed moves made in the game so far. Returns a tuple of (valid_moves, failed_moves, this_move_valid).
         """
         if len(self.history) == 0:
             if info['moves'] == 0:
                 # first move failed
-                return 0, 1
+                return 0, 1, False
             else:
                 # first move was valid
-                return 1, 0
+                return 1, 0, True
         else:
             new_moves = info['moves'] - self.history[-1]['moves']
-            if new_moves > 0:
-                # valid move
-                return self.history[-1]['valid_moves'] + new_moves, self.history[-1]['failed_moves']
+            if new_moves != 0:
+                # valid move -- either the agent died (new_moves is negative) or the move was productive and valid
+                return self.history[-1]['valid_moves'] + new_moves, self.history[-1]['failed_moves'], True
             # failed move
-            return self.history[-1]['valid_moves'], self.history[-1]['failed_moves'] + 1
+            return self.history[-1]['valid_moves'], self.history[-1]['failed_moves'] + 1, False
         
     def get_deaths(self, info):
         """
@@ -136,19 +137,31 @@ class InteractiveFictionGame:
         else:
             return list(set(self.history[-1]['unique_states']).union(set([this_state])))
         
-    def get_prefixes_dict(self, action):
+    def get_prefixes_dict(self, action, this_move_valid):
         """
         Get the dictionary of lowercase 2-word prefixes of the action and their counts.
+        Returns a tuple of (valid_prefixes_dict, invalid_prefixes_dict).
         """
         prefix = ' '.join(action.lower().split()[:2])
+        # first turn; add prefix to appropriate dictionary
         if len(self.history) == 0:
-            return {prefix : 1}
-        curr_prefixes = self.history[-1]['action_prefixes'].copy()
+            if this_move_valid:
+                return {prefix : 1}, {}
+            else:
+                return {}, {prefix : 1}
+        
+        # add prefix to appropriate dictionary
+        valid_prefixes = self.history[-1]['valid_prefixes'].copy()
+        invalid_prefixes = self.history[-1]['invalid_prefixes'].copy()
+        if this_move_valid:
+            curr_prefixes = valid_prefixes
+        else:
+            curr_prefixes = invalid_prefixes
         if prefix in curr_prefixes:
             curr_prefixes[prefix] += 1
         else:
             curr_prefixes[prefix] = 1
-        return curr_prefixes
+        return valid_prefixes, invalid_prefixes 
 
 class FetchRelevantMemory(dspy.Module):
     def __init__(self, memory_file):

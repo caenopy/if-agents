@@ -136,7 +136,7 @@ class Reflexion(Module):
         return signature_dict
 
     def act(self, output, hop):
-        print(f'HOP {hop}')
+        # print(f'HOP {hop}')
         try:
             action = output[f"Action_{hop+1}"]
             action_name, action_val = action.strip().split("\n")[0].split("[", 1)
