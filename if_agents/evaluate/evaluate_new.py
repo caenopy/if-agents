@@ -33,6 +33,14 @@ def run_experiment(
     experiment_folder = f'{experiments_dir}/{experiment_name}_{model_name}_{timestamp}'
     os.makedirs(experiment_folder, exist_ok=True)
 
+    if agent_name == 'reflexion_actionspace_persistent_actioncache':
+        # create invalid actions file
+        with open(f'{experiment_folder}/invalid_actions.txt', 'w') as f:
+            f.write(EMPTY_LIST)
+        # create valid actions file with canonical actions
+        with open(f'{experiment_folder}/valid_actions.txt', 'w') as f:
+            f.write(CANONICAL_ACTIONS)
+
     play_all_games(
         experiment_folder, 
         agent_name,
@@ -127,6 +135,20 @@ def play_game(
             generate_candidate_actions_tool=GenerateCandidateActions(
                 invalid_actions_file=f'{logs_dir}/{filename}_invalid_actions.txt', 
                 valid_actions_file=f'{logs_dir}/{filename}_valid_actions.txt'),
+            debug=debug)
+    elif agent_name.lower() == 'reflexion_actionspace_persistent_actioncache':
+        # here we have created the invalid and valid actions files, and we will use them to persist the action cache across games
+        agent = ReflexionAgent(
+            reflect_interval=5, 
+            max_iters=max_steps, 
+            tools=[jericho], 
+            update_valid_actions_tool=UpdateValidActions(
+                invalid_actions_file=f'{logs_dir}/invalid_actions.txt', 
+                valid_actions_file=f'{logs_dir}/valid_actions.txt'
+                ), 
+            generate_candidate_actions_tool=GenerateCandidateActions(
+                invalid_actions_file=f'{logs_dir}/invalid_actions.txt', 
+                valid_actions_file=f'{logs_dir}/valid_actions.txt'),
             debug=debug)
 
     end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.")

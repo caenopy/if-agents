@@ -28,15 +28,28 @@ def main(args):
         together = dspy.Together(model=args.model, max_tokens=500)
         dspy.settings.configure(lm=together) 
 
-    run_experiment(
-        'data/z-machine-games-master/jericho-game-suite',
-        experiments_dir='experiments',
-        agent_name='reflexion_actionspace',
-        experiment_name=args.expt_name,
-        filtered_game_list=["detective.z5"], #=get_game_list('possible'), 
-        model_name=args.model.replace('/', '_'),
-        debug=args.debug,
-        max_steps=int(args.steps))
+    if (args.persistent.lower() == 'true'):
+        # persist invalid / valid action files across games
+        run_experiment(
+            'data/z-machine-games-master/jericho-game-suite',
+            experiments_dir='experiments',
+            agent_name='reflexion_actionspace_persistent_actioncache',
+            experiment_name=args.expt_name,
+            filtered_game_list=get_game_list('possible'), 
+            model_name=args.model.replace('/', '_'),
+            debug=args.debug,
+            max_steps=int(args.steps))
+    else:
+        # invalid / valid action files are generated per game
+        run_experiment(
+            'data/z-machine-games-master/jericho-game-suite',
+            experiments_dir='experiments',
+            agent_name='reflexion_actionspace',
+            experiment_name=args.expt_name,
+            filtered_game_list=get_game_list('possible'), 
+            model_name=args.model.replace('/', '_'),
+            debug=args.debug,
+            max_steps=int(args.steps))
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Reflexion experiment on Jericho.')
@@ -46,5 +59,6 @@ if __name__ == '__main__':
     parser.add_argument('-d', '--debug', help='enable debug mode', action='store_true', default=True)
     parser.add_argument('-m', '--model', help='name of the model to use', default='gpt-3.5-turbo')
     parser.add_argument('-s', '--steps', help='max steps', default='50')
+    parser.add_argument('-p', '--persistent', help='use persistent invalid / valid action files across games', default='')
 
     main(parser.parse_args())
