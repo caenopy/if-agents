@@ -86,7 +86,7 @@ class InteractiveFictionGame:
 
         write_to_file('\n'.join(self.playback), f'{self.logs_dir}/{self.filename}.txt')
         write_to_json(self.history, f'{self.logs_dir}/{self.filename}.json')
-        # write_history(f'{self.logs_dir}/{self.filename}_lm_history.txt', n=1)
+        write_history(f'{self.logs_dir}/{self.filename}_lm_history.txt', n=1, overwrite=True)
 
         return obs
     

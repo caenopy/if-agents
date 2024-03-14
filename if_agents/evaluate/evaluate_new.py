@@ -133,7 +133,7 @@ def play_game(
 
     print(end_state)
 
-    write_history(f'{logs_dir}/{filename}_lm_history.txt', n=1)
+    # write_history(f'{logs_dir}/{filename}_lm_history.txt', n=1) # this is now handled by the InteractiveFiction tool
     
     playback = '\n'.join(playback)
     return playback, history
