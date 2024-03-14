@@ -39,3 +39,17 @@ class WriteRelevantMemorySignature(dspy.Signature):
     observation = dspy.InputField(desc="the game's text response to the last action")
     memorystream = dspy.InputField(desc="your memory stream")
     new_memory = dspy.OutputField(desc="if the observation contains new information that should be remembered in addition to the memorystream, this field will contain the new memory")
+
+class ValidateActionSignature(dspy.Signature):
+    prev_action = dspy.InputField(desc="the previous action taken")
+    observation = dspy.InputField(desc="the game's text response to the previous action")
+    invalid_actions = dspy.InputField(desc="a list of actions that are known to be invalid")
+    valid_actions = dspy.InputField(desc="a list of actions that are known to be valid")
+    is_valid = dspy.OutputField(desc="True if the action is valid and was successfully interpreted by the game, False if the action is invalid and the game did not understand it")
+
+class GenerateCandidateActionsSignature(dspy.Signature):
+    observation = dspy.InputField(desc="the game's text response to the last action")
+    thought = dspy.InputField(desc="next steps to take based on last observation")
+    invalid_actions = dspy.InputField(desc="a list of actions that are known to be invalid")
+    valid_actions = dspy.InputField(desc="a list of actions that are known to be valid")
+    candidate_actions = dspy.OutputField(desc="a list of valid candidate actions to take based on the last observation and thought")

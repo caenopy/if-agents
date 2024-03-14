@@ -7,7 +7,7 @@ import datetime
 from ..constants import ACTION_MAX_LEN
 from ..utils import read_from_json, write_to_file, write_to_json
 
-from .signatures import ReadRelevantMemorySignature, WriteRelevantMemorySignature
+from .signatures import ReadRelevantMemorySignature, WriteRelevantMemorySignature, ValidateActionSignature, GenerateCandidateActionsSignature
 
 # Useless for our purposes, just an example of how to write a tool
 class GiveTime:
@@ -181,3 +181,51 @@ class WriteRelevantMemory(dspy.Module):
 
         with open(self.memory_file, 'a') as f:
             f.write(new_memory) 
+
+class UpdateValidActions(dspy.Module):
+    def __init__(self, invalid_actions_file, valid_actions_file):
+        super().__init__()
+        self.invalid_actions_file = invalid_actions_file
+        self.valid_actions_file = valid_actions_file
+        self.prod = dspy.Predict(ValidateActionSignature)
+
+    def forward(self, prev_action, observation):
+        with open(self.invalid_actions_file, 'r') as f:
+            invalid_actions = f.read().split('\n')
+        with open(self.valid_actions_file, 'r') as f:
+            valid_actions = f.read().split('\n')
+        is_valid = self.prod(
+            prev_action=prev_action, 
+            observation=observation, 
+            invalid_actions=invalid_actions,
+            valid_actions=valid_actions
+            ).is_valid
+        
+        if is_valid == "True":
+            # we think action is valid, write it to valid actions
+            with open(self.valid_actions_file, 'a') as f:
+                f.write(f'{prev_action}\n')
+        elif is_valid == "False":
+            # we think action is invalid, write it to invalid actions
+            with open(self.invalid_actions_file, 'a') as f:
+                f.write(f'{prev_action}\n')
+
+
+class GenerateCandidateActions(dspy.Module):
+    def __init__(self, invalid_actions_file, valid_actions_file):
+        super().__init__()
+        self.invalid_actions_file = invalid_actions_file
+        self.valid_actions_file = valid_actions_file
+        self.prod = dspy.Predict(GenerateCandidateActionsSignature)
+
+    def forward(self, observation, thought):
+        with open(self.invalid_actions_file, 'r') as f:
+            invalid_actions = f.read().split('\n')
+        with open(self.valid_actions_file, 'r') as f:
+            valid_actions = f.read().split('\n')
+        return self.prod(
+            observation=observation, 
+            thought=thought, 
+            invalid_actions=invalid_actions,
+            valid_actions=valid_actions
+            ).candidate_actions
