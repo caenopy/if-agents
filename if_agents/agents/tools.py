@@ -129,6 +129,8 @@ class InteractiveFictionGame:
         """
         Get the dictionary of lowercase 3-word prefixes of the action and their counts.
         """
+        if len(self.history) == 0:
+            return {action.lower().split()[:3]: 1}
         curr_prefixes = self.history[-1]['action_prefixes']
         prefix = action.lower().split()[:3]
         if prefix in curr_prefixes:
