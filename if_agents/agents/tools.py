@@ -46,7 +46,7 @@ class InteractiveFictionGame:
         
         obs = obs.strip()
         valid_actions = self.env.get_valid_actions()
-        formatted_valid_actions = [f'InteractiveFictionGame[{action}]' for action in valid_actions]
+        formatted_valid_actions = [f'InteractiveFictionGame[{act}]' for act in valid_actions]
         obs += " Valid actions: " + ", ".join(formatted_valid_actions).strip()
 
         if self.debug:
@@ -93,11 +93,11 @@ class InteractiveFictionGame:
                 return 1, 0
         else:
             new_moves = info['moves'] - self.history[-1]['moves']
-            if new_moves >= 0:
+            if new_moves > 0:
                 # valid move
-                return self.history[-1]['total_moves'] + new_moves, self.history[-1]['failed_moves']
+                return self.history[-1]['valid_moves'] + new_moves, self.history[-1]['failed_moves']
             # failed move
-            return self.history[-1]['total_moves'], self.history[-1]['failed_moves'] + 1
+            return self.history[-1]['valid_moves'], self.history[-1]['failed_moves'] + 1
         
     def get_deaths(self, info):
         """
@@ -110,29 +110,30 @@ class InteractiveFictionGame:
             # ideally this means the agent has died
             # hopefully this is the death observation
             death_obs = self.history[-1]['observation']
-            deaths = self.history[-1]['deaths'].append(death_obs)
+            deaths = self.history[-1]['deaths'].copy()
+            deaths.append(death_obs)
             return deaths
 
         return self.history[-1]['deaths']
 
     def get_unique_states(self, env):
         """
-        Get the set of unique states the agent has encountered so far in the game.
+        Get the list of unique states the agent has encountered so far in the game.
         """
         this_state = env.get_world_state_hash()
         if len(self.history) == 0:
-            return set([this_state])
+            return [this_state]
         else:
-            return self.history[-1]['unique_states'].union(set([this_state]))
-    
+            return list(set(self.history[-1]['unique_states']).union(set([this_state])))
+        
     def get_prefixes_dict(self, action):
         """
-        Get the dictionary of lowercase 3-word prefixes of the action and their counts.
+        Get the dictionary of lowercase 2-word prefixes of the action and their counts.
         """
+        prefix = ' '.join(action.lower().split()[:2])
         if len(self.history) == 0:
-            return {action.lower().split()[:3]: 1}
-        curr_prefixes = self.history[-1]['action_prefixes']
-        prefix = action.lower().split()[:3]
+            return {prefix : 1}
+        curr_prefixes = self.history[-1]['action_prefixes'].copy()
         if prefix in curr_prefixes:
             curr_prefixes[prefix] += 1
         else:
