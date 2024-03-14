@@ -82,7 +82,7 @@ class Reflexion(Module):
                     desc=f"self-reflection on your progress and the effectiveness of recent moves",
                 )
 
-            if self.memory_tool:
+            if self.memory_tool and j > 1:
                 signature_dict[f"Memory_{j}"] = dspy.OutputField(
                     prefix=f"Memory:",
                     desc=f"a relevant memory to the current situation",
@@ -126,8 +126,8 @@ class Reflexion(Module):
 
             output[f"Observation_{hop+1}"] = self.tools[action_name](action_val)
 
-            if self.memory_tool:
-                output[f"Memory_{hop+1}"] = self.memory_tool(output[f"Observation_{hop+1}"]).memory
+            if self.memory_tool and hop > 0:
+                output[f"Memory_{hop+2}"] = self.memory_tool(output[f"Observation_{hop+1}"]).memory
                 # TODO: write to memory!
 
             # except AttributeError:
