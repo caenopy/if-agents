@@ -10,7 +10,7 @@ from dspy.predict import Predict
 # Reflexion module based off of DSPy's ReAct
 
 class Reflexion(Module):
-    def __init__(self, signature, max_iters, reflect_interval, tools, memory_tool=None, debug=False):
+    def __init__(self, signature, max_iters, reflect_interval, tools, read_memory_tool=None, write_memory_tool=None, debug=False):
         super().__init__()
         self.signature = signature = ensure_signature(signature)
         self.max_iters = max_iters
@@ -22,7 +22,8 @@ class Reflexion(Module):
 
         self.tools = tools 
         self.tools = {tool.name: tool for tool in self.tools}
-        self.memory_tool = memory_tool
+        self.read_memory_tool = read_memory_tool
+        self.write_memory_tool = write_memory_tool
 
         self.input_fields = self.signature.input_fields
         self.output_fields = self.signature.output_fields
@@ -82,7 +83,7 @@ class Reflexion(Module):
                     desc=f"self-reflection on your progress and the effectiveness of recent moves",
                 )
 
-            if self.memory_tool and j > 1:
+            if self.read_memory_tool and j > 1:
                 signature_dict[f"Memory_{j}"] = dspy.OutputField(
                     prefix=f"Memory:",
                     desc=f"a relevant memory to the current situation",
@@ -126,9 +127,11 @@ class Reflexion(Module):
 
             output[f"Observation_{hop+1}"] = self.tools[action_name](action_val)
 
-            if self.memory_tool and hop > 0:
-                output[f"Memory_{hop+2}"] = self.memory_tool(output[f"Observation_{hop+1}"]).memory
-                # TODO: write to memory!
+            self.write_memory_tool(output[f"Observation_{hop+1}"])
+
+            if self.read_memory_tool and hop > 0:
+                output[f"Memory_{hop+2}"] = self.read_memory_tool(output[f"Observation_{hop+1}"]).memory
+                
 
             # except AttributeError:
             #     # Handle the case where 'passages' attribute is missing

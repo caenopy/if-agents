@@ -30,7 +30,12 @@ class ReActSignature(dspy.Signature):
     input = dspy.InputField(desc="An instruction to play the game.")
     score = dspy.OutputField(desc="The final score you achieve.")
 
-class RelevantMemorySignature(dspy.Signature):
+class ReadRelevantMemorySignature(dspy.Signature):
     observation = dspy.InputField(desc="the game's text response to the last action")
-    context = dspy.InputField(desc="history of the game so far")
+    context = dspy.InputField(desc="your memory stream")
     memory = dspy.OutputField(desc="the most relevant memory to the current observation")
+
+class WriteRelevantMemorySignature(dspy.Signature):
+    observation = dspy.InputField(desc="the game's text response to the last action")
+    memorystream = dspy.InputField(desc="your memory stream")
+    new_memory = dspy.OutputField(desc="if the observation contains new information that should be remembered in addition to the memorystream, this field will contain the new memory")

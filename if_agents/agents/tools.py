@@ -1,3 +1,5 @@
+import os
+
 import dspy
 import jericho
 import datetime
@@ -5,7 +7,7 @@ import datetime
 from ..constants import ACTION_MAX_LEN
 from ..utils import read_from_json, write_to_file, write_to_json
 
-from .signatures import RelevantMemorySignature
+from .signatures import ReadRelevantMemorySignature, WriteRelevantMemorySignature
 
 # Useless for our purposes, just an example of how to write a tool
 class GiveTime:
@@ -79,9 +81,31 @@ class FetchRelevantMemory(dspy.Module):
     def __init__(self, memory_file):
         super().__init__()
         self.memory_file = memory_file
-        self.prod = dspy.Predict(RelevantMemorySignature)
+        self.prod = dspy.Predict(ReadRelevantMemorySignature)
 
     def forward(self, observation):
+        if not os.path.exists(self.memory_file):
+            with open(self.memory_file, 'w') as f:
+                pass
         with open(self.memory_file, 'r') as f:
             memory = f.read()
         return self.prod(observation=observation, context=memory)
+    
+class WriteRelevantMemory(dspy.Module):
+    def __init__(self, memory_file):
+        super().__init__()
+        self.memory_file = memory_file
+        self.prod = dspy.Predict(WriteRelevantMemorySignature)
+
+    def forward(self, observation):
+        if not os.path.exists(self.memory_file):
+            with open(self.memory_file, 'w') as f:
+                pass
+        
+        with open(self.memory_file, 'r') as f:
+            memory = f.read()
+
+        new_memory = self.prod(observation=observation, memorystream=memory).new_memory
+
+        with open(self.memory_file, 'a') as f:
+            f.write(new_memory) 
