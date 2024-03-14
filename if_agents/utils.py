@@ -3,7 +3,7 @@ import dspy
 
 def write_to_json(data: any, filename: str):
     with open(filename, 'w') as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=4)
         
 def read_from_json(filename: str):
     with open(filename, 'r') as f:

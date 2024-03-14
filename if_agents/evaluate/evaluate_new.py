@@ -8,7 +8,7 @@ from tqdm import tqdm
 from ..constants import ACTION_MAX_LEN
 from ..utils import write_history, write_to_file, write_to_json
 from ..agents.agents import ReActAgent, ReflexionAgent
-from ..agents.tools import InteractiveFictionGame, FetchRelevantMemory, WriteRelevantMemory
+from ..agents.tools import InteractiveFictionGame
 
 
 def run_experiment(
@@ -64,11 +64,11 @@ def play_all_games(
     for filename in tqdm(game_list):
         print(f'Playing {filename}...')
         # play game
-        playback, history = play_game(filename, agent_name, logs_dir, game_dir, debug, max_steps)
-
-        # The following is now handled in InteractiveFictionGame in tools.py
-        # write_to_file(playback, f'{logs_dir}/{filename}.txt')
-        # write_to_json(history, f'{logs_dir}/{filename}.json')
+        try:
+            playback, history = play_game(filename, agent_name, logs_dir, game_dir, debug, max_steps)
+        except Exception as e:
+            write_to_file(f'Error playing {filename}: {e}', f'{logs_dir}/{filename}_error.txt')
+            continue
 
 
 def play_game(
@@ -95,14 +95,12 @@ def play_game(
     playback = []
     history = []
 
-    jericho = InteractiveFictionGame(filename, game_dir, playback, history, logs_dir=logs_dir)
+    jericho = InteractiveFictionGame(filename, game_dir, playback, history)
 
     if agent_name.lower() == 'react':
         agent = ReActAgent(max_iters=max_steps, tools=[jericho])
     elif agent_name.lower() == 'reflexion':
         agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], debug=debug)
-    elif agent_name.lower() == 'reflexionmemory':
-        agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], read_memory_tool=FetchRelevantMemory(memory_file=f'{logs_dir}/{filename}_memory.txt'), write_memory_tool=WriteRelevantMemory(memory_file=f'{logs_dir}/{filename}_memory.txt'), debug=debug)
 
     end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.")
 
