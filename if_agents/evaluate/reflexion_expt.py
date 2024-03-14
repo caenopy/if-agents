@@ -36,7 +36,7 @@ def main(args):
         filtered_game_list=get_game_list('possible'), 
         model_name=args.model.replace('/', '_'),
         debug=args.debug,
-        max_steps=50)
+        max_steps=int(args.steps))
 
 
 if __name__ == '__main__':
@@ -46,5 +46,6 @@ if __name__ == '__main__':
     parser.add_argument('-g', '--game', help='name of the game to play', default='detective.z5')
     parser.add_argument('-d', '--debug', help='enable debug mode', action='store_true', default=True)
     parser.add_argument('-m', '--model', help='name of the model to use', default='gpt-3.5-turbo')
+    parser.add_argument('-s', '--steps', help='max steps', default='50')
 
     main(parser.parse_args())
