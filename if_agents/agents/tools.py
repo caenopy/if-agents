@@ -57,6 +57,7 @@ class InteractiveFictionGame:
 
         valid_moves, failed_moves = self.get_valid_moves_failed_moves(info)
         deaths = self.get_deaths(info)
+        unique_states = self.get_unique_states(self.env)
 
         self.history.append({
             'observation': obs,
@@ -67,6 +68,7 @@ class InteractiveFictionGame:
             'score': info['score'],
             'action': action,
             'deaths': deaths,
+            'unique_states': unique_states
         })
 
         if self.env.victory():
@@ -108,3 +110,10 @@ class InteractiveFictionGame:
             return deaths
 
         return self.history[-1]['deaths']
+
+    def get_unique_states(self, env):
+        this_state = env.get_world_state_hash()
+        if len(self.history) == 0:
+            return set([this_state])
+        else:
+            return self.history[-1]['unique_states'].union(set([this_state]))
