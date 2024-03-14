@@ -31,9 +31,9 @@ def main(args):
     run_experiment(
         'data/z-machine-games-master/jericho-game-suite',
         experiments_dir='experiments',
-        agent_name='reflexion',
+        agent_name='reflexion_actionspace',
         experiment_name=args.expt_name,
-        filtered_game_list=get_game_list('possible'), 
+        filtered_game_list=["detective.z5"], #=get_game_list('possible'), 
         model_name=args.model.replace('/', '_'),
         debug=args.debug,
         max_steps=50)

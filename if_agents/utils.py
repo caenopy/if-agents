@@ -14,12 +14,19 @@ def write_to_file(data: any, filename: str):
     with open(filename, 'w') as f:
         f.write(data)
 
-def write_history(filename: str, n: int = 1):
+def append_to_file(data: any, filename: str):
+    with open(filename, 'a') as f:
+        f.write(data)
+
+def write_history(filename: str, n: int = 1, overwrite: bool = False):
     """
     Write the last n entries of the language model history to a file.
     """
     lm = dspy.settings.lm
-    file = open(filename, "a")
+    if overwrite:
+        file = open(filename, "w")
+    else:
+        file = open(filename, "a")
     provider: str = lm.provider
 
     last_prompt = None

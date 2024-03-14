@@ -10,7 +10,18 @@ from dspy.predict import Predict
 # Reflexion module based off of DSPy's ReAct
 
 class Reflexion(Module):
-    def __init__(self, signature, max_iters, reflect_interval, tools, read_memory_tool=None, write_memory_tool=None, debug=False):
+    def __init__(
+            self, 
+            signature, 
+            max_iters, 
+            reflect_interval, 
+            tools, 
+            read_memory_tool=None, 
+            write_memory_tool=None, 
+            update_valid_actions_tool=None,
+            generate_candidate_actions_tool=None,
+            debug=False
+            ):
         super().__init__()
         self.signature = signature = ensure_signature(signature)
         self.max_iters = max_iters
@@ -24,6 +35,8 @@ class Reflexion(Module):
         self.tools = {tool.name: tool for tool in self.tools}
         self.read_memory_tool = read_memory_tool
         self.write_memory_tool = write_memory_tool
+        self.update_valid_actions_tool= update_valid_actions_tool
+        self.generate_candidate_actions_tool = generate_candidate_actions_tool
 
         self.input_fields = self.signature.input_fields
         self.output_fields = self.signature.output_fields
@@ -95,6 +108,12 @@ class Reflexion(Module):
                 desc="next steps to take based on last observation",
             )
 
+            if self.generate_candidate_actions_tool and j > 1:
+                signature_dict[f"CandidateActions_{j}"] = dspy.OutputField(
+                    prefix=f"Candidate actions:",
+                    desc="a list of valid candidate actions to take based on the last observation and thought",
+                )
+
             tool_list = " or ".join(
                 [
                     f"{tool.name}[{tool.input_variable}]"
@@ -117,6 +136,7 @@ class Reflexion(Module):
         return signature_dict
 
     def act(self, output, hop):
+        # print(f'HOP {hop}')
         try:
             action = output[f"Action_{hop+1}"]
             action_name, action_val = action.strip().split("\n")[0].split("[", 1)
@@ -134,7 +154,18 @@ class Reflexion(Module):
                     output[f"Memory_{hop+2}"] = output[f"Memory_{hop+2}"].split('Memory: ')[1]
                 pass
                 
-
+            if self.update_valid_actions_tool and hop > 0:
+                self.update_valid_actions_tool(
+                    prev_action=action, 
+                    observation=output[f"Observation_{hop+1}"])
+            
+            if self.generate_candidate_actions_tool and hop > 0:
+                candidate_actions = self.generate_candidate_actions_tool(
+                    # observation=output[f"Observation_{hop+1}"], 
+                    thought=output[f"Thought_{hop+1}"]).candidate_actions
+                # trim everything after the list of actions
+                # candidate_actions = candidate_actions.split("]")[0] + "]"
+                output[f"CandidateActions_{hop+1}"] = candidate_actions
             # except AttributeError:
             #     # Handle the case where 'passages' attribute is missing
             #     # TODO: This is a hacky way to handle this. Need to fix this.
@@ -164,7 +195,7 @@ class Reflexion(Module):
                     
             print('\n')
             # user_input = input("Insert injection of form 'PREFIX: CONTENT': ")
-            user_input = None
+            user_input = None # disable oracle injection for now
             print('\n')
             if user_input:
                 prefix, content = user_input.split(":")

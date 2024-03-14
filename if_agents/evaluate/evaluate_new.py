@@ -8,7 +8,9 @@ from tqdm import tqdm
 from ..constants import ACTION_MAX_LEN
 from ..utils import write_history, write_to_file, write_to_json
 from ..agents.agents import ReActAgent, ReflexionAgent
-from ..agents.tools import InteractiveFictionGame, FetchRelevantMemory, WriteRelevantMemory
+from ..agents.tools import InteractiveFictionGame, FetchRelevantMemory, WriteRelevantMemory, UpdateValidActions, GenerateCandidateActions
+EMPTY_LIST = "[]"
+CANONICAL_ACTIONS = "[InteractiveFiction[go north], InteractiveFiction[go south], InteractiveFiction[go east], InteractiveFiction[go west], InteractiveFiction[look], InteractiveFiction[examine x], InteractiveFiction[take x], InteractiveFiction[drop x], InteractiveFiction[inventory], InteractiveFiction[restart]]"
 
 
 def run_experiment(
@@ -106,12 +108,32 @@ def play_game(
         agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], debug=debug)
     elif agent_name.lower() == 'reflexionmemory':
         agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], read_memory_tool=FetchRelevantMemory(memory_file=f'{logs_dir}/{filename}_memory.txt'), write_memory_tool=WriteRelevantMemory(memory_file=f'{logs_dir}/{filename}_memory.txt'), debug=debug)
+    elif agent_name.lower() == 'reflexion_actionspace':
+        # create invalid actions file
+        with open(f'{logs_dir}/{filename}_invalid_actions.txt', 'w') as f:
+            f.write(EMPTY_LIST)
+        # create valid actions file with canonical actions
+        with open(f'{logs_dir}/{filename}_valid_actions.txt', 'w') as f:
+            f.write(CANONICAL_ACTIONS)
+        
+        agent = ReflexionAgent(
+            reflect_interval=5, 
+            max_iters=max_steps, 
+            tools=[jericho], 
+            update_valid_actions_tool=UpdateValidActions(
+                invalid_actions_file=f'{logs_dir}/{filename}_invalid_actions.txt', 
+                valid_actions_file=f'{logs_dir}/{filename}_valid_actions.txt'
+                ), 
+            generate_candidate_actions_tool=GenerateCandidateActions(
+                invalid_actions_file=f'{logs_dir}/{filename}_invalid_actions.txt', 
+                valid_actions_file=f'{logs_dir}/{filename}_valid_actions.txt'),
+            debug=debug)
 
     end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.")
 
     print(end_state)
 
-    write_history(f'{logs_dir}/{filename}_lm_history.txt', n=1)
+    # write_history(f'{logs_dir}/{filename}_lm_history.txt', n=1) # this is now handled by the InteractiveFiction tool
     
     playback = '\n'.join(playback)
     return playback, history

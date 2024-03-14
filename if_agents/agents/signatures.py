@@ -39,3 +39,18 @@ class WriteRelevantMemorySignature(dspy.Signature):
     observation = dspy.InputField(desc="the game's text response to the last action")
     memory_stream = dspy.InputField(desc="your memory stream")
     new_memory = dspy.OutputField(desc="a new memory if the observation contains new information that should be remembered in addition to the memory stream, otherwise an empty string")
+
+class ValidateActionSignature(dspy.Signature):
+    prev_action = dspy.InputField(desc="the previous action taken")
+    observation = dspy.InputField(desc="the game's text response to the previous action which reflects the effects of the previous action")
+    invalid_actions = dspy.InputField(desc="a list of actions that are known to be invalid")
+    valid_actions = dspy.InputField(desc="a list of actions that are known to be valid")
+    is_valid = dspy.OutputField(desc="A single word, either True or False. True if the action is valid and was successfully interpreted by the game, False if the action is invalid and the game did not understand it")
+
+class GenerateCandidateActionsSignature(dspy.Signature):
+    # observation = dspy.InputField(desc="the game's text response to the last action")
+    # thought = dspy.InputField(desc="next steps to take based on last observation")
+    thought = dspy.InputField(desc="next steps to take which need to be translated into actions")
+    invalid_actions = dspy.InputField(desc="a list of actions that are known to be invalid")
+    valid_actions = dspy.InputField(desc="a list of actions that are known to be valid")
+    candidate_actions = dspy.OutputField(desc="A bracketed list of valid candidate actions to take based on the last observation and thought, for example '[InteractiveFictionGame[go north], InteractiveFictionGame[go south]]'. Each action is a few words using only simple verbs and nouns present in the environment from previous observations formatted as 'InteractiveFictionGame[<action>]'")
