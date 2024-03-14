@@ -48,8 +48,9 @@ class ValidateActionSignature(dspy.Signature):
     is_valid = dspy.OutputField(desc="True if the action is valid and was successfully interpreted by the game, False if the action is invalid and the game did not understand it")
 
 class GenerateCandidateActionsSignature(dspy.Signature):
-    observation = dspy.InputField(desc="the game's text response to the last action")
-    thought = dspy.InputField(desc="next steps to take based on last observation")
+    # observation = dspy.InputField(desc="the game's text response to the last action")
+    # thought = dspy.InputField(desc="next steps to take based on last observation")
+    thought = dspy.InputField(desc="next steps to take which need to be translated into actions")
     invalid_actions = dspy.InputField(desc="a list of actions that are known to be invalid")
     valid_actions = dspy.InputField(desc="a list of actions that are known to be valid")
-    candidate_actions = dspy.OutputField(desc="a list of valid candidate actions to take based on the last observation and thought")
+    candidate_actions = dspy.OutputField(desc="A bracketed list of valid candidate actions to take based on the last observation and thought, for example '[InteractiveFictionGame[go north], InteractiveFictionGame[go south]]'. Each action is a few words using only simple verbs and nouns present in the environment from previous observations formatted as 'InteractiveFictionGame[<action>]'")

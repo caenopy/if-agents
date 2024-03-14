@@ -51,9 +51,9 @@ class InteractiveFictionGame:
             obs, reward, done, info = self.env.step(action)
         
         obs = obs.strip()
-        valid_actions = self.env.get_valid_actions()
-        formatted_valid_actions = [f'InteractiveFictionGame[{act}]' for act in valid_actions]
-        obs += " Valid actions: " + ", ".join(formatted_valid_actions).strip()
+        # valid_actions = self.env.get_valid_actions()
+        # formatted_valid_actions = [f'InteractiveFictionGame[{act}]' for act in valid_actions]
+        # obs += " Valid actions: " + ", ".join(formatted_valid_actions).strip()
 
         if self.debug:
             print(f'Observation: {obs}')
@@ -218,13 +218,12 @@ class GenerateCandidateActions(dspy.Module):
         self.valid_actions_file = valid_actions_file
         self.prod = dspy.Predict(GenerateCandidateActionsSignature)
 
-    def forward(self, observation, thought):
+    def forward(self, thought):
         with open(self.invalid_actions_file, 'r') as f:
             invalid_actions = f.read().split('\n')
         with open(self.valid_actions_file, 'r') as f:
             valid_actions = f.read().split('\n')
         return self.prod(
-            observation=observation, 
             thought=thought, 
             invalid_actions=invalid_actions,
             valid_actions=valid_actions
