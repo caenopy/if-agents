@@ -42,10 +42,10 @@ class WriteRelevantMemorySignature(dspy.Signature):
 
 class ValidateActionSignature(dspy.Signature):
     prev_action = dspy.InputField(desc="the previous action taken")
-    observation = dspy.InputField(desc="the game's text response to the previous action")
+    observation = dspy.InputField(desc="the game's text response to the previous action which reflects the effects of the previous action")
     invalid_actions = dspy.InputField(desc="a list of actions that are known to be invalid")
     valid_actions = dspy.InputField(desc="a list of actions that are known to be valid")
-    is_valid = dspy.OutputField(desc="True if the action is valid and was successfully interpreted by the game, False if the action is invalid and the game did not understand it")
+    is_valid = dspy.OutputField(desc="A single word, either True or False. True if the action is valid and was successfully interpreted by the game, False if the action is invalid and the game did not understand it")
 
 class GenerateCandidateActionsSignature(dspy.Signature):
     # observation = dspy.InputField(desc="the game's text response to the last action")

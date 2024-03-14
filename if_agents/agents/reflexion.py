@@ -136,6 +136,7 @@ class Reflexion(Module):
         return signature_dict
 
     def act(self, output, hop):
+        print(f'HOP {hop}')
         try:
             action = output[f"Action_{hop+1}"]
             action_name, action_val = action.strip().split("\n")[0].split("[", 1)
@@ -162,8 +163,8 @@ class Reflexion(Module):
                     # observation=output[f"Observation_{hop+1}"], 
                     thought=output[f"Thought_{hop+1}"]).candidate_actions
                 # trim everything after the list of actions
-                candidate_actions = candidate_actions.split("]")[0] + "]"
-                output[f"CandidateActions_{hop+2}"] = candidate_actions
+                # candidate_actions = candidate_actions.split("]")[0] + "]"
+                output[f"CandidateActions_{hop+1}"] = candidate_actions
             # except AttributeError:
             #     # Handle the case where 'passages' attribute is missing
             #     # TODO: This is a hacky way to handle this. Need to fix this.

@@ -191,9 +191,9 @@ class UpdateValidActions(dspy.Module):
 
     def forward(self, prev_action, observation):
         with open(self.invalid_actions_file, 'r') as f:
-            invalid_actions = f.read().split('\n')
+            invalid_actions = f.read()
         with open(self.valid_actions_file, 'r') as f:
-            valid_actions = f.read().split('\n')
+            valid_actions = f.read()
         is_valid = self.prod(
             prev_action=prev_action, 
             observation=observation, 
@@ -201,14 +201,14 @@ class UpdateValidActions(dspy.Module):
             valid_actions=valid_actions
             ).is_valid
         
-        if is_valid == "True":
+        if 'true' in is_valid.lower():
             # we think action is valid, write it to valid actions
-            with open(self.valid_actions_file, 'a') as f:
-                f.write(f'{prev_action}\n')
-        elif is_valid == "False":
+            with open(self.valid_actions_file, 'w') as f:
+                f.write(f'{valid_actions[:-1]}, {prev_action}]')
+        elif 'false' in is_valid.lower():
             # we think action is invalid, write it to invalid actions
-            with open(self.invalid_actions_file, 'a') as f:
-                f.write(f'{prev_action}\n')
+            with open(self.invalid_actions_file, 'w') as f:
+                f.write(f'{invalid_actions[:-1]}, {prev_action}]')
 
 
 class GenerateCandidateActions(dspy.Module):
@@ -220,11 +220,11 @@ class GenerateCandidateActions(dspy.Module):
 
     def forward(self, thought):
         with open(self.invalid_actions_file, 'r') as f:
-            invalid_actions = f.read().split('\n')
+            invalid_actions = f.read()
         with open(self.valid_actions_file, 'r') as f:
-            valid_actions = f.read().split('\n')
+            valid_actions = f.read()
         return self.prod(
             thought=thought, 
             invalid_actions=invalid_actions,
             valid_actions=valid_actions
-            ).candidate_actions
+            )
