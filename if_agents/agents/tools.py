@@ -161,7 +161,7 @@ class FetchRelevantMemory(dspy.Module):
                 pass
         with open(self.memory_file, 'r') as f:
             memory = f.read()
-        return self.prod(observation=observation, context=memory)
+        return self.prod(observation=observation, memory_stream=memory)
     
 class WriteRelevantMemory(dspy.Module):
     def __init__(self, memory_file):
@@ -177,7 +177,13 @@ class WriteRelevantMemory(dspy.Module):
         with open(self.memory_file, 'r') as f:
             memory = f.read()
 
-        new_memory = self.prod(observation=observation, memorystream=memory).new_memory
+        if memory == "":
+            memory = "No memories yet.\n"
+
+        new_memory = self.prod(observation=observation, memory_stream=memory).new_memory
+        new_memory = new_memory.replace("New Memory: ", "") + '\n'  # Remove "New Memory: " from the beginning of new_memory
+
+        print('New memory: ', new_memory)
 
         with open(self.memory_file, 'a') as f:
             f.write(new_memory) 

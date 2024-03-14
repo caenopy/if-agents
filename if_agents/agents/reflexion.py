@@ -83,7 +83,7 @@ class Reflexion(Module):
                     desc=f"self-reflection on your progress and the effectiveness of recent moves",
                 )
 
-            if self.read_memory_tool and j > 1:
+            if self.read_memory_tool and self.write_memory_tool and j > 1:
                 signature_dict[f"Memory_{j}"] = dspy.OutputField(
                     prefix=f"Memory:",
                     desc=f"a relevant memory to the current situation",
@@ -127,10 +127,12 @@ class Reflexion(Module):
 
             output[f"Observation_{hop+1}"] = self.tools[action_name](action_val)
 
-            self.write_memory_tool(output[f"Observation_{hop+1}"])
-
-            if self.read_memory_tool and hop > 0:
+            if self.read_memory_tool and self.write_memory_tool:
+                self.write_memory_tool(output[f"Observation_{hop+1}"])
                 output[f"Memory_{hop+2}"] = self.read_memory_tool(output[f"Observation_{hop+1}"]).memory
+                if 'Memory: ' in output[f"Memory_{hop+2}"]:
+                    output[f"Memory_{hop+2}"] = output[f"Memory_{hop+2}"].split('Memory: ')[1]
+                pass
                 
 
             # except AttributeError:
@@ -161,7 +163,8 @@ class Reflexion(Module):
                     print(f"{list(args.keys())[i]}: {list(args.values())[i]}")
                     
             print('\n')
-            user_input = input("Insert injection of form 'PREFIX: CONTENT': ")
+            # user_input = input("Insert injection of form 'PREFIX: CONTENT': ")
+            user_input = None
             print('\n')
             if user_input:
                 prefix, content = user_input.split(":")
