@@ -36,7 +36,7 @@ def main(args):
         filtered_game_list=["detective.z5"], #=get_game_list('possible'), 
         model_name=args.model.replace('/', '_'),
         debug=args.debug,
-        max_steps=10)
+        max_steps=50)
 
 
 if __name__ == '__main__':

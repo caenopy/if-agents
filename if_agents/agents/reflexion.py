@@ -193,7 +193,8 @@ class Reflexion(Module):
                     print(f"{list(args.keys())[i]}: {list(args.values())[i]}")
                     
             print('\n')
-            user_input = input("Insert injection of form 'PREFIX: CONTENT': ")
+            # user_input = input("Insert injection of form 'PREFIX: CONTENT': ")
+            user_input = None # disable oracle injection for now
             print('\n')
             if user_input:
                 prefix, content = user_input.split(":")
