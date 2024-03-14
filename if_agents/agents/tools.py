@@ -55,14 +55,15 @@ class InteractiveFictionGame:
         self.playback.append(f'> {action}')
         self.playback.append(obs)
 
-        total_moves = self.get_total_moves(info)
+        valid_moves, failed_moves = self.get_valid_moves_failed_moves(info)
         deaths = self.get_deaths(info)
 
         self.history.append({
             'observation': obs,
             'reward': reward,
             'moves': info['moves'],
-            'total_moves': total_moves,
+            'valid_moves': valid_moves,
+            'failed_moves': failed_moves,
             'score': info['score'],
             'action': action,
             'deaths': deaths,
@@ -73,17 +74,24 @@ class InteractiveFictionGame:
 
         return obs
     
-    def get_total_moves(self, info):
+    def get_valid_moves_failed_moves(self, info):
         """
-        Get the total number of moves made in the game so far.
+        Get the total number of valid and failed moves made in the game so far. Returns a tuple of (valid_moves, failed_moves).
         """
         if len(self.history) == 0:
-            return 0
+            if info['moves'] == 0:
+                # first move failed
+                return 0, 1
+            else:
+                # first move was valid
+                return 1, 0
         else:
             new_moves = info['moves'] - self.history[-1]['moves']
             if new_moves >= 0:
-                return self.history[-1]['total_moves'] + new_moves
-            return self.history[-1]['total_moves']
+                # valid move
+                return self.history[-1]['total_moves'] + new_moves, self.history[-1]['failed_moves']
+            # failed move
+            return self.history[-1]['total_moves'], self.history[-1]['failed_moves'] + 1
         
     def get_deaths(self, info):
         """
