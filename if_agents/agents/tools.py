@@ -58,6 +58,7 @@ class InteractiveFictionGame:
         valid_moves, failed_moves = self.get_valid_moves_failed_moves(info)
         deaths = self.get_deaths(info)
         unique_states = self.get_unique_states(self.env)
+        num_unique_states = len(unique_states)
 
         self.history.append({
             'observation': obs,
@@ -68,7 +69,8 @@ class InteractiveFictionGame:
             'score': info['score'],
             'action': action,
             'deaths': deaths,
-            'unique_states': unique_states
+            'unique_states': unique_states,
+            'num_unique_states': num_unique_states
         })
 
         if self.env.victory():
