@@ -5,7 +5,7 @@ import jericho
 import datetime
 
 from ..constants import ACTION_MAX_LEN
-from ..utils import read_from_json, write_to_file, write_to_json
+from ..utils import read_from_json, write_to_file, write_to_json, write_history
 
 from .signatures import ReadRelevantMemorySignature, WriteRelevantMemorySignature, ValidateActionSignature, GenerateCandidateActionsSignature
 
@@ -86,6 +86,7 @@ class InteractiveFictionGame:
 
         write_to_file('\n'.join(self.playback), f'{self.logs_dir}/{self.filename}.txt')
         write_to_json(self.history, f'{self.logs_dir}/{self.filename}.json')
+        # write_history(f'{self.logs_dir}/{self.filename}_lm_history.txt', n=1)
 
         return obs
     
@@ -203,12 +204,14 @@ class UpdateValidActions(dspy.Module):
         
         if 'true' in is_valid.lower():
             # we think action is valid, write it to valid actions
+            new_list_str = f'{valid_actions[:-1]}, {prev_action}]' if valid_actions != "[]" else f'[{prev_action}]'
             with open(self.valid_actions_file, 'w') as f:
-                f.write(f'{valid_actions[:-1]}, {prev_action}]')
+                f.write(new_list_str)
         elif 'false' in is_valid.lower():
             # we think action is invalid, write it to invalid actions
+            new_list_str = f'{invalid_actions[:-1]}, {prev_action}]' if invalid_actions != "[]" else f'[{prev_action}]'
             with open(self.invalid_actions_file, 'w') as f:
-                f.write(f'{invalid_actions[:-1]}, {prev_action}]')
+                f.write(new_list_str)
 
 
 class GenerateCandidateActions(dspy.Module):

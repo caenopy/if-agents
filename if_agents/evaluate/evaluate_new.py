@@ -10,7 +10,7 @@ from ..utils import write_history, write_to_file, write_to_json
 from ..agents.agents import ReActAgent, ReflexionAgent
 from ..agents.tools import InteractiveFictionGame, FetchRelevantMemory, WriteRelevantMemory, UpdateValidActions, GenerateCandidateActions
 EMPTY_LIST = "[]"
-CANONICAL_ACTIONS = "[InteractiveFiction[go north], InteractiveFiction[go south], InteractiveFiction[go east], InteractiveFiction[go west], InteractiveFiction[look], InteractiveFiction[examine x], InteractiveFiction[take x], InteractiveFiction[drop x], InteractiveFiction[inventory]]"
+CANONICAL_ACTIONS = "[InteractiveFiction[go north], InteractiveFiction[go south], InteractiveFiction[go east], InteractiveFiction[go west], InteractiveFiction[look], InteractiveFiction[examine x], InteractiveFiction[take x], InteractiveFiction[drop x], InteractiveFiction[inventory], InteractiveFiction[restart]]"
 
 
 def run_experiment(
@@ -133,7 +133,7 @@ def play_game(
 
     print(end_state)
 
-    write_history(f'{logs_dir}/{filename}_lm_history.txt', n=len(history))
+    write_history(f'{logs_dir}/{filename}_lm_history.txt', n=1)
     
     playback = '\n'.join(playback)
     return playback, history
