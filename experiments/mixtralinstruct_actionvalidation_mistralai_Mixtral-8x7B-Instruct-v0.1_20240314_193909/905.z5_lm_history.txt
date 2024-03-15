@@ -1,0 +1,77 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+Additionally, every 5 steps you will be instructed to reflect on your progress and the strategy taken thus far.
+
+---
+
+Follow the following format.
+
+Observation: game observation based on previous action
+
+Thought: next steps to take based on last observation
+
+CandidateActions: A short list (at least 1 but not more than 5) of valid candidate actions to take based on the last observation and thought, for example '[InteractiveFictionGame[go north], InteractiveFictionGame[go south]]'. Each action is a few words using only simple verbs and nouns present in the environment from previous observations formatted as 'InteractiveFictionGame[<action>]
+
+Action: choose one of the valid actions provided in CandidateActions, or, when done, Finish[answer]
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Start]' to begin the game. I will explore the game and its mechanics, and try to gather as much information as possible about my surroundings and objectives. I will also try to collect useful items and avoid any dangers. If I encounter any obstacles or challenges, I will use my reasoning skills to overcome them. If I die, I will use the information I gained from that playthrough to make a better choice in the future.
+
+Action: InteractiveFictionGame[Start]
+
+Observation: The phone rings.
+
+Thought: The game has started and I am in a bedroom. There are a few items in the room that I can interact with, including a telephone, a wallet, and some keys. The phone is currently ringing, which suggests that I might want to answer it. There is also a bathroom to the south, a door to the east leading to the living room, and dirty laundry on the floor. I will start by answering the phone, and then explore the rest of the room.
+
+Candidate actions: [InteractiveFictionGame[Answer phone], InteractiveFiction[go south], InteractiveFiction[go east], InteractiveFiction[look], InteractiveFiction[examine telephone], InteractiveFiction[examine wallet], InteractiveFiction[examine keys], InteractiveFiction[take telephone], InteractiveFiction[take wallet], InteractiveFiction[take keys], InteractiveFiction[drop keys], InteractiveFiction[drop wallet], InteractiveFiction[drop telephone], InteractiveFiction[inventory]]
+
+Action: InteractiveFictionGame[Answer phone]
+
+Observation: You pick up the phone. "Hadley!" a shrill voice cries. "Hadley, haven't you even left yet?? You knew that our presentation was at nine o'clock sharp! First the thing with the printers, now this - there won't even be enough left of you for Bowman to fire once he's done with you. Now get the hell down here!!"
+
+Thought: It seems that I have overslept and missed a important presentation at work. My boss is understandably upset and has instructed me to get to the office immediately. I should probably head to the living room to the east and find a way to get to work as quickly as possible. I will also check my inventory to see if I have anything that might help me.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go west], InteractiveFiction[look], InteractiveFiction[examine living room], InteractiveFiction[take keys], InteractiveFiction[inventory], InteractiveFictionGame[Call a cab], InteractiveFictionGame[Use work phone to notify boss]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: You'll have to get out of bed first.
+
+Thought: It seems that I need to get out of bed before I can go anywhere. I will start by doing that, and then continue on to the living room to the east. I will also check my inventory to see if I have anything that might help me.
+
+Candidate actions: [InteractiveFictionGame[get up], InteractiveFiction[inventory], InteractiveFiction[go east]]
+
+Action: InteractiveFictionGame[get up]
+
+Observation: You get out of bed.
+
+Reflect: After reflecting on my progress and strategy thus far, I think I have been doing a good job of gathering information about my surroundings and objectives. I have answered the phone and learned that I have overslept and missed a presentation at work. My boss is understandably upset and has instructed me to get to the office immediately. I have also gotten out of bed and am now ready to continue on to the living room to the east.
+
+Thought:[[ Now that I have gotten out of bed, I will continue on to the living room to the east. I will look around and see if there is anything in there that might help me get to work more quickly. I will also check my inventory to see if I have anything that might help.
+
+Candidate actions: [InteractiveFictionGame[go east], InteractiveFiction[look], InteractiveFiction[examine living room], InteractiveFiction[inventory]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: You enter the living room. There is a phone on the wall, a coffee table with a newspaper on it, and a door to the north leading outside.
+
+Thought: Now that I am in the living room, I will look around and see if there is anything in here that might help me get to work more quickly. The phone on the wall might be useful if I need to call a cab or notify my boss of my delay. The newspaper on the coffee table might also have some useful information. I will also check my inventory to see if I have anything that might help.
+
+Candidate actions: [InteractiveFictionGame]]
+
+
+
+

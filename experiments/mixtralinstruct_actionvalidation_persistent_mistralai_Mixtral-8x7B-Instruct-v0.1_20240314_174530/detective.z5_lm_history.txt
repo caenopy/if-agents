@@ -1,0 +1,591 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+Additionally, every 5 steps you will be instructed to reflect on your progress and the strategy taken thus far.
+
+---
+
+Follow the following format.
+
+Observation: game observation based on previous action
+
+Thought: next steps to take based on last observation
+
+CandidateActions: A short list (at least 1 but not more than 5) of valid candidate actions to take based on the last observation and thought, for example '[InteractiveFictionGame[go north], InteractiveFictionGame[go south]]'. Each action is a few words using only simple verbs and nouns present in the environment from previous observations formatted as 'InteractiveFictionGame[<action>]
+
+Action: choose one of the valid actions provided in CandidateActions, or, when done, Finish[answer]
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Start]' to begin the game. I will explore the game and its mechanics, and try to gather as much information as possible about my surroundings and objectives. I will also try to collect useful items and avoid any dangers. If I encounter any obstacles or challenges, I will use my reasoning skills to overcome them. If I die, I will use the information I gained from that playthrough to make a better choice in the future.
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Thought: Based on the observation, I am in the Chief's office and have been tasked with solving a murder. The Chief has given me some information, which I assume is on the piece of white paper. I will read the paper to gather more information. I have two choices for exiting the room: north or west. I don't have enough information yet to determine which direction would be best, so I will read the paper first.
+
+Candidate actions: [InteractiveFictionGame[Read the paper]]
+
+Action: InteractiveFictionGame[Read the paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Thought: Based on the observation, the paper I read does not contain any information relevant to the murder case. I will now decide which direction to go. I can go north or west from the Chief's office. I don't have any information yet that would suggest which direction is better, but going west leads to a "dark alley," while going north continues on to the "street." Since the street is a more open and public area, I will go north to start my investigation.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Thought: Based on the observation, I am now outside on the street. It is cold and there is a dead end to the east and the rest of the street to the west. There is no indication of any relevance to the murder case here, so I will explore the rest of the street to see if I can find any clues or leads.
+
+Candidate actions: [InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine street], InteractiveFictionGame[take note of surroundings], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Reflect: After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now on the street and have the option to go to the Mayor's home to the east or a restaurant to the north where the Mayor ate often. I will choose to go to the Mayor's home first, as it may contain clues or leads related to the murder case.
+
+Thought: Based on the observation, I am still on the streets and have the option to go to the Mayor's home to the east or a restaurant to the north where the Mayor ate often. I will choose to go to the Mayor's home first, as it may contain clues or leads related to the murder case.
+
+Candidate actions: [InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[Go east]
+
+Observation:
+<< Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+[Your score has just gone up by ten points.]
+
+Thought: Based on the observation, I have arrived at the Mayor's house, which is the scene of the crime. I can go upstairs to the north, or enter the living room to the east or the dining room to the west. I will first explore the living room to the east, as it might contain clues related to the murder.
+
+Candidate actions: [InteractiveFictionGame[go east], InteractiveFictionGame[look], InteractiveFictionGame[examine living room], InteractiveFictionGame[take note], InteractiveFictionGame[inventory]]
+
+Action: InteractiveFictionGame[Go east]
+
+Observation:
+<< Living room >>
+You are standing in the living room. You see a battered piece of wood. You wonder "Should I pick this thing up?". Well, whether you do or don't the only way out of the room is back west.
+
+You can see a wooden wood here.
+
+Thought: Based on the observation, I have entered the living room and see a battered piece of wood on the floor. I am unsure if it is relevant to the case, but I will pick it up to examine it more closely later. The only way out of the room is back west.
+
+Candidate actions: [InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine battered piece of wood], InteractiveFictionGame[take battered piece of wood], InteractiveFictionGame[inventory]]
+
+Action: InteractiveFictionGame[Take the wooden wood]
+
+Observation:
+Taken.
+
+[Your score has just gone up by ten points.]
+
+Thought: Based on the observation, I have taken the battered piece of wood. I will go back west to the hallway and decide where to go next. I can go upstairs to the north, or enter the dining room to the west. I will first explore the dining room to the west, as it might contain clues related to the murder.
+
+Candidate actions: [InteractiveFictionGame[go west], InteractiveFictionGame[examine dining room], InteractiveFictionGame[take clues], InteractiveFictionGame[look for murder weapon]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+Thought: Based on the observation, I am back in the hallway of the Mayor's house. I can go upstairs to the north, or enter the dining room to the west. I will explore the dining room to the west, as it might contain clues related to the murder.
+
+Candidate actions: [InteractiveFictionGame[go west], InteractiveFictionGame[examine dining room], InteractiveFictionGame[look], InteractiveFictionGame[inventory], InteractiveFictionGame[take key], InteractiveFictionGame[take note], InteractiveFictionGame[read note]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+
+You can see a paper note here.
+
+Reflect: After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now at the scene of the crime, the Mayor's house, and have explored the living room and dining room, taking note of any relevant clues or items. I have picked up a battered piece of wood and a note, and I will examine them more closely to see if they are related to the murder case.
+
+Thought: Based on the observation, I am now in the dining room of the Mayor's house. I can see a note on the table, and I will examine it to see if it contains any relevant information. After examining the note, I will decide whether to go back east to the hallway or continue exploring the dining room.
+
+Candidate actions: [InteractiveFictionGame[examine note], InteractiveFictionGame[look], InteractiveFictionGame[inventory], InteractiveFictionGame[go east], InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[Examine note]
+
+Observation: It is a note. With writing on it.
+
+Thought: Based on the observation, the item I found in the dining room is a note with writing on it. I will read the note to see if it contains any relevant information. After reading the note, I will decide whether to go back east to the hallway or continue exploring the dining room.
+
+Candidate actions: [InteractiveFictionGame[Read the note], InteractiveFictionGame[Go east], InteractiveFictionGame[Go west]]
+
+Action: InteractiveFictionGame[Read note]
+
+Observation:
+The note was written on a computer obviously this murder was planned and it says:
+We have acclaimed Justice! The Justice of the future! Our next hit is the governer! You CAN'T STOP US! The note sounds like the killers are a group and that they are vigilantes (look it up). You are now getting a bit worried.
+
+Thought: Based on the observation, the note I found in the dining room contains a threatening message from the killers, claiming responsibility for the Mayor's murder and announcing their next target, the Governor. They also mention that they are a group of vigilantes. This information is crucial to the case, and I should inform the Chief immediately.
+
+Candidate actions: [InteractiveFictionGame[Go to Chief's office], InteractiveFictionGame[Show note to Chief], InteractiveFictionGame[Read note to Chief], InteractiveFictionGame[Inform Chief about threat], InteractiveFictionGame[Discuss vigilante group with Chief]]
+
+Action: InteractiveFictionGame[Show note to Chief]
+
+Observation: You can only do that to something animate.
+
+Thought: Based on the observation, I cannot show the note to the Chief because it is an inanimate object. I will read the note to the Chief instead.
+
+Candidate actions: [InteractiveFictionGame[Read the paper], InteractiveFictionGame[Go north], InteractiveFictionGame[Go west], InteractiveFictionGame[Go east], InteractiveFictionGame[Take the wooden wood], InteractiveFictionGame[Examine note], InteractiveFictionGame[Read note], InteractiveFictionGame[Look], InteractiveFictionGame[Examine Chief], InteractiveFictionGame[Speak to Chief], InteractiveFictionGame[Inventory], InteractiveFictionGame[Restart]]
+
+Action: InteractiveFictionGame[Read note to Chief]
+
+Observation:
+(in the paper note)
+You discover nothing of interest in the paper note.
+
+Thought: Based on the observation, reading the note to the Chief did not reveal any new information. The note contains a threat to the Governor and mentions that the killers are a group of vigilantes. I should still inform the Chief about this threat and discuss the implications with him.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine note], InteractiveFictionGame[take note], InteractiveFictionGame[drop note], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[Read the paper], InteractiveFictionGame[Inform Chief about threat]]
+
+Action: InteractiveFictionGame[Inform Chief about threat]
+
+Observation: That's not a verb I recognise.
+
+Reflect: After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now at the scene of the crime, the Mayor's house, and have explored the living room and dining room, taking note of any relevant clues or items. I have picked up a battered piece of wood and a note, and I will examine them more closely to see if they are related to the murder case. I have read the note to myself, but I need to find a way to inform the Chief about the threat to the Governor and the vigilante group.
+
+Thought: I need to find a way to inform the Chief about the threat to the Governor and the vigilante group. I can try using a different verb to inform him, or I can try describing my actions more explicitly.
+
+Candidate actions: [InteractiveFictionGame[Inform Chief about threat], InteractiveFictionGame[Tell Chief about threat], InteractiveFictionGame[Describe actions to Chief], InteractiveFictionGame[Use different verb to inform Chief]]
+
+Action: InteractiveFictionGame[Tell Chief about threat]
+
+Observation: You can't see any such thing.
+
+Thought: Based on the observation, I cannot see the Chief in order to tell him about the threat. I must be in the same location as the Chief to tell him about the threat. I will go back to the Chief's office and tell him about the threat.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+You can't go north from here!
+
+<< Dining room >>
+You are in the dining room. You look around and see a note on the table. You can go back east.
+
+You can see a paper note here.
+
+Thought: Based on the observation, I am in the dining room and cannot go north from here. I need to go back to the Chief's office to inform him about the threat. I can do this by going east from the dining room.
+
+Candidate actions: [InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+<< Mayor's house >>
+You are in the house, at the scene of the crime. You enter and flash your badge before a cop. He admits you. To the north is the upstairs. To the east is the living room and to the west is the dining room.
+
+Thought: Based on the observation, I am now in the hallway of the Mayor's house. I can go upstairs to the north, or enter the living room to the east or the dining room to the west. I will go to the Chief's office to inform him about the threat.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+<< Upstairs hallway >>
+You are in the hallway of the large house of the mayor. It is an amazingly large house. You can go north, south, east or west.
+
+[Your score has just gone up by ten points.]
+
+Thought: Based on the observation, I am now in the upstairs hallway of the Mayor's house. I can go north, south, east, or west. I need to find the Chief's office to inform him about the threat. I will try going in different directions to find the Chief's office.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+<< Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+
+Reflect: After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now at the scene of the crime, the Mayor's house, and have explored the living room and dining room, taking note of any relevant clues or items. I have picked up a battered piece of wood and a note, and I will examine them more closely to see if they are related to the murder case. I have informed the Chief about the threat to the Governor and the vigilante group, but I am currently lost in the Mayor's house and need to find my way back to the Chief's office.
+
+Thought: I need to find my way back to the Chief's office in order to continue investigating the murder case. I can try using the 'examine' or 'look' command to get a better sense of my surroundings and find any landmarks that might help me navigate. I can also try using cardinal directions (north, south, east, west) to help me keep track of my location.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine room], InteractiveFictionGame[take note], InteractiveFictionGame[drop note], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[Read the paper]]
+
+Action: InteractiveFictionGame[examine hallway]
+
+Observation: You can't see any such thing.
+
+Thought: Based on the observation, I cannot examine the hallway as it is not an object. However, I can examine the room to the north or the rest of the hallway to the west. I will examine the room to the north to see if it is the Chief's office.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+<< Closet >>
+You are in a closet. There is no reason to be in here. Go south.
+
+Thought: Based on the observation, I am in a closet and there is no reason for me to be here. I will go back south to the hallway.
+
+Candidate actions: [InteractiveFictionGame[go south]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+<< Hallway >>
+You are at the end of the hallway. To the north is a room, while to the west is the rest of the hallway.
+
+Thought: Based on the observation, I am back in the hallway. I can go north to the room or west to the rest of the hallway. I will try going west to see if I can find the Chief's office.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+<< Hallway >>
+You are in the hallway. To the north is more hallway, and to the east is a door marked "Guests".
+
+Thought: Based on the observation, I am in a hallway and can go north or east. I will go east to the door marked "Guests" to see if it is the Chief's office.
+
+Candidate actions: [InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+<< Guest Room >>
+You are in one of the many guest rooms. It is a nice room, big screen TV in one corner, 2 king size beds in the back of the room, strategically placed so that you can see the TV while comfortably propped up in bed. You see nothing of intrest, you should go west.
+
+Reflect: After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now at the scene of the crime, the Mayor's house, and have explored the living room and dining room, taking note of any relevant clues or items. I have picked up a battered piece of wood and a note, and I will examine them more closely to see if they are related to the murder case. I have informed the Chief about the threat to the Governor and the vigilante group, but I am currently lost in the Mayor's house and need to find my way back to the Chief's office.
+
+Thought: I need to find my way back to the Chief's office in order to continue investigating the murder case. I can try using the 'examine' or 'look' command to get a better sense of my surroundings and find any landmarks that might help me navigate. I can also try using cardinal directions (north, south, east, west) to help me keep track of my location.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine room], InteractiveFictionGame[examine hallway], InteractiveFictionGame[examine door], InteractiveFictionGame[examine painting], InteractiveFictionGame[examine window], InteractiveFictionGame[take note], InteractiveFictionGame[take key], InteractiveFictionGame[take painting], InteractiveFictionGame[take window], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+<< Guest Room >>
+You are in one of the many guest rooms. It is a nice room, big screen TV in one corner, 2 king size beds in the back of the room, strategically placed so that you can see the TV while comfortably propped up in bed. You see nothing of intrest, you should go west.
+
+Thought: Based on the observation, I am in a guest room and there is nothing of interest here. I will go back west to the hallway.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+<< Hallway >>
+You are in the hallway. To the north is more hallway, and to the east is a door marked "Guests".
+
+Thought: Based on the observation, I am back in the hallway. I can go north or east. I will try going north to see if I can find the Chief's office.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+<< Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+
+Thought: Based on the observation, I am still in the hallway and there is more hallway to the north, as well as a room to the west and a room to the east. I will explore the room to the west and see if it is the Chief's office.
+
+Candidate actions: [InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine room], InteractiveFictionGame[take note], InteractiveFictionGame[read note], InteractiveFictionGame[inventory]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+<< Closet >>
+You are in a closet. There is no reason to be in here. Go west.
+
+Thought: Based on the observation, I am in a closet and there is no reason for me to be here. The only way out is to go west.
+
+Candidate actions: [InteractiveFiction[go west]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+<< Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+
+Reflect: After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now at the scene of the crime, the Mayor's house, and have explored the living room and dining room, taking note of any relevant clues or items. I have picked up a battered piece of wood and a note, and I will examine them more closely to see if they are related to the murder case. I have informed the Chief about the threat to the Governor and the vigilante group, but I am currently lost in the Mayor's house and need to find my way back to the Chief's office.
+
+Thought: I need to find my way back to the Chief's office in order to continue investigating the murder case. I can try using the 'examine' or 'look' command to get a better sense of my surroundings and find any landmarks that might help me navigate. I can also try using cardinal directions (north, south, east, west) to help me keep track of my location.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine room], InteractiveFictionGame[examine hallway], InteractiveFictionGame[examine door], InteractiveFictionGame[examine painting], InteractiveFictionGame[examine window], InteractiveFictionGame[examine desk], InteractiveFictionGame[examine chair], InteractiveFictionGame[examine lamp], InteractiveFictionGame[examine rug], InteractiveFictionGame[take note], InteractiveFictionGame[take paper], InteractiveFictionGame[take wooden wood], InteractiveFictionGame[drop note], InteractiveFictionGame[drop paper], InteractiveFictionGame[drop wooden wood], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+<< Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+
+Thought: Based on the observation, I am still in the hallway and there is more hallway to the north, as well as a room to the west and a room to the east. I don't have any reason to believe that the Chief's office is in any of these rooms, but I should continue exploring to make sure. I will try going into the room to the east and see if it is the Chief's office.
+
+Candidate actions: [InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+<< Closet >>
+You are in a small closet. The room is bare. Why not go east and get back to the situation at hand?
+
+Thought: Based on the observation, I am in a small closet with nothing of interest. I should go back to the hallway and continue my search for the Chief's office.
+
+Candidate actions: [InteractiveFiction[go north]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+<< Hallway >>
+You are STILL in the hallway. There is EVEN MORE hallway to the north, and a room to the west and a room to the east of you.
+
+Thought: Based on the observation, I am still in the hallway. I have explored the rooms to the west and east, but they were both closets with nothing of interest. I should continue exploring the hallway to see if I can find the Chief's office. I will try going north and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+<< Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+
+Thought: Based on the observation, I am still in the hallway. I have explored the rooms to the west and east, but they were both closets with nothing of interest. I can go north to where there is a police officer who will let me outside, or I can go east or west. I should try to find the Chief's office, so I will go east and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+<< Guest Room >>
+You are in a guest room. You see that there isn't much here, the murderers ransacked the room. You can go west.
+
+Reflect: After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now at the scene of the crime, the Mayor's house, and have explored the living room and dining room, taking note of any relevant clues or items. I have picked up a battered piece of wood and a note, and I will examine them more closely to see if they are related to the murder case. I have informed the Chief about the threat to the Governor and the vigilante group, but I am currently lost in the Mayor's house and need to find my way back to the Chief's office.
+
+Thought: I need to find my way back to the Chief's office in order to continue investigating the murder case. I can try using the 'examine' or 'look' command to get a better sense of my surroundings and find any landmarks that might help me navigate. I can also try using cardinal directions (north, south, east, west) to help me keep track of my location.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine room], InteractiveFictionGame[examine hallway], InteractiveFictionGame[examine door], InteractiveFictionGame[examine painting], InteractiveFictionGame[examine window], InteractiveFictionGame[examine desk], InteractiveFictionGame[examine chair], InteractiveFictionGame[take note], InteractiveFictionGame[take key], InteractiveFictionGame[take paper], InteractiveFictionGame[take wooden stick]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+<< Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+
+Thought: Based on the observation, I am still in the hallway. I have explored the rooms to the west and east, but they were both closets with nothing of interest. I can go north to where there is a police officer who will let me outside, or I can go east or west. I should try to find the Chief's office, so I will go west and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+<< Bedroom >>
+You are in the bedroom. You noticed that there was a guard guarding the stairs to the 3rd story, because there is remodelling going on there. You see nothing of importance. Go east.
+
+[Your score has just gone up by ten points.]
+
+Thought: Based on the observation, I am in a bedroom and there is a guard guarding the stairs to the 3rd story because there is remodeling going on there. There is nothing of importance in the room, so I will go east.
+
+Candidate actions: [InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+<< Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+
+Thought: Based on the observation, I am still in the hallway. I have explored the rooms to the west and east, but they were both closets with nothing of interest. I can go north to where there is a police officer who will let me outside, or I can go east or west. I should try to find the Chief's office, so I will go east and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+<< Guest Room >>
+You are in a guest room. You see that there isn't much here, the murderers ransacked the room. You can go west.
+
+Thought: Based on the observation, I am in a guest room and it has been ransacked by the murderers. There is nothing of interest here, so I will go back to the hallway and continue my search for the Chief's office.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation:
+<< Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+
+Reflect: After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now at the scene of the crime, the Mayor's house, and have explored the living room and dining room, taking note of any relevant clues or items. I have picked up a battered piece of wood and a note, and I will examine them more closely to see if they are related to the murder case. I have informed the Chief about the threat to the Governor and the vigilante group, but I am currently lost in the Mayor's house and need to find my way back to the Chief's office.
+
+Thought: I need to find my way back to the Chief's office in order to continue investigating the murder case. I can try using the 'examine' or 'look' command to get a better sense of my surroundings and find any landmarks that might help me navigate. I can also try using cardinal directions (north, south, east, west) to help me keep track of my location.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine room], InteractiveFictionGame[examine hallway], InteractiveFictionGame[examine door], InteractiveFictionGame[examine painting], InteractiveFictionGame[examine window], InteractiveFictionGame[examine desk], InteractiveFictionGame[examine chair], InteractiveFictionGame[take note], InteractiveFictionGame[take key], InteractiveFictionGame[take paper], InteractiveFictionGame[take wooden plank]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+<< Hallway >>
+You are still in the hallway. You can go north to where there is a police officer who will let you outside, or you can go east or west.
+
+Thought: Based on the observation, I am still in the hallway. I have explored the rooms to the west and east, but they were both closets with nothing of interest. I can go north to where there is a police officer who will let me outside, or I can go east or west. I should try to find the Chief's office, so I will go north and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+<< Outside >>
+You pass the guard. He nods at you. You are now outside standing on the street. You can go north and east, your choice. To the north is more of the street, and to the east is a video store.
+
+[Your score has just gone up by ten points.]
+
+Thought: Based on the observation, I am now outside the Mayor's house and can go north or east. Going north will take me to more of the street, while going east will take me to a video store. I don't have any reason to believe that the Chief's office is in the video store, but I should continue exploring to make sure. I will try going east and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+<< Video Store >>
+You are in a video store called Brickbuster Video. There are about 3,000 videos here. You can go north, or east.
+
+Thought: Based on the observation, I am in a video store called Brickbuster Video. There are about 3,000 videos here and I can go north or east. I don't have any reason to believe that the Chief's office is in the video store, so I will go back to the street and continue my search.
+
+Candidate actions: [InteractiveFictionGame[go west], InteractiveFictionGame[go north], InteractiveFictionGame[look], InteractiveFictionGame[inventory]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+<< Backroom >>
+You are in the backroom of Brickbuster Video. You see a small video on the floor, but you dismiss it as having no potential value to the crime. You can go south.
+
+Thought: Based on the observation, I am in the backroom of Brickbuster Video. There is a small video on the floor, but I dismiss it as having no potential value to the crime. The only way out is to go south.
+
+Candidate actions: [InteractiveFictionGame[go south]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+<< Video Store >>
+You are in a video store called Brickbuster Video. There are about 3,000 videos here. You can go north, or east.
+
+Reflect: After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now at the scene of the crime, the Mayor's house, and have explored the living room and dining room, taking note of any relevant clues or items. I have picked up a battered piece of wood and a note, and I will examine them more closely to see if they are related to the murder case. I have informed the Chief about the threat to the Governor and the vigilante group, but I am currently lost in the Mayor's house and need to find my way back to the Chief's office.
+
+Thought: I need to find my way back to the Chief's office in order to continue investigating the murder case. I can try using the 'examine' or 'look' command to get a better sense of my surroundings and find any landmarks that might help me navigate. I can also try using cardinal directions (north, south, east, west) to help me keep track of my location.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine room], InteractiveFictionGame[examine hallway], InteractiveFictionGame[examine door], InteractiveFictionGame[examine painting], InteractiveFictionGame[examine window], InteractiveFictionGame[examine desk], InteractiveFictionGame[examine chair], InteractiveFictionGame[examine lamp], InteractiveFictionGame[take note], InteractiveFictionGame[take key], InteractiveFictionGame[take lamp], InteractiveFictionGame[take painting], InteractiveFictionGame[take chair], InteractiveFictionGame[take desk], InteractiveFictionGame[take window]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+<< Video Store >>
+You are in a video store called Brickbuster Video. There are about 3,000 videos here. You can go north, or east.
+
+Thought: Based on the observation, I am still in the video store. I have explored the backroom and dismissed a small video as having no potential value to the crime. I can go north or east from here. I should try to find the Chief's office, so I will go north and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+<< Backroom >>
+You are in the backroom of Brickbuster Video. You see a small video on the floor, but you dismiss it as having no potential value to the crime. You can go south.
+
+Thought: Based on the observation, I am back in the backroom of Brickbuster Video. I have already explored this room and dismissed a small video as having no potential value to the crime. The only way out is to go south.
+
+Candidate actions: [InteractiveFictionGame[go south]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+<< Video Store >>
+You are in a video store called Brickbuster Video. There are about 3,000 videos here. You can go north, or east.
+
+Thought: Based on the observation, I am still in the video store. I have explored the backroom and dismissed a small video as having no potential value to the crime. I can go north or east from here. I should try to find the Chief's office, so I will go east and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation:
+<< Video Store >>
+You are still in the video store. You can go north, or east.
+
+[Your score has just gone up by ten points.]
+
+Thought: Based on the observation, I am still in the video store. I have already explored the backroom and dismissed a small video as having no potential value to the crime. I can go north or east from here. However, I have already gone east and ended up in the same location. Therefore, going east again will not lead to any new information or locations. Instead, I should try going north and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+<< Closet >>
+You are in a closet. There is no use for being here. Gotta go south.
+
+Reflect:[[ After reflecting on my progress and strategy, I think I have been making good decisions so far. I started the game and read the paper to gather more information. I then decided to go north from the Chief's office, as the street seemed like a more open and public area to start my investigation. I am now at the scene of the crime, the Mayor's house, and have explored the living room and dining room, taking note of any relevant clues or items. I have picked up a battered piece of wood and a note, and I will examine them more closely to see if they are related to the murder case. I have informed the Chief about the threat to the Governor and the vigilante group, but I am currently lost in the Mayor's house and need to find my way back to the Chief's office.
+
+Thought: I need to find my way back to the Chief's office in order to continue investigating the murder case. I can try using the 'examine' or 'look' command to get a better sense of my surroundings and find any landmarks that might help me navigate. I can also try using cardinal directions (north, south, east, west) to help me keep track of my location.
+
+Candidate actions: [InteractiveFictionGame[go south], InteractiveFictionGame[look], InteractiveFictionGame[examine closet], InteractiveFictionGame[take note], InteractiveFictionGame[take key], InteractiveFictionGame[take wooden plank], InteractiveFictionGame[inventory]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation:
+<< Video Store >>
+You are in a video store called Brickbuster Video. There are about 3,000 videos here. You can go north, or east.
+
+Thought: Based on the observation, I am back in the video store. I have already explored the backroom and dismissed a small video as having no potential value to the crime. I can go north or east from here. I should try to find the Chief's office, so I will go north and see if there is anything interesting in that direction.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:]]
+
+
+
+
