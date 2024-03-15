@@ -1,0 +1,554 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+Additionally, every 5 steps you will be instructed to reflect on your progress and the strategy taken thus far.
+
+---
+
+Follow the following format.
+
+Observation: game observation based on previous action
+
+Thought: next steps to take based on last observation
+
+CandidateActions: A short list (at least 1 but not more than 5) of valid candidate actions to take based on the last observation and thought, for example '[InteractiveFictionGame[go north], InteractiveFictionGame[go south]]'. Each action is a few words using only simple verbs and nouns present in the environment from previous observations formatted as 'InteractiveFictionGame[<action>]
+
+Action: choose one of the valid actions provided in CandidateActions, or, when done, Finish[answer]
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Start]' to begin the game. I will explore the game and its mechanics, and try to gather as much information as possible about my surroundings and objectives. I will also try to collect useful items and avoid any dangers. If I encounter any obstacles or challenges, I will use my reasoning skills to overcome them. If I die, I will use my previous experience to make a better choice and avoid the same mistake. I will also reflect on my progress every 5 steps and adjust my strategy accordingly.
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+A beautiful day in Bostwin! You are awakened by a ray of sunlight peeking through a window shade and rise refreshed after a restful night's sleep.  You've given your Company a weekend pass to get some R&R after your last grueling mission.  Wasting precious little time your entire company took off for the city proper to pack in as much drinking, carousing, brawling, wenching and other relaxing pursuits as possible in 48 hours.  In the fields of battle your men are an elite unit of trained professionals.  Off-duty they're pretty much like every other bunch of soldiers you've ever served with. 
+
+A weekend off and what to do? After the challenges of the past year when you were first promoted and assumed command of Charlie Company you've nearly forgotton what free time is and what you're supposed to do with it.
+
+Pentari
+An Interactive Prequel To First Light 
+Copyright 1998 (C) Howard A. Sherman.  All Rights Reserved. 
+Type 'Info' For Information About This Game or 'Help' for Instructions.
+Release 6 / Serial number 030206 / Inform v6.21 Library 6/10 
+
+Your Quarters
+Rank certainly does have its privileges.  When you were a lowly lieutenant you had to share cramped quarters with a fellow lieutenant at your previous assignment.  Commanding a company of your own affords you the luxury of private, spacious quarters just outside the barracks themselves. As a further abuse of your power your chest and bunk are not standard issue items from the Pentari millitary supply center.
+
+You can see a postcard here.
+
+Thought: It seems that I have started a new game and am in my private quarters. There are no immediate threats or challenges, so I will take this opportunity to explore my surroundings and gather more information about the game. I will also look for any useful items or tools that I can use later.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine private quarters], InteractiveFictionGame[take useful item], InteractiveFictionGame[drop unnecessary item], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[Look around the room]
+
+Observation: I only understood you as far as wanting to look.
+
+Thought: It seems that I need to specify what I want to look at. I will look at my private quarters to get a better sense of my surroundings.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look at private quarters], InteractiveFictionGame[examine private quarters]]
+
+Action: InteractiveFictionGame[examine private quarters]
+
+Observation: You can't see any such thing.
+
+Thought: It seems that I made a mistake in my previous action. The game is telling me that I cannot examine "private quarters" as it is not a visible object in the room. I will try to look around the room instead to see if there is anything interesting or useful that I can interact with.
+
+Candidate actions: [InteractiveFictionGame[look]], [InteractiveFictionGame[examine <object>] where <object> is a visible object in the room], [InteractiveFictionGame[take <object>] where <object> is a visible object in the room and can be picked up], [InteractiveFictionGame[drop <object>] where <object> is an object in the player's inventory], [InteractiveFictionGame[go <direction>] where <direction> is a valid direction and the player can move in that direction], [InteractiveFictionGame[inventory]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Your Quarters
+Rank certainly does have its privileges.  When you were a lowly lieutenant you had to share cramped quarters with a fellow lieutenant at your previous assignment.  Commanding a company of your own affords you the luxury of private, spacious quarters just outside the barracks themselves. As a further abuse of your power your chest and bunk are not standard issue items from the Pentari millitary supply center.
+
+You can see a postcard here.
+
+Reflect: After reflecting on my progress and the strategy taken thus far, I will continue to explore my surroundings and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Thought: It seems that the postcard is a memento from the city proper. I will add this information to my mental model of the game world. I will also consider taking the postcard with me in case it becomes useful later.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine postcard], InteractiveFictionGame[take postcard], InteractiveFictionGame[put postcard in inventory]]
+
+Action: InteractiveFictionGame[take postcard]
+
+Observation: Taken.
+
+Thought: It seems that I have successfully taken the postcard. I will add this to my inventory and continue to explore my surroundings.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine surroundings], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[inventory]
+
+Observation:
+You are carrying:
+  a postcard
+  a fine Pentarian sword
+
+Thought: It seems that I have a sword in my inventory. This is likely an important item that I will need to use later in the game. I will make a mental note of this and continue to explore my surroundings.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine sword], InteractiveFictionGame[take sword], InteractiveFictionGame[drop sword], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Compound
+Your company compound consists of three large buildings bordering a large, open area where company formations precede the orders of the day.  To the west the Company's supply building can be seen while directly ahead of you lies your company's barracks which seem quieter than a crypt.  Off to the east you hear the distant shouts of another Company drilling.  Poor souls.
+
+Thought: It seems that I have left my private quarters and entered the Charlie Company Compound. There are three buildings here: the supply building to the west, the barracks directly ahead, and another company's barracks to the east. I will explore these buildings and see if there is anything interesting or useful inside.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[examine supply building], InteractiveFictionGame[examine barracks], InteractiveFictionGame[examine company's barracks], InteractiveFictionGame[look], InteractiveFictionGame[inventory]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation: Why would you want to inspect the Company's supply cache when you have a whole weekend off?
+
+Thought: It seems that I cannot go west to the supply building, as the game is telling me that it would not be appropriate to do so during my time off. I will consider this and explore a different location instead.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[examine private quarters], InteractiveFictionGame[look], InteractiveFictionGame[take postcard], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time.
+
+Reflect: After reflecting on my progress and the strategy taken thus far, I will continue to explore the Charlie Company Compound and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Thought: It seems that I cannot enter the compound of another company while training. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that I have entered the Charlie Company Barracks. The barracks are very clean and well-maintained, which suggests that the soldiers here take their duties and responsibilities seriously. I will make a mental note of this and continue to explore the barracks. I will also look for any objects or features that I can interact with, such as the Pentarian Transporter that the game mentioned.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[look], InteractiveFictionGame[examine barracks], InteractiveFictionGame[take postcard], InteractiveFictionGame[inventory]]
+
+Action: InteractiveFictionGame[examine Pentarian Transporter]
+
+Observation: You can't see any such thing.
+
+Thought: It seems that I made a mistake in my previous action. The game is telling me that I cannot examine "Pentarian Transporter" as it is not a visible object in the room. I will try to look around the room instead to see if there is anything interesting or useful that I can interact with.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine [any object in the room]], InteractiveFictionGame[take [any object in the room]], InteractiveFictionGame[drop [any object in the inventory]], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that the description of the barracks has not changed after I looked around the room. This suggests that there are no new objects or features to interact with at the moment. I will consider this and explore a different location instead.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation: Charlie Company Compound
+
+Thought: It seems that I have returned to the Charlie Company Compound. I will continue to explore the area and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[go east], InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time.
+
+Reflect: After reflecting on my progress and the strategy taken thus far, I will avoid entering the compound of another company while training to avoid breaching protocol. I will explore other locations in the Charlie Company Compound instead.
+
+Thought: It seems that I cannot enter the compound of another company while training. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[look around the room], InteractiveFictionGame[take postcard], InteractiveFictionGame[avoid breaching protocol]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Barracks
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that I have returned to the Charlie Company Barracks. I will explore the barracks and look for any objects or features that I can interact with. I will also keep an eye out for the Pentarian Transporter that I saw earlier.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine (object in the barracks)], InteractiveFictionGame[take (object in the barracks)], InteractiveFictionGame[drop (object in the barracks)], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[examine Pentarian Transporter]
+
+Observation: You can't see any such thing.
+
+Thought: It seems that I made a mistake in my previous action. The game is telling me that I cannot examine "Pentarian Transporter" as it is not a visible object in the room. I will try to look around the room instead to see if there is anything interesting or useful that I can interact with.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine <object>], InteractiveFictionGame[take <object>], InteractiveFictionGame[drop <object>], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[take postcard]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that the description of the barracks has not changed after I looked around the room. This suggests that there are no new objects or features to interact with at the moment. I will consider this and explore a different location instead.
+
+Candidate actions: [InteractiveFiction[go north], InteractiveFiction[go south], InteractiveFiction[go east], InteractiveFiction[go west], InteractiveFiction[look], InteractiveFiction[examine x], InteractiveFiction[take x], InteractiveFiction[drop x], InteractiveFiction[inventory], InteractiveFiction[restart]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation: Charlie Company Compound
+
+Thought: It seems that I have returned to the Charlie Company Compound. I will continue to explore the area and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine <object>], InteractiveFictionGame[take <object>], InteractiveFictionGame[drop <object>], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time.
+
+Reflect: After reflecting on my progress and the strategy taken thus far, I will avoid entering the compound of another company while training to avoid breaching protocol. I will explore other locations in the Charlie Company Compound instead.
+
+Thought: It seems that I cannot enter the compound of another company while training. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[look at postcard], InteractiveFictionGame[examine postcard], InteractiveFictionGame[take postcard], InteractiveFictionGame[inventory postcard]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Barracks
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that I have returned to the Charlie Company Barracks. I will explore the barracks and look for any objects or features that I can interact with. I will also keep an eye out for the Pentarian Transporter that I saw earlier.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[examine Pentarian Transporter]
+
+Observation: You can't see any such thing.
+
+Thought: It seems that I made a mistake in my previous action. The game is telling me that I cannot examine "Pentarian Transporter" as it is not a visible object in the room. I will try to look around the room instead to see if there is anything interesting or useful that I can interact with.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine <object>], InteractiveFictionGame[take <object>], InteractiveFictionGame[drop <object>], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that the description of the barracks has not changed after I looked around the room. This suggests that there are no new objects or features to interact with at the moment. I will consider this and explore a different location instead.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation: Charlie Company Compound
+
+Thought: It seems that I have returned to the Charlie Company Compound. I will continue to explore the area and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time.
+
+Reflect: After reflecting on my progress and the strategy taken thus far, I will avoid entering the compound of another company while training to avoid breaching protocol. I will explore other locations in the Charlie Company Compound instead.
+
+Thought: It seems that I cannot enter the compound of another company while training. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Barracks
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that I have returned to the Charlie Company Barracks. I will explore the barracks and look for any objects or features that I can interact with. I will also keep an eye out for the Pentarian Transporter that I saw earlier.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine Charlie Company Barracks], InteractiveFictionGame[take postcard], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that the description of the barracks has not changed after I looked around the room. This suggests that there are no new objects or features to interact with at the moment. I will consider this and explore a different location instead.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[examine Pentarian Transporter]
+
+Observation: You can't see any such thing.
+
+Thought: It seems that I made a mistake in my previous action. The game is telling me that I cannot examine "Pentarian Transporter" as it is not a visible object in the room. I will try to look around the room instead to see if there is anything interesting or useful that I can interact with.
+
+Candidate actions: [InteractiveFictionGame[look], InteractiveFictionGame[take postcard], InteractiveFictionGame[inventory], InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[examine <object>], InteractiveFictionGame[take <object>], InteractiveFictionGame[drop <object>]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that the description of the barracks has not changed after I looked around the room. This suggests that there are no new objects or features to interact with at the moment. I will consider this and explore a different location instead.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation: Charlie Company Compound
+
+Reflect: After reflecting on my progress and the strategy taken thus far, I will continue to explore the Charlie Company Compound and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Thought: It seems that I have returned to the Charlie Company Compound. I will continue to explore the area and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine <x>], InteractiveFictionGame[take <x>], InteractiveFictionGame[drop <x>], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time.
+
+Thought: It seems that I cannot enter the compound of another company while training. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFiction[go north], InteractiveFiction[go south], InteractiveFiction[go east], InteractiveFiction[go west], InteractiveFiction[look], InteractiveFiction[examine x], InteractiveFiction[take x], InteractiveFiction[drop x], InteractiveFiction[inventory], InteractiveFiction[restart]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Barracks
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that I have returned to the Charlie Company Barracks. I will explore the barracks and look for any objects or features that I can interact with. I will also keep an eye out for the Pentarian Transporter that I saw earlier.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine Charlie Company Barracks], InteractiveFictionGame[take postcard], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[examine Pentarian Transporter]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that the description of the barracks has not changed after I looked around the room. This suggests that there are no new objects or features to interact with at the moment. I will consider this and explore a different location instead.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[examine Pentarian Transporter]
+
+Observation: You can't see any such thing.
+
+Thought: It seems that I made a mistake in my previous action. The game is telling me that I cannot examine "Pentarian Transporter" as it is not a visible object in the room. I will try to look around the room instead to see if there is anything interesting or useful that I can interact with.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine <object>], InteractiveFictionGame[take <object>], InteractiveFictionGame[drop <object>], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Reflect: After reflecting on my progress and the strategy taken thus far, I will continue to explore the Charlie Company Barracks and look for any objects or features that I can interact with. I will also keep an eye out for the Pentarian Transporter that I saw earlier. I will try to examine the transporter again, as it may become visible or interactive after further exploration.
+
+Thought: It seems that the Pentarian Transporter is still not visible or interactive. I will consider this and explore other locations instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine <x>], InteractiveFictionGame[take <x>], InteractiveFictionGame[drop <x>], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation: Charlie Company Compound
+
+Thought: It seems that I have returned to the Charlie Company Compound. I will continue to explore the area and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine <object>], InteractiveFictionGame[take <object>], InteractiveFictionGame[drop <object>], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time.
+
+Thought: It seems that I cannot enter the compound of another company while training. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[look around the room], InteractiveFictionGame[take postcard], InteractiveFictionGame[examine Pentarian Transporter], InteractiveFictionGame[go west], InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Barracks
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that I have returned to the Charlie Company Barracks. I will explore the barracks and look for any objects or features that I can interact with. I will also keep an eye out for the Pentarian Transporter that I saw earlier.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine Charlie Company Barracks], InteractiveFictionGame[take postcard], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that the description of the barracks has not changed after I looked around the room. This suggests that there are no new objects or features to interact with at the moment. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation: Charlie Company Compound
+
+Reflect: After reflecting on my progress and the strategy taken thus far, I will continue to explore the Charlie Company Compound and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Thought: It seems that I have returned to the Charlie Company Compound. I will continue to explore the area and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine <x>], InteractiveFictionGame[take <x>], InteractiveFictionGame[drop <x>], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time.
+
+Thought: It seems that I cannot enter the compound of another company while training. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation: Why would you want to inspect the Company's supply cache when you have a whole weekend off?
+
+Thought: It seems that I cannot go west to the supply building, as the game is telling me that it would not be appropriate to do so during my time off. I will consider this and explore a different location instead.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Barracks
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that I have returned to the Charlie Company Barracks. I will explore the barracks and look for any objects or features that I can interact with. I will also keep an eye out for the Pentarian Transporter that I saw earlier.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine Charlie Company Barracks], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that the description of the barracks has not changed after I looked around the room. This suggests that there are no new objects or features to interact with at the moment. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation: Charlie Company Compound
+
+Reflect: After reflecting on my progress and the strategy taken thus far, I will continue to explore the Charlie Company Compound and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Thought: It seems that I have returned to the Charlie Company Compound. I will continue to explore the area and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine <object>], InteractiveFictionGame[take <object>], InteractiveFictionGame[drop <object>], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time.
+
+Thought: It seems that I cannot enter the compound of another company while training. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Barracks
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that I have returned to the Charlie Company Barracks. I will explore the barracks and look for any objects or features that I can interact with. I will also keep an eye out for the Pentarian Transporter that I saw earlier.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine Charlie Company Barracks], InteractiveFictionGame[take postcard], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[look]
+
+Observation:
+Charlie Company Barracks
+If the Army of Bostwin were to publish a new edition of the soldier's handbook, a picture of this barracks should be included as the example other companies should follow.  The floors are polished to an almost blinding shine while each of the bunks lining both sides of this building are perfectly made.  Every locker next to each bunk is closed and locked. Not a single scrap of paper, not one article of clothing, nay not even a dust particle looks out of place.  The powerful smell of high quantities of pine cleaner nearly burns your nostrils. Damn, you run a good comapny.
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that the description of the barracks has not changed after I looked around the room. This suggests that there are no new objects or features to interact with at the moment. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[go south]
+
+Observation: Charlie Company Compound
+
+Thought: It seems that I have returned to the Charlie Company Compound. I will continue to explore the area and look for any objects or features that I can interact with. I will also keep an eye out for any potential dangers or obstacles that I may need to overcome.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go east]
+
+Observation: It's considered a breach of protocol to enter the compound of another company while training.  You wisely decide to not step on any toes this time.
+
+Reflect:[[ After reflecting on my progress and the strategy taken thus far, I will avoid entering the compound of another company while training to avoid breaching protocol. I will explore other locations in the Charlie Company Compound instead.
+
+Thought: It seems that I cannot enter the compound of another company while training. I will consider this and explore a different location instead. I will also make a note to avoid breaching protocol in the future.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[go west]
+
+Observation: Why would you want to inspect the Company's supply cache when you have a whole weekend off?
+
+Thought: It seems that I cannot go west to the supply building, as the game is telling me that it would not be appropriate to do so during my time off. I will consider this and explore a different location instead.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[go north]
+
+Observation:
+Charlie Company Barracks
+
+You can see a Pentarian Transporter here.
+
+Thought: It seems that I have returned to the Charlie Company Barracks. I will explore the barracks and look for any objects or features that I can interact with. I will also keep an eye out for the Pentarian Transporter that I saw earlier.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine Charlie Company Barracks], InteractiveF]]
+
+
+
+
