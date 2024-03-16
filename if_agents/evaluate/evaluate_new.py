@@ -10,7 +10,7 @@ from ..utils import write_history, write_to_file, write_to_json
 from ..agents.agents import ReActAgent, ReflexionAgent
 from ..agents.tools import InteractiveFictionGame, FetchRelevantMemory, WriteRelevantMemory, UpdateValidActions, GenerateCandidateActions
 EMPTY_LIST = "[]"
-CANONICAL_ACTIONS = "[InteractiveFiction[go north], InteractiveFiction[go south], InteractiveFiction[go east], InteractiveFiction[go west], InteractiveFiction[look], InteractiveFiction[examine x], InteractiveFiction[take x], InteractiveFiction[drop x], InteractiveFiction[inventory], InteractiveFiction[restart]]"
+CANONICAL_ACTIONS = "[InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]"
 
 
 def run_experiment(
@@ -33,7 +33,7 @@ def run_experiment(
     experiment_folder = f'{experiments_dir}/{experiment_name}_{model_name}_{timestamp}'
     os.makedirs(experiment_folder, exist_ok=True)
 
-    if agent_name == 'reflexion_actionspace_persistent_actioncache':
+    if agent_name == 'reflexion_actionspace_persistent_actioncache' or agent_name == 'reflexion_actionmem':
         # create invalid actions file
         with open(f'{experiment_folder}/invalid_actions.txt', 'w') as f:
             f.write(EMPTY_LIST)
@@ -150,7 +150,23 @@ def play_game(
                 invalid_actions_file=f'{logs_dir}/invalid_actions.txt', 
                 valid_actions_file=f'{logs_dir}/valid_actions.txt'),
             debug=debug)
-
+    elif agent_name.lower() == 'reflexion_actionmem':
+        agent = ReflexionAgent(reflect_interval=5, max_iters=max_steps, tools=[jericho], read_memory_tool=FetchRelevantMemory(memory_file=f'{logs_dir}/{filename}_memory.txt'), write_memory_tool=WriteRelevantMemory(memory_file=f'{logs_dir}/{filename}_memory.txt'), debug=debug)
+        # here we have created the invalid and valid actions files, and we will use them to persist the action cache across games
+        agent = ReflexionAgent(
+            reflect_interval=5, 
+            max_iters=max_steps, 
+            tools=[jericho],
+            read_memory_tool=FetchRelevantMemory(memory_file=f'{logs_dir}/{filename}_memory.txt'),
+            write_memory_tool=WriteRelevantMemory(memory_file=f'{logs_dir}/{filename}_memory.txt'),
+            update_valid_actions_tool=UpdateValidActions(
+                invalid_actions_file=f'{logs_dir}/invalid_actions.txt', 
+                valid_actions_file=f'{logs_dir}/valid_actions.txt'
+                ), 
+            generate_candidate_actions_tool=GenerateCandidateActions(
+                invalid_actions_file=f'{logs_dir}/invalid_actions.txt', 
+                valid_actions_file=f'{logs_dir}/valid_actions.txt'),
+            debug=debug)
     end_state = agent(input="You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.")
 
     print(end_state)
