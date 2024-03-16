@@ -1,0 +1,965 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+Additionally, every 5 steps you will be instructed to reflect on your progress and the strategy taken thus far.
+
+---
+
+Follow the following format.
+
+Observation: a response provided by the game based on the previous action
+
+Reflect: self-reflection on your progress and the effectiveness of recent moves
+
+Memory: a memory fetched from previous experience and based the current situation
+            
+Thought: next steps to take based on last observation
+
+CandidateActions: A short list (at least 1 but not more than 5) of valid candidate actions to take based on the last observation and thought, for example '[InteractiveFictionGame[go north], InteractiveFictionGame[go south]]'. Each action is a few words using only simple verbs and nouns present in the environment from previous observations formatted as 'InteractiveFictionGame[<action>]
+
+Action: choose one of the valid actions provided in CandidateActions, or, when done, Finish[answer]
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Start]' to begin the game. I will explore the game and its mechanics, and try to gather as much information as possible about my surroundings and objectives. I will also try to collect useful items and avoid any dangers. If I encounter any obstacles or challenges, I will use my reasoning skills to overcome them. If I die, I will use my previous experience to make a better choice and avoid the same mistake. I will also reflect on my progress every 5 steps and adjust my strategy accordingly.
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: The Chief has asked me to solve the Mayor's murder, which occurred yesterday night at 12:03 am, before there's bad publicity or FBI involvement.
+
+Thought: Based on the observation, I am in the Chief's office and have been asked to solve the Mayor's murder. The Chief has given me a sheet of paper with information about the case. I should read the paper to gather more information. After reading the paper, I can go north or west. I will take the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Memory: The Mayor was murdered and the Chief wants me to solve the case before getting bad publicity or FBI involvement, while the game's creator, Matt Barringer, can be reached for hints.
+
+Thought: Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the north first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go north]'.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Memory: The observation suggests that the player is outside in a cold environment. The memory stream indicates that the player is investigating a murder case and was told to go north or west. There is also a mention of a piece of white paper at the current location. The most relevant memory to the current observation is: "I can see a piece of white paper here."
+
+Thought: Based on the observation, I am now outside in a cold environment. There is a dead end to the east and the rest of the street to the west. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location also has a piece of white paper. I will take the action 'InteractiveFictionGame[Take paper]' to collect potential evidence.
+
+Candidate actions: [InteractiveFictionGame[Take paper], InteractiveFictionGame[go north], InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[Take paper]
+
+Observation: You can't see any such thing.
+
+Reflect: Based on the observation, I am unable to take the paper. This could be because it is not within my reach or it does not exist. I will proceed to explore the area to the north, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go north]'.
+
+Memory: The Chief handed me a sheet of paper and told me to go north or west.
+
+Thought: Based on the observation, I am now standing in front of the Mayor's mansion. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location is the Mayor's mansion, which might contain clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go west]' to enter the mansion.
+
+Candidate actions: [InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine Mayor's mansion], InteractiveFictionGame[take note], InteractiveFictionGame[inventory]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: Your score has increased by ten points.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 20 out of a possible 360, in 4 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Memory: Your score has increased by ten points, and you were attacked and robbed in a restraunt, leading to your death in a river, while investigating the Mayor's murder.
+
+Thought: Based on the observation, I have died in the game after being attacked and robbed in a restaurant. My score was 20 out of a possible 360 in 4 turns. I will restart the game and apply the lessons learned from my previous experience. I will be more cautious when exploring new locations and protect my character's belongings. I will also prioritize investigating the Mayor's mansion, as it might contain crucial clues or leads related to the case. I will take the action 'InteractiveFictionGame[Start]' to restart the game.
+
+Candidate actions: [InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: The Chief wants me to solve the Mayor's murder before getting bad publicity or FBI involvement. (10 points added to score.)
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Memory: The game was created by Matt Barringer and he can be reached at Matt Barringer 325 Olive Ave Piedmont CA 94611 or by calling the Ghostbuster Central BBS at (510)208-5657. He has mentioned that he will give hints over the BBS for his games.
+
+Thought: Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the north first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go north]'.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Reflect: Based on the observation, I am now outside in a cold environment. There is a dead end to the east and the rest of the street to the west. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location also has some papers blowing around, which might be related to the case. I will take the action 'InteractiveFictionGame[Examine papers]' to gather more information.
+
+Memory: The weather is unusually cold and papers are blowing around, possibly indicating a recent disturbance or crime scene.
+
+Thought: Based on the observation, I have found a piece of paper with a message indicating a meeting at the docks at midnight. This might be a crucial lead in the Mayor's murder case. I will take the action 'InteractiveFictionGame[Go west]' to explore the rest of the street and look for more leads or clues.
+
+Candidate actions: [InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine paper], InteractiveFictionGame[take paper], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: Your score has increased by ten points and you are currently outside, with the option to go north to a restraunt or east to the Mayor's home.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]], [InteractiveFictionGame[go south]], [InteractiveFictionGame[go east]], [InteractiveFictionGame[go west]], [InteractiveFictionGame[look]], [InteractiveFictionGame[examine restaurant]], [InteractiveFictionGame[take note]], [InteractiveFictionGame[drop note]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]], [InteractiveFictionGame[read paper]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 20 out of a possible 360, in 4 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Memory: Your score has increased by ten points, and you were attacked and robbed in a restraunt before being found dead in a river. You are currently outside, with the option to go north to a restraunt or east to the Mayor's home.
+
+Thought: Based on the observation, I have died in the game after being attacked and robbed in a restaurant. My score was 20 out of a possible 360 in 4 turns. I will restart the game and apply the lessons learned from my previous experience. I will be more cautious when exploring new locations and protect my character's belongings. I will also prioritize investigating the Mayor's mansion, as it might contain crucial clues or leads related to the case. I will take the action 'InteractiveFictionGame[Start]' to restart the game.
+
+Candidate actions: [InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: The Chief has asked me to solve the Mayor's murder, which occurred yesterday night at 12:03 am, before there's bad publicity or the FBI gets involved. My score has increased by ten points.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]], [InteractiveFictionGame[look]], [InteractiveFictionGame[examine x]], [InteractiveFictionGame[take x]], [InteractiveFictionGame[drop x]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Memory: The player's score has increased by ten points and they are currently outside, with the option to go north to a restraunt or east to the Mayor's home.
+
+Thought: Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the north first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go north]'.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Reflect: Based on the observation, I am now outside in a cold environment. There is a dead end to the east and the rest of the street to the west. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location also has some papers blowing around, which might be related to the case. However, since I have already explored this location and found no new leads, I will go back to the previous location and explore the other direction. I will take the action 'InteractiveFictionGame[Go west]' to explore the rest of the street and look for more leads or clues.
+
+Memory: Your score has increased by ten points and you are currently outside, with the option to go north to a restraunt or east to the Mayor's home. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+You can't go north from here!
+
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Memory: Even though your score has increased several times, the most relevant memory to the current observation is: "You are outside, with the option to go west to the rest of the street."
+
+Thought: Based on the observation, I have realized that I cannot go north from my current location. I will take the action 'InteractiveFictionGame[Go west]' to explore the rest of the street and look for more leads or clues.
+
+Candidate actions: [InteractiveFictionGame[go west], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[Read paper], InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: Your score has increased by ten points and you are currently outside, with the option to go east to the Mayor's home or west to the rest of the street.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 20 out of a possible 360, in 5 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Memory: Your score has increased by ten points, and you were attacked and robbed in a restaurant, later found dead in a river.
+
+Thought: Based on the observation, I have died in the game after being attacked and robbed in a restaurant. My score was 20 out of a possible 360 in 5 turns. I will restart the game and apply the lessons learned from my previous experience. I will be more cautious when exploring new locations and protect my character's belongings. I will also prioritize investigating the Mayor's mansion, as it might contain crucial clues or leads related to the case. I will take the action 'InteractiveFictionGame[Start]' to restart the game.
+
+Candidate actions: [InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: The Chief has asked me to solve the Mayor's murder, which occurred yesterday night at 12:03 am, to prevent bad publicity or FBI involvement. I have a sheet of paper and can go north or west from the Chief's office. My score has increased several times. The game was created by Matt Barringer, who can be reached for hints. It's cold and windy outside.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]], [InteractiveFictionGame[look]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Reflect: Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the west first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go west]'.
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am now outside in a cold environment. There is a dead end to the east and the rest of the street to the west. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location also has some papers blowing around, which might be related to the case. However, since I have already explored this location and found no new leads, I will go back to the previous location and explore the other direction. I will take the action 'InteractiveFictionGame[Go west]' to explore the rest of the street and look for more leads or clues.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]], [InteractiveFictionGame[go east]], [InteractiveFictionGame[go south]], [InteractiveFictionGame[go west]], [InteractiveFictionGame[look]], [InteractiveFictionGame[examine restaurant]], [InteractiveFictionGame[take note]], [InteractiveFictionGame[drop note]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]], [InteractiveFictionGame[read paper]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 20 out of a possible 360, in 4 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Memory: Your score has increased by ten points, and you are currently outside with the option to go east to the Mayor's home or west to the rest of the street. It's amazingingly cold for this time of year, and papers are blowing around.
+
+Thought: Based on the observation, I have died in the game after being attacked and robbed in a restaurant. My score was 20 out of a possible 360 in 4 turns. I will restart the game and apply the lessons learned from my previous experience. I will be more cautious when exploring new locations and protect my character's belongings. I will also prioritize investigating the Mayor's mansion, as it might contain crucial clues or leads related to the case. I will take the action 'InteractiveFictionGame[Start]' to restart the game.
+
+Candidate actions: [InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: The Chief has asked me to solve the Mayor's murder, which occurred yesterday night at 12:03 am, and has given me a sheet of paper to help. I can go north to a restaurant or west from the Chief's office, which is currently outside. It's unseasonably cold and papers are blowing around. My score has increased several times, but I'm unsure why. I was also informed that I could contact the game's creator, Matt Barringer, for hints.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Reflect: Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the west first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go west]'.
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]], [InteractiveFictionGame[go east]], [InteractiveFictionGame[go south]], [InteractiveFictionGame[go west]], [InteractiveFictionGame[look]], [InteractiveFictionGame[examine restaurant]], [InteractiveFictionGame[take paper]], [InteractiveFictionGame[drop paper]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]], [InteractiveFictionGame[read paper]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Memory: The player is outside, it's cold and papers are blowing around, they have the option to go east to the Mayor's home or west to the rest of the street.
+
+Thought: Based on the observation, I am now outside in a cold environment. There is a dead end to the east and the rest of the street to the west. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location also has some papers blowing around, which might be related to the case. However, since I have already explored this location and found no new leads, I will go back to the previous location and explore the other direction. I will take the action 'InteractiveFictionGame[Go west]' to explore the rest of the street and look for more leads or clues.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 20 out of a possible 360, in 4 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Memory: You were attacked and robbed in a restaurant and later found dead in a river. It's amazingly cold for this time of year and papers are blowing around. You have the option to go east to the Mayor's home or west to the rest of the street.
+
+Thought: Based on the observation, I have died in the game after being attacked and robbed in a restaurant. My score was 20 out of a possible 360 in 4 turns. I will restart the game and apply the lessons learned from my previous experience. I will be more cautious when exploring new locations and protect my character's belongings. I will also prioritize investigating the Mayor's mansion, as it might contain crucial clues or leads related to the case. I will take the action 'InteractiveFictionGame[Start]' to restart the game.
+
+Candidate actions: [InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: You are standing in the Chief's office. The Chief has asked you to solve the Mayor's murder, which occurred yesterday night at 12:03 am, before getting bad publicity or the FBI's involvement. You have the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Reflect: Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the west first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go west]'.
+
+Memory: The player is currently outside, with the option to go east to the Mayor's home or west to the rest of the street, while it's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am now outside in a cold environment. There is a dead end to the east and the rest of the street to the west. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location also has some papers blowing around, which might be related to the case. However, since I have already explored this location and found no new leads, I will go back to the previous location and explore the other direction. I will take the action 'InteractiveFictionGame[Go west]' to explore the rest of the street and look for more leads or clues.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go east], InteractiveFictionGame[look], InteractiveFictionGame[examine restaurant], InteractiveFictionGame[take note], InteractiveFictionGame[drop note], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[read paper]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 20 out of a possible 360, in 4 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street, while it's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I have died in the game after being attacked and robbed in a restaurant. My score was 20 out of a possible 360 in 4 turns. I will restart the game and apply the lessons learned from my previous experience. I will be more cautious when exploring new locations and protect my character's belongings. I will also prioritize investigating the Mayor's mansion, as it might contain crucial clues or leads related to the case. I will take the action 'InteractiveFictionGame[Start]' to restart the game.
+
+Candidate actions: [InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player is currently outside, with the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Reflect: Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the west first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go west]'.
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am now outside in a cold environment. There is a dead end to the east and the rest of the street to the west. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location also has some papers blowing around, which might be related to the case. However, since I have already explored this location and found no new leads, I will go back to the previous location and explore the other direction. I will take the action 'InteractiveFictionGame[Go west]' to explore the rest of the street and look for more leads or clues.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]], [InteractiveFictionGame[go east]], [InteractiveFictionGame[go west]], [InteractiveFictionGame[look]], [InteractiveFictionGame[examine restaurant]], [InteractiveFictionGame[take paper]], [InteractiveFictionGame[drop paper]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]], [InteractiveFictionGame[read paper]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 20 out of a possible 360, in 4 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I have died in the game after being attacked and robbed in a restaurant. My score was 20 out of a possible 360 in 4 turns. I will restart the game and apply the lessons learned from my previous experience. I will be more cautious when exploring new locations and protect my character's belongings. I will also prioritize investigating the Mayor's mansion, as it might contain crucial clues or leads related to the case. I will take the action 'InteractiveFictionGame[Start]' to restart the game.
+
+Candidate actions: [InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Reflect: Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the west first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go west]'.
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am now outside in a cold environment. There is a dead end to the east and the rest of the street to the west. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location also has some papers blowing around, which might be related to the case. However, since I have already explored this location and found no new leads, I will go back to the previous location and explore the other direction. I will take the action 'InteractiveFictionGame[Go west]' to explore the rest of the street and look for more leads or clues.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]], [InteractiveFictionGame[go east]], [InteractiveFictionGame[go south]], [InteractiveFictionGame[go west]], [InteractiveFictionGame[look]], [InteractiveFictionGame[examine restaurant]], [InteractiveFictionGame[take note]], [InteractiveFictionGame[drop note]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]], [InteractiveFictionGame[read paper]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 20 out of a possible 360, in 4 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I have died in the game after being attacked and robbed in a restaurant. My score was 20 out of a possible 360 in 4 turns. I will restart the game and apply the lessons learned from my previous experience. I will be more cautious when exploring new locations and protect my character's belongings. I will also prioritize investigating the Mayor's mansion, as it might contain crucial clues or leads related to the case. I will take the action 'InteractiveFictionGame[Start]' to restart the game.
+
+Candidate actions: [InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player is currently outside, with the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Reflect: Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the west first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go west]'.
+
+Memory: The player currently has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]], [InteractiveFictionGame[go south]], [InteractiveFictionGame[go east]], [InteractiveFictionGame[go west]], [InteractiveFictionGame[look]], [InteractiveFictionGame[examine restaurant]], [InteractiveFictionGame[take note at restaurant]], [InteractiveFictionGame[drop note]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]], [InteractiveFictionGame[read paper]], [InteractiveFictionGame[start]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Outside >>
+You are outside in the cold. To the east is a dead end. To the west is the rest of the street. Papers are blowing around. It's amazingly cold for this time of year.
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am now outside in a cold environment. There is a dead end to the east and the rest of the street to the west. The memory stream indicates that I am investigating a murder case and was told to go north or west. The current location also has some papers blowing around, which might be related to the case. However, since I have already explored this location and found no new leads, I will go back to the previous location and explore the other direction. I will take the action 'InteractiveFictionGame[Go west]' to explore the rest of the street and look for more leads or clues.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]], [InteractiveFictionGame[go south]], [InteractiveFictionGame[go east]], [InteractiveFictionGame[go west]], [InteractiveFictionGame[look]], [InteractiveFictionGame[examine restaurant]], [InteractiveFictionGame[take note]], [InteractiveFictionGame[drop note]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]], [InteractiveFictionGame[read paper]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys jump you. They take your wallet and beat you a bit. Then you flash your badge and that riles them. Your body was discovered in a river 10 miles away.
+
+
+    *** You have died ***
+
+
+In that game you scored 20 out of a possible 360, in 4 turns.
+
+Would you like to RESTART, RESTORE a saved game, give the FULL score for that game or QUIT?
+
+Memory: Your score has increased by ten points, and you have the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I have died in the game after being attacked and robbed in a restaurant. My score was 20 out of a possible 360 in 4 turns. I will restart the game and apply the lessons learned from my previous experience. I will be more cautious when exploring new locations and protect my character's belongings. I will also prioritize investigating the Mayor's mansion, as it might contain crucial clues or leads related to the case. I will take the action 'InteractiveFictionGame[Start]' to restart the game.
+
+Candidate actions: [InteractiveFictionGame[Start]]
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+[Type "help" for more information about this version]
+
+Detective
+By Matt Barringer.
+Ported by Stuart Moore.
+Stuart_Moore@my-deja.com
+Release 1 / Serial number 000715 / Inform v6.21 Library 6/10 SD
+
+<< Chief's office >>
+You are standing in the Chief's office. He is telling you "The Mayor was murdered yeaterday night at 12:03 am. I want you to solve it before we get any bad publicity or the FBI has to come in. "Yessir!" You reply. He hands you a sheet of paper. Once you have read it, go north or west.
+
+You can see a piece of white paper here.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player is currently outside, with the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Read paper]' to learn more about the case.
+
+Candidate actions: [InteractiveFictionGame[Read paper]]
+
+Action: InteractiveFictionGame[Read paper]
+
+Observation:
+CONFIDENTIAL:
+Detective was created by Matt Barringer.
+He has worked hard on this so you better enjoy it.
+I did have fun making it though. But I'd REALLY appreciate it if you were kind enough to send a postcard or... dare I even say it?... money... to:
+Matt Barringer
+325 Olive Ave
+Piedmont
+CA 94611
+Just tell me if you like it or not.
+If you want to talk to me over a BBS call the Ghostbuster Central BBS at (510)208-5657.
+There is an Exile Games file area. Have fun. I WILL give hints out over the BBS to any of my games.
+
+Memory: The player currently has the option to go east to the Mayor's home or west to the rest of the street. It's amazingly cold for this time of year and papers are blowing around.
+
+Thought:[[ Based on the observation, I have read the confidential paper given by the Chief, which contains information about the game's creator, Matt Barringer, and his contact details for hints. The Chief wants me to solve the Mayor's murder before there's bad publicity or FBI involvement. I should now decide whether to go north or west. I will explore the area to the west first, as there might be clues or leads related to the case. I will take the action 'InteractiveFictionGame[Go west]'.
+
+Candidate actions: [InteractiveFictionGame[go west]]
+
+Action: InteractiveFictionGame[Go west]
+
+Observation:
+<< Outside >>
+You are still on the streets. To the north is a restraunt where the mayor ate often. To the east is the Mayor's home.
+
+[Your score has just gone up by ten points.]
+
+Memory: The player has the option to go east to the Mayor's home or west to the rest of the street. It's amazingingly cold for this time of year and papers are blowing around.
+
+Thought: Based on the observation, I am still on the streets. There is a restaurant to the north where the mayor ate often, and the Mayor's home is to the east. My score has also increased by ten points. The most relevant memory to the current observation is: "To the north is a restraunt where the mayor ate often." I will take the action 'InteractiveFictionGame[Go north]' to explore the restaurant, as it might contain clues or leads related to the case.
+
+Candidate actions: [InteractiveFictionGame[go north]], [InteractiveFictionGame[go east]], [InteractiveFictionGame[go south]], [InteractiveFictionGame[go west]], [InteractiveFictionGame[look]], [InteractiveFictionGame[examine restaurant]], [InteractiveFictionGame[take note]], [InteractiveFictionGame[drop note]], [InteractiveFictionGame[inventory]], [InteractiveFictionGame[restart]], [InteractiveFictionGame[read paper]]
+
+Action: InteractiveFictionGame[Go north]
+
+Observation:
+<< Restraunt >>
+You are about to enter the restraunt when two guys]]
+
+
+
+

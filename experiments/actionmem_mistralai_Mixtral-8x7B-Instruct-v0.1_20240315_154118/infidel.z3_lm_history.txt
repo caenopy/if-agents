@@ -1,0 +1,130 @@
+
+
+
+
+You will be given `input` and you will respond with `score`.
+
+To do this, you will interleave Thought, Action, and Observation steps.
+
+Thought can reason about the current situation, and Action can be the following types:
+
+(1) InteractiveFictionGame[a simple action consisting of a few words like 'go north', 'check inventory' or 'take the key'], which takes a step in a text-based interactive fiction game.
+(2) Finish[score], which returns the final `score` and finishes the task
+Additionally, every 5 steps you will be instructed to reflect on your progress and the strategy taken thus far.
+
+---
+
+Follow the following format.
+
+Observation: a response provided by the game based on the previous action
+
+Reflect: self-reflection on your progress and the effectiveness of recent moves
+
+Memory: a memory fetched from previous experience and based the current situation
+            
+Thought: next steps to take based on last observation
+
+CandidateActions: A short list (at least 1 but not more than 5) of valid candidate actions to take based on the last observation and thought, for example '[InteractiveFictionGame[go north], InteractiveFictionGame[go south]]'. Each action is a few words using only simple verbs and nouns present in the environment from previous observations formatted as 'InteractiveFictionGame[<action>]
+
+Action: choose one of the valid actions provided in CandidateActions, or, when done, Finish[answer]
+
+---
+
+Input: You are playing an interactive fiction game. Begin the game with the action 'InteractiveFictionGame[Start]' and restart if the game ends. If you die use your experience to make a better choice.
+
+Thought: I will start by taking the action 'InteractiveFictionGame[Start]' to begin the game. I will explore the game and its mechanics, and try to gather as much information as possible about my surroundings and objectives. I will also try to collect useful items and avoid any dangers. If I encounter any obstacles or challenges, I will use my reasoning skills to overcome them. If I die, I will try to understand what went wrong and make a better choice in the future.
+
+Action: InteractiveFictionGame[Start]
+
+Observation:
+The Professor's map was just an ancient map -- as worthless as an ice cube in the Arctic without an instrument fine enough to accurately measure longitude and latitude. You knew that the site was nearby. You dug, and you ordered the workers to dig, even without the box. As you listen to the plane and rub your aching eyes, you pray they left you supplies enough to find the pyramid and to survive, and that the plane's carrying the long-overdue box.
+
+INFIDEL
+Copyright 1983 by Infocom, Inc. All rights reserved.
+INFIDEL is a trademark of Infocom, Inc.
+Release 22 / Serial number 830916
+
+Your Tent
+(You are in the army cot.)
+You are in your tent. Golden rays of the sun filter through the open tent flaps on the southern wall, but no breeze makes its way through. The dry, searing heat in the tent would be bearable if only the air stirred, even a little.
+At the foot of the cot is a large, unwieldy trunk. The trunk is closed and locked with a padlock.
+
+Memory: You are in a tent with golden rays of sun filtering through the open tent flaps, but no breeze, and a large trunk with a padlock at the foot of the cot.
+
+Thought: My first priority is to find a way to open the trunk, as it may contain the supplies I need to survive and find the pyramid. I will look around the tent for any clues or items that might help me open the trunk or decipher the map. If I can't find anything useful, I will try to force open the trunk or look for the key.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine tent], InteractiveFictionGame[take paper], InteractiveFictionGame[drop paper], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[read paper], InteractiveFictionGame[examine trunk], InteractiveFictionGame[examine surroundings], InteractiveFictionGame[force open trunk], InteractiveFictionGame[look for key], InteractiveFictionGame[examine map]]
+
+Action: InteractiveFictionGame[Look around the tent for clues or items]
+
+Observation: I don't know the word "clues".
+
+Memory: The player doesn't know the word "clues".
+
+Thought: It seems I made a mistake in my previous action by using the word "clues". I will rephrase my action using simpler language.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine x], InteractiveFictionGame[take x], InteractiveFictionGame[drop x], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go north], InteractiveFictionGame[Go west], InteractiveFictionGame[Start], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go north], InteractiveFictionGame[Go west], InteractiveFictionGame[Start], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go north], InteractiveFictionGame[Start], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go north], InteractiveFictionGame[Go west], InteractiveFictionGame[Start], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go west], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go west], InteractiveFictionGame[Start], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go west], InteractiveFictionGame[Start], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go north], InteractiveFictionGame[Go west], InteractiveFictionGame[Start], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go north], InteractiveFictionGame[Go west], InteractiveFictionGame[Start], InteractiveFictionGame[Read paper], InteractiveFictionGame[Go north], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[go north], InteractiveFictionGame[go up], InteractiveFictionGame[go east], InteractiveFictionGame[Examine postcard], InteractiveFictionGame[look], InteractiveFictionGame[examine chest], InteractiveFictionGame[go north], InteractiveFictionGame[look], InteractiveFictionGame[look], InteractiveFictionGame[read postcard], InteractiveFictionGame[look], InteractiveFiction
+
+Action: InteractiveFictionGame[search tent]
+
+Observation:
+You find nothing unusual.
+
+You hear a plane flying high overhead, outside the tent.
+
+Memory: A plane is flying high overhead, outside the tent.
+
+Thought: It seems that searching the tent did not yield any useful results. The plane flying overhead suggests that the plane carrying the long-overdue box might be arriving soon. I should keep an eye out for it and try to signal it if I can. In the meantime, I will continue to look for a way to open the trunk or find the key.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine surroundings], InteractiveFictionGame[read paper], InteractiveFictionGame[take paper], InteractiveFictionGame[drop paper], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[examine chest], InteractiveFictionGame[examine quarters], InteractiveFictionGame[examine postcard], InteractiveFictionGame[introduce myself to wolf], InteractiveFictionGame[pick up iron pot], InteractiveFictionGame[pull rope], InteractiveFictionGame[get water with bucket], InteractiveFictionGame[check bucket], InteractiveFictionGame[go up], InteractiveFictionGame[go east], InteractiveFictionGame[go down], InteractiveFictionGame[examine well], InteractiveFictionGame[examine oak tree], InteractiveFictionGame[examine shiny can], InteractiveFictionGame[put food in food bowl], InteractiveFictionGame[examine cold box], InteractiveFictionGame[open cold box], InteractiveFictionGame[use well], InteractiveFictionGame[operate well], InteractiveFictionGame[use crank], InteractiveFictionGame[use bucket to get water], InteractiveFictionGame[get water in bucket], InteractiveFictionGame[look for plane], InteractiveFictionGame[search tent], InteractiveFictionGame[look for shelter], InteractiveFictionGame[start], InteractiveFictionGame[go northwest], InteractiveFictionGame[go west], InteractiveFictionGame[go southwest], InteractiveFictionGame[go south], InteractiveFictionGame[go northeast], InteractiveFictionGame[go east]]
+
+Action: InteractiveFictionGame[look for plane]
+
+Observation:
+It's somewhere up over your head.
+
+You hear a plane flying high overhead, outside the tent.
+
+Reflect: I have now looked for the plane twice, but I still don't have a way to signal it. I should focus on finding a way to open the trunk or find the key. I will continue to explore the tent and look for any clues or items that might help me.
+
+Memory: A plane is flying high overhead, outside the tent.
+
+Thought: I was unable to find the key in the tent. I will try to force open the trunk.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine trunk], InteractiveFictionGame[force open trunk], InteractiveFictionGame[take key], InteractiveFictionGame[read paper], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[force open trunk]
+
+Observation: I don't know the word "force".
+
+Memory: The player is unable to understand the word "force".
+
+Thought:[[ It seems I made a mistake in my previous action by using the word "force". I will rephrase my action using simpler language.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[open trunk], InteractiveFictionGame[pick lock], InteractiveFictionGame[use tool on trunk], InteractiveFictionGame[take key], InteractiveFictionGame[read paper], InteractiveFictionGame[inventory], InteractiveFictionGame[restart]]
+
+Action: InteractiveFictionGame[try to open the trunk]
+
+Observation:
+The trunk is locked tight.
+
+Memory: The trunk is locked tight.
+
+Thought: I was unable to open the trunk. I will look for the key or a tool to pick the lock.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine surroundings], InteractiveFictionGame[read paper], InteractiveFictionGame[take paper], InteractiveFictionGame[drop paper], InteractiveFictionGame[inventory], InteractiveFictionGame[restart], InteractiveFictionGame[examine map], InteractiveFictionGame[look for key], InteractiveFictionGame[examine lock], InteractiveFictionGame[pick lock], InteractiveFictionGame[use tool on trunk]]
+
+Action: InteractiveFictionGame[look for key]
+
+Observation:
+You find nothing unusual.
+
+Memory: I was unable to find the key.
+
+Thought: I was unable to find the key. I will look for a tool to pick the lock or try to force open the trunk.
+
+Candidate actions: [InteractiveFictionGame[go north], InteractiveFictionGame[go south], InteractiveFictionGame[go east], InteractiveFictionGame[go west], InteractiveFictionGame[look], InteractiveFictionGame[examine surroundings], InteractiveFictionGame[read]]
+
+
+
+
